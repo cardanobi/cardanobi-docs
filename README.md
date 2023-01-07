@@ -1,41 +1,35 @@
-# Website
+# CardanoBI API Documentation
 
 This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
-### Installation
+## Installation
 
 ```
-$ yarn
+$ git clone https://github.com/cardanobi/cardanobi-docs.git
+$ cd cardanobi-docs
+$ npm install
 ```
 
-### Local Development
+## Local Development
 
 ```
-$ yarn start
+$ npm run start
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
-### Build
+## Build
 
 ```
-$ yarn build
+$ npm run build
 ```
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
-### Deployment
+## Deployment over HTTPS as a dynamic content
 
 Using SSH:
 
 ```
-$ USE_SSH=true yarn deploy
+$ HTTPS=true SSL_CRT_FILE=./YOUR_CRT_FILE.pem SSL_KEY_FILE=./YOUR_PRIVATE_KEY.pem npm run start -- --port 4567 --host 0.0.0.0
 ```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
