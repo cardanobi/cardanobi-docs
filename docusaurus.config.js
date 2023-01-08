@@ -93,21 +93,13 @@ const config = {
             items: [
               {
                 label: 'Tutorial',
-                to: '/docs/introduction',
+                to: '/docs/docs/introduction',
               },
             ],
           },
           {
             title: 'Community',
             items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
               {
                 label: 'Twitter',
                 href: 'https://twitter.com/cardanobi',
@@ -142,9 +134,9 @@ const config = {
     announcementBar: {
       id: 'support_us',
       content:
-        'We are looking to revamp our docs, please fill <a target="_blank" rel="noopener noreferrer" href="#">this survey</a>',
-      backgroundColor: '#fafbfc',
-      textColor: '#091E42',
+        '🔥Hot from the press: we are in alpha, things will break😱, thing will be incomplete😭, keep calm & carry on ❤️</a>',
+      backgroundColor: '#e28743',
+      textColor: '#063970',
       isCloseable: false,
     }
     })
