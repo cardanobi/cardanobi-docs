@@ -9,7 +9,7 @@ const config = {
   title: 'CardanoBI API Documentation',
   tagline: 'The first fully open-source Business Intelligence API Layer for Cardano',
   url: 'https://cardanobi.io',
-  baseUrl: '/',
+  baseUrl: '/docs/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
