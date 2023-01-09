@@ -78,9 +78,9 @@ const config = {
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/adacapital/cardanobi',
-            label: 'GitHub',
-            position: 'right',
+            href: 'https://github.com/cardanobi',
+            position: "right",
+            className: "header-github-link",
           },
         ],
         "hideOnScroll": false
@@ -115,7 +115,7 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/adacapital/cardanobi',
+                href: 'https://github.com/cardanobi',
               },
             ],
           },
