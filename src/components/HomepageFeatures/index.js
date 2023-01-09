@@ -4,32 +4,29 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Fully Open-Source',
+    Svg: require('@site/static/img/cardanobi_easy.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        CardanoBI is fully open-source, its backend and frontend code can be audited, tested and contributed to by anyone.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Deliver Value Faster',
+    Svg: require('@site/static/img/cardanobi_focus.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        CardanoBI commoditizes access to the data currently locked in the Cardano Blockchain, allowing you to focus on your value proposition.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Powered by SPOs',
+    Svg: require('@site/static/img/cardanobi_powered.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        CardanoBI was born out of the collaboration of two Cardano Stake Pool Operators who strongly believe in the power and awesomeness of SPOs.
       </>
     ),
   },

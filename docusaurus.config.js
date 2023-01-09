@@ -8,8 +8,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'CardanoBI API Documentation',
   tagline: 'The first fully open-source Business Intelligence API Layer for Cardano',
-  url: 'https://cardanobi.io',
-  baseUrl: '/docs/',
+  url: 'https://docs.cardanobi.io',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
@@ -93,7 +93,7 @@ const config = {
             items: [
               {
                 label: 'Tutorial',
-                to: '/docs/docs/introduction',
+                to: '/docs/introduction',
               },
             ],
           },
