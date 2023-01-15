@@ -32,7 +32,7 @@ Open a shell terminal and run the following.
 - Get a Bearer token from CardanoBI's preprod identity server:
 
 ```shell
-curl -d "client_id=client_auto_1&client_secret=secret&grant_type=client_credentials" -X POST https://preprod.cardanobi.io:5000/connect/token
+curl -d "client_id=YOUR-KEY&client_secret=YOUR-SECRET&grant_type=client_credentials" -X POST https://preprod.cardanobi.io:5000/connect/token
 ```
 
 - Make your first request by getting the details for epoch #30 in preprod:
