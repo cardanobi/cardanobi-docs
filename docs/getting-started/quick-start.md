@@ -38,7 +38,7 @@ curl -d "client_id=YOUR-KEY&client_secret=YOUR-SECRET&grant_type=client_credenti
 - Make your first request by getting the details for epoch #30 in preprod:
 
 ```shell
-curl https://preprod.cardanobi.io:4000/api/core/epochs/30 -H "Authorization: Bearer YOUR_BEARER_TOKEN" | jq .
+curl https://preprod.cardanobi.io:4000/api/core/epochs/30 -H "Authorization: Bearer YOUR-BEARER-TOKEN" | jq .
 ```
 
 </TabItem>
