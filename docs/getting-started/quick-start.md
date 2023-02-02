@@ -62,7 +62,7 @@ const CBI = await new CardanoBI({ apiKey: "YOUR-KEY", apiSecret: "YOUR-SECRET", 
 
 (async () => {
   try {
-    const epoch = await CBI.epochs(30);
+    const epoch = await CBI.core.epochs_({ "no": 30 });
     console.log(epoch);
   } catch (error) {
     console.error(error);
