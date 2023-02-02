@@ -1,7 +1,7 @@
 --- 
 title: '' 
 sidebar_label: 'Relays' 
-sidebar_position: 7 
+sidebar_position: 9 
 --- 
 import styles from '@site/src/components/HomepageFeatures/styles.module.css'; 
 import Tabs from '@theme/Tabs'; 
@@ -24,56 +24,24 @@ import ODataBadge from '@site/src/components/ODataBadge';
 
 Returns all pool relays.
 
-`GET /api/core/pools/updates/relays`
+`GET /api/core/pools/relays/updates`
 
 ### 👨‍💻 Code samples 
 
 <Tabs> 
-<TabItem value="js" label="JavaScript"> 
+<TabItem value="js" label="Node.js"> 
 
 ```js 
-const headers = { 
-'Accept':'application/json', 
-'Authorization':'Bearer {access-token}' 
-}; 
-
-fetch('/api/core/epochs', 
-{ 
-method: 'GET', 
-
-headers: headers 
-}) 
-.then(function(res) { 
-    return res.json(); 
-}).then(function(body) { 
-    console.log(body); 
-}); 
+const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
+const relays_updates = await CBI.core.pools.relays.updates_();
+console.log(relays_updates); 
 ``` 
 
 </TabItem> 
 <TabItem value="py" label="Python"> 
 
 ```py 
-import requests 
-headers = { 
-'Accept': 'application/json', 
-'Authorization': 'Bearer {access-token}' 
-} 
-
-r = requests.get('/api/core/epochs', headers = headers) 
-
-print(r.json()) 
-``` 
-
-</TabItem> 
-<TabItem value="java" label="Java"> 
-
-```java 
-class HelloWorld { 
-public static void main(String args[]) { 
-    System.out.println("Hello, World"); 
-} 
-} 
+import coming.soon 😀 
 ``` 
 
 </TabItem> 
@@ -87,17 +55,27 @@ public static void main(String args[]) {
 `OK: Successful request.`
 
 ```json
-[ 
- { 
-  "id": 0, 
-  "update_id": 0, 
-  "ipv4": 0, 
-  "ipv6": 0, 
-  "dns_name": 0, 
-  "dns_srv_name": 0, 
-  "port": 0
- } 
-] 
+[
+ {
+  "id": 1,
+  "update_id": 1,
+  "ipv4": null,
+  "ipv6": null,
+  "dns_name": "preprod-node.world.dev.cardano.org",
+  "dns_srv_name": null,
+  "port": 30000
+ },
+ "...",
+ {
+  "id": 20,
+  "update_id": 18,
+  "ipv4": "20.98.184.3",
+  "ipv6": null,
+  "dns_name": null,
+  "dns_srv_name": null,
+  "port": 3001
+ }
+]
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 
@@ -173,7 +151,7 @@ Response schema is undefined.
 
 Returns the relays for one pool given a pool update unique identifier.
 
-`GET /api/core/pools/updates/{update_id}/relays`
+`GET /api/core/pools/relays/updates/{update_id}`
 
 ### 🎰 Parameters 
 
@@ -185,51 +163,19 @@ Returns the relays for one pool given a pool update unique identifier.
 ### 👨‍💻 Code samples 
 
 <Tabs> 
-<TabItem value="js" label="JavaScript"> 
+<TabItem value="js" label="Node.js"> 
 
 ```js 
-const headers = { 
-'Accept':'application/json', 
-'Authorization':'Bearer {access-token}' 
-}; 
-
-fetch('/api/core/epochs', 
-{ 
-method: 'GET', 
-
-headers: headers 
-}) 
-.then(function(res) { 
-    return res.json(); 
-}).then(function(body) { 
-    console.log(body); 
-}); 
+const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
+const relays_updates = await CBI.core.pools.relays.updates_({ "update_id": 1 });
+console.log(relays_updates); 
 ``` 
 
 </TabItem> 
 <TabItem value="py" label="Python"> 
 
 ```py 
-import requests 
-headers = { 
-'Accept': 'application/json', 
-'Authorization': 'Bearer {access-token}' 
-} 
-
-r = requests.get('/api/core/epochs', headers = headers) 
-
-print(r.json()) 
-``` 
-
-</TabItem> 
-<TabItem value="java" label="Java"> 
-
-```java 
-class HelloWorld { 
-public static void main(String args[]) { 
-    System.out.println("Hello, World"); 
-} 
-} 
+import coming.soon 😀 
 ``` 
 
 </TabItem> 
@@ -243,17 +189,27 @@ public static void main(String args[]) {
 `OK: Successful request.`
 
 ```json
-[ 
- { 
-  "id": 0, 
-  "update_id": 0, 
-  "ipv4": 0, 
-  "ipv6": 0, 
-  "dns_name": 0, 
-  "dns_srv_name": 0, 
-  "port": 0
- } 
-] 
+[
+ {
+  "id": 1,
+  "update_id": 1,
+  "ipv4": null,
+  "ipv6": null,
+  "dns_name": "preprod-node.world.dev.cardano.org",
+  "dns_srv_name": null,
+  "port": 30000
+ },
+ "...",
+ {
+  "id": 1,
+  "update_id": 1,
+  "ipv4": null,
+  "ipv6": null,
+  "dns_name": "preprod-node.world.dev.cardano.org",
+  "dns_srv_name": null,
+  "port": 30000
+ }
+]
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 
@@ -329,7 +285,7 @@ Response schema is undefined.
 
 Returns the relays for one pool given its VRF key hash.
 
-`GET /api/core/pools/{vrf_key_hash}/updates/relays`
+`GET /api/core/pools/{vrf_key_hash}/relays/updates`
 
 ### 🎰 Parameters 
 
@@ -341,51 +297,19 @@ Returns the relays for one pool given its VRF key hash.
 ### 👨‍💻 Code samples 
 
 <Tabs> 
-<TabItem value="js" label="JavaScript"> 
+<TabItem value="js" label="Node.js"> 
 
 ```js 
-const headers = { 
-'Accept':'application/json', 
-'Authorization':'Bearer {access-token}' 
-}; 
-
-fetch('/api/core/epochs', 
-{ 
-method: 'GET', 
-
-headers: headers 
-}) 
-.then(function(res) { 
-    return res.json(); 
-}).then(function(body) { 
-    console.log(body); 
-}); 
+const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
+const relays_updates = await CBI.core.pools.relays.updates_({ "vrf_key_hash": "ff9d774cc7e3e85ec1827bfd68c475bc611a9e288e7c9e1fb159fce52d2703fd" });
+console.log(relays_updates); 
 ``` 
 
 </TabItem> 
 <TabItem value="py" label="Python"> 
 
 ```py 
-import requests 
-headers = { 
-'Accept': 'application/json', 
-'Authorization': 'Bearer {access-token}' 
-} 
-
-r = requests.get('/api/core/epochs', headers = headers) 
-
-print(r.json()) 
-``` 
-
-</TabItem> 
-<TabItem value="java" label="Java"> 
-
-```java 
-class HelloWorld { 
-public static void main(String args[]) { 
-    System.out.println("Hello, World"); 
-} 
-} 
+import coming.soon 😀 
 ``` 
 
 </TabItem> 
@@ -399,17 +323,27 @@ public static void main(String args[]) {
 `OK: Successful request.`
 
 ```json
-[ 
- { 
-  "id": 0, 
-  "update_id": 0, 
-  "ipv4": 0, 
-  "ipv6": 0, 
-  "dns_name": 0, 
-  "dns_srv_name": 0, 
-  "port": 0
- } 
-] 
+[
+ {
+  "id": 1,
+  "update_id": 1,
+  "ipv4": null,
+  "ipv6": null,
+  "dns_name": "preprod-node.world.dev.cardano.org",
+  "dns_srv_name": null,
+  "port": 30000
+ },
+ "...",
+ {
+  "id": 20,
+  "update_id": 18,
+  "ipv4": "20.98.184.3",
+  "ipv6": null,
+  "dns_name": null,
+  "dns_srv_name": null,
+  "port": 3001
+ }
+]
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 
@@ -490,51 +424,19 @@ Returns all pool relays.
 ### 👨‍💻 Code samples 
 
 <Tabs> 
-<TabItem value="js" label="JavaScript"> 
+<TabItem value="js" label="Node.js"> 
 
 ```js 
-const headers = { 
-'Accept':'application/json', 
-'Authorization':'Bearer {access-token}' 
-}; 
-
-fetch('/api/core/epochs', 
-{ 
-method: 'GET', 
-
-headers: headers 
-}) 
-.then(function(res) { 
-    return res.json(); 
-}).then(function(body) { 
-    console.log(body); 
-}); 
+const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
+const poolsrelays = await CBI.core.poolsrelays_({ "odata": true });
+console.log(poolsrelays); 
 ``` 
 
 </TabItem> 
 <TabItem value="py" label="Python"> 
 
 ```py 
-import requests 
-headers = { 
-'Accept': 'application/json', 
-'Authorization': 'Bearer {access-token}' 
-} 
-
-r = requests.get('/api/core/epochs', headers = headers) 
-
-print(r.json()) 
-``` 
-
-</TabItem> 
-<TabItem value="java" label="Java"> 
-
-```java 
-class HelloWorld { 
-public static void main(String args[]) { 
-    System.out.println("Hello, World"); 
-} 
-} 
+import coming.soon 😀 
 ``` 
 
 </TabItem> 
@@ -548,17 +450,31 @@ public static void main(String args[]) {
 `OK: Successful request.`
 
 ```json
-[ 
- { 
-  "id": 0, 
-  "update_id": 0, 
-  "ipv4": 0, 
-  "ipv6": 0, 
-  "dns_name": 0, 
-  "dns_srv_name": 0, 
-  "port": 0
- } 
-] 
+{
+ "@odata.context": "https://preprod.cardanobi.io/api/core/odata/$metadata#PoolsRelays",
+ "value": [
+  {
+   "id": 1,
+   "update_id": 1,
+   "ipv4": null,
+   "ipv6": null,
+   "dns_name": "preprod-node.world.dev.cardano.org",
+   "dns_srv_name": null,
+   "port": 30000
+  },
+  "...",
+  {
+   "id": 20,
+   "update_id": 18,
+   "ipv4": "20.98.184.3",
+   "ipv6": null,
+   "dns_name": null,
+   "dns_srv_name": null,
+   "port": 3001
+  }
+ ],
+ "@odata.nextLink": "https://preprod.cardanobi.io/api/core/odata/poolsrelays?$skip=20"
+}
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 
@@ -646,51 +562,19 @@ Returns the relays for one pool given a pool update unique identifier.
 ### 👨‍💻 Code samples 
 
 <Tabs> 
-<TabItem value="js" label="JavaScript"> 
+<TabItem value="js" label="Node.js"> 
 
 ```js 
-const headers = { 
-'Accept':'application/json', 
-'Authorization':'Bearer {access-token}' 
-}; 
-
-fetch('/api/core/epochs', 
-{ 
-method: 'GET', 
-
-headers: headers 
-}) 
-.then(function(res) { 
-    return res.json(); 
-}).then(function(body) { 
-    console.log(body); 
-}); 
+const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
+const poolsrelays = await CBI.core.poolsrelays_({ "odata": true, "update_id": 1 });
+console.log(poolsrelays); 
 ``` 
 
 </TabItem> 
 <TabItem value="py" label="Python"> 
 
 ```py 
-import requests 
-headers = { 
-'Accept': 'application/json', 
-'Authorization': 'Bearer {access-token}' 
-} 
-
-r = requests.get('/api/core/epochs', headers = headers) 
-
-print(r.json()) 
-``` 
-
-</TabItem> 
-<TabItem value="java" label="Java"> 
-
-```java 
-class HelloWorld { 
-public static void main(String args[]) { 
-    System.out.println("Hello, World"); 
-} 
-} 
+import coming.soon 😀 
 ``` 
 
 </TabItem> 
@@ -704,17 +588,30 @@ public static void main(String args[]) {
 `OK: Successful request.`
 
 ```json
-[ 
- { 
-  "id": 0, 
-  "update_id": 0, 
-  "ipv4": 0, 
-  "ipv6": 0, 
-  "dns_name": 0, 
-  "dns_srv_name": 0, 
-  "port": 0
- } 
-] 
+{
+ "@odata.context": "https://preprod.cardanobi.io/api/core/odata/$metadata#PoolsRelays",
+ "value": [
+  {
+   "id": 1,
+   "update_id": 1,
+   "ipv4": null,
+   "ipv6": null,
+   "dns_name": "preprod-node.world.dev.cardano.org",
+   "dns_srv_name": null,
+   "port": 30000
+  },
+  "...",
+  {
+   "id": 1,
+   "update_id": 1,
+   "ipv4": null,
+   "ipv6": null,
+   "dns_name": "preprod-node.world.dev.cardano.org",
+   "dns_srv_name": null,
+   "port": 30000
+  }
+ ]
+}
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 

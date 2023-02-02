@@ -1,7 +1,7 @@
 --- 
 title: '' 
 sidebar_label: 'OfflineData' 
-sidebar_position: 6 
+sidebar_position: 8 
 --- 
 import styles from '@site/src/components/HomepageFeatures/styles.module.css'; 
 import Tabs from '@theme/Tabs'; 
@@ -30,51 +30,19 @@ Returns all pool offline (ie not on chain) data.
 ### 👨‍💻 Code samples 
 
 <Tabs> 
-<TabItem value="js" label="JavaScript"> 
+<TabItem value="js" label="Node.js"> 
 
 ```js 
-const headers = { 
-'Accept':'application/json', 
-'Authorization':'Bearer {access-token}' 
-}; 
-
-fetch('/api/core/epochs', 
-{ 
-method: 'GET', 
-
-headers: headers 
-}) 
-.then(function(res) { 
-    return res.json(); 
-}).then(function(body) { 
-    console.log(body); 
-}); 
+const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
+const offlinedata = await CBI.core.pools.offlinedata_();
+console.log(offlinedata); 
 ``` 
 
 </TabItem> 
 <TabItem value="py" label="Python"> 
 
 ```py 
-import requests 
-headers = { 
-'Accept': 'application/json', 
-'Authorization': 'Bearer {access-token}' 
-} 
-
-r = requests.get('/api/core/epochs', headers = headers) 
-
-print(r.json()) 
-``` 
-
-</TabItem> 
-<TabItem value="java" label="Java"> 
-
-```java 
-class HelloWorld { 
-public static void main(String args[]) { 
-    System.out.println("Hello, World"); 
-} 
-} 
+import coming.soon 😀 
 ``` 
 
 </TabItem> 
@@ -88,18 +56,29 @@ public static void main(String args[]) {
 `OK: Successful request.`
 
 ```json
-[ 
- { 
-  "id": 0, 
-  "pool_id": 0, 
-  "ticker_name": 0, 
-  "hash": 0, 
-  "json": 0, 
-  "bytes": 0, 
-  "pmr_id": 0, 
-  "hash_hex": 0
- } 
-] 
+[
+ {
+  "id": 1,
+  "pool_id": 4,
+  "ticker_name": "ANGEL",
+  "hash": "v0RwndcUdCaI7v8rbKVXP+MSouX0nVZMTCMRkjxjlSw=",
+  "json": "{\"name\": \"ANGEL stake pool\", \"ticker\": \"ANGEL\", \"homepage\": \"https://www.angelstakepool.net\", \"description\": \"ANGEL pool at pre-production\"}",
+  "bytes": "ewoibmFtZSI6ICJBTkdFTCBzdGFrZSBwb29sIiwKInRpY2tlciI6ICJBTkdFTCIsCiJob21lcGFnZSI6ICJodHRwczovL3d3dy5hbmdlbHN0YWtlcG9vbC5uZXQiLAoiZGVzY3JpcHRpb24iOiAiQU5HRUwgcG9vbCBhdCBwcmUtcHJvZHVjdGlvbiIKfQ==",
+  "pmr_id": 1,
+  "hash_hex": "bf44709dd714742688eeff2b6ca5573fe312a2e5f49d564c4c2311923c63952c"
+ },
+ "...",
+ {
+  "id": 20,
+  "pool_id": 23,
+  "ticker_name": "WOTA",
+  "hash": "gBUMGfUqh55xDmyrlcsFCMXDn3uMpHdxbOzKp/apv58=",
+  "json": "{\"name\": \"WOTA Stake Pool\", \"ticker\": \"WOTA\", \"homepage\": \"https://wota.sbs\", \"description\": \"preprod stake pool\"}",
+  "bytes": "ewoibmFtZSI6ICJXT1RBIFN0YWtlIFBvb2wiLAoiZGVzY3JpcHRpb24iOiAicHJlcHJvZCBzdGFrZSBwb29sIiwKInRpY2tlciI6ICJXT1RBIiwKImhvbWVwYWdlIjogImh0dHBzOi8vd290YS5zYnMiCn0K",
+  "pmr_id": 21,
+  "hash_hex": "80150c19f52a879e710e6cab95cb0508c5c39f7b8ca477716ceccaa7f6a9bf9f"
+ }
+]
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 
@@ -188,51 +167,19 @@ Returns the offline (ie not on chain) data for one pool given its unique identif
 ### 👨‍💻 Code samples 
 
 <Tabs> 
-<TabItem value="js" label="JavaScript"> 
+<TabItem value="js" label="Node.js"> 
 
 ```js 
-const headers = { 
-'Accept':'application/json', 
-'Authorization':'Bearer {access-token}' 
-}; 
-
-fetch('/api/core/epochs', 
-{ 
-method: 'GET', 
-
-headers: headers 
-}) 
-.then(function(res) { 
-    return res.json(); 
-}).then(function(body) { 
-    console.log(body); 
-}); 
+const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
+const offlinedata = await CBI.core.pools.offlinedata_({ "pool_id": 17 });
+console.log(offlinedata); 
 ``` 
 
 </TabItem> 
 <TabItem value="py" label="Python"> 
 
 ```py 
-import requests 
-headers = { 
-'Accept': 'application/json', 
-'Authorization': 'Bearer {access-token}' 
-} 
-
-r = requests.get('/api/core/epochs', headers = headers) 
-
-print(r.json()) 
-``` 
-
-</TabItem> 
-<TabItem value="java" label="Java"> 
-
-```java 
-class HelloWorld { 
-public static void main(String args[]) { 
-    System.out.println("Hello, World"); 
-} 
-} 
+import coming.soon 😀 
 ``` 
 
 </TabItem> 
@@ -246,18 +193,29 @@ public static void main(String args[]) {
 `OK: Successful request.`
 
 ```json
-[ 
- { 
-  "id": 0, 
-  "pool_id": 0, 
-  "ticker_name": 0, 
-  "hash": 0, 
-  "json": 0, 
-  "bytes": 0, 
-  "pmr_id": 0, 
-  "hash_hex": 0
- } 
-] 
+[
+ {
+  "id": 14,
+  "pool_id": 17,
+  "ticker_name": "ADACT",
+  "hash": "rF+8U6PRSTtboOoXcv1dT9o81yuolQP/ImGjkFL80vU=",
+  "json": "{\"name\": \"ADA Capital\", \"ticker\": \"ADACT\", \"homepage\": \"https://adacapital.io\", \"description\": \"ADA Capital - PreProd Pool\"}",
+  "bytes": "ewogICAgIm5hbWUiOiAiQURBIENhcGl0YWwiLAogICAgImRlc2NyaXB0aW9uIjogIkFEQSBDYXBpdGFsIC0gUHJlUHJvZCBQb29sIiwKICAgICJ0aWNrZXIiOiAiQURBQ1QiLAogICAgImhvbWVwYWdlIjogImh0dHBzOi8vYWRhY2FwaXRhbC5pbyIsCiAgICAiZXh0ZW5kZWQiOiAiaHR0cHM6Ly9hZGFjYXBpdGFsLmlvL2FkYWN0X2V4dGVuZGVkLmpzb24iCn0=",
+  "pmr_id": 15,
+  "hash_hex": "ac5fbc53a3d1493b5ba0ea1772fd5d4fda3cd72ba89503ff2261a39052fcd2f5"
+ },
+ "...",
+ {
+  "id": 14,
+  "pool_id": 17,
+  "ticker_name": "ADACT",
+  "hash": "rF+8U6PRSTtboOoXcv1dT9o81yuolQP/ImGjkFL80vU=",
+  "json": "{\"name\": \"ADA Capital\", \"ticker\": \"ADACT\", \"homepage\": \"https://adacapital.io\", \"description\": \"ADA Capital - PreProd Pool\"}",
+  "bytes": "ewogICAgIm5hbWUiOiAiQURBIENhcGl0YWwiLAogICAgImRlc2NyaXB0aW9uIjogIkFEQSBDYXBpdGFsIC0gUHJlUHJvZCBQb29sIiwKICAgICJ0aWNrZXIiOiAiQURBQ1QiLAogICAgImhvbWVwYWdlIjogImh0dHBzOi8vYWRhY2FwaXRhbC5pbyIsCiAgICAiZXh0ZW5kZWQiOiAiaHR0cHM6Ly9hZGFjYXBpdGFsLmlvL2FkYWN0X2V4dGVuZGVkLmpzb24iCn0=",
+  "pmr_id": 15,
+  "hash_hex": "ac5fbc53a3d1493b5ba0ea1772fd5d4fda3cd72ba89503ff2261a39052fcd2f5"
+ }
+]
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 
@@ -346,51 +304,19 @@ Returns the offline (ie not on chain) data for one pool given its ticker.
 ### 👨‍💻 Code samples 
 
 <Tabs> 
-<TabItem value="js" label="JavaScript"> 
+<TabItem value="js" label="Node.js"> 
 
 ```js 
-const headers = { 
-'Accept':'application/json', 
-'Authorization':'Bearer {access-token}' 
-}; 
-
-fetch('/api/core/epochs', 
-{ 
-method: 'GET', 
-
-headers: headers 
-}) 
-.then(function(res) { 
-    return res.json(); 
-}).then(function(body) { 
-    console.log(body); 
-}); 
+const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
+const offlinedata = await CBI.core.pools.offlinedata_({ "ticker": "ADACT" });
+console.log(offlinedata); 
 ``` 
 
 </TabItem> 
 <TabItem value="py" label="Python"> 
 
 ```py 
-import requests 
-headers = { 
-'Accept': 'application/json', 
-'Authorization': 'Bearer {access-token}' 
-} 
-
-r = requests.get('/api/core/epochs', headers = headers) 
-
-print(r.json()) 
-``` 
-
-</TabItem> 
-<TabItem value="java" label="Java"> 
-
-```java 
-class HelloWorld { 
-public static void main(String args[]) { 
-    System.out.println("Hello, World"); 
-} 
-} 
+import coming.soon 😀 
 ``` 
 
 </TabItem> 
@@ -404,18 +330,29 @@ public static void main(String args[]) {
 `OK: Successful request.`
 
 ```json
-[ 
- { 
-  "id": 0, 
-  "pool_id": 0, 
-  "ticker_name": 0, 
-  "hash": 0, 
-  "json": 0, 
-  "bytes": 0, 
-  "pmr_id": 0, 
-  "hash_hex": 0
- } 
-] 
+[
+ {
+  "id": 14,
+  "pool_id": 17,
+  "ticker_name": "ADACT",
+  "hash": "rF+8U6PRSTtboOoXcv1dT9o81yuolQP/ImGjkFL80vU=",
+  "json": "{\"name\": \"ADA Capital\", \"ticker\": \"ADACT\", \"homepage\": \"https://adacapital.io\", \"description\": \"ADA Capital - PreProd Pool\"}",
+  "bytes": "ewogICAgIm5hbWUiOiAiQURBIENhcGl0YWwiLAogICAgImRlc2NyaXB0aW9uIjogIkFEQSBDYXBpdGFsIC0gUHJlUHJvZCBQb29sIiwKICAgICJ0aWNrZXIiOiAiQURBQ1QiLAogICAgImhvbWVwYWdlIjogImh0dHBzOi8vYWRhY2FwaXRhbC5pbyIsCiAgICAiZXh0ZW5kZWQiOiAiaHR0cHM6Ly9hZGFjYXBpdGFsLmlvL2FkYWN0X2V4dGVuZGVkLmpzb24iCn0=",
+  "pmr_id": 15,
+  "hash_hex": "ac5fbc53a3d1493b5ba0ea1772fd5d4fda3cd72ba89503ff2261a39052fcd2f5"
+ },
+ "...",
+ {
+  "id": 14,
+  "pool_id": 17,
+  "ticker_name": "ADACT",
+  "hash": "rF+8U6PRSTtboOoXcv1dT9o81yuolQP/ImGjkFL80vU=",
+  "json": "{\"name\": \"ADA Capital\", \"ticker\": \"ADACT\", \"homepage\": \"https://adacapital.io\", \"description\": \"ADA Capital - PreProd Pool\"}",
+  "bytes": "ewogICAgIm5hbWUiOiAiQURBIENhcGl0YWwiLAogICAgImRlc2NyaXB0aW9uIjogIkFEQSBDYXBpdGFsIC0gUHJlUHJvZCBQb29sIiwKICAgICJ0aWNrZXIiOiAiQURBQ1QiLAogICAgImhvbWVwYWdlIjogImh0dHBzOi8vYWRhY2FwaXRhbC5pbyIsCiAgICAiZXh0ZW5kZWQiOiAiaHR0cHM6Ly9hZGFjYXBpdGFsLmlvL2FkYWN0X2V4dGVuZGVkLmpzb24iCn0=",
+  "pmr_id": 15,
+  "hash_hex": "ac5fbc53a3d1493b5ba0ea1772fd5d4fda3cd72ba89503ff2261a39052fcd2f5"
+ }
+]
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 
@@ -504,51 +441,19 @@ Returns the offline (ie not on chain) data for one pool given its metadata hash.
 ### 👨‍💻 Code samples 
 
 <Tabs> 
-<TabItem value="js" label="JavaScript"> 
+<TabItem value="js" label="Node.js"> 
 
 ```js 
-const headers = { 
-'Accept':'application/json', 
-'Authorization':'Bearer {access-token}' 
-}; 
-
-fetch('/api/core/epochs', 
-{ 
-method: 'GET', 
-
-headers: headers 
-}) 
-.then(function(res) { 
-    return res.json(); 
-}).then(function(body) { 
-    console.log(body); 
-}); 
+const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
+const offlinedata_offlinedata = await CBI.core.pools.metadata.offlinedata_({ "meta_hash": "ac5fbc53a3d1493b5ba0ea1772fd5d4fda3cd72ba89503ff2261a39052fcd2f5" });
+console.log(offlinedata_offlinedata); 
 ``` 
 
 </TabItem> 
 <TabItem value="py" label="Python"> 
 
 ```py 
-import requests 
-headers = { 
-'Accept': 'application/json', 
-'Authorization': 'Bearer {access-token}' 
-} 
-
-r = requests.get('/api/core/epochs', headers = headers) 
-
-print(r.json()) 
-``` 
-
-</TabItem> 
-<TabItem value="java" label="Java"> 
-
-```java 
-class HelloWorld { 
-public static void main(String args[]) { 
-    System.out.println("Hello, World"); 
-} 
-} 
+import coming.soon 😀 
 ``` 
 
 </TabItem> 
@@ -562,18 +467,29 @@ public static void main(String args[]) {
 `OK: Successful request.`
 
 ```json
-[ 
- { 
-  "id": 0, 
-  "pool_id": 0, 
-  "ticker_name": 0, 
-  "hash": 0, 
-  "json": 0, 
-  "bytes": 0, 
-  "pmr_id": 0, 
-  "hash_hex": 0
- } 
-] 
+[
+ {
+  "id": 14,
+  "pool_id": 17,
+  "ticker_name": "ADACT",
+  "hash": "rF+8U6PRSTtboOoXcv1dT9o81yuolQP/ImGjkFL80vU=",
+  "json": "{\"name\": \"ADA Capital\", \"ticker\": \"ADACT\", \"homepage\": \"https://adacapital.io\", \"description\": \"ADA Capital - PreProd Pool\"}",
+  "bytes": "ewogICAgIm5hbWUiOiAiQURBIENhcGl0YWwiLAogICAgImRlc2NyaXB0aW9uIjogIkFEQSBDYXBpdGFsIC0gUHJlUHJvZCBQb29sIiwKICAgICJ0aWNrZXIiOiAiQURBQ1QiLAogICAgImhvbWVwYWdlIjogImh0dHBzOi8vYWRhY2FwaXRhbC5pbyIsCiAgICAiZXh0ZW5kZWQiOiAiaHR0cHM6Ly9hZGFjYXBpdGFsLmlvL2FkYWN0X2V4dGVuZGVkLmpzb24iCn0=",
+  "pmr_id": 15,
+  "hash_hex": "ac5fbc53a3d1493b5ba0ea1772fd5d4fda3cd72ba89503ff2261a39052fcd2f5"
+ },
+ "...",
+ {
+  "id": 14,
+  "pool_id": 17,
+  "ticker_name": "ADACT",
+  "hash": "rF+8U6PRSTtboOoXcv1dT9o81yuolQP/ImGjkFL80vU=",
+  "json": "{\"name\": \"ADA Capital\", \"ticker\": \"ADACT\", \"homepage\": \"https://adacapital.io\", \"description\": \"ADA Capital - PreProd Pool\"}",
+  "bytes": "ewogICAgIm5hbWUiOiAiQURBIENhcGl0YWwiLAogICAgImRlc2NyaXB0aW9uIjogIkFEQSBDYXBpdGFsIC0gUHJlUHJvZCBQb29sIiwKICAgICJ0aWNrZXIiOiAiQURBQ1QiLAogICAgImhvbWVwYWdlIjogImh0dHBzOi8vYWRhY2FwaXRhbC5pbyIsCiAgICAiZXh0ZW5kZWQiOiAiaHR0cHM6Ly9hZGFjYXBpdGFsLmlvL2FkYWN0X2V4dGVuZGVkLmpzb24iCn0=",
+  "pmr_id": 15,
+  "hash_hex": "ac5fbc53a3d1493b5ba0ea1772fd5d4fda3cd72ba89503ff2261a39052fcd2f5"
+ }
+]
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 
@@ -655,51 +571,19 @@ Returns all pool offline (ie not on chain) data.
 ### 👨‍💻 Code samples 
 
 <Tabs> 
-<TabItem value="js" label="JavaScript"> 
+<TabItem value="js" label="Node.js"> 
 
 ```js 
-const headers = { 
-'Accept':'application/json', 
-'Authorization':'Bearer {access-token}' 
-}; 
-
-fetch('/api/core/epochs', 
-{ 
-method: 'GET', 
-
-headers: headers 
-}) 
-.then(function(res) { 
-    return res.json(); 
-}).then(function(body) { 
-    console.log(body); 
-}); 
+const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
+const poolsofflinedata = await CBI.core.poolsofflinedata_({ "odata": true });
+console.log(poolsofflinedata); 
 ``` 
 
 </TabItem> 
 <TabItem value="py" label="Python"> 
 
 ```py 
-import requests 
-headers = { 
-'Accept': 'application/json', 
-'Authorization': 'Bearer {access-token}' 
-} 
-
-r = requests.get('/api/core/epochs', headers = headers) 
-
-print(r.json()) 
-``` 
-
-</TabItem> 
-<TabItem value="java" label="Java"> 
-
-```java 
-class HelloWorld { 
-public static void main(String args[]) { 
-    System.out.println("Hello, World"); 
-} 
-} 
+import coming.soon 😀 
 ``` 
 
 </TabItem> 
@@ -713,18 +597,33 @@ public static void main(String args[]) {
 `OK: Successful request.`
 
 ```json
-[ 
- { 
-  "id": 0, 
-  "pool_id": 0, 
-  "ticker_name": 0, 
-  "hash": 0, 
-  "json": 0, 
-  "bytes": 0, 
-  "pmr_id": 0, 
-  "hash_hex": 0
- } 
-] 
+{
+ "@odata.context": "https://preprod.cardanobi.io/api/core/odata/$metadata#PoolsOfflineData",
+ "value": [
+  {
+   "id": 1,
+   "pool_id": 4,
+   "ticker_name": "ANGEL",
+   "hash": "v0RwndcUdCaI7v8rbKVXP+MSouX0nVZMTCMRkjxjlSw=",
+   "json": "{\"name\": \"ANGEL stake pool\", \"ticker\": \"ANGEL\", \"homepage\": \"https://www.angelstakepool.net\", \"description\": \"ANGEL pool at pre-production\"}",
+   "bytes": "ewoibmFtZSI6ICJBTkdFTCBzdGFrZSBwb29sIiwKInRpY2tlciI6ICJBTkdFTCIsCiJob21lcGFnZSI6ICJodHRwczovL3d3dy5hbmdlbHN0YWtlcG9vbC5uZXQiLAoiZGVzY3JpcHRpb24iOiAiQU5HRUwgcG9vbCBhdCBwcmUtcHJvZHVjdGlvbiIKfQ==",
+   "pmr_id": 1,
+   "hash_hex": "bf44709dd714742688eeff2b6ca5573fe312a2e5f49d564c4c2311923c63952c"
+  },
+  "...",
+  {
+   "id": 20,
+   "pool_id": 23,
+   "ticker_name": "WOTA",
+   "hash": "gBUMGfUqh55xDmyrlcsFCMXDn3uMpHdxbOzKp/apv58=",
+   "json": "{\"name\": \"WOTA Stake Pool\", \"ticker\": \"WOTA\", \"homepage\": \"https://wota.sbs\", \"description\": \"preprod stake pool\"}",
+   "bytes": "ewoibmFtZSI6ICJXT1RBIFN0YWtlIFBvb2wiLAoiZGVzY3JpcHRpb24iOiAicHJlcHJvZCBzdGFrZSBwb29sIiwKInRpY2tlciI6ICJXT1RBIiwKImhvbWVwYWdlIjogImh0dHBzOi8vd290YS5zYnMiCn0K",
+   "pmr_id": 21,
+   "hash_hex": "80150c19f52a879e710e6cab95cb0508c5c39f7b8ca477716ceccaa7f6a9bf9f"
+  }
+ ],
+ "@odata.nextLink": "https://preprod.cardanobi.io/api/core/odata/poolsofflinedata?$skip=20"
+}
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 
@@ -813,51 +712,19 @@ Returns the offline (ie not on chain) data for one pool given its unique identif
 ### 👨‍💻 Code samples 
 
 <Tabs> 
-<TabItem value="js" label="JavaScript"> 
+<TabItem value="js" label="Node.js"> 
 
 ```js 
-const headers = { 
-'Accept':'application/json', 
-'Authorization':'Bearer {access-token}' 
-}; 
-
-fetch('/api/core/epochs', 
-{ 
-method: 'GET', 
-
-headers: headers 
-}) 
-.then(function(res) { 
-    return res.json(); 
-}).then(function(body) { 
-    console.log(body); 
-}); 
+const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
+const poolsofflinedata = await CBI.core.poolsofflinedata_({ "odata": true, "pool_id": 17 });
+console.log(poolsofflinedata); 
 ``` 
 
 </TabItem> 
 <TabItem value="py" label="Python"> 
 
 ```py 
-import requests 
-headers = { 
-'Accept': 'application/json', 
-'Authorization': 'Bearer {access-token}' 
-} 
-
-r = requests.get('/api/core/epochs', headers = headers) 
-
-print(r.json()) 
-``` 
-
-</TabItem> 
-<TabItem value="java" label="Java"> 
-
-```java 
-class HelloWorld { 
-public static void main(String args[]) { 
-    System.out.println("Hello, World"); 
-} 
-} 
+import coming.soon 😀 
 ``` 
 
 </TabItem> 
@@ -871,18 +738,32 @@ public static void main(String args[]) {
 `OK: Successful request.`
 
 ```json
-[ 
- { 
-  "id": 0, 
-  "pool_id": 0, 
-  "ticker_name": 0, 
-  "hash": 0, 
-  "json": 0, 
-  "bytes": 0, 
-  "pmr_id": 0, 
-  "hash_hex": 0
- } 
-] 
+{
+ "@odata.context": "https://preprod.cardanobi.io/api/core/odata/$metadata#PoolsOfflineData",
+ "value": [
+  {
+   "id": 14,
+   "pool_id": 17,
+   "ticker_name": "ADACT",
+   "hash": "rF+8U6PRSTtboOoXcv1dT9o81yuolQP/ImGjkFL80vU=",
+   "json": "{\"name\": \"ADA Capital\", \"ticker\": \"ADACT\", \"homepage\": \"https://adacapital.io\", \"description\": \"ADA Capital - PreProd Pool\"}",
+   "bytes": "ewogICAgIm5hbWUiOiAiQURBIENhcGl0YWwiLAogICAgImRlc2NyaXB0aW9uIjogIkFEQSBDYXBpdGFsIC0gUHJlUHJvZCBQb29sIiwKICAgICJ0aWNrZXIiOiAiQURBQ1QiLAogICAgImhvbWVwYWdlIjogImh0dHBzOi8vYWRhY2FwaXRhbC5pbyIsCiAgICAiZXh0ZW5kZWQiOiAiaHR0cHM6Ly9hZGFjYXBpdGFsLmlvL2FkYWN0X2V4dGVuZGVkLmpzb24iCn0=",
+   "pmr_id": 15,
+   "hash_hex": "ac5fbc53a3d1493b5ba0ea1772fd5d4fda3cd72ba89503ff2261a39052fcd2f5"
+  },
+  "...",
+  {
+   "id": 14,
+   "pool_id": 17,
+   "ticker_name": "ADACT",
+   "hash": "rF+8U6PRSTtboOoXcv1dT9o81yuolQP/ImGjkFL80vU=",
+   "json": "{\"name\": \"ADA Capital\", \"ticker\": \"ADACT\", \"homepage\": \"https://adacapital.io\", \"description\": \"ADA Capital - PreProd Pool\"}",
+   "bytes": "ewogICAgIm5hbWUiOiAiQURBIENhcGl0YWwiLAogICAgImRlc2NyaXB0aW9uIjogIkFEQSBDYXBpdGFsIC0gUHJlUHJvZCBQb29sIiwKICAgICJ0aWNrZXIiOiAiQURBQ1QiLAogICAgImhvbWVwYWdlIjogImh0dHBzOi8vYWRhY2FwaXRhbC5pbyIsCiAgICAiZXh0ZW5kZWQiOiAiaHR0cHM6Ly9hZGFjYXBpdGFsLmlvL2FkYWN0X2V4dGVuZGVkLmpzb24iCn0=",
+   "pmr_id": 15,
+   "hash_hex": "ac5fbc53a3d1493b5ba0ea1772fd5d4fda3cd72ba89503ff2261a39052fcd2f5"
+  }
+ ]
+}
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 

@@ -1,7 +1,7 @@
 --- 
 title: '' 
 sidebar_label: 'Parameters' 
-sidebar_position: 2 
+sidebar_position: 3 
 --- 
 import styles from '@site/src/components/HomepageFeatures/styles.module.css'; 
 import Tabs from '@theme/Tabs'; 
@@ -28,51 +28,19 @@ Returns the parameters for all epoch.
 ### 👨‍💻 Code samples 
 
 <Tabs> 
-<TabItem value="js" label="JavaScript"> 
+<TabItem value="js" label="Node.js"> 
 
 ```js 
-const headers = { 
-'Accept':'application/json', 
-'Authorization':'Bearer {access-token}' 
-}; 
-
-fetch('/api/core/epochs', 
-{ 
-method: 'GET', 
-
-headers: headers 
-}) 
-.then(function(res) { 
-    return res.json(); 
-}).then(function(body) { 
-    console.log(body); 
-}); 
+const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
+const params = await CBI.core.epochs.params_();
+console.log(params); 
 ``` 
 
 </TabItem> 
 <TabItem value="py" label="Python"> 
 
 ```py 
-import requests 
-headers = { 
-'Accept': 'application/json', 
-'Authorization': 'Bearer {access-token}' 
-} 
-
-r = requests.get('/api/core/epochs', headers = headers) 
-
-print(r.json()) 
-``` 
-
-</TabItem> 
-<TabItem value="java" label="Java"> 
-
-```java 
-class HelloWorld { 
-public static void main(String args[]) { 
-    System.out.println("Hello, World"); 
-} 
-} 
+import coming.soon 😀 
 ``` 
 
 </TabItem> 
@@ -86,44 +54,81 @@ public static void main(String args[]) {
 `OK: Successful request.`
 
 ```json
-[ 
- { 
-  "id": 0, 
-  "epoch_no": 0, 
-  "min_fee_a": 0, 
-  "min_fee_b": 0, 
-  "max_block_size": 0, 
-  "max_tx_size": 0, 
-  "max_bh_size": 0, 
-  "key_deposit": 0, 
-  "pool_deposit": 0, 
-  "max_epoch": 0, 
-  "optimal_pool_count": 0, 
-  "influence": 0, 
-  "monetary_expand_rate": 0, 
-  "treasury_growth_rate": 0, 
-  "decentralisation": 0, 
-  "protocol_major": 0, 
-  "protocol_minor": 0, 
-  "min_utxo_value": 0, 
-  "min_pool_cost": 0, 
-  "nonce": 0, 
-  "cost_model_id": 0, 
-  "price_mem": 0, 
-  "price_step": 0, 
-  "max_tx_ex_mem": 0, 
-  "max_tx_ex_steps": 0, 
-  "max_block_ex_mem": 0, 
-  "max_block_ex_steps": 0, 
-  "max_val_size": 0, 
-  "collateral_percent": 0, 
-  "max_collateral_inputs": 0, 
-  "block_id": 0, 
-  "extra_entropy": 0, 
-  "coins_per_utxo_size": 0, 
-  "nonce_hex": 0
- } 
-] 
+[
+ {
+  "id": 1,
+  "epoch_no": 4,
+  "min_fee_a": 44,
+  "min_fee_b": 155381,
+  "max_block_size": 65536,
+  "max_tx_size": 16384,
+  "max_bh_size": 1100,
+  "key_deposit": 2000000,
+  "pool_deposit": 500000000,
+  "max_epoch": 18,
+  "optimal_pool_count": 150,
+  "influence": 0.3,
+  "monetary_expand_rate": 0.003,
+  "treasury_growth_rate": 0.2,
+  "decentralisation": 1,
+  "protocol_major": 2,
+  "protocol_minor": 0,
+  "min_utxo_value": 1000000,
+  "min_pool_cost": 340000000,
+  "nonce": "Fi0pxOHPa4qE8taS5no6xrx4Ubw+bkr+ZNFXeL7YvYY=",
+  "cost_model_id": null,
+  "price_mem": null,
+  "price_step": null,
+  "max_tx_ex_mem": null,
+  "max_tx_ex_steps": null,
+  "max_block_ex_mem": null,
+  "max_block_ex_steps": null,
+  "max_val_size": null,
+  "collateral_percent": null,
+  "max_collateral_inputs": null,
+  "block_id": 48,
+  "extra_entropy": null,
+  "coins_per_utxo_size": null,
+  "nonce_hex": "162d29c4e1cf6b8a84f2d692e67a3ac6bc7851bc3e6e4afe64d15778bed8bd86"
+ },
+ "...",
+ {
+  "id": 20,
+  "epoch_no": 23,
+  "min_fee_a": 44,
+  "min_fee_b": 155381,
+  "max_block_size": 65536,
+  "max_tx_size": 16384,
+  "max_bh_size": 1100,
+  "key_deposit": 2000000,
+  "pool_deposit": 500000000,
+  "max_epoch": 18,
+  "optimal_pool_count": 150,
+  "influence": 0.3,
+  "monetary_expand_rate": 0.003,
+  "treasury_growth_rate": 0.2,
+  "decentralisation": 0,
+  "protocol_major": 7,
+  "protocol_minor": 0,
+  "min_utxo_value": 4310,
+  "min_pool_cost": 340000000,
+  "nonce": "MJbMXmiWN63qsSZT517LyWk95rHucpMg3UL7p4E34PY=",
+  "cost_model_id": 7,
+  "price_mem": 0.0577,
+  "price_step": 0.0000721,
+  "max_tx_ex_mem": 10000000,
+  "max_tx_ex_steps": 10000000000,
+  "max_block_ex_mem": 50000000,
+  "max_block_ex_steps": 40000000000,
+  "max_val_size": 5000,
+  "collateral_percent": 150,
+  "max_collateral_inputs": 3,
+  "block_id": 173257,
+  "extra_entropy": null,
+  "coins_per_utxo_size": 4310,
+  "nonce_hex": "3096cc5e689637adeab12653e75ecbc9693de6b1ee729320dd42fba78137e0f6"
+ }
+]
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 
@@ -238,51 +243,19 @@ Returns the parameters of one specific epoch given its number.
 ### 👨‍💻 Code samples 
 
 <Tabs> 
-<TabItem value="js" label="JavaScript"> 
+<TabItem value="js" label="Node.js"> 
 
 ```js 
-const headers = { 
-'Accept':'application/json', 
-'Authorization':'Bearer {access-token}' 
-}; 
-
-fetch('/api/core/epochs', 
-{ 
-method: 'GET', 
-
-headers: headers 
-}) 
-.then(function(res) { 
-    return res.json(); 
-}).then(function(body) { 
-    console.log(body); 
-}); 
+const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
+const params = await CBI.core.epochs.params_({ "no": 30 });
+console.log(params); 
 ``` 
 
 </TabItem> 
 <TabItem value="py" label="Python"> 
 
 ```py 
-import requests 
-headers = { 
-'Accept': 'application/json', 
-'Authorization': 'Bearer {access-token}' 
-} 
-
-r = requests.get('/api/core/epochs', headers = headers) 
-
-print(r.json()) 
-``` 
-
-</TabItem> 
-<TabItem value="java" label="Java"> 
-
-```java 
-class HelloWorld { 
-public static void main(String args[]) { 
-    System.out.println("Hello, World"); 
-} 
-} 
+import coming.soon 😀 
 ``` 
 
 </TabItem> 
@@ -296,40 +269,42 @@ public static void main(String args[]) {
 `OK: Successful request.`
 
 ```json
-"id": 0, 
-"epoch_no": 0, 
-"min_fee_a": 0, 
-"min_fee_b": 0, 
-"max_block_size": 0, 
-"max_tx_size": 0, 
-"max_bh_size": 0, 
-"key_deposit": 0, 
-"pool_deposit": 0, 
-"max_epoch": 0, 
-"optimal_pool_count": 0, 
-"influence": 0, 
-"monetary_expand_rate": 0, 
-"treasury_growth_rate": 0, 
-"decentralisation": 0, 
-"protocol_major": 0, 
-"protocol_minor": 0, 
-"min_utxo_value": 0, 
-"min_pool_cost": 0, 
-"nonce": 0, 
-"cost_model_id": 0, 
-"price_mem": 0, 
-"price_step": 0, 
-"max_tx_ex_mem": 0, 
-"max_tx_ex_steps": 0, 
-"max_block_ex_mem": 0, 
-"max_block_ex_steps": 0, 
-"max_val_size": 0, 
-"collateral_percent": 0, 
-"max_collateral_inputs": 0, 
-"block_id": 0, 
-"extra_entropy": 0, 
-"coins_per_utxo_size": 0, 
-"nonce_hex": 0
+{
+ "id": 27,
+ "epoch_no": 30,
+ "min_fee_a": 44,
+ "min_fee_b": 155381,
+ "max_block_size": 90112,
+ "max_tx_size": 16384,
+ "max_bh_size": 1100,
+ "key_deposit": 2000000,
+ "pool_deposit": 500000000,
+ "max_epoch": 18,
+ "optimal_pool_count": 500,
+ "influence": 0.3,
+ "monetary_expand_rate": 0.003,
+ "treasury_growth_rate": 0.2,
+ "decentralisation": 0,
+ "protocol_major": 7,
+ "protocol_minor": 0,
+ "min_utxo_value": 4310,
+ "min_pool_cost": 340000000,
+ "nonce": "PL7M4nIhoj/p3wJzdwDATKpIKAHRDdCQUXyXFgTq4qU=",
+ "cost_model_id": 7,
+ "price_mem": 0.0577,
+ "price_step": 0.0000721,
+ "max_tx_ex_mem": 14000000,
+ "max_tx_ex_steps": 10000000000,
+ "max_block_ex_mem": 62000000,
+ "max_block_ex_steps": 40000000000,
+ "max_val_size": 5000,
+ "collateral_percent": 150,
+ "max_collateral_inputs": 3,
+ "block_id": 209962,
+ "extra_entropy": null,
+ "coins_per_utxo_size": 4310,
+ "nonce_hex": "3cbecce27221a23fe9df02737700c04caa482801d10dd090517c971604eae2a5"
+}
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 
@@ -437,51 +412,19 @@ Returns the parameters for all epoch.
 ### 👨‍💻 Code samples 
 
 <Tabs> 
-<TabItem value="js" label="JavaScript"> 
+<TabItem value="js" label="Node.js"> 
 
 ```js 
-const headers = { 
-'Accept':'application/json', 
-'Authorization':'Bearer {access-token}' 
-}; 
-
-fetch('/api/core/epochs', 
-{ 
-method: 'GET', 
-
-headers: headers 
-}) 
-.then(function(res) { 
-    return res.json(); 
-}).then(function(body) { 
-    console.log(body); 
-}); 
+const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
+const epochsparams = await CBI.core.epochsparams_({ "odata": true });
+console.log(epochsparams); 
 ``` 
 
 </TabItem> 
 <TabItem value="py" label="Python"> 
 
 ```py 
-import requests 
-headers = { 
-'Accept': 'application/json', 
-'Authorization': 'Bearer {access-token}' 
-} 
-
-r = requests.get('/api/core/epochs', headers = headers) 
-
-print(r.json()) 
-``` 
-
-</TabItem> 
-<TabItem value="java" label="Java"> 
-
-```java 
-class HelloWorld { 
-public static void main(String args[]) { 
-    System.out.println("Hello, World"); 
-} 
-} 
+import coming.soon 😀 
 ``` 
 
 </TabItem> 
@@ -495,44 +438,85 @@ public static void main(String args[]) {
 `OK: Successful request.`
 
 ```json
-[ 
- { 
-  "id": 0, 
-  "epoch_no": 0, 
-  "min_fee_a": 0, 
-  "min_fee_b": 0, 
-  "max_block_size": 0, 
-  "max_tx_size": 0, 
-  "max_bh_size": 0, 
-  "key_deposit": 0, 
-  "pool_deposit": 0, 
-  "max_epoch": 0, 
-  "optimal_pool_count": 0, 
-  "influence": 0, 
-  "monetary_expand_rate": 0, 
-  "treasury_growth_rate": 0, 
-  "decentralisation": 0, 
-  "protocol_major": 0, 
-  "protocol_minor": 0, 
-  "min_utxo_value": 0, 
-  "min_pool_cost": 0, 
-  "nonce": 0, 
-  "cost_model_id": 0, 
-  "price_mem": 0, 
-  "price_step": 0, 
-  "max_tx_ex_mem": 0, 
-  "max_tx_ex_steps": 0, 
-  "max_block_ex_mem": 0, 
-  "max_block_ex_steps": 0, 
-  "max_val_size": 0, 
-  "collateral_percent": 0, 
-  "max_collateral_inputs": 0, 
-  "block_id": 0, 
-  "extra_entropy": 0, 
-  "coins_per_utxo_size": 0, 
-  "nonce_hex": 0
- } 
-] 
+{
+ "@odata.context": "https://preprod.cardanobi.io/api/core/odata/$metadata#EpochsParams",
+ "value": [
+  {
+   "id": 1,
+   "epoch_no": 4,
+   "min_fee_a": 44,
+   "min_fee_b": 155381,
+   "max_block_size": 65536,
+   "max_tx_size": 16384,
+   "max_bh_size": 1100,
+   "key_deposit": 2000000,
+   "pool_deposit": 500000000,
+   "max_epoch": 18,
+   "optimal_pool_count": 150,
+   "influence": 0.3,
+   "monetary_expand_rate": 0.003,
+   "treasury_growth_rate": 0.2,
+   "decentralisation": 1,
+   "protocol_major": 2,
+   "protocol_minor": 0,
+   "min_utxo_value": 1000000,
+   "min_pool_cost": 340000000,
+   "nonce": "Fi0pxOHPa4qE8taS5no6xrx4Ubw+bkr+ZNFXeL7YvYY=",
+   "cost_model_id": null,
+   "price_mem": null,
+   "price_step": null,
+   "max_tx_ex_mem": null,
+   "max_tx_ex_steps": null,
+   "max_block_ex_mem": null,
+   "max_block_ex_steps": null,
+   "max_val_size": null,
+   "collateral_percent": null,
+   "max_collateral_inputs": null,
+   "block_id": 48,
+   "extra_entropy": null,
+   "coins_per_utxo_size": null,
+   "nonce_hex": "162d29c4e1cf6b8a84f2d692e67a3ac6bc7851bc3e6e4afe64d15778bed8bd86"
+  },
+  "...",
+  {
+   "id": 20,
+   "epoch_no": 23,
+   "min_fee_a": 44,
+   "min_fee_b": 155381,
+   "max_block_size": 65536,
+   "max_tx_size": 16384,
+   "max_bh_size": 1100,
+   "key_deposit": 2000000,
+   "pool_deposit": 500000000,
+   "max_epoch": 18,
+   "optimal_pool_count": 150,
+   "influence": 0.3,
+   "monetary_expand_rate": 0.003,
+   "treasury_growth_rate": 0.2,
+   "decentralisation": 0,
+   "protocol_major": 7,
+   "protocol_minor": 0,
+   "min_utxo_value": 4310,
+   "min_pool_cost": 340000000,
+   "nonce": "MJbMXmiWN63qsSZT517LyWk95rHucpMg3UL7p4E34PY=",
+   "cost_model_id": 7,
+   "price_mem": 0.0577,
+   "price_step": 0.0000721,
+   "max_tx_ex_mem": 10000000,
+   "max_tx_ex_steps": 10000000000,
+   "max_block_ex_mem": 50000000,
+   "max_block_ex_steps": 40000000000,
+   "max_val_size": 5000,
+   "collateral_percent": 150,
+   "max_collateral_inputs": 3,
+   "block_id": 173257,
+   "extra_entropy": null,
+   "coins_per_utxo_size": 4310,
+   "nonce_hex": "3096cc5e689637adeab12653e75ecbc9693de6b1ee729320dd42fba78137e0f6"
+  }
+ ],
+ "@odata.nextLink": "https://preprod.cardanobi.io/api/core/odata/epochsparams?$skip=20"
+}
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 
@@ -647,51 +631,19 @@ Returns the parameters of one specific epoch given its number.
 ### 👨‍💻 Code samples 
 
 <Tabs> 
-<TabItem value="js" label="JavaScript"> 
+<TabItem value="js" label="Node.js"> 
 
 ```js 
-const headers = { 
-'Accept':'application/json', 
-'Authorization':'Bearer {access-token}' 
-}; 
-
-fetch('/api/core/epochs', 
-{ 
-method: 'GET', 
-
-headers: headers 
-}) 
-.then(function(res) { 
-    return res.json(); 
-}).then(function(body) { 
-    console.log(body); 
-}); 
+const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
+const epochsparams = await CBI.core.epochsparams_({ "odata": true, "no": 30 });
+console.log(epochsparams); 
 ``` 
 
 </TabItem> 
 <TabItem value="py" label="Python"> 
 
 ```py 
-import requests 
-headers = { 
-'Accept': 'application/json', 
-'Authorization': 'Bearer {access-token}' 
-} 
-
-r = requests.get('/api/core/epochs', headers = headers) 
-
-print(r.json()) 
-``` 
-
-</TabItem> 
-<TabItem value="java" label="Java"> 
-
-```java 
-class HelloWorld { 
-public static void main(String args[]) { 
-    System.out.println("Hello, World"); 
-} 
-} 
+import coming.soon 😀 
 ``` 
 
 </TabItem> 
@@ -705,40 +657,43 @@ public static void main(String args[]) {
 `OK: Successful request.`
 
 ```json
-"id": 0, 
-"epoch_no": 0, 
-"min_fee_a": 0, 
-"min_fee_b": 0, 
-"max_block_size": 0, 
-"max_tx_size": 0, 
-"max_bh_size": 0, 
-"key_deposit": 0, 
-"pool_deposit": 0, 
-"max_epoch": 0, 
-"optimal_pool_count": 0, 
-"influence": 0, 
-"monetary_expand_rate": 0, 
-"treasury_growth_rate": 0, 
-"decentralisation": 0, 
-"protocol_major": 0, 
-"protocol_minor": 0, 
-"min_utxo_value": 0, 
-"min_pool_cost": 0, 
-"nonce": 0, 
-"cost_model_id": 0, 
-"price_mem": 0, 
-"price_step": 0, 
-"max_tx_ex_mem": 0, 
-"max_tx_ex_steps": 0, 
-"max_block_ex_mem": 0, 
-"max_block_ex_steps": 0, 
-"max_val_size": 0, 
-"collateral_percent": 0, 
-"max_collateral_inputs": 0, 
-"block_id": 0, 
-"extra_entropy": 0, 
-"coins_per_utxo_size": 0, 
-"nonce_hex": 0
+{
+ "@odata.context": "https://preprod.cardanobi.io/api/core/odata/$metadata#EpochsParams/$entity",
+ "id": 27,
+ "epoch_no": 30,
+ "min_fee_a": 44,
+ "min_fee_b": 155381,
+ "max_block_size": 90112,
+ "max_tx_size": 16384,
+ "max_bh_size": 1100,
+ "key_deposit": 2000000,
+ "pool_deposit": 500000000,
+ "max_epoch": 18,
+ "optimal_pool_count": 500,
+ "influence": 0.3,
+ "monetary_expand_rate": 0.003,
+ "treasury_growth_rate": 0.2,
+ "decentralisation": 0,
+ "protocol_major": 7,
+ "protocol_minor": 0,
+ "min_utxo_value": 4310,
+ "min_pool_cost": 340000000,
+ "nonce": "PL7M4nIhoj/p3wJzdwDATKpIKAHRDdCQUXyXFgTq4qU=",
+ "cost_model_id": 7,
+ "price_mem": 0.0577,
+ "price_step": 0.0000721,
+ "max_tx_ex_mem": 14000000,
+ "max_tx_ex_steps": 10000000000,
+ "max_block_ex_mem": 62000000,
+ "max_block_ex_steps": 40000000000,
+ "max_val_size": 5000,
+ "collateral_percent": 150,
+ "max_collateral_inputs": 3,
+ "block_id": 209962,
+ "extra_entropy": null,
+ "coins_per_utxo_size": 4310,
+ "nonce_hex": "3cbecce27221a23fe9df02737700c04caa482801d10dd090517c971604eae2a5"
+}
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 

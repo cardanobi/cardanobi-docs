@@ -1,7 +1,7 @@
 --- 
 title: '' 
 sidebar_label: 'Updates' 
-sidebar_position: 8 
+sidebar_position: 10 
 --- 
 import styles from '@site/src/components/HomepageFeatures/styles.module.css'; 
 import Tabs from '@theme/Tabs'; 
@@ -29,51 +29,19 @@ Returns all on-chain pool updates.
 ### 👨‍💻 Code samples 
 
 <Tabs> 
-<TabItem value="js" label="JavaScript"> 
+<TabItem value="js" label="Node.js"> 
 
 ```js 
-const headers = { 
-'Accept':'application/json', 
-'Authorization':'Bearer {access-token}' 
-}; 
-
-fetch('/api/core/epochs', 
-{ 
-method: 'GET', 
-
-headers: headers 
-}) 
-.then(function(res) { 
-    return res.json(); 
-}).then(function(body) { 
-    console.log(body); 
-}); 
+const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
+const updates = await CBI.core.pools.updates_();
+console.log(updates); 
 ``` 
 
 </TabItem> 
 <TabItem value="py" label="Python"> 
 
 ```py 
-import requests 
-headers = { 
-'Accept': 'application/json', 
-'Authorization': 'Bearer {access-token}' 
-} 
-
-r = requests.get('/api/core/epochs', headers = headers) 
-
-print(r.json()) 
-``` 
-
-</TabItem> 
-<TabItem value="java" label="Java"> 
-
-```java 
-class HelloWorld { 
-public static void main(String args[]) { 
-    System.out.println("Hello, World"); 
-} 
-} 
+import coming.soon 😀 
 ``` 
 
 </TabItem> 
@@ -87,22 +55,37 @@ public static void main(String args[]) {
 `OK: Successful request.`
 
 ```json
-[ 
- { 
-  "id": 0, 
-  "hash_id": 0, 
-  "cert_index": 0, 
-  "vrf_key_hash": 0, 
-  "pledge": 0, 
-  "active_epoch_no": 0, 
-  "meta_id": 0, 
-  "margin": 0, 
-  "fixed_cost": 0, 
-  "registered_tx_id": 0, 
-  "reward_addr_id": 0, 
-  "vrf_key_hash_hex": 0
- } 
-] 
+[
+ {
+  "id": 1,
+  "hash_id": 1,
+  "cert_index": 1,
+  "vrf_key_hash": "hoFz00NhEQOsvbNFK5IrvKXlgNCNpOj3q/P7DyKEM4o=",
+  "pledge": 100000000000000,
+  "active_epoch_no": 6,
+  "meta_id": null,
+  "margin": 1,
+  "fixed_cost": 500000000,
+  "registered_tx_id": 10,
+  "reward_addr_id": 5,
+  "vrf_key_hash_hex": "868173d343611103acbdb3452b922bbca5e580d08da4e8f7abf3fb0f2284338a"
+ },
+ "...",
+ {
+  "id": 20,
+  "hash_id": 19,
+  "cert_index": 0,
+  "vrf_key_hash": "6IBljJ5CHz8TA2VyV2EgMG8uyFGNu8LR1bRk8ALqifg=",
+  "pledge": 9000000000,
+  "active_epoch_no": 30,
+  "meta_id": 17,
+  "margin": 0.15,
+  "fixed_cost": 340000000,
+  "registered_tx_id": 591,
+  "reward_addr_id": 530,
+  "vrf_key_hash_hex": "e880658c9e421f3f13036572576120306f2ec8518dbbc2d1d5b464f002ea89f8"
+ }
+]
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 
@@ -195,51 +178,19 @@ Returns the on-chain updates for one pool given its unique identifier.
 ### 👨‍💻 Code samples 
 
 <Tabs> 
-<TabItem value="js" label="JavaScript"> 
+<TabItem value="js" label="Node.js"> 
 
 ```js 
-const headers = { 
-'Accept':'application/json', 
-'Authorization':'Bearer {access-token}' 
-}; 
-
-fetch('/api/core/epochs', 
-{ 
-method: 'GET', 
-
-headers: headers 
-}) 
-.then(function(res) { 
-    return res.json(); 
-}).then(function(body) { 
-    console.log(body); 
-}); 
+const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
+const updates = await CBI.core.pools.updates_({ "pool_id": 17 });
+console.log(updates); 
 ``` 
 
 </TabItem> 
 <TabItem value="py" label="Python"> 
 
 ```py 
-import requests 
-headers = { 
-'Accept': 'application/json', 
-'Authorization': 'Bearer {access-token}' 
-} 
-
-r = requests.get('/api/core/epochs', headers = headers) 
-
-print(r.json()) 
-``` 
-
-</TabItem> 
-<TabItem value="java" label="Java"> 
-
-```java 
-class HelloWorld { 
-public static void main(String args[]) { 
-    System.out.println("Hello, World"); 
-} 
-} 
+import coming.soon 😀 
 ``` 
 
 </TabItem> 
@@ -253,22 +204,37 @@ public static void main(String args[]) {
 `OK: Successful request.`
 
 ```json
-[ 
- { 
-  "id": 0, 
-  "hash_id": 0, 
-  "cert_index": 0, 
-  "vrf_key_hash": 0, 
-  "pledge": 0, 
-  "active_epoch_no": 0, 
-  "meta_id": 0, 
-  "margin": 0, 
-  "fixed_cost": 0, 
-  "registered_tx_id": 0, 
-  "reward_addr_id": 0, 
-  "vrf_key_hash_hex": 0
- } 
-] 
+[
+ {
+  "id": 18,
+  "hash_id": 17,
+  "cert_index": 0,
+  "vrf_key_hash": "/513TMfj6F7Bgnv9aMR1vGEaniiOfJ4fsVn85S0nA/0=",
+  "pledge": 9000000000,
+  "active_epoch_no": 30,
+  "meta_id": 15,
+  "margin": 0,
+  "fixed_cost": 340000000,
+  "registered_tx_id": 537,
+  "reward_addr_id": 489,
+  "vrf_key_hash_hex": "ff9d774cc7e3e85ec1827bfd68c475bc611a9e288e7c9e1fb159fce52d2703fd"
+ },
+ "...",
+ {
+  "id": 309,
+  "hash_id": 17,
+  "cert_index": 0,
+  "vrf_key_hash": "/513TMfj6F7Bgnv9aMR1vGEaniiOfJ4fsVn85S0nA/0=",
+  "pledge": 1000000000000,
+  "active_epoch_no": 44,
+  "meta_id": 15,
+  "margin": 0,
+  "fixed_cost": 340000000,
+  "registered_tx_id": 260484,
+  "reward_addr_id": 489,
+  "vrf_key_hash_hex": "ff9d774cc7e3e85ec1827bfd68c475bc611a9e288e7c9e1fb159fce52d2703fd"
+ }
+]
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 
@@ -361,51 +327,19 @@ Returns the on-chain updates for one pool given its VRF key hash.
 ### 👨‍💻 Code samples 
 
 <Tabs> 
-<TabItem value="js" label="JavaScript"> 
+<TabItem value="js" label="Node.js"> 
 
 ```js 
-const headers = { 
-'Accept':'application/json', 
-'Authorization':'Bearer {access-token}' 
-}; 
-
-fetch('/api/core/epochs', 
-{ 
-method: 'GET', 
-
-headers: headers 
-}) 
-.then(function(res) { 
-    return res.json(); 
-}).then(function(body) { 
-    console.log(body); 
-}); 
+const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
+const updates = await CBI.core.pools.updates_({ "vrf_key_hash": "ff9d774cc7e3e85ec1827bfd68c475bc611a9e288e7c9e1fb159fce52d2703fd" });
+console.log(updates); 
 ``` 
 
 </TabItem> 
 <TabItem value="py" label="Python"> 
 
 ```py 
-import requests 
-headers = { 
-'Accept': 'application/json', 
-'Authorization': 'Bearer {access-token}' 
-} 
-
-r = requests.get('/api/core/epochs', headers = headers) 
-
-print(r.json()) 
-``` 
-
-</TabItem> 
-<TabItem value="java" label="Java"> 
-
-```java 
-class HelloWorld { 
-public static void main(String args[]) { 
-    System.out.println("Hello, World"); 
-} 
-} 
+import coming.soon 😀 
 ``` 
 
 </TabItem> 
@@ -419,22 +353,37 @@ public static void main(String args[]) {
 `OK: Successful request.`
 
 ```json
-[ 
- { 
-  "id": 0, 
-  "hash_id": 0, 
-  "cert_index": 0, 
-  "vrf_key_hash": 0, 
-  "pledge": 0, 
-  "active_epoch_no": 0, 
-  "meta_id": 0, 
-  "margin": 0, 
-  "fixed_cost": 0, 
-  "registered_tx_id": 0, 
-  "reward_addr_id": 0, 
-  "vrf_key_hash_hex": 0
- } 
-] 
+[
+ {
+  "id": 18,
+  "hash_id": 17,
+  "cert_index": 0,
+  "vrf_key_hash": "/513TMfj6F7Bgnv9aMR1vGEaniiOfJ4fsVn85S0nA/0=",
+  "pledge": 9000000000,
+  "active_epoch_no": 30,
+  "meta_id": 15,
+  "margin": 0,
+  "fixed_cost": 340000000,
+  "registered_tx_id": 537,
+  "reward_addr_id": 489,
+  "vrf_key_hash_hex": "ff9d774cc7e3e85ec1827bfd68c475bc611a9e288e7c9e1fb159fce52d2703fd"
+ },
+ "...",
+ {
+  "id": 309,
+  "hash_id": 17,
+  "cert_index": 0,
+  "vrf_key_hash": "/513TMfj6F7Bgnv9aMR1vGEaniiOfJ4fsVn85S0nA/0=",
+  "pledge": 1000000000000,
+  "active_epoch_no": 44,
+  "meta_id": 15,
+  "margin": 0,
+  "fixed_cost": 340000000,
+  "registered_tx_id": 260484,
+  "reward_addr_id": 489,
+  "vrf_key_hash_hex": "ff9d774cc7e3e85ec1827bfd68c475bc611a9e288e7c9e1fb159fce52d2703fd"
+ }
+]
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 
@@ -520,51 +469,19 @@ Returns all on-chain pool updates.
 ### 👨‍💻 Code samples 
 
 <Tabs> 
-<TabItem value="js" label="JavaScript"> 
+<TabItem value="js" label="Node.js"> 
 
 ```js 
-const headers = { 
-'Accept':'application/json', 
-'Authorization':'Bearer {access-token}' 
-}; 
-
-fetch('/api/core/epochs', 
-{ 
-method: 'GET', 
-
-headers: headers 
-}) 
-.then(function(res) { 
-    return res.json(); 
-}).then(function(body) { 
-    console.log(body); 
-}); 
+const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
+const poolsupdates = await CBI.core.poolsupdates_({ "odata": true });
+console.log(poolsupdates); 
 ``` 
 
 </TabItem> 
 <TabItem value="py" label="Python"> 
 
 ```py 
-import requests 
-headers = { 
-'Accept': 'application/json', 
-'Authorization': 'Bearer {access-token}' 
-} 
-
-r = requests.get('/api/core/epochs', headers = headers) 
-
-print(r.json()) 
-``` 
-
-</TabItem> 
-<TabItem value="java" label="Java"> 
-
-```java 
-class HelloWorld { 
-public static void main(String args[]) { 
-    System.out.println("Hello, World"); 
-} 
-} 
+import coming.soon 😀 
 ``` 
 
 </TabItem> 
@@ -578,22 +495,41 @@ public static void main(String args[]) {
 `OK: Successful request.`
 
 ```json
-[ 
- { 
-  "id": 0, 
-  "hash_id": 0, 
-  "cert_index": 0, 
-  "vrf_key_hash": 0, 
-  "pledge": 0, 
-  "active_epoch_no": 0, 
-  "meta_id": 0, 
-  "margin": 0, 
-  "fixed_cost": 0, 
-  "registered_tx_id": 0, 
-  "reward_addr_id": 0, 
-  "vrf_key_hash_hex": 0
- } 
-] 
+{
+ "@odata.context": "https://preprod.cardanobi.io/api/core/odata/$metadata#PoolsUpdates",
+ "value": [
+  {
+   "id": 1,
+   "hash_id": 1,
+   "cert_index": 1,
+   "vrf_key_hash": "hoFz00NhEQOsvbNFK5IrvKXlgNCNpOj3q/P7DyKEM4o=",
+   "pledge": 100000000000000,
+   "active_epoch_no": 6,
+   "meta_id": null,
+   "margin": 1,
+   "fixed_cost": 500000000,
+   "registered_tx_id": 10,
+   "reward_addr_id": 5,
+   "vrf_key_hash_hex": "868173d343611103acbdb3452b922bbca5e580d08da4e8f7abf3fb0f2284338a"
+  },
+  "...",
+  {
+   "id": 20,
+   "hash_id": 19,
+   "cert_index": 0,
+   "vrf_key_hash": "6IBljJ5CHz8TA2VyV2EgMG8uyFGNu8LR1bRk8ALqifg=",
+   "pledge": 9000000000,
+   "active_epoch_no": 30,
+   "meta_id": 17,
+   "margin": 0.15,
+   "fixed_cost": 340000000,
+   "registered_tx_id": 591,
+   "reward_addr_id": 530,
+   "vrf_key_hash_hex": "e880658c9e421f3f13036572576120306f2ec8518dbbc2d1d5b464f002ea89f8"
+  }
+ ],
+ "@odata.nextLink": "https://preprod.cardanobi.io/api/core/odata/poolsupdates?$skip=20"
+}
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 
@@ -686,51 +622,19 @@ Returns the on-chain updates for one pool given its unique identifier.
 ### 👨‍💻 Code samples 
 
 <Tabs> 
-<TabItem value="js" label="JavaScript"> 
+<TabItem value="js" label="Node.js"> 
 
 ```js 
-const headers = { 
-'Accept':'application/json', 
-'Authorization':'Bearer {access-token}' 
-}; 
-
-fetch('/api/core/epochs', 
-{ 
-method: 'GET', 
-
-headers: headers 
-}) 
-.then(function(res) { 
-    return res.json(); 
-}).then(function(body) { 
-    console.log(body); 
-}); 
+const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
+const poolsupdates = await CBI.core.poolsupdates_({ "odata": true, "pool_id": 17 });
+console.log(poolsupdates); 
 ``` 
 
 </TabItem> 
 <TabItem value="py" label="Python"> 
 
 ```py 
-import requests 
-headers = { 
-'Accept': 'application/json', 
-'Authorization': 'Bearer {access-token}' 
-} 
-
-r = requests.get('/api/core/epochs', headers = headers) 
-
-print(r.json()) 
-``` 
-
-</TabItem> 
-<TabItem value="java" label="Java"> 
-
-```java 
-class HelloWorld { 
-public static void main(String args[]) { 
-    System.out.println("Hello, World"); 
-} 
-} 
+import coming.soon 😀 
 ``` 
 
 </TabItem> 
@@ -744,22 +648,40 @@ public static void main(String args[]) {
 `OK: Successful request.`
 
 ```json
-[ 
- { 
-  "id": 0, 
-  "hash_id": 0, 
-  "cert_index": 0, 
-  "vrf_key_hash": 0, 
-  "pledge": 0, 
-  "active_epoch_no": 0, 
-  "meta_id": 0, 
-  "margin": 0, 
-  "fixed_cost": 0, 
-  "registered_tx_id": 0, 
-  "reward_addr_id": 0, 
-  "vrf_key_hash_hex": 0
- } 
-] 
+{
+ "@odata.context": "https://preprod.cardanobi.io/api/core/odata/$metadata#PoolsUpdates",
+ "value": [
+  {
+   "id": 18,
+   "hash_id": 17,
+   "cert_index": 0,
+   "vrf_key_hash": "/513TMfj6F7Bgnv9aMR1vGEaniiOfJ4fsVn85S0nA/0=",
+   "pledge": 9000000000,
+   "active_epoch_no": 30,
+   "meta_id": 15,
+   "margin": 0,
+   "fixed_cost": 340000000,
+   "registered_tx_id": 537,
+   "reward_addr_id": 489,
+   "vrf_key_hash_hex": "ff9d774cc7e3e85ec1827bfd68c475bc611a9e288e7c9e1fb159fce52d2703fd"
+  },
+  "...",
+  {
+   "id": 309,
+   "hash_id": 17,
+   "cert_index": 0,
+   "vrf_key_hash": "/513TMfj6F7Bgnv9aMR1vGEaniiOfJ4fsVn85S0nA/0=",
+   "pledge": 1000000000000,
+   "active_epoch_no": 44,
+   "meta_id": 15,
+   "margin": 0,
+   "fixed_cost": 340000000,
+   "registered_tx_id": 260484,
+   "reward_addr_id": 489,
+   "vrf_key_hash_hex": "ff9d774cc7e3e85ec1827bfd68c475bc611a9e288e7c9e1fb159fce52d2703fd"
+  }
+ ]
+}
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 

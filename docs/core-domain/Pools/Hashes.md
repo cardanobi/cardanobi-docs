@@ -1,7 +1,7 @@
 --- 
 title: '' 
 sidebar_label: 'Hashes' 
-sidebar_position: 4 
+sidebar_position: 6 
 --- 
 import styles from '@site/src/components/HomepageFeatures/styles.module.css'; 
 import Tabs from '@theme/Tabs'; 
@@ -26,51 +26,19 @@ Returns every unique pool key hash.
 ### 👨‍💻 Code samples 
 
 <Tabs> 
-<TabItem value="js" label="JavaScript"> 
+<TabItem value="js" label="Node.js"> 
 
 ```js 
-const headers = { 
-'Accept':'application/json', 
-'Authorization':'Bearer {access-token}' 
-}; 
-
-fetch('/api/core/epochs', 
-{ 
-method: 'GET', 
-
-headers: headers 
-}) 
-.then(function(res) { 
-    return res.json(); 
-}).then(function(body) { 
-    console.log(body); 
-}); 
+const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
+const hashes = await CBI.core.pools.hashes_();
+console.log(hashes); 
 ``` 
 
 </TabItem> 
 <TabItem value="py" label="Python"> 
 
 ```py 
-import requests 
-headers = { 
-'Accept': 'application/json', 
-'Authorization': 'Bearer {access-token}' 
-} 
-
-r = requests.get('/api/core/epochs', headers = headers) 
-
-print(r.json()) 
-``` 
-
-</TabItem> 
-<TabItem value="java" label="Java"> 
-
-```java 
-class HelloWorld { 
-public static void main(String args[]) { 
-    System.out.println("Hello, World"); 
-} 
-} 
+import coming.soon 😀 
 ``` 
 
 </TabItem> 
@@ -84,14 +52,21 @@ public static void main(String args[]) {
 `OK: Successful request.`
 
 ```json
-[ 
- { 
-  "id": 0, 
-  "hash_raw": 0, 
-  "view": 0, 
-  "hash_hex": 0
- } 
-] 
+[
+ {
+  "id": 1,
+  "hash_raw": "pXy8uOzfJPRpko2pJLW8bky8O1eFlXchGg2vbw==",
+  "view": "pool1547tew8vmuj0g6vj3k5jfddudextcw6hsk2hwgg6pkhk7lwphe6",
+  "hash_hex": "a57cbcb8ecdf24f469928da924b5bc6e4cbc3b57859577211a0daf6f"
+ },
+ "...",
+ {
+  "id": 20,
+  "hash_raw": "rUOWoPfEfj1p7ovXksgMoL/+5hlFzsXEK0rpDw==",
+  "view": "pool144pedg8hc3lr660w30te9jqv5zllaesegh8vt3ptft5s7qu45re",
+  "hash_hex": "ad4396a0f7c47e3d69ee8bd792c80ca0bffee61945cec5c42b4ae90f"
+ }
+]
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 
@@ -169,51 +144,19 @@ Returns every unique pool key hash.
 ### 👨‍💻 Code samples 
 
 <Tabs> 
-<TabItem value="js" label="JavaScript"> 
+<TabItem value="js" label="Node.js"> 
 
 ```js 
-const headers = { 
-'Accept':'application/json', 
-'Authorization':'Bearer {access-token}' 
-}; 
-
-fetch('/api/core/epochs', 
-{ 
-method: 'GET', 
-
-headers: headers 
-}) 
-.then(function(res) { 
-    return res.json(); 
-}).then(function(body) { 
-    console.log(body); 
-}); 
+const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
+const poolshashes = await CBI.core.poolshashes_({ "odata": true });
+console.log(poolshashes); 
 ``` 
 
 </TabItem> 
 <TabItem value="py" label="Python"> 
 
 ```py 
-import requests 
-headers = { 
-'Accept': 'application/json', 
-'Authorization': 'Bearer {access-token}' 
-} 
-
-r = requests.get('/api/core/epochs', headers = headers) 
-
-print(r.json()) 
-``` 
-
-</TabItem> 
-<TabItem value="java" label="Java"> 
-
-```java 
-class HelloWorld { 
-public static void main(String args[]) { 
-    System.out.println("Hello, World"); 
-} 
-} 
+import coming.soon 😀 
 ``` 
 
 </TabItem> 
@@ -227,14 +170,25 @@ public static void main(String args[]) {
 `OK: Successful request.`
 
 ```json
-[ 
- { 
-  "id": 0, 
-  "hash_raw": 0, 
-  "view": 0, 
-  "hash_hex": 0
- } 
-] 
+{
+ "@odata.context": "https://preprod.cardanobi.io/api/core/odata/$metadata#PoolsHashes",
+ "value": [
+  {
+   "id": 1,
+   "hash_raw": "pXy8uOzfJPRpko2pJLW8bky8O1eFlXchGg2vbw==",
+   "view": "pool1547tew8vmuj0g6vj3k5jfddudextcw6hsk2hwgg6pkhk7lwphe6",
+   "hash_hex": "a57cbcb8ecdf24f469928da924b5bc6e4cbc3b57859577211a0daf6f"
+  },
+  "...",
+  {
+   "id": 20,
+   "hash_raw": "rUOWoPfEfj1p7ovXksgMoL/+5hlFzsXEK0rpDw==",
+   "view": "pool144pedg8hc3lr660w30te9jqv5zllaesegh8vt3ptft5s7qu45re",
+   "hash_hex": "ad4396a0f7c47e3d69ee8bd792c80ca0bffee61945cec5c42b4ae90f"
+  }
+ ],
+ "@odata.nextLink": "https://preprod.cardanobi.io/api/core/odata/poolshashes?$skip=20"
+}
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 

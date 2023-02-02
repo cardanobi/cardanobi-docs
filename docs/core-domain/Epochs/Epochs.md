@@ -1,7 +1,7 @@
 --- 
 title: '' 
 sidebar_label: 'Epochs' 
-sidebar_position: 1 
+sidebar_position: 2 
 --- 
 import styles from '@site/src/components/HomepageFeatures/styles.module.css'; 
 import Tabs from '@theme/Tabs'; 
@@ -28,51 +28,19 @@ Returns all epoch entities.
 ### 👨‍💻 Code samples 
 
 <Tabs> 
-<TabItem value="js" label="JavaScript"> 
+<TabItem value="js" label="Node.js"> 
 
 ```js 
-const headers = { 
-'Accept':'application/json', 
-'Authorization':'Bearer {access-token}' 
-}; 
-
-fetch('/api/core/epochs', 
-{ 
-method: 'GET', 
-
-headers: headers 
-}) 
-.then(function(res) { 
-    return res.json(); 
-}).then(function(body) { 
-    console.log(body); 
-}); 
+const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
+const epochs = await CBI.core.epochs_();
+console.log(epochs); 
 ``` 
 
 </TabItem> 
 <TabItem value="py" label="Python"> 
 
 ```py 
-import requests 
-headers = { 
-'Accept': 'application/json', 
-'Authorization': 'Bearer {access-token}' 
-} 
-
-r = requests.get('/api/core/epochs', headers = headers) 
-
-print(r.json()) 
-``` 
-
-</TabItem> 
-<TabItem value="java" label="Java"> 
-
-```java 
-class HelloWorld { 
-public static void main(String args[]) { 
-    System.out.println("Hello, World"); 
-} 
-} 
+import coming.soon 😀 
 ``` 
 
 </TabItem> 
@@ -86,18 +54,29 @@ public static void main(String args[]) {
 `OK: Successful request.`
 
 ```json
-[ 
- { 
-  "id": 0, 
-  "out_sum": 0, 
-  "fees": 0, 
-  "tx_count": 0, 
-  "blk_count": 0, 
-  "no": 0, 
-  "start_time": "2019-08-24T14:15:22Z", 
-  "end_time": "2019-08-24T14:15:22Z"
- } 
-] 
+[
+ {
+  "id": 1,
+  "out_sum": 0,
+  "fees": 0,
+  "tx_count": 0,
+  "blk_count": 11,
+  "no": 0,
+  "start_time": "2022-06-01T00:00:00",
+  "end_time": "2022-06-05T12:01:40"
+ },
+ "...",
+ {
+  "id": 20,
+  "out_sum": 0,
+  "fees": 0,
+  "tx_count": 0,
+  "blk_count": 56,
+  "no": 19,
+  "start_time": "2022-09-04T00:00:02",
+  "end_time": "2022-09-08T12:01:48"
+ }
+]
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 
@@ -186,51 +165,19 @@ Returns one specific epoch given its number.
 ### 👨‍💻 Code samples 
 
 <Tabs> 
-<TabItem value="js" label="JavaScript"> 
+<TabItem value="js" label="Node.js"> 
 
 ```js 
-const headers = { 
-'Accept':'application/json', 
-'Authorization':'Bearer {access-token}' 
-}; 
-
-fetch('/api/core/epochs', 
-{ 
-method: 'GET', 
-
-headers: headers 
-}) 
-.then(function(res) { 
-    return res.json(); 
-}).then(function(body) { 
-    console.log(body); 
-}); 
+const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
+const epochs = await CBI.core.epochs_({ "no": 30 });
+console.log(epochs); 
 ``` 
 
 </TabItem> 
 <TabItem value="py" label="Python"> 
 
 ```py 
-import requests 
-headers = { 
-'Accept': 'application/json', 
-'Authorization': 'Bearer {access-token}' 
-} 
-
-r = requests.get('/api/core/epochs', headers = headers) 
-
-print(r.json()) 
-``` 
-
-</TabItem> 
-<TabItem value="java" label="Java"> 
-
-```java 
-class HelloWorld { 
-public static void main(String args[]) { 
-    System.out.println("Hello, World"); 
-} 
-} 
+import coming.soon 😀 
 ``` 
 
 </TabItem> 
@@ -244,14 +191,16 @@ public static void main(String args[]) {
 `OK: Successful request.`
 
 ```json
-"id": 0, 
-"out_sum": 0, 
-"fees": 0, 
-"tx_count": 0, 
-"blk_count": 0, 
-"no": 0, 
-"start_time": "2019-08-24T14:15:22Z", 
-"end_time": "2019-08-24T14:15:22Z"
+{
+ "id": 31,
+ "out_sum": 102865306257160,
+ "fees": 4942589267,
+ "tx_count": 24249,
+ "blk_count": 20386,
+ "no": 30,
+ "start_time": "2022-10-29T00:00:25",
+ "end_time": "2022-11-02T23:59:27"
+}
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 
@@ -333,51 +282,19 @@ Returns all epoch entities.
 ### 👨‍💻 Code samples 
 
 <Tabs> 
-<TabItem value="js" label="JavaScript"> 
+<TabItem value="js" label="Node.js"> 
 
 ```js 
-const headers = { 
-'Accept':'application/json', 
-'Authorization':'Bearer {access-token}' 
-}; 
-
-fetch('/api/core/epochs', 
-{ 
-method: 'GET', 
-
-headers: headers 
-}) 
-.then(function(res) { 
-    return res.json(); 
-}).then(function(body) { 
-    console.log(body); 
-}); 
+const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
+const epochs = await CBI.core.epochs_({ "odata": true });
+console.log(epochs); 
 ``` 
 
 </TabItem> 
 <TabItem value="py" label="Python"> 
 
 ```py 
-import requests 
-headers = { 
-'Accept': 'application/json', 
-'Authorization': 'Bearer {access-token}' 
-} 
-
-r = requests.get('/api/core/epochs', headers = headers) 
-
-print(r.json()) 
-``` 
-
-</TabItem> 
-<TabItem value="java" label="Java"> 
-
-```java 
-class HelloWorld { 
-public static void main(String args[]) { 
-    System.out.println("Hello, World"); 
-} 
-} 
+import coming.soon 😀 
 ``` 
 
 </TabItem> 
@@ -391,18 +308,33 @@ public static void main(String args[]) {
 `OK: Successful request.`
 
 ```json
-[ 
- { 
-  "id": 0, 
-  "out_sum": 0, 
-  "fees": 0, 
-  "tx_count": 0, 
-  "blk_count": 0, 
-  "no": 0, 
-  "start_time": "2019-08-24T14:15:22Z", 
-  "end_time": "2019-08-24T14:15:22Z"
- } 
-] 
+{
+ "@odata.context": "https://preprod.cardanobi.io/api/core/odata/$metadata#Epochs",
+ "value": [
+  {
+   "id": 1,
+   "out_sum": 0,
+   "fees": 0,
+   "tx_count": 0,
+   "blk_count": 11,
+   "no": 0,
+   "start_time": "2022-06-01T00:00:00Z",
+   "end_time": "2022-06-05T12:01:40Z"
+  },
+  "...",
+  {
+   "id": 20,
+   "out_sum": 0,
+   "fees": 0,
+   "tx_count": 0,
+   "blk_count": 56,
+   "no": 19,
+   "start_time": "2022-09-04T00:00:02Z",
+   "end_time": "2022-09-08T12:01:48Z"
+  }
+ ],
+ "@odata.nextLink": "https://preprod.cardanobi.io/api/core/odata/epochs?$skip=20"
+}
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 
@@ -491,51 +423,19 @@ Returns one specific epoch given its number.
 ### 👨‍💻 Code samples 
 
 <Tabs> 
-<TabItem value="js" label="JavaScript"> 
+<TabItem value="js" label="Node.js"> 
 
 ```js 
-const headers = { 
-'Accept':'application/json', 
-'Authorization':'Bearer {access-token}' 
-}; 
-
-fetch('/api/core/epochs', 
-{ 
-method: 'GET', 
-
-headers: headers 
-}) 
-.then(function(res) { 
-    return res.json(); 
-}).then(function(body) { 
-    console.log(body); 
-}); 
+const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
+const epochs = await CBI.core.epochs_({ "odata": true, "no": 30 });
+console.log(epochs); 
 ``` 
 
 </TabItem> 
 <TabItem value="py" label="Python"> 
 
 ```py 
-import requests 
-headers = { 
-'Accept': 'application/json', 
-'Authorization': 'Bearer {access-token}' 
-} 
-
-r = requests.get('/api/core/epochs', headers = headers) 
-
-print(r.json()) 
-``` 
-
-</TabItem> 
-<TabItem value="java" label="Java"> 
-
-```java 
-class HelloWorld { 
-public static void main(String args[]) { 
-    System.out.println("Hello, World"); 
-} 
-} 
+import coming.soon 😀 
 ``` 
 
 </TabItem> 
@@ -549,14 +449,17 @@ public static void main(String args[]) {
 `OK: Successful request.`
 
 ```json
-"id": 0, 
-"out_sum": 0, 
-"fees": 0, 
-"tx_count": 0, 
-"blk_count": 0, 
-"no": 0, 
-"start_time": "2019-08-24T14:15:22Z", 
-"end_time": "2019-08-24T14:15:22Z"
+{
+ "@odata.context": "https://preprod.cardanobi.io/api/core/odata/$metadata#Epochs/$entity",
+ "id": 31,
+ "out_sum": 102865306257160,
+ "fees": 4942589267,
+ "tx_count": 24249,
+ "blk_count": 20386,
+ "no": 30,
+ "start_time": "2022-10-29T00:00:25Z",
+ "end_time": "2022-11-02T23:59:27Z"
+}
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 

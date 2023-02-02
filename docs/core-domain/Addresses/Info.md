@@ -1,7 +1,7 @@
 --- 
 title: '' 
-sidebar_label: 'FetchErrors' 
-sidebar_position: 5 
+sidebar_label: 'Info' 
+sidebar_position: 1 
 --- 
 import styles from '@site/src/components/HomepageFeatures/styles.module.css'; 
 import Tabs from '@theme/Tabs'; 
@@ -13,17 +13,17 @@ import ODataBadge from '@site/src/components/ODataBadge';
 
 :::tip Endpoints Summary 
 
-<EndpointBadge type="GET"/> All pool offline fetch errors<br/>
-<EndpointBadge type="GET"/> One pool offline fetch errors by pool id<br/>
-<EndpointBadge type="GET"/> All pool offline fetch errors <ODataBadge/><br/>
-<EndpointBadge type="GET"/> One pool offline fetch errors by pool id <ODataBadge/><br/>
+<EndpointBadge type="GET"/> All addresses information<br/>
+<EndpointBadge type="GET"/> One address information<br/>
+<EndpointBadge type="GET"/> All addresses information <ODataBadge/><br/>
+<EndpointBadge type="GET"/> One address information <ODataBadge/><br/>
 
 :::
-## <span class="theme-doc-version-badge badge badge--success">GET</span> All pool offline fetch errors
+## <span class="theme-doc-version-badge badge badge--success">GET</span> All addresses information
 
-Returns all pool offline fetch errors.
+Returns useful information for all addresses.
 
-`GET /api/core/pools/offlinefetcherrors`
+`GET /api/core/addresses/info`
 
 ### 👨‍💻 Code samples 
 
@@ -32,8 +32,8 @@ Returns all pool offline fetch errors.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const offlinefetcherrors = await CBI.core.pools.offlinefetcherrors_();
-console.log(offlinefetcherrors); 
+const info = await CBI.core.addresses.info_();
+console.log(info); 
 ``` 
 
 </TabItem> 
@@ -56,21 +56,17 @@ import coming.soon 😀
 ```json
 [
  {
-  "id": 1,
-  "pool_id": 42,
-  "fetch_time": "2022-10-22T21:43:25.380318",
-  "pmr_id": 41,
-  "fetch_error": "Hash mismatch from when fetching metadata from http://preprod.extra-pool.io/metadata.json. Expected a54b3ef96a2d87b1a3b4bb85796df6a492b94b7fcc22b037a6b6dbceebc843a6 but got b5289f660fffce1a45e6c48092c10caffa955a2035c13cca4e89f9c188c98f74.",
-  "retry_count": 0
+  "address": "addr_test1qp002c8zm8qurm8hhpm53qnwq5klq59nfkh64wdsa0ezzfm6a4dhtf3j9wq9nv8he0saauehl0z8muf77jx20ptdp29sdfzqun",
+  "stake_address_id": 1897,
+  "stake_address": "stake_test1upaw6km45cezhqzekrmuhcw77vmlh3ra7yl0fr98s4ks4zccf9kpm",
+  "script_hash": null
  },
  "...",
  {
-  "id": 20,
-  "pool_id": 54,
-  "fetch_time": "2022-10-24T17:19:10.320479",
-  "pmr_id": 58,
-  "fetch_error": "URL parse error from for pool1cg74u7gq3kx2yjfzrwkrxnsk2kase7z7n6tr5vvdnstukdtjz5z resulted in : InvalidUrlException \"pool1cg74u7gq3kx2yjfzrwkrxnsk2kase7z7n6tr5vvdnstukdtjz5z\" \"Invalid URL\"",
-  "retry_count": 4
+  "address": "addr_test1qp00zdgtn3mzmne024ew2q3dsmed6fhx4k25tx4y3qgzldc454md6wja04p45cur8q6734tpp8hdhpj2uduu50d5p39qwra3v8",
+  "stake_address_id": 19901,
+  "stake_address": "stake_test1uq262aka8fwh6s66vwpnsd0g64ssnmkmse9wx7w28k6qcjsekmmnn",
+  "script_hash": null
  }
 ]
 ``` 
@@ -110,12 +106,10 @@ Status Code **200**
 
 |Name|Type|Description| 
 |---|---|---|
-| id|integer(int64)|The pool offline fetch error unique identifier.|
-| pool_id|integer(int64)|The PoolHash table index for the pool this offline fetch error refers.|
-| fetch_time|string(date-time)|The UTC time stamp of the error.|
-| pmr_id|integer(int64)|The PoolMetadataRef table index for this offline data.|
-| fetch_error|string(undefined)|The text of the error.|
-| retry_count|integer(int32)|The number of retries.|
+| address|string(undefined)|The address.|
+| stake_address_id|integer(int64)|The stake addres unique identifier.|
+| stake_address|string(undefined)|The stake address.|
+| script_hash|string(undefined)|The script hash in HEX form in case this address is locked by a script.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -143,17 +137,17 @@ Response schema is undefined.
 </TabItem> 
 </Tabs>
 
-## <span class="theme-doc-version-badge badge badge--success">GET</span> One pool offline fetch errors by pool id
+## <span class="theme-doc-version-badge badge badge--success">GET</span> One address information
 
-Returns the offline fetch errors for one pool given its unique identifier.
+Returns useful information for one given payment address or all payment addresses linked to a given stake address.
 
-`GET /api/core/pools/{pool_id}/offlinefetcherrors`
+`GET /api/core/addresses/{address}/info`
 
 ### 🎰 Parameters 
 
 |Name|Description|Type|Required| 
 |---|---|---|---|
-| pool_id|Pool unique identifier|integer|true|
+| address|A payment address or a stake address|string|true|
 
 
 ### 👨‍💻 Code samples 
@@ -163,8 +157,8 @@ Returns the offline fetch errors for one pool given its unique identifier.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const offlinefetcherrors = await CBI.core.pools.offlinefetcherrors_({ "pool_id": 17 });
-console.log(offlinefetcherrors); 
+const info = await CBI.core.addresses.info_({ "address": "stake_test1uqh4cqczjpcjgnd3vhntldk9utmc3754tyrxy9seghptzwc6zayzz" });
+console.log(info); 
 ``` 
 
 </TabItem> 
@@ -186,7 +180,19 @@ import coming.soon 😀
 
 ```json
 [
- "..."
+ {
+  "address": "addr_test1qp4fa90pt97exrcqp9cayal6gmyz53a8uwpceqlzq6kxcw30tsps9yr3y3xmze0xh7mvtchh3raf2kgxvgtpj3wzkyas3rjmxw",
+  "stake_address_id": 3286,
+  "stake_address": "stake_test1uqh4cqczjpcjgnd3vhntldk9utmc3754tyrxy9seghptzwc6zayzz",
+  "script_hash": null
+ },
+ "...",
+ {
+  "address": "addr_test1qzxrxs4djcjxq92qwsr5xjsktfpqzjj3e3trw5etxqq86zp0tsps9yr3y3xmze0xh7mvtchh3raf2kgxvgtpj3wzkyas2fm6ku",
+  "stake_address_id": 3286,
+  "stake_address": "stake_test1uqh4cqczjpcjgnd3vhntldk9utmc3754tyrxy9seghptzwc6zayzz",
+  "script_hash": null
+ }
 ]
 ``` 
 </TabItem> 
@@ -225,12 +231,10 @@ Status Code **200**
 
 |Name|Type|Description| 
 |---|---|---|
-| id|integer(int64)|The pool offline fetch error unique identifier.|
-| pool_id|integer(int64)|The PoolHash table index for the pool this offline fetch error refers.|
-| fetch_time|string(date-time)|The UTC time stamp of the error.|
-| pmr_id|integer(int64)|The PoolMetadataRef table index for this offline data.|
-| fetch_error|string(undefined)|The text of the error.|
-| retry_count|integer(int32)|The number of retries.|
+| address|string(undefined)|The address.|
+| stake_address_id|integer(int64)|The stake addres unique identifier.|
+| stake_address|string(undefined)|The stake address.|
+| script_hash|string(undefined)|The script hash in HEX form in case this address is locked by a script.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -258,11 +262,11 @@ Response schema is undefined.
 </TabItem> 
 </Tabs>
 
-## <span class="theme-doc-version-badge badge badge--success">GET</span> All pool offline fetch errors <span class="theme-doc-version-badge badge badge-odata"> OData</span>
+## <span class="theme-doc-version-badge badge badge--success">GET</span> All addresses information <span class="theme-doc-version-badge badge badge-odata"> OData</span>
 
-Returns all pool offline fetch errors.
+Returns useful information for all addresses.
 
-`GET /api/core/odata/poolsofflinefetcherrors`
+`GET /api/core/odata/addressesinfo`
 
 ### 👨‍💻 Code samples 
 
@@ -271,8 +275,8 @@ Returns all pool offline fetch errors.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const poolsofflinefetcherrors = await CBI.core.poolsofflinefetcherrors_({ "odata": true });
-console.log(poolsofflinefetcherrors); 
+const addressesinfo = await CBI.core.addressesinfo_({ "odata": true });
+console.log(addressesinfo); 
 ``` 
 
 </TabItem> 
@@ -294,27 +298,23 @@ import coming.soon 😀
 
 ```json
 {
- "@odata.context": "https://preprod.cardanobi.io/api/core/odata/$metadata#PoolsOfflineFetchErrors",
+ "@odata.context": "https://preprod.cardanobi.io/api/core/odata/$metadata#AddressesInfo",
  "value": [
   {
-   "id": 1,
-   "pool_id": 42,
-   "fetch_time": "2022-10-22T21:43:25.380318Z",
-   "pmr_id": 41,
-   "fetch_error": "Hash mismatch from when fetching metadata from http://preprod.extra-pool.io/metadata.json. Expected a54b3ef96a2d87b1a3b4bb85796df6a492b94b7fcc22b037a6b6dbceebc843a6 but got b5289f660fffce1a45e6c48092c10caffa955a2035c13cca4e89f9c188c98f74.",
-   "retry_count": 0
+   "address": "addr_test1qp002c8zm8qurm8hhpm53qnwq5klq59nfkh64wdsa0ezzfm6a4dhtf3j9wq9nv8he0saauehl0z8muf77jx20ptdp29sdfzqun",
+   "stake_address_id": 1897,
+   "stake_address": "stake_test1upaw6km45cezhqzekrmuhcw77vmlh3ra7yl0fr98s4ks4zccf9kpm",
+   "script_hash": null
   },
   "...",
   {
-   "id": 20,
-   "pool_id": 54,
-   "fetch_time": "2022-10-24T17:19:10.320479Z",
-   "pmr_id": 58,
-   "fetch_error": "URL parse error from for pool1cg74u7gq3kx2yjfzrwkrxnsk2kase7z7n6tr5vvdnstukdtjz5z resulted in : InvalidUrlException \"pool1cg74u7gq3kx2yjfzrwkrxnsk2kase7z7n6tr5vvdnstukdtjz5z\" \"Invalid URL\"",
-   "retry_count": 4
+   "address": "addr_test1qp00zdgtn3mzmne024ew2q3dsmed6fhx4k25tx4y3qgzldc454md6wja04p45cur8q6734tpp8hdhpj2uduu50d5p39qwra3v8",
+   "stake_address_id": 19901,
+   "stake_address": "stake_test1uq262aka8fwh6s66vwpnsd0g64ssnmkmse9wx7w28k6qcjsekmmnn",
+   "script_hash": null
   }
  ],
- "@odata.nextLink": "https://preprod.cardanobi.io/api/core/odata/poolsofflinefetcherrors?$skip=20"
+ "@odata.nextLink": "https://preprod.cardanobi.io/api/core/odata/addressesinfo?$skip=20"
 }
 ``` 
 </TabItem> 
@@ -353,12 +353,10 @@ Status Code **200**
 
 |Name|Type|Description| 
 |---|---|---|
-| id|integer(int64)|The pool offline fetch error unique identifier.|
-| pool_id|integer(int64)|The PoolHash table index for the pool this offline fetch error refers.|
-| fetch_time|string(date-time)|The UTC time stamp of the error.|
-| pmr_id|integer(int64)|The PoolMetadataRef table index for this offline data.|
-| fetch_error|string(undefined)|The text of the error.|
-| retry_count|integer(int32)|The number of retries.|
+| address|string(undefined)|The address.|
+| stake_address_id|integer(int64)|The stake addres unique identifier.|
+| stake_address|string(undefined)|The stake address.|
+| script_hash|string(undefined)|The script hash in HEX form in case this address is locked by a script.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -386,17 +384,17 @@ Response schema is undefined.
 </TabItem> 
 </Tabs>
 
-## <span class="theme-doc-version-badge badge badge--success">GET</span> One pool offline fetch errors by pool id <span class="theme-doc-version-badge badge badge-odata"> OData</span>
+## <span class="theme-doc-version-badge badge badge--success">GET</span> One address information <span class="theme-doc-version-badge badge badge-odata"> OData</span>
 
-Returns the offline fetch errors for one pool given its unique identifier.
+Returns useful information for one given payment address or all payment addresses linked to a given stake address.
 
-`GET /api/core/odata/poolsofflinefetcherrors/{pool_id}`
+`GET /api/core/odata/addressesinfo/{address}`
 
 ### 🎰 Parameters 
 
 |Name|Description|Type|Required| 
 |---|---|---|---|
-| pool_id|Pool unique identifier|integer|true|
+| address|A payment address or a stake address|string|true|
 
 
 ### 👨‍💻 Code samples 
@@ -406,8 +404,8 @@ Returns the offline fetch errors for one pool given its unique identifier.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const poolsofflinefetcherrors = await CBI.core.poolsofflinefetcherrors_({ "odata": true, "pool_id": 17 });
-console.log(poolsofflinefetcherrors); 
+const addressesinfo = await CBI.core.addressesinfo_({ "odata": true, "address": "stake_test1uqh4cqczjpcjgnd3vhntldk9utmc3754tyrxy9seghptzwc6zayzz" });
+console.log(addressesinfo); 
 ``` 
 
 </TabItem> 
@@ -429,9 +427,21 @@ import coming.soon 😀
 
 ```json
 {
- "@odata.context": "https://preprod.cardanobi.io/api/core/odata/$metadata#PoolsOfflineFetchErrors",
+ "@odata.context": "https://preprod.cardanobi.io/api/core/odata/$metadata#AddressesInfo",
  "value": [
-  "..."
+  {
+   "address": "addr_test1qp4fa90pt97exrcqp9cayal6gmyz53a8uwpceqlzq6kxcw30tsps9yr3y3xmze0xh7mvtchh3raf2kgxvgtpj3wzkyas3rjmxw",
+   "stake_address_id": 3286,
+   "stake_address": "stake_test1uqh4cqczjpcjgnd3vhntldk9utmc3754tyrxy9seghptzwc6zayzz",
+   "script_hash": null
+  },
+  "...",
+  {
+   "address": "addr_test1qzxrxs4djcjxq92qwsr5xjsktfpqzjj3e3trw5etxqq86zp0tsps9yr3y3xmze0xh7mvtchh3raf2kgxvgtpj3wzkyas2fm6ku",
+   "stake_address_id": 3286,
+   "stake_address": "stake_test1uqh4cqczjpcjgnd3vhntldk9utmc3754tyrxy9seghptzwc6zayzz",
+   "script_hash": null
+  }
  ]
 }
 ``` 
@@ -471,12 +481,10 @@ Status Code **200**
 
 |Name|Type|Description| 
 |---|---|---|
-| id|integer(int64)|The pool offline fetch error unique identifier.|
-| pool_id|integer(int64)|The PoolHash table index for the pool this offline fetch error refers.|
-| fetch_time|string(date-time)|The UTC time stamp of the error.|
-| pmr_id|integer(int64)|The PoolMetadataRef table index for this offline data.|
-| fetch_error|string(undefined)|The text of the error.|
-| retry_count|integer(int32)|The number of retries.|
+| address|string(undefined)|The address.|
+| stake_address_id|integer(int64)|The stake addres unique identifier.|
+| stake_address|string(undefined)|The stake address.|
+| script_hash|string(undefined)|The script hash in HEX form in case this address is locked by a script.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 

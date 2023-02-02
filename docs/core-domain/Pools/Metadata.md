@@ -1,7 +1,7 @@
 --- 
 title: '' 
 sidebar_label: 'Metadata' 
-sidebar_position: 5 
+sidebar_position: 7 
 --- 
 import styles from '@site/src/components/HomepageFeatures/styles.module.css'; 
 import Tabs from '@theme/Tabs'; 
@@ -29,51 +29,19 @@ Returns all on-chain references to off-chain pool metadata.
 ### 👨‍💻 Code samples 
 
 <Tabs> 
-<TabItem value="js" label="JavaScript"> 
+<TabItem value="js" label="Node.js"> 
 
 ```js 
-const headers = { 
-'Accept':'application/json', 
-'Authorization':'Bearer {access-token}' 
-}; 
-
-fetch('/api/core/epochs', 
-{ 
-method: 'GET', 
-
-headers: headers 
-}) 
-.then(function(res) { 
-    return res.json(); 
-}).then(function(body) { 
-    console.log(body); 
-}); 
+const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
+const metadata = await CBI.core.pools.metadata_();
+console.log(metadata); 
 ``` 
 
 </TabItem> 
 <TabItem value="py" label="Python"> 
 
 ```py 
-import requests 
-headers = { 
-'Accept': 'application/json', 
-'Authorization': 'Bearer {access-token}' 
-} 
-
-r = requests.get('/api/core/epochs', headers = headers) 
-
-print(r.json()) 
-``` 
-
-</TabItem> 
-<TabItem value="java" label="Java"> 
-
-```java 
-class HelloWorld { 
-public static void main(String args[]) { 
-    System.out.println("Hello, World"); 
-} 
-} 
+import coming.soon 😀 
 ``` 
 
 </TabItem> 
@@ -87,16 +55,25 @@ public static void main(String args[]) {
 `OK: Successful request.`
 
 ```json
-[ 
- { 
-  "id": 0, 
-  "pool_id": 0, 
-  "url": 0, 
-  "hash": 0, 
-  "registered_tx_id": 0, 
-  "hash_hex": 0
- } 
-] 
+[
+ {
+  "id": 1,
+  "pool_id": 4,
+  "url": "https://angelstakepool.net/preprod/angel.json",
+  "hash": "v0RwndcUdCaI7v8rbKVXP+MSouX0nVZMTCMRkjxjlSw=",
+  "registered_tx_id": 132,
+  "hash_hex": "bf44709dd714742688eeff2b6ca5573fe312a2e5f49d564c4c2311923c63952c"
+ },
+ "...",
+ {
+  "id": 21,
+  "pool_id": 23,
+  "url": "https://wota.sbs/metadata_004.json",
+  "hash": "gBUMGfUqh55xDmyrlcsFCMXDn3uMpHdxbOzKp/apv58=",
+  "registered_tx_id": 741,
+  "hash_hex": "80150c19f52a879e710e6cab95cb0508c5c39f7b8ca477716ceccaa7f6a9bf9f"
+ }
+]
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 
@@ -183,51 +160,19 @@ Returns the on-chain references to off-chain pool metadata for one pool given it
 ### 👨‍💻 Code samples 
 
 <Tabs> 
-<TabItem value="js" label="JavaScript"> 
+<TabItem value="js" label="Node.js"> 
 
 ```js 
-const headers = { 
-'Accept':'application/json', 
-'Authorization':'Bearer {access-token}' 
-}; 
-
-fetch('/api/core/epochs', 
-{ 
-method: 'GET', 
-
-headers: headers 
-}) 
-.then(function(res) { 
-    return res.json(); 
-}).then(function(body) { 
-    console.log(body); 
-}); 
+const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
+const metadata = await CBI.core.pools.metadata_({ "pool_id": 17 });
+console.log(metadata); 
 ``` 
 
 </TabItem> 
 <TabItem value="py" label="Python"> 
 
 ```py 
-import requests 
-headers = { 
-'Accept': 'application/json', 
-'Authorization': 'Bearer {access-token}' 
-} 
-
-r = requests.get('/api/core/epochs', headers = headers) 
-
-print(r.json()) 
-``` 
-
-</TabItem> 
-<TabItem value="java" label="Java"> 
-
-```java 
-class HelloWorld { 
-public static void main(String args[]) { 
-    System.out.println("Hello, World"); 
-} 
-} 
+import coming.soon 😀 
 ``` 
 
 </TabItem> 
@@ -241,16 +186,25 @@ public static void main(String args[]) {
 `OK: Successful request.`
 
 ```json
-[ 
- { 
-  "id": 0, 
-  "pool_id": 0, 
-  "url": 0, 
-  "hash": 0, 
-  "registered_tx_id": 0, 
-  "hash_hex": 0
- } 
-] 
+[
+ {
+  "id": 15,
+  "pool_id": 17,
+  "url": "https://adacapital.io/adact_preprod.json",
+  "hash": "rF+8U6PRSTtboOoXcv1dT9o81yuolQP/ImGjkFL80vU=",
+  "registered_tx_id": 537,
+  "hash_hex": "ac5fbc53a3d1493b5ba0ea1772fd5d4fda3cd72ba89503ff2261a39052fcd2f5"
+ },
+ "...",
+ {
+  "id": 15,
+  "pool_id": 17,
+  "url": "https://adacapital.io/adact_preprod.json",
+  "hash": "rF+8U6PRSTtboOoXcv1dT9o81yuolQP/ImGjkFL80vU=",
+  "registered_tx_id": 537,
+  "hash_hex": "ac5fbc53a3d1493b5ba0ea1772fd5d4fda3cd72ba89503ff2261a39052fcd2f5"
+ }
+]
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 
@@ -325,7 +279,7 @@ Response schema is undefined.
 
 Returns the on-chain references to off-chain pool metadata for one pool given its metadata hash.
 
-`GET /api/core/pools/metadata/hash/{meta_hash}`
+`GET /api/core/pools/metadata/hashes/{meta_hash}`
 
 ### 🎰 Parameters 
 
@@ -337,51 +291,19 @@ Returns the on-chain references to off-chain pool metadata for one pool given it
 ### 👨‍💻 Code samples 
 
 <Tabs> 
-<TabItem value="js" label="JavaScript"> 
+<TabItem value="js" label="Node.js"> 
 
 ```js 
-const headers = { 
-'Accept':'application/json', 
-'Authorization':'Bearer {access-token}' 
-}; 
-
-fetch('/api/core/epochs', 
-{ 
-method: 'GET', 
-
-headers: headers 
-}) 
-.then(function(res) { 
-    return res.json(); 
-}).then(function(body) { 
-    console.log(body); 
-}); 
+const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
+const metadata_hashes = await CBI.core.pools.metadata.hashes_({ "meta_hash": "ac5fbc53a3d1493b5ba0ea1772fd5d4fda3cd72ba89503ff2261a39052fcd2f5" });
+console.log(metadata_hashes); 
 ``` 
 
 </TabItem> 
 <TabItem value="py" label="Python"> 
 
 ```py 
-import requests 
-headers = { 
-'Accept': 'application/json', 
-'Authorization': 'Bearer {access-token}' 
-} 
-
-r = requests.get('/api/core/epochs', headers = headers) 
-
-print(r.json()) 
-``` 
-
-</TabItem> 
-<TabItem value="java" label="Java"> 
-
-```java 
-class HelloWorld { 
-public static void main(String args[]) { 
-    System.out.println("Hello, World"); 
-} 
-} 
+import coming.soon 😀 
 ``` 
 
 </TabItem> 
@@ -395,16 +317,25 @@ public static void main(String args[]) {
 `OK: Successful request.`
 
 ```json
-[ 
- { 
-  "id": 0, 
-  "pool_id": 0, 
-  "url": 0, 
-  "hash": 0, 
-  "registered_tx_id": 0, 
-  "hash_hex": 0
- } 
-] 
+[
+ {
+  "id": 15,
+  "pool_id": 17,
+  "url": "https://adacapital.io/adact_preprod.json",
+  "hash": "rF+8U6PRSTtboOoXcv1dT9o81yuolQP/ImGjkFL80vU=",
+  "registered_tx_id": 537,
+  "hash_hex": "ac5fbc53a3d1493b5ba0ea1772fd5d4fda3cd72ba89503ff2261a39052fcd2f5"
+ },
+ "...",
+ {
+  "id": 15,
+  "pool_id": 17,
+  "url": "https://adacapital.io/adact_preprod.json",
+  "hash": "rF+8U6PRSTtboOoXcv1dT9o81yuolQP/ImGjkFL80vU=",
+  "registered_tx_id": 537,
+  "hash_hex": "ac5fbc53a3d1493b5ba0ea1772fd5d4fda3cd72ba89503ff2261a39052fcd2f5"
+ }
+]
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 
@@ -484,51 +415,19 @@ Returns all on-chain references to off-chain pool metadata.
 ### 👨‍💻 Code samples 
 
 <Tabs> 
-<TabItem value="js" label="JavaScript"> 
+<TabItem value="js" label="Node.js"> 
 
 ```js 
-const headers = { 
-'Accept':'application/json', 
-'Authorization':'Bearer {access-token}' 
-}; 
-
-fetch('/api/core/epochs', 
-{ 
-method: 'GET', 
-
-headers: headers 
-}) 
-.then(function(res) { 
-    return res.json(); 
-}).then(function(body) { 
-    console.log(body); 
-}); 
+const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
+const poolsmetadata = await CBI.core.poolsmetadata_({ "odata": true });
+console.log(poolsmetadata); 
 ``` 
 
 </TabItem> 
 <TabItem value="py" label="Python"> 
 
 ```py 
-import requests 
-headers = { 
-'Accept': 'application/json', 
-'Authorization': 'Bearer {access-token}' 
-} 
-
-r = requests.get('/api/core/epochs', headers = headers) 
-
-print(r.json()) 
-``` 
-
-</TabItem> 
-<TabItem value="java" label="Java"> 
-
-```java 
-class HelloWorld { 
-public static void main(String args[]) { 
-    System.out.println("Hello, World"); 
-} 
-} 
+import coming.soon 😀 
 ``` 
 
 </TabItem> 
@@ -542,16 +441,29 @@ public static void main(String args[]) {
 `OK: Successful request.`
 
 ```json
-[ 
- { 
-  "id": 0, 
-  "pool_id": 0, 
-  "url": 0, 
-  "hash": 0, 
-  "registered_tx_id": 0, 
-  "hash_hex": 0
- } 
-] 
+{
+ "@odata.context": "https://preprod.cardanobi.io/api/core/odata/$metadata#PoolsMetadata",
+ "value": [
+  {
+   "id": 1,
+   "pool_id": 4,
+   "url": "https://angelstakepool.net/preprod/angel.json",
+   "hash": "v0RwndcUdCaI7v8rbKVXP+MSouX0nVZMTCMRkjxjlSw=",
+   "registered_tx_id": 132,
+   "hash_hex": "bf44709dd714742688eeff2b6ca5573fe312a2e5f49d564c4c2311923c63952c"
+  },
+  "...",
+  {
+   "id": 21,
+   "pool_id": 23,
+   "url": "https://wota.sbs/metadata_004.json",
+   "hash": "gBUMGfUqh55xDmyrlcsFCMXDn3uMpHdxbOzKp/apv58=",
+   "registered_tx_id": 741,
+   "hash_hex": "80150c19f52a879e710e6cab95cb0508c5c39f7b8ca477716ceccaa7f6a9bf9f"
+  }
+ ],
+ "@odata.nextLink": "https://preprod.cardanobi.io/api/core/odata/poolsmetadata?$skip=20"
+}
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 
@@ -638,51 +550,19 @@ Returns the on-chain references to off-chain pool metadata for one pool given it
 ### 👨‍💻 Code samples 
 
 <Tabs> 
-<TabItem value="js" label="JavaScript"> 
+<TabItem value="js" label="Node.js"> 
 
 ```js 
-const headers = { 
-'Accept':'application/json', 
-'Authorization':'Bearer {access-token}' 
-}; 
-
-fetch('/api/core/epochs', 
-{ 
-method: 'GET', 
-
-headers: headers 
-}) 
-.then(function(res) { 
-    return res.json(); 
-}).then(function(body) { 
-    console.log(body); 
-}); 
+const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
+const poolsmetadata = await CBI.core.poolsmetadata_({ "odata": true, "pool_id": 17 });
+console.log(poolsmetadata); 
 ``` 
 
 </TabItem> 
 <TabItem value="py" label="Python"> 
 
 ```py 
-import requests 
-headers = { 
-'Accept': 'application/json', 
-'Authorization': 'Bearer {access-token}' 
-} 
-
-r = requests.get('/api/core/epochs', headers = headers) 
-
-print(r.json()) 
-``` 
-
-</TabItem> 
-<TabItem value="java" label="Java"> 
-
-```java 
-class HelloWorld { 
-public static void main(String args[]) { 
-    System.out.println("Hello, World"); 
-} 
-} 
+import coming.soon 😀 
 ``` 
 
 </TabItem> 
@@ -696,16 +576,28 @@ public static void main(String args[]) {
 `OK: Successful request.`
 
 ```json
-[ 
- { 
-  "id": 0, 
-  "pool_id": 0, 
-  "url": 0, 
-  "hash": 0, 
-  "registered_tx_id": 0, 
-  "hash_hex": 0
- } 
-] 
+{
+ "@odata.context": "https://preprod.cardanobi.io/api/core/odata/$metadata#PoolsMetadata",
+ "value": [
+  {
+   "id": 15,
+   "pool_id": 17,
+   "url": "https://adacapital.io/adact_preprod.json",
+   "hash": "rF+8U6PRSTtboOoXcv1dT9o81yuolQP/ImGjkFL80vU=",
+   "registered_tx_id": 537,
+   "hash_hex": "ac5fbc53a3d1493b5ba0ea1772fd5d4fda3cd72ba89503ff2261a39052fcd2f5"
+  },
+  "...",
+  {
+   "id": 15,
+   "pool_id": 17,
+   "url": "https://adacapital.io/adact_preprod.json",
+   "hash": "rF+8U6PRSTtboOoXcv1dT9o81yuolQP/ImGjkFL80vU=",
+   "registered_tx_id": 537,
+   "hash_hex": "ac5fbc53a3d1493b5ba0ea1772fd5d4fda3cd72ba89503ff2261a39052fcd2f5"
+  }
+ ]
+}
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 
