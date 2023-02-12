@@ -1,7 +1,7 @@
 --- 
 title: '' 
 sidebar_label: 'Stakes' 
-sidebar_position: 4 
+sidebar_position: 4
 --- 
 import styles from '@site/src/components/HomepageFeatures/styles.module.css'; 
 import Tabs from '@theme/Tabs'; 
@@ -13,149 +13,12 @@ import ODataBadge from '@site/src/components/ODataBadge';
 
 :::tip Endpoints Summary 
 
-<EndpointBadge type="GET"/> All epoch stake distributions<br/>
 <EndpointBadge type="GET"/> One epoch stake distributions<br/>
 <EndpointBadge type="GET"/> One pool stake distributions<br/>
 <EndpointBadge type="GET"/> One epoch and one pool stake distributions<br/>
-<EndpointBadge type="GET"/> All epoch stake distributions <ODataBadge/><br/>
+<EndpointBadge type="GET"/> One epoch stake distributions <ODataBadge/><br/>
 
 :::
-## <span class="theme-doc-version-badge badge badge--success">GET</span> All epoch stake distributions
-
-Returns stake distributions for all epochs and all pools.
-
-`GET /api/core/epochs/stakes`
-
-### 👨‍💻 Code samples 
-
-<Tabs> 
-<TabItem value="js" label="Node.js"> 
-
-```js 
-const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const stakes = await CBI.core.epochs.stakes_();
-console.log(stakes); 
-``` 
-
-</TabItem> 
-<TabItem value="py" label="Python"> 
-
-```py 
-import coming.soon 😀 
-``` 
-
-</TabItem> 
-</Tabs> 
-
-### 💌 Response Codes 
-
-<Tabs groupId="response-type"> 
-<TabItem value="200" label="200" attributes={{className: styles.green}}> 
-
-`OK: Successful request.`
-
-```json
-[
- {
-  "epoch_stake_id": 1,
-  "epoch_stake_amount": 100000000000000,
-  "epoch_stake_epoch_no": 6,
-  "pool_hash_hex": "12946a3fe080dd99af599bfff10a05cd3de19bd38ed85b25dee35dd5",
-  "pool_hash": "pool1z22x50lqsrwent6en0llzzs9e577rx7n3mv9kfw7udwa2rf42fa",
-  "stake_address": "stake_test1uquj460qdrj4az6uy7kvtzct4w8226xq4t30dlzfhc360tgegny4m",
-  "stake_address_hash_hex": "e0392ae9e068e55e8b5c27acc58b0bab8ea568c0aae2f6fc49be23a7ad",
-  "stake_address_script_hash_hex": null,
-  "stake_address_id": 3,
-  "stake_address_tx_id": 10
- },
- "...",
- {
-  "epoch_stake_id": 20,
-  "epoch_stake_amount": 100000000000000,
-  "epoch_stake_epoch_no": 12,
-  "pool_hash_hex": "a57cbcb8ecdf24f469928da924b5bc6e4cbc3b57859577211a0daf6f",
-  "pool_hash": "pool1547tew8vmuj0g6vj3k5jfddudextcw6hsk2hwgg6pkhk7lwphe6",
-  "stake_address": "stake_test1uztg6yppa0t30rslkrneva5c9qju40rhndjnuy356kxw83s6n95nu",
-  "stake_address_hash_hex": "e0968d1021ebd7178e1fb0e79676982825cabc779b653e1234d58ce3c6",
-  "stake_address_script_hash_hex": null,
-  "stake_address_id": 1,
-  "stake_address_tx_id": 10
- }
-]
-``` 
-</TabItem> 
-<TabItem value="400" label="400" attributes={{className: styles.red}}> 
-
-`Bad Request: The request was unacceptable, often due to missing a required parameter.`
-
-```json
-Response schema is undefined.
-``` 
-</TabItem> 
-<TabItem value="401" label="401" attributes={{className: styles.red}}> 
-
-`Unauthorized: No valid API key provided.`
-
-```json
-Response schema is undefined.
-``` 
-</TabItem> 
-<TabItem value="404" label="404" attributes={{className: styles.red}}> 
-
-`Not Found: The requested resource cannot be found.`
-
-```json
-Response schema is undefined.
-``` 
-</TabItem> 
-</Tabs>
-
-### 💌 Response Schemas 
-
-<Tabs groupId="response-type"> 
-<TabItem value="200" label="200" attributes={{className: styles.green}}>
-
-Status Code **200**
-
-|Name|Type|Description| 
-|---|---|---|
-| epoch_stake_id|integer(int64)|The epoch stake unique identifier.|
-| epoch_stake_amount|number(double)|The amount (in Lovelace) being staked.|
-| epoch_stake_epoch_no|integer(int32)|The epoch number.|
-| pool_hash_hex|string(undefined)|The hexadecimal encoding of the pool hash.|
-| pool_hash|string(undefined)|The Bech32 encoding of the pool hash.|
-| stake_address|string(undefined)|The Bech32 encoded version of the stake address hash.|
-| stake_address_hash_hex|string(undefined)|The hexadecimal encoding of the stake address hash.|
-| stake_address_script_hash_hex|string(undefined)|The hexadecimal encoding of the script hash, in case this address is locked by a script.|
-| stake_address_id|integer(int64)|The stake address unique identifier.|
-| stake_address_tx_id|integer(int64)|The Tx table index of the transaction in which this address first appeared.|
-</TabItem> 
-<TabItem value="400" label="400" attributes={{className: styles.red}}>
-
-Status Code **400**
-
-|Name|Type|Description| 
-|---|---|---|
-Response schema is undefined.
-</TabItem> 
-<TabItem value="401" label="401" attributes={{className: styles.red}}>
-
-Status Code **401**
-
-|Name|Type|Description| 
-|---|---|---|
-Response schema is undefined.
-</TabItem> 
-<TabItem value="404" label="404" attributes={{className: styles.red}}>
-
-Status Code **404**
-
-|Name|Type|Description| 
-|---|---|---|
-Response schema is undefined.
-</TabItem> 
-</Tabs>
-
 ## <span class="theme-doc-version-badge badge badge--success">GET</span> One epoch stake distributions
 
 Returns the stake distribution for one epoch given its number.
@@ -176,7 +39,7 @@ Returns the stake distribution for one epoch given its number.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const stakes = await CBI.core.epochs.stakes_({ "no": 30 });
+const stakes = await CBI.core.epochs.stakes_({ "no": 392 });
 console.log(stakes); 
 ``` 
 
@@ -200,29 +63,23 @@ import coming.soon 😀
 ```json
 [
  {
-  "epoch_stake_id": 73,
-  "epoch_stake_amount": 1000000000000,
-  "epoch_stake_epoch_no": 30,
-  "pool_hash_hex": "1d9302a3fb4b3b1935e02b27f0339798d3f08a55fbfdcd43a449a96f",
-  "pool_hash": "pool1rkfs9glmfva3jd0q9vnlqvuhnrflpzj4l07u6sayfx5k7d788us",
-  "stake_address": "stake_test1uqq9ulg0pgntjvt2a45hy2yd6msnw8pgn7vlsmpjvtgk4xscq9k74",
-  "stake_address_hash_hex": "e0005e7d0f0a26b9316aed6972288dd6e1371c289f99f86c3262d16a9a",
-  "stake_address_script_hash_hex": null,
-  "stake_address_id": 632,
-  "stake_address_tx_id": 616
+  "epoch_stake_id": 141700568,
+  "epoch_stake_amount": 4400683,
+  "epoch_stake_epoch_no": 392,
+  "pool_hash": "pool18rpw5dwfywfrzjuy7uzn2cetrw9v85aan8a80p3fdvtqcxykkqu",
+  "stake_address": "stake17y9w027e5q24cj73hga8k2kmzefvtuq73g2r0vctvy24h9c0vjgqq",
+  "stake_address_script_hash_hex": "0ae7abd9a0155c4bd1ba3a7b2adb1652c5f01e8a1437b30b61155b97",
+  "stake_address_id": 5408519
  },
  "...",
  {
-  "epoch_stake_id": 92,
-  "epoch_stake_amount": 1000000000000,
-  "epoch_stake_epoch_no": 30,
-  "pool_hash_hex": "8a77ce4ffc0c690419675aa5396df9a38c9cd20e36483d2d2465ce86",
-  "pool_hash": "pool13fmuunlup35sgxt8t2jnjm0e5wxfe5swxeyr6tfyvh8gv9hdz68",
-  "stake_address": "stake_test1uqykz6yf58hhrtyws026m4ge4pvxw25h5gy6lgggc87mjgsmmq4cg",
-  "stake_address_hash_hex": "e009616889a1ef71ac8e83d5add519a858672a97a209afa108c1fdb922",
+  "epoch_stake_id": 141700587,
+  "epoch_stake_amount": 129298,
+  "epoch_stake_epoch_no": 392,
+  "pool_hash": "pool1xmsdhync6k6grkkj7tuycskjpseykpr24luhlazl5nsngsy87gm",
+  "stake_address": "stake1uyqqptyz5ccxg2amd7n2fxq7pcddj6w7rsvwy9v253g89hcwqkwpt",
   "stake_address_script_hash_hex": null,
-  "stake_address_id": 891,
-  "stake_address_tx_id": 801
+  "stake_address_id": 1108406
  }
 ]
 ``` 
@@ -265,13 +122,10 @@ Status Code **200**
 | epoch_stake_id|integer(int64)|The epoch stake unique identifier.|
 | epoch_stake_amount|number(double)|The amount (in Lovelace) being staked.|
 | epoch_stake_epoch_no|integer(int32)|The epoch number.|
-| pool_hash_hex|string(undefined)|The hexadecimal encoding of the pool hash.|
 | pool_hash|string(undefined)|The Bech32 encoding of the pool hash.|
 | stake_address|string(undefined)|The Bech32 encoded version of the stake address hash.|
-| stake_address_hash_hex|string(undefined)|The hexadecimal encoding of the stake address hash.|
 | stake_address_script_hash_hex|string(undefined)|The hexadecimal encoding of the script hash, in case this address is locked by a script.|
 | stake_address_id|integer(int64)|The stake address unique identifier.|
-| stake_address_tx_id|integer(int64)|The Tx table index of the transaction in which this address first appeared.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -319,7 +173,7 @@ Returns the stake distribution for one pool across all epochs given its Bech32 p
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const stakes_pools = await CBI.core.epochs.stakes.pools_({ "pool_hash": "pool132jxjzyw4awr3s75ltcdx5tv5ecv6m042306l630wqjckhfm32r" });
+const stakes_pools = await CBI.core.epochs.stakes.pools_({ "pool_hash": "pool1y24nj4qdkg35nvvnfawukauggsxrxuy74876cplmxsee29w5axc" });
 console.log(stakes_pools); 
 ``` 
 
@@ -343,29 +197,23 @@ import coming.soon 😀
 ```json
 [
  {
-  "epoch_stake_id": 82,
-  "epoch_stake_amount": 1000000000000,
-  "epoch_stake_epoch_no": 30,
-  "pool_hash_hex": "8aa469088eaf5c38c3d4faf0d3516ca670cd6df5545fafea2f70258b",
-  "pool_hash": "pool132jxjzyw4awr3s75ltcdx5tv5ecv6m042306l630wqjckhfm32r",
-  "stake_address": "stake_test1uqzdl62aynym329elk2a3xkx3jy3dlvkh4ph0clfeynv58s9nsuvf",
-  "stake_address_hash_hex": "e004dfe95d24c9b8a8b9fd95d89ac68c8916fd96bd4377e3e9c926ca1e",
+  "epoch_stake_id": 27444343,
+  "epoch_stake_amount": 10003622270,
+  "epoch_stake_epoch_no": 291,
+  "pool_hash": "pool1y24nj4qdkg35nvvnfawukauggsxrxuy74876cplmxsee29w5axc",
+  "stake_address": "stake1u8a9qstrmj4rvc3k5z8fems7f0j2vztz8det2klgakhfc8ce79fma",
   "stake_address_script_hash_hex": null,
-  "stake_address_id": 335,
-  "stake_address_tx_id": 413
+  "stake_address_id": 2480780
  },
  "...",
  {
-  "epoch_stake_id": 383,
-  "epoch_stake_amount": 0,
-  "epoch_stake_epoch_no": 31,
-  "pool_hash_hex": "8aa469088eaf5c38c3d4faf0d3516ca670cd6df5545fafea2f70258b",
-  "pool_hash": "pool132jxjzyw4awr3s75ltcdx5tv5ecv6m042306l630wqjckhfm32r",
-  "stake_address": "stake_test1uza7fqeuyqkccz9gx4kxdkfktlprwexrjt73g5uz4ejsqxqmj4tam",
-  "stake_address_hash_hex": "e0bbe4833c202d8c08a8356c66d9365fc23764c392fd145382ae650018",
+  "epoch_stake_id": 34070244,
+  "epoch_stake_amount": 5929639482,
+  "epoch_stake_epoch_no": 299,
+  "pool_hash": "pool1y24nj4qdkg35nvvnfawukauggsxrxuy74876cplmxsee29w5axc",
+  "stake_address": "stake1uxznzaxr3s9xkqae6vukvldh7xh6gzndkmcxmmm84tnj0vgysjxst",
   "stake_address_script_hash_hex": null,
-  "stake_address_id": 2162,
-  "stake_address_tx_id": 8103
+  "stake_address_id": 1733254
  }
 ]
 ``` 
@@ -408,13 +256,10 @@ Status Code **200**
 | epoch_stake_id|integer(int64)|The epoch stake unique identifier.|
 | epoch_stake_amount|number(double)|The amount (in Lovelace) being staked.|
 | epoch_stake_epoch_no|integer(int32)|The epoch number.|
-| pool_hash_hex|string(undefined)|The hexadecimal encoding of the pool hash.|
 | pool_hash|string(undefined)|The Bech32 encoding of the pool hash.|
 | stake_address|string(undefined)|The Bech32 encoded version of the stake address hash.|
-| stake_address_hash_hex|string(undefined)|The hexadecimal encoding of the stake address hash.|
 | stake_address_script_hash_hex|string(undefined)|The hexadecimal encoding of the script hash, in case this address is locked by a script.|
 | stake_address_id|integer(int64)|The stake address unique identifier.|
-| stake_address_tx_id|integer(int64)|The Tx table index of the transaction in which this address first appeared.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -463,7 +308,7 @@ Returns the stake distribution for one epoch given its number, and for one pool 
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const stakes_pools = await CBI.core.epochs.stakes.pools_({ "no": 30, "pool_hash": "pool132jxjzyw4awr3s75ltcdx5tv5ecv6m042306l630wqjckhfm32r" });
+const stakes_pools = await CBI.core.epochs.stakes.pools_({ "no": 392, "pool_hash": "pool1y24nj4qdkg35nvvnfawukauggsxrxuy74876cplmxsee29w5axc" });
 console.log(stakes_pools); 
 ``` 
 
@@ -487,29 +332,23 @@ import coming.soon 😀
 ```json
 [
  {
-  "epoch_stake_id": 82,
-  "epoch_stake_amount": 1000000000000,
-  "epoch_stake_epoch_no": 30,
-  "pool_hash_hex": "8aa469088eaf5c38c3d4faf0d3516ca670cd6df5545fafea2f70258b",
-  "pool_hash": "pool132jxjzyw4awr3s75ltcdx5tv5ecv6m042306l630wqjckhfm32r",
-  "stake_address": "stake_test1uqzdl62aynym329elk2a3xkx3jy3dlvkh4ph0clfeynv58s9nsuvf",
-  "stake_address_hash_hex": "e004dfe95d24c9b8a8b9fd95d89ac68c8916fd96bd4377e3e9c926ca1e",
+  "epoch_stake_id": 141740232,
+  "epoch_stake_amount": 698320084,
+  "epoch_stake_epoch_no": 392,
+  "pool_hash": "pool1y24nj4qdkg35nvvnfawukauggsxrxuy74876cplmxsee29w5axc",
+  "stake_address": "stake1uyypyzsyvwh300ca2vtf64gwmf3nafc9w64tcw0za25mk0qmls084",
   "stake_address_script_hash_hex": null,
-  "stake_address_id": 335,
-  "stake_address_tx_id": 413
+  "stake_address_id": 5484089
  },
  "...",
  {
-  "epoch_stake_id": 136,
-  "epoch_stake_amount": 48497420161,
-  "epoch_stake_epoch_no": 30,
-  "pool_hash_hex": "8aa469088eaf5c38c3d4faf0d3516ca670cd6df5545fafea2f70258b",
-  "pool_hash": "pool132jxjzyw4awr3s75ltcdx5tv5ecv6m042306l630wqjckhfm32r",
-  "stake_address": "stake_test1up3hm9j74c560trk9enccpc269wc9xfn4ah8ax8jp3rwtdgtr58qe",
-  "stake_address_hash_hex": "e0637d965eae29a7ac762e678c070ad15d829933af6e7e98f20c46e5b5",
+  "epoch_stake_id": 142480763,
+  "epoch_stake_amount": 19724172141,
+  "epoch_stake_epoch_no": 392,
+  "pool_hash": "pool1y24nj4qdkg35nvvnfawukauggsxrxuy74876cplmxsee29w5axc",
+  "stake_address": "stake1ux09xgzzp3u6lvkgq8f70sqxm346vn8ccc8muvam9aux8wcw9cx9t",
   "stake_address_script_hash_hex": null,
-  "stake_address_id": 489,
-  "stake_address_tx_id": 526
+  "stake_address_id": 788392
  }
 ]
 ``` 
@@ -552,13 +391,10 @@ Status Code **200**
 | epoch_stake_id|integer(int64)|The epoch stake unique identifier.|
 | epoch_stake_amount|number(double)|The amount (in Lovelace) being staked.|
 | epoch_stake_epoch_no|integer(int32)|The epoch number.|
-| pool_hash_hex|string(undefined)|The hexadecimal encoding of the pool hash.|
 | pool_hash|string(undefined)|The Bech32 encoding of the pool hash.|
 | stake_address|string(undefined)|The Bech32 encoded version of the stake address hash.|
-| stake_address_hash_hex|string(undefined)|The hexadecimal encoding of the stake address hash.|
 | stake_address_script_hash_hex|string(undefined)|The hexadecimal encoding of the script hash, in case this address is locked by a script.|
 | stake_address_id|integer(int64)|The stake address unique identifier.|
-| stake_address_tx_id|integer(int64)|The Tx table index of the transaction in which this address first appeared.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -586,11 +422,18 @@ Response schema is undefined.
 </TabItem> 
 </Tabs>
 
-## <span class="theme-doc-version-badge badge badge--success">GET</span> All epoch stake distributions <span class="theme-doc-version-badge badge badge-odata"> OData</span>
+## <span class="theme-doc-version-badge badge badge--success">GET</span> One epoch stake distributions <span class="theme-doc-version-badge badge badge-odata"> OData</span>
 
-Returns stake distributions for all epochs and all pools.
+Returns the stake distribution for one epoch given its number.
 
-`GET /api/core/odata/epochsstakes`
+`GET /api/core/odata/epochsstakes/{no}`
+
+### 🎰 Parameters 
+
+|Name|Description|Type|Required| 
+|---|---|---|---|
+| no|Epoch number|integer|true|
+
 
 ### 👨‍💻 Code samples 
 
@@ -599,7 +442,7 @@ Returns stake distributions for all epochs and all pools.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const epochsstakes = await CBI.core.epochsstakes_({ "odata": true });
+const epochsstakes = await CBI.core.epochsstakes_({ "odata": true, "no": 392 });
 console.log(epochsstakes); 
 ``` 
 
@@ -622,35 +465,29 @@ import coming.soon 😀
 
 ```json
 {
- "@odata.context": "https://preprod.cardanobi.io/api/core/odata/$metadata#EpochsStakes",
+ "@odata.context": "https://mainnet.cardanobi.io/api/core/odata/$metadata#EpochsStakes",
  "value": [
   {
-   "epoch_stake_id": 1,
-   "epoch_stake_amount": 100000000000000,
-   "epoch_stake_epoch_no": 6,
-   "pool_hash_hex": "12946a3fe080dd99af599bfff10a05cd3de19bd38ed85b25dee35dd5",
-   "pool_hash": "pool1z22x50lqsrwent6en0llzzs9e577rx7n3mv9kfw7udwa2rf42fa",
-   "stake_address": "stake_test1uquj460qdrj4az6uy7kvtzct4w8226xq4t30dlzfhc360tgegny4m",
-   "stake_address_hash_hex": "e0392ae9e068e55e8b5c27acc58b0bab8ea568c0aae2f6fc49be23a7ad",
-   "stake_address_script_hash_hex": null,
-   "stake_address_id": 3,
-   "stake_address_tx_id": 10
+   "epoch_stake_id": 141700568,
+   "epoch_stake_amount": 4400683,
+   "epoch_stake_epoch_no": 392,
+   "pool_hash": "pool18rpw5dwfywfrzjuy7uzn2cetrw9v85aan8a80p3fdvtqcxykkqu",
+   "stake_address": "stake17y9w027e5q24cj73hga8k2kmzefvtuq73g2r0vctvy24h9c0vjgqq",
+   "stake_address_script_hash_hex": "0ae7abd9a0155c4bd1ba3a7b2adb1652c5f01e8a1437b30b61155b97",
+   "stake_address_id": 5408519
   },
   "...",
   {
-   "epoch_stake_id": 20,
-   "epoch_stake_amount": 100000000000000,
-   "epoch_stake_epoch_no": 12,
-   "pool_hash_hex": "a57cbcb8ecdf24f469928da924b5bc6e4cbc3b57859577211a0daf6f",
-   "pool_hash": "pool1547tew8vmuj0g6vj3k5jfddudextcw6hsk2hwgg6pkhk7lwphe6",
-   "stake_address": "stake_test1uztg6yppa0t30rslkrneva5c9qju40rhndjnuy356kxw83s6n95nu",
-   "stake_address_hash_hex": "e0968d1021ebd7178e1fb0e79676982825cabc779b653e1234d58ce3c6",
+   "epoch_stake_id": 141700587,
+   "epoch_stake_amount": 129298,
+   "epoch_stake_epoch_no": 392,
+   "pool_hash": "pool1xmsdhync6k6grkkj7tuycskjpseykpr24luhlazl5nsngsy87gm",
+   "stake_address": "stake1uyqqptyz5ccxg2amd7n2fxq7pcddj6w7rsvwy9v253g89hcwqkwpt",
    "stake_address_script_hash_hex": null,
-   "stake_address_id": 1,
-   "stake_address_tx_id": 10
+   "stake_address_id": 1108406
   }
  ],
- "@odata.nextLink": "https://preprod.cardanobi.io/api/core/odata/epochsstakes?$skip=20"
+ "@odata.nextLink": "https://mainnet.cardanobi.io/api/core/odata/epochsstakes/392?$skip=20"
 }
 ``` 
 </TabItem> 
@@ -692,13 +529,10 @@ Status Code **200**
 | epoch_stake_id|integer(int64)|The epoch stake unique identifier.|
 | epoch_stake_amount|number(double)|The amount (in Lovelace) being staked.|
 | epoch_stake_epoch_no|integer(int32)|The epoch number.|
-| pool_hash_hex|string(undefined)|The hexadecimal encoding of the pool hash.|
 | pool_hash|string(undefined)|The Bech32 encoding of the pool hash.|
 | stake_address|string(undefined)|The Bech32 encoded version of the stake address hash.|
-| stake_address_hash_hex|string(undefined)|The hexadecimal encoding of the stake address hash.|
 | stake_address_script_hash_hex|string(undefined)|The hexadecimal encoding of the script hash, in case this address is locked by a script.|
 | stake_address_id|integer(int64)|The stake address unique identifier.|
-| stake_address_tx_id|integer(int64)|The Tx table index of the transaction in which this address first appeared.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
