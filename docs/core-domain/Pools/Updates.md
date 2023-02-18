@@ -1,7 +1,6 @@
 --- 
 title: '' 
 sidebar_label: 'Updates' 
-sidebar_position: 10 
 --- 
 import styles from '@site/src/components/HomepageFeatures/styles.module.css'; 
 import Tabs from '@theme/Tabs'; 

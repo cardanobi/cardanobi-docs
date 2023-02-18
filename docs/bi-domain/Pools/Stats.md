@@ -1,7 +1,6 @@
 --- 
 title: '' 
 sidebar_label: 'Stats' 
-sidebar_position: 2 
 --- 
 import styles from '@site/src/components/HomepageFeatures/styles.module.css'; 
 import Tabs from '@theme/Tabs'; 

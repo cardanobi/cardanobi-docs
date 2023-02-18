@@ -1,7 +1,6 @@
 --- 
 title: '' 
 sidebar_label: 'Parameters' 
-sidebar_position: 3 
 --- 
 import styles from '@site/src/components/HomepageFeatures/styles.module.css'; 
 import Tabs from '@theme/Tabs'; 

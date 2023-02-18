@@ -1,7 +1,6 @@
 --- 
 title: '' 
 sidebar_label: 'Metadata' 
-sidebar_position: 7 
 --- 
 import styles from '@site/src/components/HomepageFeatures/styles.module.css'; 
 import Tabs from '@theme/Tabs'; 

@@ -1,7 +1,6 @@
 --- 
 title: '' 
 sidebar_label: 'Info' 
-sidebar_position: 1 
 --- 
 import styles from '@site/src/components/HomepageFeatures/styles.module.css'; 
 import Tabs from '@theme/Tabs'; 

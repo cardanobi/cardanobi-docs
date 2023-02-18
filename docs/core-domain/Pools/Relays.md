@@ -1,7 +1,6 @@
 --- 
 title: '' 
 sidebar_label: 'Relays' 
-sidebar_position: 9 
 --- 
 import styles from '@site/src/components/HomepageFeatures/styles.module.css'; 
 import Tabs from '@theme/Tabs'; 

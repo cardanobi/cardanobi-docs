@@ -34,6 +34,10 @@
   --ifm-hero-background-color: #ffb463;
 }
 
+.hero__title {
+  font-size: 2.8rem;
+}
+
 .header-github-link:before {
   content: '';
   width: 24px;

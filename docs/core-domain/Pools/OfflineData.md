@@ -1,7 +1,6 @@
 --- 
 title: '' 
 sidebar_label: 'OfflineData' 
-sidebar_position: 8 
 --- 
 import styles from '@site/src/components/HomepageFeatures/styles.module.css'; 
 import Tabs from '@theme/Tabs'; 
