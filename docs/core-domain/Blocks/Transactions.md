@@ -54,35 +54,35 @@ import coming.soon 😀
 ```json
 [
  {
-  "id": 61556237,
-  "hash": "WRsGRt8HVA6LgX0o1g0Dy5K2IwL4FYVdi2EcxjTgPWA=",
-  "block_id": 8416601,
+  "id": 63105357,
+  "hash": "zkq2HQhJJ9NNcbLinj1pGqv5IWqGYKeSLscNOV1EGag=",
+  "block_id": 8528093,
   "block_index": 0,
-  "out_sum": 3516415846,
-  "fee": 271145,
+  "out_sum": 159314513,
+  "fee": 265758,
   "deposit": 0,
-  "size": 2626,
+  "size": 936,
   "invalid_before": null,
-  "invalid_hereafter": 85171434,
+  "invalid_hereafter": 87419498,
   "valid_contract": true,
   "script_size": 0,
-  "hash_hex": "591b0646df07540e8b817d28d60d03cb92b62302f815855d8b611cc634e03d60"
+  "hash_hex": "ce4ab61d084927d34d71b2e29e3d691aabf9216a8660a7922ec70d395d4419a8"
  },
  "...",
  {
-  "id": 61556256,
-  "hash": "qEzVVQNL27R/5+38f0PSVkz2xVJZfQFq9r8Knv5slA8=",
-  "block_id": 8416601,
+  "id": 63105376,
+  "hash": "QWPjcH8AqphAPDfTYtg4Lordy8u0fW+CMwpAp68NuAY=",
+  "block_id": 8528093,
   "block_index": 19,
-  "out_sum": 337468416,
-  "fee": 190141,
+  "out_sum": 8163720,
+  "fee": 189701,
   "deposit": 0,
-  "size": 785,
+  "size": 775,
   "invalid_before": null,
-  "invalid_hereafter": 85180444,
+  "invalid_hereafter": 87433320,
   "valid_contract": true,
   "script_size": 0,
-  "hash_hex": "a84cd555034bdbb47fe7edfc7f43d2564cf6c552597d016af6bf0a9efe6c940f"
+  "hash_hex": "4163e3707f00aa98403c37d362d8382e8addcbcbb47d6f82330a40a7af0db806"
  }
 ]
 ``` 
@@ -103,9 +103,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -152,9 +176,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|
@@ -170,9 +218,9 @@ Returns the transactions within one specific block given its number.
 
 ### 🎰 Parameters 
 
-|Name|Description|Type|Required| 
-|---|---|---|---|
-| block_no|Block number|integer|true|
+|Name|Description|In|Type|Required| 
+|---|---|---|---|---|
+| block_no|Block number|path|integer|true|
 
 
 ### 👨‍💻 Code samples 
@@ -182,7 +230,7 @@ Returns the transactions within one specific block given its number.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const transactions = await CBI.core.blocks.transactions_({ "block_no": 8415364 });
+const transactions = await CBI.core.blocks.transactions_({ block_no: 8415364 });
 console.log(transactions); 
 ``` 
 
@@ -255,9 +303,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -304,9 +376,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|
@@ -322,9 +418,9 @@ Returns the transactions within one specific block given its hash.
 
 ### 🎰 Parameters 
 
-|Name|Description|Type|Required| 
-|---|---|---|---|
-| block_hash|Block hash|string|true|
+|Name|Description|In|Type|Required| 
+|---|---|---|---|---|
+| block_hash|Block hash|path|string|true|
 
 
 ### 👨‍💻 Code samples 
@@ -334,7 +430,7 @@ Returns the transactions within one specific block given its hash.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const transactions = await CBI.core.blocks.transactions_({ "block_hash": "89ff1090614105a919c9ccc8bb3914aaef1ddd28214a4d55ff65436d2c9fc0b2" });
+const transactions = await CBI.core.blocks.transactions_({ block_hash: "89ff1090614105a919c9ccc8bb3914aaef1ddd28214a4d55ff65436d2c9fc0b2" });
 console.log(transactions); 
 ``` 
 
@@ -407,9 +503,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -456,9 +576,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|

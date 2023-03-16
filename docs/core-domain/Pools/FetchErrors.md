@@ -56,20 +56,20 @@ import coming.soon 😀
 [
  {
   "id": 1,
-  "pool_id": 42,
-  "fetch_time": "2022-10-22T21:43:25.380318",
-  "pmr_id": 41,
-  "fetch_error": "Hash mismatch from when fetching metadata from http://preprod.extra-pool.io/metadata.json. Expected a54b3ef96a2d87b1a3b4bb85796df6a492b94b7fcc22b037a6b6dbceebc843a6 but got b5289f660fffce1a45e6c48092c10caffa955a2035c13cca4e89f9c188c98f74.",
+  "pool_id": 78,
+  "fetch_time": "2023-02-05T00:10:14.241245",
+  "pmr_id": 82,
+  "fetch_error": "HTTP Response from https://polypool.io/mama.json resulted in HTTP status code : 404 Not Found",
   "retry_count": 0
  },
  "...",
  {
   "id": 20,
-  "pool_id": 54,
-  "fetch_time": "2022-10-24T17:19:10.320479",
-  "pmr_id": 58,
-  "fetch_error": "URL parse error from for pool1cg74u7gq3kx2yjfzrwkrxnsk2kase7z7n6tr5vvdnstukdtjz5z resulted in : InvalidUrlException \"pool1cg74u7gq3kx2yjfzrwkrxnsk2kase7z7n6tr5vvdnstukdtjz5z\" \"Invalid URL\"",
-  "retry_count": 4
+  "pool_id": 270,
+  "fetch_time": "2023-02-05T00:10:14.241245",
+  "pmr_id": 324,
+  "fetch_error": "HTTP Response from https://tinyurl.com/bloom-small resulted in HTTP status code : 403 Forbidden",
+  "retry_count": 0
  }
 ]
 ``` 
@@ -90,9 +90,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -132,9 +156,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|
@@ -150,9 +198,9 @@ Returns the offline fetch errors for one pool given its unique identifier.
 
 ### 🎰 Parameters 
 
-|Name|Description|Type|Required| 
-|---|---|---|---|
-| pool_id|Pool unique identifier|integer|true|
+|Name|Description|In|Type|Required| 
+|---|---|---|---|---|
+| pool_id|Pool unique identifier|path|integer|true|
 
 
 ### 👨‍💻 Code samples 
@@ -162,7 +210,7 @@ Returns the offline fetch errors for one pool given its unique identifier.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const offlinefetcherrors = await CBI.core.pools.offlinefetcherrors_({ "pool_id": 17 });
+const offlinefetcherrors = await CBI.core.pools.offlinefetcherrors_({ pool_id: 4268 });
 console.log(offlinefetcherrors); 
 ``` 
 
@@ -185,7 +233,23 @@ import coming.soon 😀
 
 ```json
 [
- "..."
+ {
+  "id": 16620,
+  "pool_id": 4268,
+  "fetch_time": "2023-02-06T00:16:37.343007",
+  "pmr_id": 25193,
+  "fetch_error": "Hash mismatch from when fetching metadata from https://bit.ly/3nnt1ax. Expected 446a2fc88b19a288f2fb6da512922653c9942000ada10c846d71e48bcea74e8a but got 5f6583fb9515eb9df15715d940205eeac0c2a53e5c83c6eb4276a00a98db8e02.",
+  "retry_count": 0
+ },
+ "...",
+ {
+  "id": 73468,
+  "pool_id": 4268,
+  "fetch_time": "2023-02-24T22:36:23.174784",
+  "pmr_id": 25193,
+  "fetch_error": "URL parse error from for pool1y24nj4qdkg35nvvnfawukauggsxrxuy74876cplmxsee29w5axc resulted in : InvalidUrlException \"pool1y24nj4qdkg35nvvnfawukauggsxrxuy74876cplmxsee29w5axc\" \"Invalid URL\"",
+  "retry_count": 19
+ }
 ]
 ``` 
 </TabItem> 
@@ -205,9 +269,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -247,9 +335,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|
@@ -293,27 +405,27 @@ import coming.soon 😀
 
 ```json
 {
- "@odata.context": "https://preprod.cardanobi.io/api/core/odata/$metadata#PoolsOfflineFetchErrors",
+ "@odata.context": "https://mainnet.cardanobi.io/api/core/odata/$metadata#PoolsOfflineFetchErrors",
  "value": [
   {
    "id": 1,
-   "pool_id": 42,
-   "fetch_time": "2022-10-22T21:43:25.380318Z",
-   "pmr_id": 41,
-   "fetch_error": "Hash mismatch from when fetching metadata from http://preprod.extra-pool.io/metadata.json. Expected a54b3ef96a2d87b1a3b4bb85796df6a492b94b7fcc22b037a6b6dbceebc843a6 but got b5289f660fffce1a45e6c48092c10caffa955a2035c13cca4e89f9c188c98f74.",
+   "pool_id": 78,
+   "fetch_time": "2023-02-05T00:10:14.241245Z",
+   "pmr_id": 82,
+   "fetch_error": "HTTP Response from https://polypool.io/mama.json resulted in HTTP status code : 404 Not Found",
    "retry_count": 0
   },
   "...",
   {
    "id": 20,
-   "pool_id": 54,
-   "fetch_time": "2022-10-24T17:19:10.320479Z",
-   "pmr_id": 58,
-   "fetch_error": "URL parse error from for pool1cg74u7gq3kx2yjfzrwkrxnsk2kase7z7n6tr5vvdnstukdtjz5z resulted in : InvalidUrlException \"pool1cg74u7gq3kx2yjfzrwkrxnsk2kase7z7n6tr5vvdnstukdtjz5z\" \"Invalid URL\"",
-   "retry_count": 4
+   "pool_id": 270,
+   "fetch_time": "2023-02-05T00:10:14.241245Z",
+   "pmr_id": 324,
+   "fetch_error": "HTTP Response from https://tinyurl.com/bloom-small resulted in HTTP status code : 403 Forbidden",
+   "retry_count": 0
   }
  ],
- "@odata.nextLink": "https://preprod.cardanobi.io/api/core/odata/poolsofflinefetcherrors?$skip=20"
+ "@odata.nextLink": "https://mainnet.cardanobi.io/api/core/odata/poolsofflinefetcherrors?$skip=20"
 }
 ``` 
 </TabItem> 
@@ -333,9 +445,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -375,9 +511,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|
@@ -393,9 +553,9 @@ Returns the offline fetch errors for one pool given its unique identifier.
 
 ### 🎰 Parameters 
 
-|Name|Description|Type|Required| 
-|---|---|---|---|
-| pool_id|Pool unique identifier|integer|true|
+|Name|Description|In|Type|Required| 
+|---|---|---|---|---|
+| pool_id|Pool unique identifier|path|integer|true|
 
 
 ### 👨‍💻 Code samples 
@@ -405,7 +565,7 @@ Returns the offline fetch errors for one pool given its unique identifier.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const poolsofflinefetcherrors = await CBI.core.poolsofflinefetcherrors_({ "odata": true, "pool_id": 17 });
+const poolsofflinefetcherrors = await CBI.core.poolsofflinefetcherrors_({ "odata": true, pool_id: 4268 });
 console.log(poolsofflinefetcherrors); 
 ``` 
 
@@ -428,10 +588,27 @@ import coming.soon 😀
 
 ```json
 {
- "@odata.context": "https://preprod.cardanobi.io/api/core/odata/$metadata#PoolsOfflineFetchErrors",
+ "@odata.context": "https://mainnet.cardanobi.io/api/core/odata/$metadata#PoolsOfflineFetchErrors",
  "value": [
-  "..."
- ]
+  {
+   "id": 16620,
+   "pool_id": 4268,
+   "fetch_time": "2023-02-06T00:16:37.343007Z",
+   "pmr_id": 25193,
+   "fetch_error": "Hash mismatch from when fetching metadata from https://bit.ly/3nnt1ax. Expected 446a2fc88b19a288f2fb6da512922653c9942000ada10c846d71e48bcea74e8a but got 5f6583fb9515eb9df15715d940205eeac0c2a53e5c83c6eb4276a00a98db8e02.",
+   "retry_count": 0
+  },
+  "...",
+  {
+   "id": 73468,
+   "pool_id": 4268,
+   "fetch_time": "2023-02-24T22:36:23.174784Z",
+   "pmr_id": 25193,
+   "fetch_error": "URL parse error from for pool1y24nj4qdkg35nvvnfawukauggsxrxuy74876cplmxsee29w5axc resulted in : InvalidUrlException \"pool1y24nj4qdkg35nvvnfawukauggsxrxuy74876cplmxsee29w5axc\" \"Invalid URL\"",
+   "retry_count": 19
+  }
+ ],
+ "@odata.nextLink": "https://mainnet.cardanobi.io/api/core/odata/poolsofflinefetcherrors/4268?$skip=20"
 }
 ``` 
 </TabItem> 
@@ -451,9 +628,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -493,9 +694,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|

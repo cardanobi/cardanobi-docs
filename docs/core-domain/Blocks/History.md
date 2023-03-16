@@ -26,10 +26,10 @@ Returns the history of blocks starting from the latest block.
 
 ### 🎰 Parameters 
 
-|Name|Description|Type|Required| 
-|---|---|---|---|
-| block_no|Block number to search from - defaults to the latest known block|integer|undefined|
-| depth|Number of blocks to return - defaults to 20 - max 100|integer|undefined|
+|Name|Description|In|Type|Required| 
+|---|---|---|---|---|
+| block_no|Block number to search from - defaults to the latest known block|query|integer|false|
+| depth|Number of blocks to return - defaults to 20 - max 100|query|integer|false|
 
 
 ### 👨‍💻 Code samples 
@@ -39,7 +39,7 @@ Returns the history of blocks starting from the latest block.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const history = await CBI.core.blocks.history_({ "block_no": 8415364, "depth": 20 });
+const history = await CBI.core.blocks.history_({ block_no: 8415364, depth: 20 });
 console.log(history); 
 ``` 
 
@@ -63,45 +63,45 @@ import coming.soon 😀
 ```json
 [
  {
-  "id": 8416582,
-  "hash": "OvameL8I8XFKELj47exOlwfqmbzOlzE2iFzyTo9Z40Q=",
+  "id": 8416412,
+  "hash": "wfrezN7rrGzvKjmT9Ygk8uP0jB/NEIp25GY/QuflmAY=",
   "epoch_no": 394,
-  "slot_no": 85169226,
-  "epoch_slot_no": 324426,
-  "block_no": 8415513,
-  "previous_id": 8416581,
-  "slot_leader_id": 5152260,
-  "size": 88136,
-  "time": "2023-02-18T15:51:57",
-  "tx_count": 45,
+  "slot_no": 85165277,
+  "epoch_slot_no": 320477,
+  "block_no": 8415345,
+  "previous_id": 8416411,
+  "slot_leader_id": 5644002,
+  "size": 1502,
+  "time": "2023-02-18T14:46:08",
+  "tx_count": 2,
   "proto_major": 8,
   "proto_minor": 0,
-  "vrf_key": "vrf_vk1360snatudsnaz8lq0cxtsztdgxfp67mypth6tgfvu23y4yj3u96qvq0gv6",
-  "op_cert": "pvYwwNCak0eEreyjyUGltUhvdHM7dTyAhXClseeai0w=",
-  "op_cert_counter": 13,
-  "hash_hex": "3af6a678bf08f1714a10b8f8edec4e9707ea99bcce973136885cf24e8f59e344",
-  "op_cert_hex": "a6f630c0d09a934784adeca3c941a5b5486f74733b753c808570a5b1e79a8b4c"
+  "vrf_key": "vrf_vk1tk8arggze6yrypa3sv3s8fxzqvnc5s6g6fp2ledgtqu453f204lsjesn39",
+  "op_cert": "tWUUkmzaTSE65vvWHVdzzsj/ndpyl7nPleIuO3vhaPs=",
+  "op_cert_counter": 8,
+  "hash_hex": "c1fadeccdeebac6cef2a3993f58824f2e3f48c1fcd108a76e4663f42e7e59806",
+  "op_cert_hex": "b56514926cda4d213ae6fbd61d5773cec8ff9dda7297b9cf95e22e3b7be168fb"
  },
  "...",
  {
-  "id": 8416601,
-  "hash": "bMbDTu34fPIzjYCyqgwjiKgDid51fvyd8MX9m2wi/Lc=",
+  "id": 8416431,
+  "hash": "if8QkGFBBakZyczIuzkUqu8d3SghSk1V/2VDbSyfwLI=",
   "epoch_no": 394,
-  "slot_no": 85169676,
-  "epoch_slot_no": 324876,
-  "block_no": 8415532,
-  "previous_id": 8416600,
-  "slot_leader_id": 4555865,
-  "size": 72659,
-  "time": "2023-02-18T15:59:27",
-  "tx_count": 34,
+  "slot_no": 85165743,
+  "epoch_slot_no": 320943,
+  "block_no": 8415364,
+  "previous_id": 8416430,
+  "slot_leader_id": 7195394,
+  "size": 47554,
+  "time": "2023-02-18T14:53:54",
+  "tx_count": 25,
   "proto_major": 8,
   "proto_minor": 0,
-  "vrf_key": "vrf_vk1y6rlw79mmm0pjw2n29w0rjr5vgqsrje3nasr3elt2kvm0v9g0z5q40m3d2",
-  "op_cert": "r1OdiV56K+5yjbEUIcUhU8lxhVBXCLRESLE4H8LTs9k=",
-  "op_cert_counter": 13,
-  "hash_hex": "6cc6c34eedf87cf2338d80b2aa0c2388a80389de757efc9df0c5fd9b6c22fcb7",
-  "op_cert_hex": "af539d895e7a2bee728db11421c52153c97185505708b44448b1381fc2d3b3d9"
+  "vrf_key": "vrf_vk1ksvt6yywk5j2wkq3rmkxghgru7svaetmjnf8kx4636x7pwcdmgrsy8peyv",
+  "op_cert": "LRXcL8sndi7y+wi7cjGLkUD+cYn7yq2+GFICiVMrC80=",
+  "op_cert_counter": 5,
+  "hash_hex": "89ff1090614105a919c9ccc8bb3914aaef1ddd28214a4d55ff65436d2c9fc0b2",
+  "op_cert_hex": "2d15dc2fcb27762ef2fb08bb72318b9140fe7189fbcaadbe18520289532b0bcd"
  }
 ]
 ``` 
@@ -122,9 +122,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -176,9 +200,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|
@@ -194,10 +242,10 @@ Returns the history of blocks preceding a given block number.
 
 ### 🎰 Parameters 
 
-|Name|Description|Type|Required| 
-|---|---|---|---|
-| block_no|Block number|integer|true|
-| depth|Number of blocks to return - defaults to 5 - max 20|integer|undefined|
+|Name|Description|In|Type|Required| 
+|---|---|---|---|---|
+| block_no|Block number|path|integer|true|
+| depth|Number of blocks to return - defaults to 5 - max 20|query|integer|false|
 
 
 ### 👨‍💻 Code samples 
@@ -207,7 +255,7 @@ Returns the history of blocks preceding a given block number.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const history_prev = await CBI.core.blocks.history.prev_({ "block_no": 8415364, "depth": 5 });
+const history_prev = await CBI.core.blocks.history.prev_({ block_no: 8415364, depth: 20 });
 console.log(history_prev); 
 ``` 
 
@@ -231,24 +279,24 @@ import coming.soon 😀
 ```json
 [
  {
-  "id": 8416426,
-  "hash": "hsfbxKJcGtV4giyZmHqQvE4nvmea1cHclaNllnh6SC8=",
+  "id": 8416411,
+  "hash": "BrDMAIQm6JL1sIqzX3+Um0321UZudEtmiE8WsQp1JjE=",
   "epoch_no": 394,
-  "slot_no": 85165614,
-  "epoch_slot_no": 320814,
-  "block_no": 8415359,
-  "previous_id": 8416425,
-  "slot_leader_id": 4598518,
-  "size": 37828,
-  "time": "2023-02-18T14:51:45",
-  "tx_count": 28,
+  "slot_no": 85165272,
+  "epoch_slot_no": 320472,
+  "block_no": 8415344,
+  "previous_id": 8416410,
+  "slot_leader_id": 7046674,
+  "size": 8191,
+  "time": "2023-02-18T14:46:03",
+  "tx_count": 3,
   "proto_major": 8,
   "proto_minor": 0,
-  "vrf_key": "vrf_vk1f8ugl3vv734dx4c3k23wtqya2pcec7gjv7mamcth2qwqhcr45fdsw9lugj",
-  "op_cert": "KDkksF4kcP3C2S3vrDvXvmC7FLuoADrUOtpqRVpBb78=",
-  "op_cert_counter": 13,
-  "hash_hex": "86c7dbc4a25c1ad578822c99987a90bc4e27be679ad5c1dc95a36596787a482f",
-  "op_cert_hex": "283924b05e2470fdc2d92defac3bd7be60bb14bba8003ad43ada6a455a416fbf"
+  "vrf_key": "vrf_vk1yv9nrq4wg4x8lww755wtmlx3z764jm7ur8efmgur9mgpfe6hayyq5vcf6g",
+  "op_cert": "em0oD6MC45oyLcocIiwToBfYCxTjhd5bo1CvyrTHX2Y=",
+  "op_cert_counter": 1659973422,
+  "hash_hex": "06b0cc008426e892f5b08ab35f7f949b4df6d5466e744b66884f16b10a752631",
+  "op_cert_hex": "7a6d280fa302e39a322dca1c222c13a017d80b14e385de5ba350afcab4c75f66"
  },
  "...",
  {
@@ -290,9 +338,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -344,9 +416,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|
@@ -362,10 +458,10 @@ Returns the history of blocks following a given block number.
 
 ### 🎰 Parameters 
 
-|Name|Description|Type|Required| 
-|---|---|---|---|
-| block_no|Block number|integer|true|
-| depth|Number of blocks to return - defaults to 5 - max 20|integer|undefined|
+|Name|Description|In|Type|Required| 
+|---|---|---|---|---|
+| block_no|Block number|path|integer|true|
+| depth|Number of blocks to return - defaults to 5 - max 20|query|integer|false|
 
 
 ### 👨‍💻 Code samples 
@@ -375,7 +471,7 @@ Returns the history of blocks following a given block number.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const history_next = await CBI.core.blocks.history.next_({ "block_no": 8415364, "depth": 5 });
+const history_next = await CBI.core.blocks.history.next_({ block_no: 8415364, depth: 20 });
 console.log(history_next); 
 ``` 
 
@@ -420,24 +516,24 @@ import coming.soon 😀
  },
  "...",
  {
-  "id": 8416436,
-  "hash": "KPZnNWboo3c+ShxKLPP5G1FPMvI1ub/6YI4gyR1/pT8=",
+  "id": 8416451,
+  "hash": "CxYmgcFnUeZuklTya1M2G65Q7bzi7xA0Em9sF8Jyz0o=",
   "epoch_no": 394,
-  "slot_no": 85165840,
-  "epoch_slot_no": 321040,
-  "block_no": 8415369,
-  "previous_id": 8416435,
-  "slot_leader_id": 5512499,
-  "size": 42049,
-  "time": "2023-02-18T14:55:31",
-  "tx_count": 4,
+  "slot_no": 85166322,
+  "epoch_slot_no": 321522,
+  "block_no": 8415384,
+  "previous_id": 8416450,
+  "slot_leader_id": 4557937,
+  "size": 83135,
+  "time": "2023-02-18T15:03:33",
+  "tx_count": 36,
   "proto_major": 8,
   "proto_minor": 0,
-  "vrf_key": "vrf_vk1ys9nhj9yzzd7lwpgthrc2rrtekkaal7frdv86em07exn84vd658svuuk2x",
-  "op_cert": "O2Lw0w6SvPHPuoPE2WL75hZfAdlNW3+zN6Ss0Z3S9hg=",
-  "op_cert_counter": 8,
-  "hash_hex": "28f6673566e8a3773e4a1c4a2cf3f91b514f32f235b9bffa608e20c91d7fa53f",
-  "op_cert_hex": "3b62f0d30e92bcf1cfba83c4d962fbe6165f01d94d5b7fb337a4acd19dd2f618"
+  "vrf_key": "vrf_vk1z3qaj95vx6mhmzcj63c7f9v4am60fhlz55w5m26wk4nnl0tfc33q4s5h8m",
+  "op_cert": "/h7yVK+AO7i482/C82Yn4Z1EkUACT3Dcpnr7twa2nkE=",
+  "op_cert_counter": 14,
+  "hash_hex": "0b162681c16751e66e9254f26b53361bae50edbce2ef1034126f6c17c272cf4a",
+  "op_cert_hex": "fe1ef254af803bb8b8f36fc2f36627e19d449140024f70dca67afbb706b69e41"
  }
 ]
 ``` 
@@ -458,9 +554,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -512,9 +632,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|
@@ -530,10 +674,10 @@ Returns the history of blocks starting from the latest block.
 
 ### 🎰 Parameters 
 
-|Name|Description|Type|Required| 
-|---|---|---|---|
-| block_no|Block number to search from - defaults to the latest known block|integer|undefined|
-| depth|Number of blocks to return - defaults to 20 - max 100|integer|undefined|
+|Name|Description|In|Type|Required| 
+|---|---|---|---|---|
+| block_no|Block number to search from - defaults to the latest known block|query|integer|false|
+| depth|Number of blocks to return - defaults to 20 - max 100|query|integer|false|
 
 
 ### 👨‍💻 Code samples 
@@ -543,7 +687,7 @@ Returns the history of blocks starting from the latest block.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const blocks = await CBI.core.blocks_({ "odata": true, "block_no": 8415364, "depth": 20 });
+const blocks = await CBI.core.blocks_({ "odata": true, block_no: 8415364, depth: 20 });
 console.log(blocks); 
 ``` 
 
@@ -603,9 +747,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -657,9 +825,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|

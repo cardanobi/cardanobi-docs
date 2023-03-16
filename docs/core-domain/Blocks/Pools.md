@@ -24,9 +24,9 @@ Returns the latest block forged by a pool given its pool identifier.
 
 ### 🎰 Parameters 
 
-|Name|Description|Type|Required| 
-|---|---|---|---|
-| pool_hash|The Bech32 or HEX encoding of the pool hash.|string|true|
+|Name|Description|In|Type|Required| 
+|---|---|---|---|---|
+| pool_hash|The Bech32 or HEX encoding of the pool hash.|path|string|true|
 
 
 ### 👨‍💻 Code samples 
@@ -36,7 +36,7 @@ Returns the latest block forged by a pool given its pool identifier.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const pools_pools = await CBI.core.blocks.latest.pools_({ "pool_hash": "pool1y24nj4qdkg35nvvnfawukauggsxrxuy74876cplmxsee29w5axc" });
+const pools_pools = await CBI.core.blocks.latest.pools_({ pool_hash: "pool1y24nj4qdkg35nvvnfawukauggsxrxuy74876cplmxsee29w5axc" });
 console.log(pools_pools); 
 ``` 
 
@@ -59,24 +59,24 @@ import coming.soon 😀
 
 ```json
 {
- "id": 8416431,
- "hash": "if8QkGFBBakZyczIuzkUqu8d3SghSk1V/2VDbSyfwLI=",
- "epoch_no": 394,
- "slot_no": 85165743,
- "epoch_slot_no": 320943,
- "block_no": 8415364,
- "previous_id": 8416430,
+ "id": 8528017,
+ "hash": "25KnvGRXabjozTzxiCuyCLpp4Pw/HPCLCdvFjOFpzBM=",
+ "epoch_no": 399,
+ "slot_no": 87417199,
+ "epoch_slot_no": 412399,
+ "block_no": 8525153,
+ "previous_id": 8528016,
  "slot_leader_id": 7195394,
- "size": 47554,
- "time": "2023-02-18T14:53:54",
- "tx_count": 25,
+ "size": 60573,
+ "time": "2023-03-16T16:18:10",
+ "tx_count": 24,
  "proto_major": 8,
  "proto_minor": 0,
  "vrf_key": "vrf_vk1ksvt6yywk5j2wkq3rmkxghgru7svaetmjnf8kx4636x7pwcdmgrsy8peyv",
- "op_cert": "LRXcL8sndi7y+wi7cjGLkUD+cYn7yq2+GFICiVMrC80=",
- "op_cert_counter": 5,
- "hash_hex": "89ff1090614105a919c9ccc8bb3914aaef1ddd28214a4d55ff65436d2c9fc0b2",
- "op_cert_hex": "2d15dc2fcb27762ef2fb08bb72318b9140fe7189fbcaadbe18520289532b0bcd"
+ "op_cert": "nypatpu+eJSlRauUnUys4+lEPKiJj3XZHysINHbN4t8=",
+ "op_cert_counter": 6,
+ "hash_hex": "db92a7bc645769b8e8cd3cf1882bb208ba69e0fc3f1cf08b09dbc58ce169cc13",
+ "op_cert_hex": "9f2a5ab69bbe7894a545ab949d4cace3e9443ca8898f75d91f2b083476cde2df"
 }
 ``` 
 </TabItem> 
@@ -96,9 +96,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -150,9 +174,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|
@@ -168,9 +216,9 @@ Returns the history of blocks forged by a pool given its pool identifier.
 
 ### 🎰 Parameters 
 
-|Name|Description|Type|Required| 
-|---|---|---|---|
-| pool_hash|The Bech32 or HEX encoding of the pool hash|string|true|
+|Name|Description|In|Type|Required| 
+|---|---|---|---|---|
+| pool_hash|The Bech32 or HEX encoding of the pool hash|path|string|true|
 
 
 ### 👨‍💻 Code samples 
@@ -180,7 +228,7 @@ Returns the history of blocks forged by a pool given its pool identifier.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const pools_history = await CBI.core.blocks.pools.history_({ "pool_hash": "pool1y24nj4qdkg35nvvnfawukauggsxrxuy74876cplmxsee29w5axc" });
+const pools_history = await CBI.core.blocks.pools.history_({ pool_hash: "pool1y24nj4qdkg35nvvnfawukauggsxrxuy74876cplmxsee29w5axc" });
 console.log(pools_history); 
 ``` 
 
@@ -263,9 +311,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -317,9 +389,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|

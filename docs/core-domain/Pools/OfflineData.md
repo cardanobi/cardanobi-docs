@@ -58,24 +58,24 @@ import coming.soon 😀
 [
  {
   "id": 1,
-  "pool_id": 4,
-  "ticker_name": "ANGEL",
-  "hash": "v0RwndcUdCaI7v8rbKVXP+MSouX0nVZMTCMRkjxjlSw=",
-  "json": "{\"name\": \"ANGEL stake pool\", \"ticker\": \"ANGEL\", \"homepage\": \"https://www.angelstakepool.net\", \"description\": \"ANGEL pool at pre-production\"}",
-  "bytes": "ewoibmFtZSI6ICJBTkdFTCBzdGFrZSBwb29sIiwKInRpY2tlciI6ICJBTkdFTCIsCiJob21lcGFnZSI6ICJodHRwczovL3d3dy5hbmdlbHN0YWtlcG9vbC5uZXQiLAoiZGVzY3JpcHRpb24iOiAiQU5HRUwgcG9vbCBhdCBwcmUtcHJvZHVjdGlvbiIKfQ==",
-  "pmr_id": 1,
-  "hash_hex": "bf44709dd714742688eeff2b6ca5573fe312a2e5f49d564c4c2311923c63952c"
+  "pool_id": 274,
+  "ticker_name": "ADI",
+  "hash": "g2+NJFE5q/Zi7pPGk3mEyJW9uIuKBp5SFEp3ekWKzsY=",
+  "json": "{\"name\": \"Cardanesia\", \"ticker\": \"ADI\", \"homepage\": \"https://cardanesia.com\", \"description\": \"An Indonesian-based Cardano stake pool\"}",
+  "bytes": "ewoibmFtZSI6ICJDYXJkYW5lc2lhIiwKImRlc2NyaXB0aW9uIjogIkFuIEluZG9uZXNpYW4tYmFzZWQgQ2FyZGFubyBzdGFrZSBwb29sIiwKInRpY2tlciI6ICJBREkiLAoiaG9tZXBhZ2UiOiAiaHR0cHM6Ly9jYXJkYW5lc2lhLmNvbSIKfQo=",
+  "pmr_id": 328,
+  "hash_hex": "836f8d245139abf662ee93c6937984c895bdb88b8a069e52144a777a458acec6"
  },
  "...",
  {
   "id": 20,
-  "pool_id": 23,
-  "ticker_name": "WOTA",
-  "hash": "gBUMGfUqh55xDmyrlcsFCMXDn3uMpHdxbOzKp/apv58=",
-  "json": "{\"name\": \"WOTA Stake Pool\", \"ticker\": \"WOTA\", \"homepage\": \"https://wota.sbs\", \"description\": \"preprod stake pool\"}",
-  "bytes": "ewoibmFtZSI6ICJXT1RBIFN0YWtlIFBvb2wiLAoiZGVzY3JpcHRpb24iOiAicHJlcHJvZCBzdGFrZSBwb29sIiwKInRpY2tlciI6ICJXT1RBIiwKImhvbWVwYWdlIjogImh0dHBzOi8vd290YS5zYnMiCn0K",
-  "pmr_id": 21,
-  "hash_hex": "80150c19f52a879e710e6cab95cb0508c5c39f7b8ca477716ceccaa7f6a9bf9f"
+  "pool_id": 194,
+  "ticker_name": "CENT1",
+  "hash": "0Ty3CJju7/ggZnXhZLP6uS5bCmwvjfwO2lvrs9VDYqQ=",
+  "json": "{\"name\": \"Stake Pool Central\", \"ticker\": \"CENT1\", \"homepage\": \"https://cent.stakepoolcentral.com\", \"description\": \"Stable operations delivered by Stake Pool Central\"}",
+  "bytes": "ewogICJuYW1lIjogIlN0YWtlIFBvb2wgQ2VudHJhbCIsCiAgImRlc2NyaXB0aW9uIjogIlN0YWJsZSBvcGVyYXRpb25zIGRlbGl2ZXJlZCBieSBTdGFrZSBQb29sIENlbnRyYWwiLAogICJ0aWNrZXIiOiAiQ0VOVDEiLAogICJob21lcGFnZSI6ICJodHRwczovL2NlbnQuc3Rha2Vwb29sY2VudHJhbC5jb20iCn0K",
+  "pmr_id": 225,
+  "hash_hex": "d13cb70898eeeff8206675e164b3fab92e5b0a6c2f8dfc0eda5bebb3d54362a4"
  }
 ]
 ``` 
@@ -96,9 +96,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -140,9 +164,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|
@@ -158,9 +206,9 @@ Returns the offline (ie not on chain) data for one pool given its unique identif
 
 ### 🎰 Parameters 
 
-|Name|Description|Type|Required| 
-|---|---|---|---|
-| pool_id|Pool unique identifier|integer|true|
+|Name|Description|In|Type|Required| 
+|---|---|---|---|---|
+| pool_id|Pool unique identifier|path|integer|true|
 
 
 ### 👨‍💻 Code samples 
@@ -170,7 +218,7 @@ Returns the offline (ie not on chain) data for one pool given its unique identif
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const offlinedata = await CBI.core.pools.offlinedata_({ "pool_id": 17 });
+const offlinedata = await CBI.core.pools.offlinedata_({ pool_id: 4268 });
 console.log(offlinedata); 
 ``` 
 
@@ -194,25 +242,25 @@ import coming.soon 😀
 ```json
 [
  {
-  "id": 14,
-  "pool_id": 17,
+  "id": 8261,
+  "pool_id": 4268,
   "ticker_name": "ADACT",
-  "hash": "rF+8U6PRSTtboOoXcv1dT9o81yuolQP/ImGjkFL80vU=",
-  "json": "{\"name\": \"ADA Capital\", \"ticker\": \"ADACT\", \"homepage\": \"https://adacapital.io\", \"description\": \"ADA Capital - PreProd Pool\"}",
-  "bytes": "ewogICAgIm5hbWUiOiAiQURBIENhcGl0YWwiLAogICAgImRlc2NyaXB0aW9uIjogIkFEQSBDYXBpdGFsIC0gUHJlUHJvZCBQb29sIiwKICAgICJ0aWNrZXIiOiAiQURBQ1QiLAogICAgImhvbWVwYWdlIjogImh0dHBzOi8vYWRhY2FwaXRhbC5pbyIsCiAgICAiZXh0ZW5kZWQiOiAiaHR0cHM6Ly9hZGFjYXBpdGFsLmlvL2FkYWN0X2V4dGVuZGVkLmpzb24iCn0=",
-  "pmr_id": 15,
-  "hash_hex": "ac5fbc53a3d1493b5ba0ea1772fd5d4fda3cd72ba89503ff2261a39052fcd2f5"
+  "hash": "RGovyIsZoojy+22lEpImU8mUIACtoQyEbXHki86nToo=",
+  "json": "{\"name\": \"ADA Capital\", \"ticker\": \"ADACT\", \"homepage\": \"https://adacapital.io\", \"description\": \"ADA Capital - Mainnet Pool\"}",
+  "bytes": "ewoibmFtZSI6ICJBREEgQ2FwaXRhbCIsCiJkZXNjcmlwdGlvbiI6ICJBREEgQ2FwaXRhbCAtIE1haW5uZXQgUG9vbCIsCiJ0aWNrZXIiOiAiQURBQ1QiLAoiaG9tZXBhZ2UiOiAiaHR0cHM6Ly9hZGFjYXBpdGFsLmlvIgp9",
+  "pmr_id": 21950,
+  "hash_hex": "446a2fc88b19a288f2fb6da512922653c9942000ada10c846d71e48bcea74e8a"
  },
  "...",
  {
-  "id": 14,
-  "pool_id": 17,
+  "id": 42582,
+  "pool_id": 4268,
   "ticker_name": "ADACT",
-  "hash": "rF+8U6PRSTtboOoXcv1dT9o81yuolQP/ImGjkFL80vU=",
-  "json": "{\"name\": \"ADA Capital\", \"ticker\": \"ADACT\", \"homepage\": \"https://adacapital.io\", \"description\": \"ADA Capital - PreProd Pool\"}",
-  "bytes": "ewogICAgIm5hbWUiOiAiQURBIENhcGl0YWwiLAogICAgImRlc2NyaXB0aW9uIjogIkFEQSBDYXBpdGFsIC0gUHJlUHJvZCBQb29sIiwKICAgICJ0aWNrZXIiOiAiQURBQ1QiLAogICAgImhvbWVwYWdlIjogImh0dHBzOi8vYWRhY2FwaXRhbC5pbyIsCiAgICAiZXh0ZW5kZWQiOiAiaHR0cHM6Ly9hZGFjYXBpdGFsLmlvL2FkYWN0X2V4dGVuZGVkLmpzb24iCn0=",
-  "pmr_id": 15,
-  "hash_hex": "ac5fbc53a3d1493b5ba0ea1772fd5d4fda3cd72ba89503ff2261a39052fcd2f5"
+  "hash": "QncbBbMPGAiQmAYTsxR/a7eX/h+Kg+ktOaMTXslVnqg=",
+  "json": "{\"name\": \"ADA Capital\", \"ticker\": \"ADACT\", \"homepage\": \"https://adacapital.io\", \"description\": \"ADA Capital - Mainnet Pool\"}",
+  "bytes": "ewogICAgIm5hbWUiOiAiQURBIENhcGl0YWwiLAogICAgImRlc2NyaXB0aW9uIjogIkFEQSBDYXBpdGFsIC0gTWFpbm5ldCBQb29sIiwKICAgICJ0aWNrZXIiOiAiQURBQ1QiLAogICAgImhvbWVwYWdlIjogImh0dHBzOi8vYWRhY2FwaXRhbC5pbyIsCiAgICAiZXh0ZW5kZWQiOiAiaHR0cHM6Ly9hZGFjYXBpdGFsLmlvL2FkYWN0X2V4dGVuZGVkLmpzb24iCn0=",
+  "pmr_id": 28640,
+  "hash_hex": "42771b05b30f180890980613b3147f6bb797fe1f8a83e92d39a3135ec9559ea8"
  }
 ]
 ``` 
@@ -233,9 +281,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -277,9 +349,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|
@@ -295,9 +391,9 @@ Returns the offline (ie not on chain) data for one pool given its ticker.
 
 ### 🎰 Parameters 
 
-|Name|Description|Type|Required| 
-|---|---|---|---|
-| ticker|Pool ticker|string|true|
+|Name|Description|In|Type|Required| 
+|---|---|---|---|---|
+| ticker|Pool ticker|path|string|true|
 
 
 ### 👨‍💻 Code samples 
@@ -307,7 +403,7 @@ Returns the offline (ie not on chain) data for one pool given its ticker.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const offlinedata = await CBI.core.pools.offlinedata_({ "ticker": "ADACT" });
+const offlinedata = await CBI.core.pools.offlinedata_({ ticker: "ADACT" });
 console.log(offlinedata); 
 ``` 
 
@@ -331,25 +427,25 @@ import coming.soon 😀
 ```json
 [
  {
-  "id": 14,
-  "pool_id": 17,
+  "id": 8261,
+  "pool_id": 4268,
   "ticker_name": "ADACT",
-  "hash": "rF+8U6PRSTtboOoXcv1dT9o81yuolQP/ImGjkFL80vU=",
-  "json": "{\"name\": \"ADA Capital\", \"ticker\": \"ADACT\", \"homepage\": \"https://adacapital.io\", \"description\": \"ADA Capital - PreProd Pool\"}",
-  "bytes": "ewogICAgIm5hbWUiOiAiQURBIENhcGl0YWwiLAogICAgImRlc2NyaXB0aW9uIjogIkFEQSBDYXBpdGFsIC0gUHJlUHJvZCBQb29sIiwKICAgICJ0aWNrZXIiOiAiQURBQ1QiLAogICAgImhvbWVwYWdlIjogImh0dHBzOi8vYWRhY2FwaXRhbC5pbyIsCiAgICAiZXh0ZW5kZWQiOiAiaHR0cHM6Ly9hZGFjYXBpdGFsLmlvL2FkYWN0X2V4dGVuZGVkLmpzb24iCn0=",
-  "pmr_id": 15,
-  "hash_hex": "ac5fbc53a3d1493b5ba0ea1772fd5d4fda3cd72ba89503ff2261a39052fcd2f5"
+  "hash": "RGovyIsZoojy+22lEpImU8mUIACtoQyEbXHki86nToo=",
+  "json": "{\"name\": \"ADA Capital\", \"ticker\": \"ADACT\", \"homepage\": \"https://adacapital.io\", \"description\": \"ADA Capital - Mainnet Pool\"}",
+  "bytes": "ewoibmFtZSI6ICJBREEgQ2FwaXRhbCIsCiJkZXNjcmlwdGlvbiI6ICJBREEgQ2FwaXRhbCAtIE1haW5uZXQgUG9vbCIsCiJ0aWNrZXIiOiAiQURBQ1QiLAoiaG9tZXBhZ2UiOiAiaHR0cHM6Ly9hZGFjYXBpdGFsLmlvIgp9",
+  "pmr_id": 21950,
+  "hash_hex": "446a2fc88b19a288f2fb6da512922653c9942000ada10c846d71e48bcea74e8a"
  },
  "...",
  {
-  "id": 14,
-  "pool_id": 17,
+  "id": 42582,
+  "pool_id": 4268,
   "ticker_name": "ADACT",
-  "hash": "rF+8U6PRSTtboOoXcv1dT9o81yuolQP/ImGjkFL80vU=",
-  "json": "{\"name\": \"ADA Capital\", \"ticker\": \"ADACT\", \"homepage\": \"https://adacapital.io\", \"description\": \"ADA Capital - PreProd Pool\"}",
-  "bytes": "ewogICAgIm5hbWUiOiAiQURBIENhcGl0YWwiLAogICAgImRlc2NyaXB0aW9uIjogIkFEQSBDYXBpdGFsIC0gUHJlUHJvZCBQb29sIiwKICAgICJ0aWNrZXIiOiAiQURBQ1QiLAogICAgImhvbWVwYWdlIjogImh0dHBzOi8vYWRhY2FwaXRhbC5pbyIsCiAgICAiZXh0ZW5kZWQiOiAiaHR0cHM6Ly9hZGFjYXBpdGFsLmlvL2FkYWN0X2V4dGVuZGVkLmpzb24iCn0=",
-  "pmr_id": 15,
-  "hash_hex": "ac5fbc53a3d1493b5ba0ea1772fd5d4fda3cd72ba89503ff2261a39052fcd2f5"
+  "hash": "QncbBbMPGAiQmAYTsxR/a7eX/h+Kg+ktOaMTXslVnqg=",
+  "json": "{\"name\": \"ADA Capital\", \"ticker\": \"ADACT\", \"homepage\": \"https://adacapital.io\", \"description\": \"ADA Capital - Mainnet Pool\"}",
+  "bytes": "ewogICAgIm5hbWUiOiAiQURBIENhcGl0YWwiLAogICAgImRlc2NyaXB0aW9uIjogIkFEQSBDYXBpdGFsIC0gTWFpbm5ldCBQb29sIiwKICAgICJ0aWNrZXIiOiAiQURBQ1QiLAogICAgImhvbWVwYWdlIjogImh0dHBzOi8vYWRhY2FwaXRhbC5pbyIsCiAgICAiZXh0ZW5kZWQiOiAiaHR0cHM6Ly9hZGFjYXBpdGFsLmlvL2FkYWN0X2V4dGVuZGVkLmpzb24iCn0=",
+  "pmr_id": 28640,
+  "hash_hex": "42771b05b30f180890980613b3147f6bb797fe1f8a83e92d39a3135ec9559ea8"
  }
 ]
 ``` 
@@ -370,9 +466,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -414,9 +534,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|
@@ -432,9 +576,9 @@ Returns the offline (ie not on chain) data for one pool given its metadata hash.
 
 ### 🎰 Parameters 
 
-|Name|Description|Type|Required| 
-|---|---|---|---|
-| meta_hash|Pool metadata hash|string|true|
+|Name|Description|In|Type|Required| 
+|---|---|---|---|---|
+| meta_hash|Pool metadata hash|path|string|true|
 
 
 ### 👨‍💻 Code samples 
@@ -444,7 +588,7 @@ Returns the offline (ie not on chain) data for one pool given its metadata hash.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const offlinedata_offlinedata = await CBI.core.pools.metadata.offlinedata_({ "meta_hash": "ac5fbc53a3d1493b5ba0ea1772fd5d4fda3cd72ba89503ff2261a39052fcd2f5" });
+const offlinedata_offlinedata = await CBI.core.pools.metadata.offlinedata_({ meta_hash: "42771b05b30f180890980613b3147f6bb797fe1f8a83e92d39a3135ec9559ea8" });
 console.log(offlinedata_offlinedata); 
 ``` 
 
@@ -468,25 +612,25 @@ import coming.soon 😀
 ```json
 [
  {
-  "id": 14,
-  "pool_id": 17,
+  "id": 42582,
+  "pool_id": 4268,
   "ticker_name": "ADACT",
-  "hash": "rF+8U6PRSTtboOoXcv1dT9o81yuolQP/ImGjkFL80vU=",
-  "json": "{\"name\": \"ADA Capital\", \"ticker\": \"ADACT\", \"homepage\": \"https://adacapital.io\", \"description\": \"ADA Capital - PreProd Pool\"}",
-  "bytes": "ewogICAgIm5hbWUiOiAiQURBIENhcGl0YWwiLAogICAgImRlc2NyaXB0aW9uIjogIkFEQSBDYXBpdGFsIC0gUHJlUHJvZCBQb29sIiwKICAgICJ0aWNrZXIiOiAiQURBQ1QiLAogICAgImhvbWVwYWdlIjogImh0dHBzOi8vYWRhY2FwaXRhbC5pbyIsCiAgICAiZXh0ZW5kZWQiOiAiaHR0cHM6Ly9hZGFjYXBpdGFsLmlvL2FkYWN0X2V4dGVuZGVkLmpzb24iCn0=",
-  "pmr_id": 15,
-  "hash_hex": "ac5fbc53a3d1493b5ba0ea1772fd5d4fda3cd72ba89503ff2261a39052fcd2f5"
+  "hash": "QncbBbMPGAiQmAYTsxR/a7eX/h+Kg+ktOaMTXslVnqg=",
+  "json": "{\"name\": \"ADA Capital\", \"ticker\": \"ADACT\", \"homepage\": \"https://adacapital.io\", \"description\": \"ADA Capital - Mainnet Pool\"}",
+  "bytes": "ewogICAgIm5hbWUiOiAiQURBIENhcGl0YWwiLAogICAgImRlc2NyaXB0aW9uIjogIkFEQSBDYXBpdGFsIC0gTWFpbm5ldCBQb29sIiwKICAgICJ0aWNrZXIiOiAiQURBQ1QiLAogICAgImhvbWVwYWdlIjogImh0dHBzOi8vYWRhY2FwaXRhbC5pbyIsCiAgICAiZXh0ZW5kZWQiOiAiaHR0cHM6Ly9hZGFjYXBpdGFsLmlvL2FkYWN0X2V4dGVuZGVkLmpzb24iCn0=",
+  "pmr_id": 28640,
+  "hash_hex": "42771b05b30f180890980613b3147f6bb797fe1f8a83e92d39a3135ec9559ea8"
  },
  "...",
  {
-  "id": 14,
-  "pool_id": 17,
+  "id": 42582,
+  "pool_id": 4268,
   "ticker_name": "ADACT",
-  "hash": "rF+8U6PRSTtboOoXcv1dT9o81yuolQP/ImGjkFL80vU=",
-  "json": "{\"name\": \"ADA Capital\", \"ticker\": \"ADACT\", \"homepage\": \"https://adacapital.io\", \"description\": \"ADA Capital - PreProd Pool\"}",
-  "bytes": "ewogICAgIm5hbWUiOiAiQURBIENhcGl0YWwiLAogICAgImRlc2NyaXB0aW9uIjogIkFEQSBDYXBpdGFsIC0gUHJlUHJvZCBQb29sIiwKICAgICJ0aWNrZXIiOiAiQURBQ1QiLAogICAgImhvbWVwYWdlIjogImh0dHBzOi8vYWRhY2FwaXRhbC5pbyIsCiAgICAiZXh0ZW5kZWQiOiAiaHR0cHM6Ly9hZGFjYXBpdGFsLmlvL2FkYWN0X2V4dGVuZGVkLmpzb24iCn0=",
-  "pmr_id": 15,
-  "hash_hex": "ac5fbc53a3d1493b5ba0ea1772fd5d4fda3cd72ba89503ff2261a39052fcd2f5"
+  "hash": "QncbBbMPGAiQmAYTsxR/a7eX/h+Kg+ktOaMTXslVnqg=",
+  "json": "{\"name\": \"ADA Capital\", \"ticker\": \"ADACT\", \"homepage\": \"https://adacapital.io\", \"description\": \"ADA Capital - Mainnet Pool\"}",
+  "bytes": "ewogICAgIm5hbWUiOiAiQURBIENhcGl0YWwiLAogICAgImRlc2NyaXB0aW9uIjogIkFEQSBDYXBpdGFsIC0gTWFpbm5ldCBQb29sIiwKICAgICJ0aWNrZXIiOiAiQURBQ1QiLAogICAgImhvbWVwYWdlIjogImh0dHBzOi8vYWRhY2FwaXRhbC5pbyIsCiAgICAiZXh0ZW5kZWQiOiAiaHR0cHM6Ly9hZGFjYXBpdGFsLmlvL2FkYWN0X2V4dGVuZGVkLmpzb24iCn0=",
+  "pmr_id": 28640,
+  "hash_hex": "42771b05b30f180890980613b3147f6bb797fe1f8a83e92d39a3135ec9559ea8"
  }
 ]
 ``` 
@@ -507,9 +651,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -551,9 +719,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|
@@ -597,31 +789,31 @@ import coming.soon 😀
 
 ```json
 {
- "@odata.context": "https://preprod.cardanobi.io/api/core/odata/$metadata#PoolsOfflineData",
+ "@odata.context": "https://mainnet.cardanobi.io/api/core/odata/$metadata#PoolsOfflineData",
  "value": [
   {
    "id": 1,
-   "pool_id": 4,
-   "ticker_name": "ANGEL",
-   "hash": "v0RwndcUdCaI7v8rbKVXP+MSouX0nVZMTCMRkjxjlSw=",
-   "json": "{\"name\": \"ANGEL stake pool\", \"ticker\": \"ANGEL\", \"homepage\": \"https://www.angelstakepool.net\", \"description\": \"ANGEL pool at pre-production\"}",
-   "bytes": "ewoibmFtZSI6ICJBTkdFTCBzdGFrZSBwb29sIiwKInRpY2tlciI6ICJBTkdFTCIsCiJob21lcGFnZSI6ICJodHRwczovL3d3dy5hbmdlbHN0YWtlcG9vbC5uZXQiLAoiZGVzY3JpcHRpb24iOiAiQU5HRUwgcG9vbCBhdCBwcmUtcHJvZHVjdGlvbiIKfQ==",
-   "pmr_id": 1,
-   "hash_hex": "bf44709dd714742688eeff2b6ca5573fe312a2e5f49d564c4c2311923c63952c"
+   "pool_id": 274,
+   "ticker_name": "ADI",
+   "hash": "g2+NJFE5q/Zi7pPGk3mEyJW9uIuKBp5SFEp3ekWKzsY=",
+   "json": "{\"name\": \"Cardanesia\", \"ticker\": \"ADI\", \"homepage\": \"https://cardanesia.com\", \"description\": \"An Indonesian-based Cardano stake pool\"}",
+   "bytes": "ewoibmFtZSI6ICJDYXJkYW5lc2lhIiwKImRlc2NyaXB0aW9uIjogIkFuIEluZG9uZXNpYW4tYmFzZWQgQ2FyZGFubyBzdGFrZSBwb29sIiwKInRpY2tlciI6ICJBREkiLAoiaG9tZXBhZ2UiOiAiaHR0cHM6Ly9jYXJkYW5lc2lhLmNvbSIKfQo=",
+   "pmr_id": 328,
+   "hash_hex": "836f8d245139abf662ee93c6937984c895bdb88b8a069e52144a777a458acec6"
   },
   "...",
   {
    "id": 20,
-   "pool_id": 23,
-   "ticker_name": "WOTA",
-   "hash": "gBUMGfUqh55xDmyrlcsFCMXDn3uMpHdxbOzKp/apv58=",
-   "json": "{\"name\": \"WOTA Stake Pool\", \"ticker\": \"WOTA\", \"homepage\": \"https://wota.sbs\", \"description\": \"preprod stake pool\"}",
-   "bytes": "ewoibmFtZSI6ICJXT1RBIFN0YWtlIFBvb2wiLAoiZGVzY3JpcHRpb24iOiAicHJlcHJvZCBzdGFrZSBwb29sIiwKInRpY2tlciI6ICJXT1RBIiwKImhvbWVwYWdlIjogImh0dHBzOi8vd290YS5zYnMiCn0K",
-   "pmr_id": 21,
-   "hash_hex": "80150c19f52a879e710e6cab95cb0508c5c39f7b8ca477716ceccaa7f6a9bf9f"
+   "pool_id": 194,
+   "ticker_name": "CENT1",
+   "hash": "0Ty3CJju7/ggZnXhZLP6uS5bCmwvjfwO2lvrs9VDYqQ=",
+   "json": "{\"name\": \"Stake Pool Central\", \"ticker\": \"CENT1\", \"homepage\": \"https://cent.stakepoolcentral.com\", \"description\": \"Stable operations delivered by Stake Pool Central\"}",
+   "bytes": "ewogICJuYW1lIjogIlN0YWtlIFBvb2wgQ2VudHJhbCIsCiAgImRlc2NyaXB0aW9uIjogIlN0YWJsZSBvcGVyYXRpb25zIGRlbGl2ZXJlZCBieSBTdGFrZSBQb29sIENlbnRyYWwiLAogICJ0aWNrZXIiOiAiQ0VOVDEiLAogICJob21lcGFnZSI6ICJodHRwczovL2NlbnQuc3Rha2Vwb29sY2VudHJhbC5jb20iCn0K",
+   "pmr_id": 225,
+   "hash_hex": "d13cb70898eeeff8206675e164b3fab92e5b0a6c2f8dfc0eda5bebb3d54362a4"
   }
  ],
- "@odata.nextLink": "https://preprod.cardanobi.io/api/core/odata/poolsofflinedata?$skip=20"
+ "@odata.nextLink": "https://mainnet.cardanobi.io/api/core/odata/poolsofflinedata?$skip=20"
 }
 ``` 
 </TabItem> 
@@ -641,9 +833,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -685,9 +901,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|
@@ -703,9 +943,9 @@ Returns the offline (ie not on chain) data for one pool given its unique identif
 
 ### 🎰 Parameters 
 
-|Name|Description|Type|Required| 
-|---|---|---|---|
-| pool_id|Pool unique identifier|integer|true|
+|Name|Description|In|Type|Required| 
+|---|---|---|---|---|
+| pool_id|Pool unique identifier|path|integer|true|
 
 
 ### 👨‍💻 Code samples 
@@ -715,7 +955,7 @@ Returns the offline (ie not on chain) data for one pool given its unique identif
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const poolsofflinedata = await CBI.core.poolsofflinedata_({ "odata": true, "pool_id": 17 });
+const poolsofflinedata = await CBI.core.poolsofflinedata_({ "odata": true, pool_id: 4268 });
 console.log(poolsofflinedata); 
 ``` 
 
@@ -738,28 +978,28 @@ import coming.soon 😀
 
 ```json
 {
- "@odata.context": "https://preprod.cardanobi.io/api/core/odata/$metadata#PoolsOfflineData",
+ "@odata.context": "https://mainnet.cardanobi.io/api/core/odata/$metadata#PoolsOfflineData",
  "value": [
   {
-   "id": 14,
-   "pool_id": 17,
+   "id": 8261,
+   "pool_id": 4268,
    "ticker_name": "ADACT",
-   "hash": "rF+8U6PRSTtboOoXcv1dT9o81yuolQP/ImGjkFL80vU=",
-   "json": "{\"name\": \"ADA Capital\", \"ticker\": \"ADACT\", \"homepage\": \"https://adacapital.io\", \"description\": \"ADA Capital - PreProd Pool\"}",
-   "bytes": "ewogICAgIm5hbWUiOiAiQURBIENhcGl0YWwiLAogICAgImRlc2NyaXB0aW9uIjogIkFEQSBDYXBpdGFsIC0gUHJlUHJvZCBQb29sIiwKICAgICJ0aWNrZXIiOiAiQURBQ1QiLAogICAgImhvbWVwYWdlIjogImh0dHBzOi8vYWRhY2FwaXRhbC5pbyIsCiAgICAiZXh0ZW5kZWQiOiAiaHR0cHM6Ly9hZGFjYXBpdGFsLmlvL2FkYWN0X2V4dGVuZGVkLmpzb24iCn0=",
-   "pmr_id": 15,
-   "hash_hex": "ac5fbc53a3d1493b5ba0ea1772fd5d4fda3cd72ba89503ff2261a39052fcd2f5"
+   "hash": "RGovyIsZoojy+22lEpImU8mUIACtoQyEbXHki86nToo=",
+   "json": "{\"name\": \"ADA Capital\", \"ticker\": \"ADACT\", \"homepage\": \"https://adacapital.io\", \"description\": \"ADA Capital - Mainnet Pool\"}",
+   "bytes": "ewoibmFtZSI6ICJBREEgQ2FwaXRhbCIsCiJkZXNjcmlwdGlvbiI6ICJBREEgQ2FwaXRhbCAtIE1haW5uZXQgUG9vbCIsCiJ0aWNrZXIiOiAiQURBQ1QiLAoiaG9tZXBhZ2UiOiAiaHR0cHM6Ly9hZGFjYXBpdGFsLmlvIgp9",
+   "pmr_id": 21950,
+   "hash_hex": "446a2fc88b19a288f2fb6da512922653c9942000ada10c846d71e48bcea74e8a"
   },
   "...",
   {
-   "id": 14,
-   "pool_id": 17,
+   "id": 42582,
+   "pool_id": 4268,
    "ticker_name": "ADACT",
-   "hash": "rF+8U6PRSTtboOoXcv1dT9o81yuolQP/ImGjkFL80vU=",
-   "json": "{\"name\": \"ADA Capital\", \"ticker\": \"ADACT\", \"homepage\": \"https://adacapital.io\", \"description\": \"ADA Capital - PreProd Pool\"}",
-   "bytes": "ewogICAgIm5hbWUiOiAiQURBIENhcGl0YWwiLAogICAgImRlc2NyaXB0aW9uIjogIkFEQSBDYXBpdGFsIC0gUHJlUHJvZCBQb29sIiwKICAgICJ0aWNrZXIiOiAiQURBQ1QiLAogICAgImhvbWVwYWdlIjogImh0dHBzOi8vYWRhY2FwaXRhbC5pbyIsCiAgICAiZXh0ZW5kZWQiOiAiaHR0cHM6Ly9hZGFjYXBpdGFsLmlvL2FkYWN0X2V4dGVuZGVkLmpzb24iCn0=",
-   "pmr_id": 15,
-   "hash_hex": "ac5fbc53a3d1493b5ba0ea1772fd5d4fda3cd72ba89503ff2261a39052fcd2f5"
+   "hash": "QncbBbMPGAiQmAYTsxR/a7eX/h+Kg+ktOaMTXslVnqg=",
+   "json": "{\"name\": \"ADA Capital\", \"ticker\": \"ADACT\", \"homepage\": \"https://adacapital.io\", \"description\": \"ADA Capital - Mainnet Pool\"}",
+   "bytes": "ewogICAgIm5hbWUiOiAiQURBIENhcGl0YWwiLAogICAgImRlc2NyaXB0aW9uIjogIkFEQSBDYXBpdGFsIC0gTWFpbm5ldCBQb29sIiwKICAgICJ0aWNrZXIiOiAiQURBQ1QiLAogICAgImhvbWVwYWdlIjogImh0dHBzOi8vYWRhY2FwaXRhbC5pbyIsCiAgICAiZXh0ZW5kZWQiOiAiaHR0cHM6Ly9hZGFjYXBpdGFsLmlvL2FkYWN0X2V4dGVuZGVkLmpzb24iCn0=",
+   "pmr_id": 28640,
+   "hash_hex": "42771b05b30f180890980613b3147f6bb797fe1f8a83e92d39a3135ec9559ea8"
   }
  ]
 }
@@ -781,9 +1021,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -825,9 +1089,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|

@@ -58,31 +58,31 @@ import coming.soon 😀
  {
   "id": 1,
   "hash_id": 1,
-  "cert_index": 1,
-  "vrf_key_hash": "hoFz00NhEQOsvbNFK5IrvKXlgNCNpOj3q/P7DyKEM4o=",
-  "pledge": 100000000000000,
-  "active_epoch_no": 6,
-  "meta_id": null,
-  "margin": 1,
-  "fixed_cost": 500000000,
-  "registered_tx_id": 10,
-  "reward_addr_id": 5,
-  "vrf_key_hash_hex": "868173d343611103acbdb3452b922bbca5e580d08da4e8f7abf3fb0f2284338a"
+  "cert_index": 0,
+  "vrf_key_hash": "AiCl0Irb/pVUtS17KZO+WJKsP/NA5nSjd96j4irRd4s=",
+  "pledge": 450000000000,
+  "active_epoch_no": 210,
+  "meta_id": 1,
+  "margin": 0.015,
+  "fixed_cost": 340000000,
+  "registered_tx_id": 2415556,
+  "reward_addr_id": 61,
+  "vrf_key_hash_hex": "0220a5d08adbfe9554b52d7b2993be5892ac3ff340e674a377dea3e22ad1778b"
  },
  "...",
  {
   "id": 20,
-  "hash_id": 19,
+  "hash_id": 20,
   "cert_index": 0,
-  "vrf_key_hash": "6IBljJ5CHz8TA2VyV2EgMG8uyFGNu8LR1bRk8ALqifg=",
-  "pledge": 9000000000,
-  "active_epoch_no": 30,
-  "meta_id": 17,
-  "margin": 0.15,
+  "vrf_key_hash": "e2a6GbiEHiaskUwffALAPqWru5bNjRZRsZ6rxlufk+8=",
+  "pledge": 50000000000,
+  "active_epoch_no": 210,
+  "meta_id": 20,
+  "margin": 0.03,
   "fixed_cost": 340000000,
-  "registered_tx_id": 591,
-  "reward_addr_id": 530,
-  "vrf_key_hash_hex": "e880658c9e421f3f13036572576120306f2ec8518dbbc2d1d5b464f002ea89f8"
+  "registered_tx_id": 2416313,
+  "reward_addr_id": 111,
+  "vrf_key_hash_hex": "7b66ba19b8841e26ac914c1f7c02c03ea5abbb96cd8d1651b19eabc65b9f93ef"
  }
 ]
 ``` 
@@ -103,9 +103,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -151,9 +175,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|
@@ -169,9 +217,9 @@ Returns the on-chain updates for one pool given its unique identifier.
 
 ### 🎰 Parameters 
 
-|Name|Description|Type|Required| 
-|---|---|---|---|
-| pool_id|Pool unique identifier|integer|true|
+|Name|Description|In|Type|Required| 
+|---|---|---|---|---|
+| pool_id|Pool unique identifier|path|integer|true|
 
 
 ### 👨‍💻 Code samples 
@@ -181,7 +229,7 @@ Returns the on-chain updates for one pool given its unique identifier.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const updates = await CBI.core.pools.updates_({ "pool_id": 17 });
+const updates = await CBI.core.pools.updates_({ pool_id: 4268 });
 console.log(updates); 
 ``` 
 
@@ -205,33 +253,33 @@ import coming.soon 😀
 ```json
 [
  {
-  "id": 18,
-  "hash_id": 17,
+  "id": 22010,
+  "hash_id": 4268,
   "cert_index": 0,
-  "vrf_key_hash": "/513TMfj6F7Bgnv9aMR1vGEaniiOfJ4fsVn85S0nA/0=",
-  "pledge": 9000000000,
-  "active_epoch_no": 30,
-  "meta_id": 15,
-  "margin": 0,
+  "vrf_key_hash": "m+NFvLywzwVZsRNUZ/0uTHjHQYmM34vLc3stxRImMt8=",
+  "pledge": 10000000000,
+  "active_epoch_no": 291,
+  "meta_id": 21950,
+  "margin": 0.05,
   "fixed_cost": 340000000,
-  "registered_tx_id": 537,
-  "reward_addr_id": 489,
-  "vrf_key_hash_hex": "ff9d774cc7e3e85ec1827bfd68c475bc611a9e288e7c9e1fb159fce52d2703fd"
+  "registered_tx_id": 12623716,
+  "reward_addr_id": 2480780,
+  "vrf_key_hash_hex": "9be345bcbcb0cf0559b1135467fd2e4c78c741898cdf8bcb737b2dc5122632df"
  },
  "...",
  {
-  "id": 309,
-  "hash_id": 17,
+  "id": 30130,
+  "hash_id": 4268,
   "cert_index": 0,
-  "vrf_key_hash": "/513TMfj6F7Bgnv9aMR1vGEaniiOfJ4fsVn85S0nA/0=",
-  "pledge": 1000000000000,
-  "active_epoch_no": 44,
-  "meta_id": 15,
-  "margin": 0,
+  "vrf_key_hash": "m+NFvLywzwVZsRNUZ/0uTHjHQYmM34vLc3stxRImMt8=",
+  "pledge": 100000000000,
+  "active_epoch_no": 393,
+  "meta_id": 28640,
+  "margin": 0.04,
   "fixed_cost": 340000000,
-  "registered_tx_id": 260484,
-  "reward_addr_id": 489,
-  "vrf_key_hash_hex": "ff9d774cc7e3e85ec1827bfd68c475bc611a9e288e7c9e1fb159fce52d2703fd"
+  "registered_tx_id": 60059080,
+  "reward_addr_id": 2480780,
+  "vrf_key_hash_hex": "9be345bcbcb0cf0559b1135467fd2e4c78c741898cdf8bcb737b2dc5122632df"
  }
 ]
 ``` 
@@ -252,9 +300,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -300,9 +372,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|
@@ -318,9 +414,9 @@ Returns the on-chain updates for one pool given its VRF key hash.
 
 ### 🎰 Parameters 
 
-|Name|Description|Type|Required| 
-|---|---|---|---|
-| vrf_key_hash|The pool VRF key in HEX format.|string|true|
+|Name|Description|In|Type|Required| 
+|---|---|---|---|---|
+| vrf_key_hash|The pool VRF key in HEX format.|path|string|true|
 
 
 ### 👨‍💻 Code samples 
@@ -330,7 +426,7 @@ Returns the on-chain updates for one pool given its VRF key hash.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const updates = await CBI.core.pools.updates_({ "vrf_key_hash": "ff9d774cc7e3e85ec1827bfd68c475bc611a9e288e7c9e1fb159fce52d2703fd" });
+const updates = await CBI.core.pools.updates_({ vrf_key_hash: "9be345bcbcb0cf0559b1135467fd2e4c78c741898cdf8bcb737b2dc5122632df" });
 console.log(updates); 
 ``` 
 
@@ -354,33 +450,33 @@ import coming.soon 😀
 ```json
 [
  {
-  "id": 18,
-  "hash_id": 17,
+  "id": 22010,
+  "hash_id": 4268,
   "cert_index": 0,
-  "vrf_key_hash": "/513TMfj6F7Bgnv9aMR1vGEaniiOfJ4fsVn85S0nA/0=",
-  "pledge": 9000000000,
-  "active_epoch_no": 30,
-  "meta_id": 15,
-  "margin": 0,
+  "vrf_key_hash": "m+NFvLywzwVZsRNUZ/0uTHjHQYmM34vLc3stxRImMt8=",
+  "pledge": 10000000000,
+  "active_epoch_no": 291,
+  "meta_id": 21950,
+  "margin": 0.05,
   "fixed_cost": 340000000,
-  "registered_tx_id": 537,
-  "reward_addr_id": 489,
-  "vrf_key_hash_hex": "ff9d774cc7e3e85ec1827bfd68c475bc611a9e288e7c9e1fb159fce52d2703fd"
+  "registered_tx_id": 12623716,
+  "reward_addr_id": 2480780,
+  "vrf_key_hash_hex": "9be345bcbcb0cf0559b1135467fd2e4c78c741898cdf8bcb737b2dc5122632df"
  },
  "...",
  {
-  "id": 309,
-  "hash_id": 17,
+  "id": 30130,
+  "hash_id": 4268,
   "cert_index": 0,
-  "vrf_key_hash": "/513TMfj6F7Bgnv9aMR1vGEaniiOfJ4fsVn85S0nA/0=",
-  "pledge": 1000000000000,
-  "active_epoch_no": 44,
-  "meta_id": 15,
-  "margin": 0,
+  "vrf_key_hash": "m+NFvLywzwVZsRNUZ/0uTHjHQYmM34vLc3stxRImMt8=",
+  "pledge": 100000000000,
+  "active_epoch_no": 393,
+  "meta_id": 28640,
+  "margin": 0.04,
   "fixed_cost": 340000000,
-  "registered_tx_id": 260484,
-  "reward_addr_id": 489,
-  "vrf_key_hash_hex": "ff9d774cc7e3e85ec1827bfd68c475bc611a9e288e7c9e1fb159fce52d2703fd"
+  "registered_tx_id": 60059080,
+  "reward_addr_id": 2480780,
+  "vrf_key_hash_hex": "9be345bcbcb0cf0559b1135467fd2e4c78c741898cdf8bcb737b2dc5122632df"
  }
 ]
 ``` 
@@ -401,9 +497,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -449,9 +569,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|
@@ -495,39 +639,39 @@ import coming.soon 😀
 
 ```json
 {
- "@odata.context": "https://preprod.cardanobi.io/api/core/odata/$metadata#PoolsUpdates",
+ "@odata.context": "https://mainnet.cardanobi.io/api/core/odata/$metadata#PoolsUpdates",
  "value": [
   {
    "id": 1,
    "hash_id": 1,
-   "cert_index": 1,
-   "vrf_key_hash": "hoFz00NhEQOsvbNFK5IrvKXlgNCNpOj3q/P7DyKEM4o=",
-   "pledge": 100000000000000,
-   "active_epoch_no": 6,
-   "meta_id": null,
-   "margin": 1,
-   "fixed_cost": 500000000,
-   "registered_tx_id": 10,
-   "reward_addr_id": 5,
-   "vrf_key_hash_hex": "868173d343611103acbdb3452b922bbca5e580d08da4e8f7abf3fb0f2284338a"
+   "cert_index": 0,
+   "vrf_key_hash": "AiCl0Irb/pVUtS17KZO+WJKsP/NA5nSjd96j4irRd4s=",
+   "pledge": 450000000000,
+   "active_epoch_no": 210,
+   "meta_id": 1,
+   "margin": 0.015,
+   "fixed_cost": 340000000,
+   "registered_tx_id": 2415556,
+   "reward_addr_id": 61,
+   "vrf_key_hash_hex": "0220a5d08adbfe9554b52d7b2993be5892ac3ff340e674a377dea3e22ad1778b"
   },
   "...",
   {
    "id": 20,
-   "hash_id": 19,
+   "hash_id": 20,
    "cert_index": 0,
-   "vrf_key_hash": "6IBljJ5CHz8TA2VyV2EgMG8uyFGNu8LR1bRk8ALqifg=",
-   "pledge": 9000000000,
-   "active_epoch_no": 30,
-   "meta_id": 17,
-   "margin": 0.15,
+   "vrf_key_hash": "e2a6GbiEHiaskUwffALAPqWru5bNjRZRsZ6rxlufk+8=",
+   "pledge": 50000000000,
+   "active_epoch_no": 210,
+   "meta_id": 20,
+   "margin": 0.03,
    "fixed_cost": 340000000,
-   "registered_tx_id": 591,
-   "reward_addr_id": 530,
-   "vrf_key_hash_hex": "e880658c9e421f3f13036572576120306f2ec8518dbbc2d1d5b464f002ea89f8"
+   "registered_tx_id": 2416313,
+   "reward_addr_id": 111,
+   "vrf_key_hash_hex": "7b66ba19b8841e26ac914c1f7c02c03ea5abbb96cd8d1651b19eabc65b9f93ef"
   }
  ],
- "@odata.nextLink": "https://preprod.cardanobi.io/api/core/odata/poolsupdates?$skip=20"
+ "@odata.nextLink": "https://mainnet.cardanobi.io/api/core/odata/poolsupdates?$skip=20"
 }
 ``` 
 </TabItem> 
@@ -547,9 +691,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -595,9 +763,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|
@@ -613,9 +805,9 @@ Returns the on-chain updates for one pool given its unique identifier.
 
 ### 🎰 Parameters 
 
-|Name|Description|Type|Required| 
-|---|---|---|---|
-| pool_id|Pool unique identifier|integer|true|
+|Name|Description|In|Type|Required| 
+|---|---|---|---|---|
+| pool_id|Pool unique identifier|path|integer|true|
 
 
 ### 👨‍💻 Code samples 
@@ -625,7 +817,7 @@ Returns the on-chain updates for one pool given its unique identifier.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const poolsupdates = await CBI.core.poolsupdates_({ "odata": true, "pool_id": 17 });
+const poolsupdates = await CBI.core.poolsupdates_({ "odata": true, pool_id: 4268 });
 console.log(poolsupdates); 
 ``` 
 
@@ -648,36 +840,36 @@ import coming.soon 😀
 
 ```json
 {
- "@odata.context": "https://preprod.cardanobi.io/api/core/odata/$metadata#PoolsUpdates",
+ "@odata.context": "https://mainnet.cardanobi.io/api/core/odata/$metadata#PoolsUpdates",
  "value": [
   {
-   "id": 18,
-   "hash_id": 17,
+   "id": 22010,
+   "hash_id": 4268,
    "cert_index": 0,
-   "vrf_key_hash": "/513TMfj6F7Bgnv9aMR1vGEaniiOfJ4fsVn85S0nA/0=",
-   "pledge": 9000000000,
-   "active_epoch_no": 30,
-   "meta_id": 15,
-   "margin": 0,
+   "vrf_key_hash": "m+NFvLywzwVZsRNUZ/0uTHjHQYmM34vLc3stxRImMt8=",
+   "pledge": 10000000000,
+   "active_epoch_no": 291,
+   "meta_id": 21950,
+   "margin": 0.05,
    "fixed_cost": 340000000,
-   "registered_tx_id": 537,
-   "reward_addr_id": 489,
-   "vrf_key_hash_hex": "ff9d774cc7e3e85ec1827bfd68c475bc611a9e288e7c9e1fb159fce52d2703fd"
+   "registered_tx_id": 12623716,
+   "reward_addr_id": 2480780,
+   "vrf_key_hash_hex": "9be345bcbcb0cf0559b1135467fd2e4c78c741898cdf8bcb737b2dc5122632df"
   },
   "...",
   {
-   "id": 309,
-   "hash_id": 17,
+   "id": 30130,
+   "hash_id": 4268,
    "cert_index": 0,
-   "vrf_key_hash": "/513TMfj6F7Bgnv9aMR1vGEaniiOfJ4fsVn85S0nA/0=",
-   "pledge": 1000000000000,
-   "active_epoch_no": 44,
-   "meta_id": 15,
-   "margin": 0,
+   "vrf_key_hash": "m+NFvLywzwVZsRNUZ/0uTHjHQYmM34vLc3stxRImMt8=",
+   "pledge": 100000000000,
+   "active_epoch_no": 393,
+   "meta_id": 28640,
+   "margin": 0.04,
    "fixed_cost": 340000000,
-   "registered_tx_id": 260484,
-   "reward_addr_id": 489,
-   "vrf_key_hash_hex": "ff9d774cc7e3e85ec1827bfd68c475bc611a9e288e7c9e1fb159fce52d2703fd"
+   "registered_tx_id": 60059080,
+   "reward_addr_id": 2480780,
+   "vrf_key_hash_hex": "9be345bcbcb0cf0559b1135467fd2e4c78c741898cdf8bcb737b2dc5122632df"
   }
  ]
 }
@@ -699,9 +891,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -747,9 +963,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|

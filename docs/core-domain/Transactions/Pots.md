@@ -1,6 +1,6 @@
 --- 
 title: '' 
-sidebar_label: 'Hashes' 
+sidebar_label: 'Pots' 
 --- 
 import styles from '@site/src/components/HomepageFeatures/styles.module.css'; 
 import Tabs from '@theme/Tabs'; 
@@ -12,15 +12,22 @@ import ODataBadge from '@site/src/components/ODataBadge';
 
 :::tip Endpoints Summary 
 
-<EndpointBadge type="GET"/> All pool key hash<br/>
-<EndpointBadge type="GET"/> All pool key hash <ODataBadge/><br/>
+<EndpointBadge type="GET"/> Transactions for treasury payments to a stake address<br/>
+<EndpointBadge type="GET"/> Transactions for reserves payments to a stake address<br/>
 
 :::
-## <span class="theme-doc-version-badge badge badge--success">GET</span> All pool key hash
+## <span class="theme-doc-version-badge badge badge--success">GET</span> Transactions for treasury payments to a stake address
 
-Returns every unique pool key hash.
+Returns details of a transaction used for payments between the treasury and a stake address.
 
-`GET /api/core/pools/hashes`
+`GET /api/core/transactions/{transaction_hash}/treasury`
+
+### 🎰 Parameters 
+
+|Name|Description|In|Type|Required| 
+|---|---|---|---|---|
+| transaction_hash|The transaction hash.|path|string|true|
+
 
 ### 👨‍💻 Code samples 
 
@@ -29,8 +36,8 @@ Returns every unique pool key hash.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const hashes = await CBI.core.pools.hashes_();
-console.log(hashes); 
+const treasury = await CBI.core.transactions.treasury_({ transaction_hash: "0bc50b20e16268419048790f6ae3667a1480418dd9faed543bc0e8ca32ea7a08" });
+console.log(treasury); 
 ``` 
 
 </TabItem> 
@@ -53,17 +60,15 @@ import coming.soon 😀
 ```json
 [
  {
-  "id": 1,
-  "hash_raw": "FTgG280TTd7mmoxSBOOKyARI9iNC+MI8/kt+3w==",
-  "view": "pool1z5uqdk7dzdxaae5633fqfcu2eqzy3a3rgtuvy087fdld7yws0xt",
-  "hash_hex": "153806dbcd134ddee69a8c5204e38ac80448f62342f8c23cfe4b7edf"
+  "cert_index": 0,
+  "stake_address": "stake1uyzvysc3exwp2s9dqvq2zrmmpgc3dejc7p8ygleh9dhh77c80lhm0",
+  "amount": 1559093
  },
  "...",
  {
-  "id": 20,
-  "hash_raw": "iAVqdFqBve/ZU1nEPnHrUuBMh4UHok6I/zyjwA==",
-  "view": "pool13qzk5az6sx77lk2nt8zruu0t2tsyepu9q73yaz8l8j3uqxqh9wh",
-  "hash_hex": "88056a745a81bdefd95359c43e71eb52e04c878507a24e88ff3ca3c0"
+  "cert_index": 0,
+  "stake_address": "stake1uyzz8fzxw6yq5l38fez3rlvk0jnd6893yvvte77x3apgjtqjtyn3z",
+  "amount": 7023183365
  }
 ]
 ``` 
@@ -127,10 +132,9 @@ Status Code **200**
 
 |Name|Type|Description| 
 |---|---|---|
-| id|integer(int64)|The pool hash unique identifier.|
-| hash_raw|string(byte)|The raw bytes of the pool hash.|
-| view|string(undefined)|The Bech32 encoding of the pool hash.|
-| hash_hex|string(undefined)|The hexadecimal encoding of the pool hash.|
+| cert_index|integer(int32)|The index of this payment certificate within the certificates of this transaction.|
+| stake_address|string(undefined)|The Bech32 encoded version of the stake address.|
+| amount|number(double)|The treasury payment amount (in Lovelace).|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -182,11 +186,18 @@ Response schema is undefined.
 </TabItem> 
 </Tabs>
 
-## <span class="theme-doc-version-badge badge badge--success">GET</span> All pool key hash <span class="theme-doc-version-badge badge badge-odata"> OData</span>
+## <span class="theme-doc-version-badge badge badge--success">GET</span> Transactions for reserves payments to a stake address
 
-Returns every unique pool key hash.
+Returns details of a transaction used for payments between the reserves and a stake address.
 
-`GET /api/core/odata/poolshashes`
+`GET /api/core/transactions/{transaction_hash}/reserves`
+
+### 🎰 Parameters 
+
+|Name|Description|In|Type|Required| 
+|---|---|---|---|---|
+| transaction_hash|The transaction hash.|path|string|true|
+
 
 ### 👨‍💻 Code samples 
 
@@ -195,8 +206,8 @@ Returns every unique pool key hash.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const poolshashes = await CBI.core.poolshashes_({ "odata": true });
-console.log(poolshashes); 
+const reserves = await CBI.core.transactions.reserves_({ transaction_hash: "27dff3f43c460e779e35eff505f5f159c4283a8221b31ee17cdcd5b31ad221ba" });
+console.log(reserves); 
 ``` 
 
 </TabItem> 
@@ -217,25 +228,19 @@ import coming.soon 😀
 `OK: Successful request.`
 
 ```json
-{
- "@odata.context": "https://mainnet.cardanobi.io/api/core/odata/$metadata#PoolsHashes",
- "value": [
-  {
-   "id": 1,
-   "hash_raw": "FTgG280TTd7mmoxSBOOKyARI9iNC+MI8/kt+3w==",
-   "view": "pool1z5uqdk7dzdxaae5633fqfcu2eqzy3a3rgtuvy087fdld7yws0xt",
-   "hash_hex": "153806dbcd134ddee69a8c5204e38ac80448f62342f8c23cfe4b7edf"
-  },
-  "...",
-  {
-   "id": 20,
-   "hash_raw": "iAVqdFqBve/ZU1nEPnHrUuBMh4UHok6I/zyjwA==",
-   "view": "pool13qzk5az6sx77lk2nt8zruu0t2tsyepu9q73yaz8l8j3uqxqh9wh",
-   "hash_hex": "88056a745a81bdefd95359c43e71eb52e04c878507a24e88ff3ca3c0"
-  }
- ],
- "@odata.nextLink": "https://mainnet.cardanobi.io/api/core/odata/poolshashes?$skip=20"
-}
+[
+ {
+  "cert_index": 0,
+  "stake_address": "stake1uyzpdslj7kensytepnw099696nuccjwm89xz0jrfxjrp8wqhdd2us",
+  "amount": 223803
+ },
+ "...",
+ {
+  "cert_index": 0,
+  "stake_address": "stake1ux27egwsda2rk5zz7uk9qgmjlsr26yak6epfgtqezavzafcxj3hwu",
+  "amount": 110865360098
+ }
+]
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 
@@ -297,10 +302,9 @@ Status Code **200**
 
 |Name|Type|Description| 
 |---|---|---|
-| id|integer(int64)|The pool hash unique identifier.|
-| hash_raw|string(byte)|The raw bytes of the pool hash.|
-| view|string(undefined)|The Bech32 encoding of the pool hash.|
-| hash_hex|string(undefined)|The hexadecimal encoding of the pool hash.|
+| cert_index|integer(int32)|The index of this payment certificate within the certificates of this transaction.|
+| stake_address|string(undefined)|The Bech32 encoded version of the stake address.|
+| amount|number(double)|The treasury payment amount (in Lovelace).|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 

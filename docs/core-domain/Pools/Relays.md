@@ -58,21 +58,21 @@ import coming.soon 😀
  {
   "id": 1,
   "update_id": 1,
-  "ipv4": null,
+  "ipv4": "54.220.20.40",
   "ipv6": null,
-  "dns_name": "preprod-node.world.dev.cardano.org",
+  "dns_name": null,
   "dns_srv_name": null,
-  "port": 30000
+  "port": 3002
  },
  "...",
  {
   "id": 20,
-  "update_id": 18,
-  "ipv4": "20.98.184.3",
+  "update_id": 11,
+  "ipv4": null,
   "ipv6": null,
-  "dns_name": null,
+  "dns_name": "relay0.bluecheesestakehouse.com",
   "dns_srv_name": null,
-  "port": 3001
+  "port": 5000
  }
 ]
 ``` 
@@ -93,9 +93,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -136,9 +160,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|
@@ -154,9 +202,9 @@ Returns the relays for one pool given a pool update unique identifier.
 
 ### 🎰 Parameters 
 
-|Name|Description|Type|Required| 
-|---|---|---|---|
-| update_id|The pool update unique identifier|integer|true|
+|Name|Description|In|Type|Required| 
+|---|---|---|---|---|
+| update_id|The pool update unique identifier|path|integer|true|
 
 
 ### 👨‍💻 Code samples 
@@ -166,7 +214,7 @@ Returns the relays for one pool given a pool update unique identifier.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const relays_updates = await CBI.core.pools.relays.updates_({ "update_id": 1 });
+const relays_updates = await CBI.core.pools.relays.updates_({ update_id: 1 });
 console.log(relays_updates); 
 ``` 
 
@@ -192,21 +240,21 @@ import coming.soon 😀
  {
   "id": 1,
   "update_id": 1,
-  "ipv4": null,
+  "ipv4": "54.220.20.40",
   "ipv6": null,
-  "dns_name": "preprod-node.world.dev.cardano.org",
+  "dns_name": null,
   "dns_srv_name": null,
-  "port": 30000
+  "port": 3002
  },
  "...",
  {
   "id": 1,
   "update_id": 1,
-  "ipv4": null,
+  "ipv4": "54.220.20.40",
   "ipv6": null,
-  "dns_name": "preprod-node.world.dev.cardano.org",
+  "dns_name": null,
   "dns_srv_name": null,
-  "port": 30000
+  "port": 3002
  }
 ]
 ``` 
@@ -227,9 +275,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -270,9 +342,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|
@@ -288,9 +384,9 @@ Returns the relays for one pool given its VRF key hash.
 
 ### 🎰 Parameters 
 
-|Name|Description|Type|Required| 
-|---|---|---|---|
-| vrf_key_hash|The pool VRF key in HEX format.|string|true|
+|Name|Description|In|Type|Required| 
+|---|---|---|---|---|
+| vrf_key_hash|The pool VRF key in HEX format.|path|string|true|
 
 
 ### 👨‍💻 Code samples 
@@ -300,7 +396,7 @@ Returns the relays for one pool given its VRF key hash.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const relays_updates = await CBI.core.pools.relays.updates_({ "vrf_key_hash": "ff9d774cc7e3e85ec1827bfd68c475bc611a9e288e7c9e1fb159fce52d2703fd" });
+const relays_updates = await CBI.core.pools.relays.updates_({ vrf_key_hash: "9be345bcbcb0cf0559b1135467fd2e4c78c741898cdf8bcb737b2dc5122632df" });
 console.log(relays_updates); 
 ``` 
 
@@ -326,21 +422,21 @@ import coming.soon 😀
  {
   "id": 1,
   "update_id": 1,
-  "ipv4": null,
+  "ipv4": "54.220.20.40",
   "ipv6": null,
-  "dns_name": "preprod-node.world.dev.cardano.org",
+  "dns_name": null,
   "dns_srv_name": null,
-  "port": 30000
+  "port": 3002
  },
  "...",
  {
   "id": 20,
-  "update_id": 18,
-  "ipv4": "20.98.184.3",
+  "update_id": 11,
+  "ipv4": null,
   "ipv6": null,
-  "dns_name": null,
+  "dns_name": "relay0.bluecheesestakehouse.com",
   "dns_srv_name": null,
-  "port": 3001
+  "port": 5000
  }
 ]
 ``` 
@@ -361,9 +457,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -404,9 +524,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|
@@ -450,29 +594,29 @@ import coming.soon 😀
 
 ```json
 {
- "@odata.context": "https://preprod.cardanobi.io/api/core/odata/$metadata#PoolsRelays",
+ "@odata.context": "https://mainnet.cardanobi.io/api/core/odata/$metadata#PoolsRelays",
  "value": [
   {
    "id": 1,
    "update_id": 1,
-   "ipv4": null,
+   "ipv4": "54.220.20.40",
    "ipv6": null,
-   "dns_name": "preprod-node.world.dev.cardano.org",
+   "dns_name": null,
    "dns_srv_name": null,
-   "port": 30000
+   "port": 3002
   },
   "...",
   {
    "id": 20,
-   "update_id": 18,
-   "ipv4": "20.98.184.3",
+   "update_id": 11,
+   "ipv4": null,
    "ipv6": null,
-   "dns_name": null,
+   "dns_name": "relay0.bluecheesestakehouse.com",
    "dns_srv_name": null,
-   "port": 3001
+   "port": 5000
   }
  ],
- "@odata.nextLink": "https://preprod.cardanobi.io/api/core/odata/poolsrelays?$skip=20"
+ "@odata.nextLink": "https://mainnet.cardanobi.io/api/core/odata/poolsrelays?$skip=20"
 }
 ``` 
 </TabItem> 
@@ -492,9 +636,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -535,9 +703,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|
@@ -553,9 +745,9 @@ Returns the relays for one pool given a pool update unique identifier.
 
 ### 🎰 Parameters 
 
-|Name|Description|Type|Required| 
-|---|---|---|---|
-| update_id|The pool update unique identifier|integer|true|
+|Name|Description|In|Type|Required| 
+|---|---|---|---|---|
+| update_id|The pool update unique identifier|path|integer|true|
 
 
 ### 👨‍💻 Code samples 
@@ -565,7 +757,7 @@ Returns the relays for one pool given a pool update unique identifier.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const poolsrelays = await CBI.core.poolsrelays_({ "odata": true, "update_id": 1 });
+const poolsrelays = await CBI.core.poolsrelays_({ "odata": true, update_id: 1 });
 console.log(poolsrelays); 
 ``` 
 
@@ -588,26 +780,26 @@ import coming.soon 😀
 
 ```json
 {
- "@odata.context": "https://preprod.cardanobi.io/api/core/odata/$metadata#PoolsRelays",
+ "@odata.context": "https://mainnet.cardanobi.io/api/core/odata/$metadata#PoolsRelays",
  "value": [
   {
    "id": 1,
    "update_id": 1,
-   "ipv4": null,
+   "ipv4": "54.220.20.40",
    "ipv6": null,
-   "dns_name": "preprod-node.world.dev.cardano.org",
+   "dns_name": null,
    "dns_srv_name": null,
-   "port": 30000
+   "port": 3002
   },
   "...",
   {
    "id": 1,
    "update_id": 1,
-   "ipv4": null,
+   "ipv4": "54.220.20.40",
    "ipv6": null,
-   "dns_name": "preprod-node.world.dev.cardano.org",
+   "dns_name": null,
    "dns_srv_name": null,
-   "port": 30000
+   "port": 3002
   }
  ]
 }
@@ -629,9 +821,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -672,9 +888,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|

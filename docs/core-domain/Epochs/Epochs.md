@@ -12,12 +12,178 @@ import ODataBadge from '@site/src/components/ODataBadge';
 
 :::tip Endpoints Summary 
 
+<EndpointBadge type="GET"/> Latest epoch<br/>
 <EndpointBadge type="GET"/> All epochs<br/>
 <EndpointBadge type="GET"/> One epoch by number<br/>
 <EndpointBadge type="GET"/> All epochs <ODataBadge/><br/>
 <EndpointBadge type="GET"/> One epoch by number <ODataBadge/><br/>
 
 :::
+## <span class="theme-doc-version-badge badge badge--success">GET</span> Latest epoch
+
+Returns info about the latest epoch.
+
+`GET /api/core/epochs/latest`
+
+### 👨‍💻 Code samples 
+
+<Tabs> 
+<TabItem value="js" label="Node.js"> 
+
+```js 
+const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
+const latest = await CBI.core.epochs.latest_();
+console.log(latest); 
+``` 
+
+</TabItem> 
+<TabItem value="py" label="Python"> 
+
+```py 
+import coming.soon 😀 
+``` 
+
+</TabItem> 
+</Tabs> 
+
+### 💌 Response Codes 
+
+<Tabs groupId="response-type"> 
+<TabItem value="200" label="200" attributes={{className: styles.green}}> 
+
+`OK: Successful request.`
+
+```json
+{
+ "id": 400,
+ "out_sum": 138804347914311440,
+ "fees": 92760501426,
+ "tx_count": 280420,
+ "blk_count": 20066,
+ "no": 399,
+ "start_time": "2023-03-11T21:48:16",
+ "end_time": "2023-03-16T16:46:53"
+}
+``` 
+</TabItem> 
+<TabItem value="400" label="400" attributes={{className: styles.red}}> 
+
+`Bad Request: The request was unacceptable, often due to missing a required parameter.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="401" label="401" attributes={{className: styles.red}}> 
+
+`Unauthorized: No valid API key provided.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="404" label="404" attributes={{className: styles.red}}> 
+
+`Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+</Tabs>
+
+### 💌 Response Schemas 
+
+<Tabs groupId="response-type"> 
+<TabItem value="200" label="200" attributes={{className: styles.green}}>
+
+Status Code **200**
+
+|Name|Type|Description| 
+|---|---|---|
+| id|integer(int64)|The epoch unique identifier.|
+| out_sum|number(double)|The sum of the transaction output values (in Lovelace) in this epoch.|
+| fees|number(double)|The sum of the fees (in Lovelace) in this epoch.|
+| tx_count|integer(int32)|The number of transactions in this epoch.|
+| blk_count|integer(int32)|The number of blocks in this epoch.|
+| no|integer(int32)|The epoch number.|
+| start_time|string(date-time)|The epoch start time.|
+| end_time|string(date-time)|The epoch end time.|
+</TabItem> 
+<TabItem value="400" label="400" attributes={{className: styles.red}}>
+
+Status Code **400**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="401" label="401" attributes={{className: styles.red}}>
+
+Status Code **401**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="404" label="404" attributes={{className: styles.red}}>
+
+Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+</Tabs>
+
 ## <span class="theme-doc-version-badge badge badge--success">GET</span> All epochs
 
 Returns all epoch entities.
@@ -56,24 +222,24 @@ import coming.soon 😀
 [
  {
   "id": 1,
-  "out_sum": 0,
-  "fees": 0,
-  "tx_count": 0,
-  "blk_count": 11,
+  "out_sum": 10378568796482912,
+  "fees": 3458053,
+  "tx_count": 33,
+  "blk_count": 21587,
   "no": 0,
-  "start_time": "2022-06-01T00:00:00",
-  "end_time": "2022-06-05T12:01:40"
+  "start_time": "2017-09-23T21:44:51",
+  "end_time": "2017-09-28T21:44:31"
  },
  "...",
  {
   "id": 20,
-  "out_sum": 0,
-  "fees": 0,
-  "tx_count": 0,
-  "blk_count": 56,
+  "out_sum": 33234287940816696,
+  "fees": 3786897619,
+  "tx_count": 22136,
+  "blk_count": 21597,
   "no": 19,
-  "start_time": "2022-09-04T00:00:02",
-  "end_time": "2022-09-08T12:01:48"
+  "start_time": "2017-12-27T21:44:51",
+  "end_time": "2018-01-01T21:44:31"
  }
 ]
 ``` 
@@ -94,9 +260,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -138,9 +328,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|
@@ -152,13 +366,13 @@ Response schema is undefined.
 
 Returns one specific epoch given its number.
 
-`GET /api/core/epochs/{no}`
+`GET /api/core/epochs/{epoch_no}`
 
 ### 🎰 Parameters 
 
-|Name|Description|Type|Required| 
-|---|---|---|---|
-| no|Epoch number|integer|true|
+|Name|Description|In|Type|Required| 
+|---|---|---|---|---|
+| epoch_no|Epoch number|path|integer|true|
 
 
 ### 👨‍💻 Code samples 
@@ -168,7 +382,7 @@ Returns one specific epoch given its number.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const epochs = await CBI.core.epochs_({ "no": 30 });
+const epochs = await CBI.core.epochs_({ epoch_no: 394 });
 console.log(epochs); 
 ``` 
 
@@ -190,16 +404,29 @@ import coming.soon 😀
 `OK: Successful request.`
 
 ```json
-{
- "id": 31,
- "out_sum": 102865306257160,
- "fees": 4942589267,
- "tx_count": 24249,
- "blk_count": 20386,
- "no": 30,
- "start_time": "2022-10-29T00:00:25",
- "end_time": "2022-11-02T23:59:27"
-}
+[
+ {
+  "id": 1,
+  "out_sum": 10378568796482912,
+  "fees": 3458053,
+  "tx_count": 33,
+  "blk_count": 21587,
+  "no": 0,
+  "start_time": "2017-09-23T21:44:51",
+  "end_time": "2017-09-28T21:44:31"
+ },
+ "...",
+ {
+  "id": 20,
+  "out_sum": 33234287940816696,
+  "fees": 3786897619,
+  "tx_count": 22136,
+  "blk_count": 21597,
+  "no": 19,
+  "start_time": "2017-12-27T21:44:51",
+  "end_time": "2018-01-01T21:44:31"
+ }
+]
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 
@@ -218,9 +445,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -262,9 +513,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|
@@ -308,31 +583,31 @@ import coming.soon 😀
 
 ```json
 {
- "@odata.context": "https://preprod.cardanobi.io/api/core/odata/$metadata#Epochs",
+ "@odata.context": "https://mainnet.cardanobi.io/api/core/odata/$metadata#Epochs",
  "value": [
   {
    "id": 1,
-   "out_sum": 0,
-   "fees": 0,
-   "tx_count": 0,
-   "blk_count": 11,
+   "out_sum": 10378568796482912,
+   "fees": 3458053,
+   "tx_count": 33,
+   "blk_count": 21587,
    "no": 0,
-   "start_time": "2022-06-01T00:00:00Z",
-   "end_time": "2022-06-05T12:01:40Z"
+   "start_time": "2017-09-23T21:44:51Z",
+   "end_time": "2017-09-28T21:44:31Z"
   },
   "...",
   {
    "id": 20,
-   "out_sum": 0,
-   "fees": 0,
-   "tx_count": 0,
-   "blk_count": 56,
+   "out_sum": 33234287940816696,
+   "fees": 3786897619,
+   "tx_count": 22136,
+   "blk_count": 21597,
    "no": 19,
-   "start_time": "2022-09-04T00:00:02Z",
-   "end_time": "2022-09-08T12:01:48Z"
+   "start_time": "2017-12-27T21:44:51Z",
+   "end_time": "2018-01-01T21:44:31Z"
   }
  ],
- "@odata.nextLink": "https://preprod.cardanobi.io/api/core/odata/epochs?$skip=20"
+ "@odata.nextLink": "https://mainnet.cardanobi.io/api/core/odata/epochs?$skip=20"
 }
 ``` 
 </TabItem> 
@@ -352,9 +627,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -396,9 +695,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|
@@ -410,13 +733,13 @@ Response schema is undefined.
 
 Returns one specific epoch given its number.
 
-`GET /api/core/odata/epochs/{no}`
+`GET /api/core/odata/epochs/{epoch_no}`
 
 ### 🎰 Parameters 
 
-|Name|Description|Type|Required| 
-|---|---|---|---|
-| no|Epoch number|integer|true|
+|Name|Description|In|Type|Required| 
+|---|---|---|---|---|
+| epoch_no|Epoch number|path|integer|true|
 
 
 ### 👨‍💻 Code samples 
@@ -426,7 +749,7 @@ Returns one specific epoch given its number.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const epochs = await CBI.core.epochs_({ "odata": true, "no": 30 });
+const epochs = await CBI.core.epochs_({ "odata": true, epoch_no: 394 });
 console.log(epochs); 
 ``` 
 
@@ -449,15 +772,31 @@ import coming.soon 😀
 
 ```json
 {
- "@odata.context": "https://preprod.cardanobi.io/api/core/odata/$metadata#Epochs/$entity",
- "id": 31,
- "out_sum": 102865306257160,
- "fees": 4942589267,
- "tx_count": 24249,
- "blk_count": 20386,
- "no": 30,
- "start_time": "2022-10-29T00:00:25Z",
- "end_time": "2022-11-02T23:59:27Z"
+ "@odata.context": "https://mainnet.cardanobi.io/api/core/odata/$metadata#Epochs",
+ "value": [
+  {
+   "id": 1,
+   "out_sum": 10378568796482912,
+   "fees": 3458053,
+   "tx_count": 33,
+   "blk_count": 21587,
+   "no": 0,
+   "start_time": "2017-09-23T21:44:51Z",
+   "end_time": "2017-09-28T21:44:31Z"
+  },
+  "...",
+  {
+   "id": 20,
+   "out_sum": 33234287940816696,
+   "fees": 3786897619,
+   "tx_count": 22136,
+   "blk_count": 21597,
+   "no": 19,
+   "start_time": "2017-12-27T21:44:51Z",
+   "end_time": "2018-01-01T21:44:31Z"
+  }
+ ],
+ "@odata.nextLink": "https://mainnet.cardanobi.io/api/core/odata/epochs?$skip=20"
 }
 ``` 
 </TabItem> 
@@ -477,9 +816,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -521,9 +884,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|

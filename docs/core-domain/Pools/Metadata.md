@@ -57,20 +57,20 @@ import coming.soon 😀
 [
  {
   "id": 1,
-  "pool_id": 4,
-  "url": "https://angelstakepool.net/preprod/angel.json",
-  "hash": "v0RwndcUdCaI7v8rbKVXP+MSouX0nVZMTCMRkjxjlSw=",
-  "registered_tx_id": 132,
-  "hash_hex": "bf44709dd714742688eeff2b6ca5573fe312a2e5f49d564c4c2311923c63952c"
+  "pool_id": 1,
+  "url": "https://raw.githubusercontent.com/Octalus/cardano/master/p.json",
+  "hash": "yn0S3s+IbjH1ImtZRsYu3IGn5Ar5XOfNZGUSLjCdViY=",
+  "registered_tx_id": 2415556,
+  "hash_hex": "ca7d12decf886e31f5226b5946c62edc81a7e40af95ce7cd6465122e309d5626"
  },
  "...",
  {
-  "id": 21,
-  "pool_id": 23,
-  "url": "https://wota.sbs/metadata_004.json",
-  "hash": "gBUMGfUqh55xDmyrlcsFCMXDn3uMpHdxbOzKp/apv58=",
-  "registered_tx_id": 741,
-  "hash_hex": "80150c19f52a879e710e6cab95cb0508c5c39f7b8ca477716ceccaa7f6a9bf9f"
+  "id": 20,
+  "pool_id": 20,
+  "url": "https://masp-pool.nl/MASP.json",
+  "hash": "W7EULqP9nfVf8XIYSLm2ugJ32I5hGnT5rzr6ODhkTZY=",
+  "registered_tx_id": 2416313,
+  "hash_hex": "5bb1142ea3fd9df55ff1721848b9b6ba0277d88e611a74f9af3afa3838644d96"
  }
 ]
 ``` 
@@ -91,9 +91,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -133,9 +157,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|
@@ -151,9 +199,9 @@ Returns the on-chain references to off-chain pool metadata for one pool given it
 
 ### 🎰 Parameters 
 
-|Name|Description|Type|Required| 
-|---|---|---|---|
-| pool_id|Pool unique identifier|integer|true|
+|Name|Description|In|Type|Required| 
+|---|---|---|---|---|
+| pool_id|Pool unique identifier|path|integer|true|
 
 
 ### 👨‍💻 Code samples 
@@ -163,7 +211,7 @@ Returns the on-chain references to off-chain pool metadata for one pool given it
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const metadata = await CBI.core.pools.metadata_({ "pool_id": 17 });
+const metadata = await CBI.core.pools.metadata_({ pool_id: 4268 });
 console.log(metadata); 
 ``` 
 
@@ -187,21 +235,21 @@ import coming.soon 😀
 ```json
 [
  {
-  "id": 15,
-  "pool_id": 17,
-  "url": "https://adacapital.io/adact_preprod.json",
-  "hash": "rF+8U6PRSTtboOoXcv1dT9o81yuolQP/ImGjkFL80vU=",
-  "registered_tx_id": 537,
-  "hash_hex": "ac5fbc53a3d1493b5ba0ea1772fd5d4fda3cd72ba89503ff2261a39052fcd2f5"
+  "id": 21950,
+  "pool_id": 4268,
+  "url": "https://git.io/JEMjI",
+  "hash": "RGovyIsZoojy+22lEpImU8mUIACtoQyEbXHki86nToo=",
+  "registered_tx_id": 12623716,
+  "hash_hex": "446a2fc88b19a288f2fb6da512922653c9942000ada10c846d71e48bcea74e8a"
  },
  "...",
  {
-  "id": 15,
-  "pool_id": 17,
-  "url": "https://adacapital.io/adact_preprod.json",
-  "hash": "rF+8U6PRSTtboOoXcv1dT9o81yuolQP/ImGjkFL80vU=",
-  "registered_tx_id": 537,
-  "hash_hex": "ac5fbc53a3d1493b5ba0ea1772fd5d4fda3cd72ba89503ff2261a39052fcd2f5"
+  "id": 28640,
+  "pool_id": 4268,
+  "url": "https://adacapital.io/adact_mainnet.json",
+  "hash": "QncbBbMPGAiQmAYTsxR/a7eX/h+Kg+ktOaMTXslVnqg=",
+  "registered_tx_id": 49755882,
+  "hash_hex": "42771b05b30f180890980613b3147f6bb797fe1f8a83e92d39a3135ec9559ea8"
  }
 ]
 ``` 
@@ -222,9 +270,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -264,9 +336,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|
@@ -282,9 +378,9 @@ Returns the on-chain references to off-chain pool metadata for one pool given it
 
 ### 🎰 Parameters 
 
-|Name|Description|Type|Required| 
-|---|---|---|---|
-| meta_hash|Pool metadata hash|string|true|
+|Name|Description|In|Type|Required| 
+|---|---|---|---|---|
+| meta_hash|Pool metadata hash|path|string|true|
 
 
 ### 👨‍💻 Code samples 
@@ -294,7 +390,7 @@ Returns the on-chain references to off-chain pool metadata for one pool given it
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const metadata_hashes = await CBI.core.pools.metadata.hashes_({ "meta_hash": "ac5fbc53a3d1493b5ba0ea1772fd5d4fda3cd72ba89503ff2261a39052fcd2f5" });
+const metadata_hashes = await CBI.core.pools.metadata.hashes_({ meta_hash: "42771b05b30f180890980613b3147f6bb797fe1f8a83e92d39a3135ec9559ea8" });
 console.log(metadata_hashes); 
 ``` 
 
@@ -318,21 +414,21 @@ import coming.soon 😀
 ```json
 [
  {
-  "id": 15,
-  "pool_id": 17,
-  "url": "https://adacapital.io/adact_preprod.json",
-  "hash": "rF+8U6PRSTtboOoXcv1dT9o81yuolQP/ImGjkFL80vU=",
-  "registered_tx_id": 537,
-  "hash_hex": "ac5fbc53a3d1493b5ba0ea1772fd5d4fda3cd72ba89503ff2261a39052fcd2f5"
+  "id": 28640,
+  "pool_id": 4268,
+  "url": "https://adacapital.io/adact_mainnet.json",
+  "hash": "QncbBbMPGAiQmAYTsxR/a7eX/h+Kg+ktOaMTXslVnqg=",
+  "registered_tx_id": 49755882,
+  "hash_hex": "42771b05b30f180890980613b3147f6bb797fe1f8a83e92d39a3135ec9559ea8"
  },
  "...",
  {
-  "id": 15,
-  "pool_id": 17,
-  "url": "https://adacapital.io/adact_preprod.json",
-  "hash": "rF+8U6PRSTtboOoXcv1dT9o81yuolQP/ImGjkFL80vU=",
-  "registered_tx_id": 537,
-  "hash_hex": "ac5fbc53a3d1493b5ba0ea1772fd5d4fda3cd72ba89503ff2261a39052fcd2f5"
+  "id": 28640,
+  "pool_id": 4268,
+  "url": "https://adacapital.io/adact_mainnet.json",
+  "hash": "QncbBbMPGAiQmAYTsxR/a7eX/h+Kg+ktOaMTXslVnqg=",
+  "registered_tx_id": 49755882,
+  "hash_hex": "42771b05b30f180890980613b3147f6bb797fe1f8a83e92d39a3135ec9559ea8"
  }
 ]
 ``` 
@@ -353,9 +449,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -395,9 +515,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|
@@ -441,27 +585,27 @@ import coming.soon 😀
 
 ```json
 {
- "@odata.context": "https://preprod.cardanobi.io/api/core/odata/$metadata#PoolsMetadata",
+ "@odata.context": "https://mainnet.cardanobi.io/api/core/odata/$metadata#PoolsMetadata",
  "value": [
   {
    "id": 1,
-   "pool_id": 4,
-   "url": "https://angelstakepool.net/preprod/angel.json",
-   "hash": "v0RwndcUdCaI7v8rbKVXP+MSouX0nVZMTCMRkjxjlSw=",
-   "registered_tx_id": 132,
-   "hash_hex": "bf44709dd714742688eeff2b6ca5573fe312a2e5f49d564c4c2311923c63952c"
+   "pool_id": 1,
+   "url": "https://raw.githubusercontent.com/Octalus/cardano/master/p.json",
+   "hash": "yn0S3s+IbjH1ImtZRsYu3IGn5Ar5XOfNZGUSLjCdViY=",
+   "registered_tx_id": 2415556,
+   "hash_hex": "ca7d12decf886e31f5226b5946c62edc81a7e40af95ce7cd6465122e309d5626"
   },
   "...",
   {
-   "id": 21,
-   "pool_id": 23,
-   "url": "https://wota.sbs/metadata_004.json",
-   "hash": "gBUMGfUqh55xDmyrlcsFCMXDn3uMpHdxbOzKp/apv58=",
-   "registered_tx_id": 741,
-   "hash_hex": "80150c19f52a879e710e6cab95cb0508c5c39f7b8ca477716ceccaa7f6a9bf9f"
+   "id": 20,
+   "pool_id": 20,
+   "url": "https://masp-pool.nl/MASP.json",
+   "hash": "W7EULqP9nfVf8XIYSLm2ugJ32I5hGnT5rzr6ODhkTZY=",
+   "registered_tx_id": 2416313,
+   "hash_hex": "5bb1142ea3fd9df55ff1721848b9b6ba0277d88e611a74f9af3afa3838644d96"
   }
  ],
- "@odata.nextLink": "https://preprod.cardanobi.io/api/core/odata/poolsmetadata?$skip=20"
+ "@odata.nextLink": "https://mainnet.cardanobi.io/api/core/odata/poolsmetadata?$skip=20"
 }
 ``` 
 </TabItem> 
@@ -481,9 +625,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -523,9 +691,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|
@@ -541,9 +733,9 @@ Returns the on-chain references to off-chain pool metadata for one pool given it
 
 ### 🎰 Parameters 
 
-|Name|Description|Type|Required| 
-|---|---|---|---|
-| pool_id|Pool unique identifier|integer|true|
+|Name|Description|In|Type|Required| 
+|---|---|---|---|---|
+| pool_id|Pool unique identifier|path|integer|true|
 
 
 ### 👨‍💻 Code samples 
@@ -553,7 +745,7 @@ Returns the on-chain references to off-chain pool metadata for one pool given it
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const poolsmetadata = await CBI.core.poolsmetadata_({ "odata": true, "pool_id": 17 });
+const poolsmetadata = await CBI.core.poolsmetadata_({ "odata": true, pool_id: 4268 });
 console.log(poolsmetadata); 
 ``` 
 
@@ -576,24 +768,24 @@ import coming.soon 😀
 
 ```json
 {
- "@odata.context": "https://preprod.cardanobi.io/api/core/odata/$metadata#PoolsMetadata",
+ "@odata.context": "https://mainnet.cardanobi.io/api/core/odata/$metadata#PoolsMetadata",
  "value": [
   {
-   "id": 15,
-   "pool_id": 17,
-   "url": "https://adacapital.io/adact_preprod.json",
-   "hash": "rF+8U6PRSTtboOoXcv1dT9o81yuolQP/ImGjkFL80vU=",
-   "registered_tx_id": 537,
-   "hash_hex": "ac5fbc53a3d1493b5ba0ea1772fd5d4fda3cd72ba89503ff2261a39052fcd2f5"
+   "id": 21950,
+   "pool_id": 4268,
+   "url": "https://git.io/JEMjI",
+   "hash": "RGovyIsZoojy+22lEpImU8mUIACtoQyEbXHki86nToo=",
+   "registered_tx_id": 12623716,
+   "hash_hex": "446a2fc88b19a288f2fb6da512922653c9942000ada10c846d71e48bcea74e8a"
   },
   "...",
   {
-   "id": 15,
-   "pool_id": 17,
-   "url": "https://adacapital.io/adact_preprod.json",
-   "hash": "rF+8U6PRSTtboOoXcv1dT9o81yuolQP/ImGjkFL80vU=",
-   "registered_tx_id": 537,
-   "hash_hex": "ac5fbc53a3d1493b5ba0ea1772fd5d4fda3cd72ba89503ff2261a39052fcd2f5"
+   "id": 28640,
+   "pool_id": 4268,
+   "url": "https://adacapital.io/adact_mainnet.json",
+   "hash": "QncbBbMPGAiQmAYTsxR/a7eX/h+Kg+ktOaMTXslVnqg=",
+   "registered_tx_id": 49755882,
+   "hash_hex": "42771b05b30f180890980613b3147f6bb797fe1f8a83e92d39a3135ec9559ea8"
   }
  ]
 }
@@ -615,9 +807,33 @@ Response schema is undefined.
 Response schema is undefined.
 ``` 
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}> 
+
+`Quota Exceeded: This API key has reached its usage limit on request.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}> 
+
+`Access Denied: The request is missing a valid API key or token.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}> 
 
 `Not Found: The requested resource cannot be found.`
+
+```json
+Response schema is undefined.
+``` 
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}> 
+
+`Too Many Requests: This API key has reached its rate limit.`
 
 ```json
 Response schema is undefined.
@@ -657,9 +873,33 @@ Status Code **401**
 |---|---|---|
 Response schema is undefined.
 </TabItem> 
+<TabItem value="402" label="402" attributes={{className: styles.red}}>
+
+Status Code **402**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="403" label="403" attributes={{className: styles.red}}>
+
+Status Code **403**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
 <TabItem value="404" label="404" attributes={{className: styles.red}}>
 
 Status Code **404**
+
+|Name|Type|Description| 
+|---|---|---|
+Response schema is undefined.
+</TabItem> 
+<TabItem value="429" label="429" attributes={{className: styles.red}}>
+
+Status Code **429**
 
 |Name|Type|Description| 
 |---|---|---|

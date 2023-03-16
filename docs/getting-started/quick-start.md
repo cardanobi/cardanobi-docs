@@ -29,16 +29,16 @@ import TabItem from '@theme/TabItem';
 
 Open a shell terminal and run the following.
 
-- Get a Bearer token from CardanoBI's preprod identity server:
+- Get a Bearer token from CardanoBI's mainnet identity server:
 
 ```shell
-curl -d "client_id=YOUR-KEY&client_secret=YOUR-SECRET&grant_type=client_credentials" -X POST https://preprod.cardanobi.io:5000/connect/token
+curl -d "client_id=YOUR-KEY&client_secret=YOUR-SECRET&grant_type=client_credentials" -X POST https://mainnet.cardanobi.io:5000/connect/token
 ```
 
-- Make your first request by getting the details for epoch #30 in preprod:
+- Make your first request by looking up the latest block on mainnet:
 
 ```shell
-curl https://preprod.cardanobi.io:4000/api/core/epochs/30 -H "Authorization: Bearer YOUR-BEARER-TOKEN" | jq .
+curl https://mainnet.cardanobi.io:4000/api/core/blocks/latest -H "Authorization: Bearer YOUR-BEARER-TOKEN" -H "Client-Api-Key: YOUR-API-KEY" | jq .
 ```
 
 </TabItem>
@@ -56,18 +56,11 @@ Import CardanoBI.js in your project.
 import { CardanoBI } from './cardanobi-js/CardanoBI.js'
 ```
 
-Now make your first request by getting the details for epoch #30 in preprod.
+Now make your first request by looking up the latest block on mainnet:
 ```js
-const CBI = await new CardanoBI({ apiKey: "YOUR-KEY", apiSecret: "YOUR-SECRET", network: "preprod" });
-
-(async () => {
-  try {
-    const epoch = await CBI.core.epochs_({ "no": 30 });
-    console.log(epoch);
-  } catch (error) {
-    console.error(error);
-  }
-})();
+const CBI = await new CardanoBI({ apiKey: "YOUR-KEY", apiSecret: "YOUR-SECRET"});
+const block = await CBI.core.blocks.latest_();
+console.log(block);
 ```
 
 </TabItem>
@@ -78,14 +71,24 @@ const CBI = await new CardanoBI({ apiKey: "YOUR-KEY", apiSecret: "YOUR-SECRET", 
 The response should look something like this:
 ```js
 {
-  id: 31,
-  out_sum: 102865306257160,
-  fees: 4942589267,
-  tx_count: 24249,
-  blk_count: 20386,
-  no: 30,
-  start_time: '2022-10-29T00:00:25',
-  end_time: '2022-11-02T23:59:27'
+  "id": 8528164,
+  "hash": "8IdAgx3TwivX4Vd2VILqaphK4ureKZknIDteFAW4tsM=",
+  "epoch_no": 399,
+  "slot_no": 87420423,
+  "epoch_slot_no": 415623,
+  "block_no": 8525299,
+  "previous_id": 8528163,
+  "slot_leader_id": 7047273,
+  "size": 4898,
+  "time": "2023-03-16T17:11:54",
+  "tx_count": 4,
+  "proto_major": 8,
+  "proto_minor": 0,
+  "vrf_key": "vrf_vk1s70lx90mjpsnwcafyh53erkgy9syejw7knpm9wt0rzd2a0kd2t6s9xl6vm",
+  "op_cert": "9rSP/aG6pEKGj96mURztusIjnWnn+rbb5pxnlkUoEoQ=",
+  "op_cert_counter": 1659973637,
+  "hash_hex": "f08740831dd3c22bd7e157765482ea6a984ae2eade299927203b5e1405b8b6c3",
+  "op_cert_hex": "f6b48ffda1baa442868fdea6511cedbac2239d69e7fab6dbe69c679645281284"
 }
 ```
 
