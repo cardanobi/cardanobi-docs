@@ -9,9 +9,9 @@ authors:
 tags: [cardanobi, zerocitizen, partnership, carbon balance, netzero]
 ---
 
-I'm absolutely pumped to heard the news that [Zero Citizen](https://zerocitizen.io) have launched the Closed Alpha of their Carbon Balance Service, and in doing so, certified the first ever Cardano project to be carbon neutral!
+I'm absolutely pumped to hear the news that [Zero Citizen](https://zerocitizen.io) have launched the Closed Alpha of their Carbon Balance Service, and in doing so, certified the first ever Cardano project to be carbon neutral!
 
-ZC used **CardanoBI SaaS Service** to calculate the carbon footprint of [FRH](https://filthyrichhorses.io).
+**ZC** used **CardanoBI SaaS Service** to calculate the carbon footprint of [FRH](https://filthyrichhorses.io).
 
 Congrats to all teams involved!
 
