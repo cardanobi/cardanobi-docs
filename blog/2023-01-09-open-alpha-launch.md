@@ -16,5 +16,5 @@ The bulk of the work is done but it is fair to say a lot of painting and decorat
 So expect things to be incomplete and break often, but hey, that's what an alpha is for!
 :::tip
 
-Make sure to checkout our [Quick Start Tutorial](../docs/getting-started/quick-start).
+Make sure to checkout our [Quick Start Tutorial](/docs/getting-started/quick-start).
 :::
