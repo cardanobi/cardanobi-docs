@@ -78,16 +78,6 @@ import { CardanoBI } from './cardanobi-js/CardanoBI.js'
 
 Now instantiate a CardanoBI object without parameters, by doing so it will use ```mainnet``` as the default network.
 
-:::tip Tips 
-
-If you want to check polls on ```preprod```, simply pass a ```network``` parameter like so:
-
-```js
-const CBI = await new CardanoBI({network: "preprod"});
-```
-
-:::
-
 Lastly, call the ```polls_``` method, available in the ```core``` domain object:
 
 ```js
@@ -95,6 +85,16 @@ const CBI = await new CardanoBI();
 const all_polls = await CBI.core.polls_();
 console.log(all_polls);
 ```
+
+:::tip Tips 
+
+If you want to check polls on ```preprod```, simply pass a ```network``` parameter when creating a new CardanoBI client instance like so:
+
+```js
+const CBI = await new CardanoBI({network: "preprod"});
+```
+
+:::
 
 </TabItem>
 
@@ -151,7 +151,7 @@ To retrieve the votes, we will simply go ahead and call this endpoint:
 You can view the full description of this endpoint by following this link:<br/>
 [<DocsBadge type="docs"/> `All polls: /api/core/polls/{poll_hash}`](https://docs.cardanobi.io/docs/core-domain/Polls/#get-one-poll-full-details-by-hash)
 
-(Drum roll) And the results are...not too fast, a bit more work is required:
+(Drum roll) And the results are...not so fast, a bit more work is required:
 
 <Tabs>
 <TabItem value="js" label="Node.js">
