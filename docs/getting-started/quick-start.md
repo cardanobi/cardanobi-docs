@@ -17,7 +17,46 @@ The quickest way to get started is with the **CardanoBI SaaS API**.
 
 ## Getting your API Key & Secret
 
-To take part in our alpha, please email us at [info@cardanobi.io](mailto:info@cardanobi.io) and we'll reply with your key details.
+<!-- To take part in our alpha, please email us at [info@cardanobi.io](mailto:info@cardanobi.io) and we'll reply with your key details. -->
+
+To get your free API key, go over to [cardanobi.io](https://cardanobi.io/)
+
+![Image Alt Text](/img/login.png)
+
+Hit the login link in the top right corner.
+
+Then either:
+
+- Register with your email
+- Authenticate with Google
+- Authenticate Github
+
+Once registered/authenticated you will be redirected to your dashboard:
+
+![Image Alt Text](/img/dashboard.png)
+
+Hit the `Add Project` button to create your first project.
+
+Choose a fitting name, the desired Cardano network (mainnet & preprod are live, preview is in the making :fire:)
+
+:::tip
+
+Note that in the rest of this `quick start` we will be using the mainnet API, so if you want to follow along maybe best to create a mainnet API key :bulb:.
+
+:::
+
+Hit the `Save` button.
+
+At this stage you should be prompted with your own `API key` and `API secret`.
+
+:::caution
+
+Make sure to save the secret right away as it will disappear from view upon refreshing your page.
+
+:::
+
+You are all set!
+
 
 ## Making your first call
 
@@ -32,14 +71,26 @@ Open a shell terminal and run the following.
 - Get a Bearer token from CardanoBI's mainnet identity server:
 
 ```shell
-curl -d "client_id=YOUR-KEY&client_secret=YOUR-SECRET&grant_type=client_credentials" -X POST https://mainnet.cardanobi.io:5000/connect/token
+curl -d "client_id=YOUR-KEY&client_secret=YOUR-SECRET&grant_type=client_credentials" -X POST https://cardanobi.io:44010/connect/token
 ```
+
+:::tip
+
+Don't forget to replace the placeholders with your actual API key and secret.
+
+:::
 
 - Make your first request by looking up the latest block on mainnet:
 
 ```shell
-curl https://mainnet.cardanobi.io:4000/api/core/blocks/latest -H "Authorization: Bearer YOUR-BEARER-TOKEN" -H "Client-Api-Key: YOUR-API-KEY" | jq .
+curl https://cardanobi.io:4000/api/core/blocks/latest -H "Authorization: Bearer YOUR-BEARER-TOKEN" -H "Client-Api-Key: YOUR-API-KEY" | jq .
 ```
+
+:::tip
+
+Don't forget to replace the placeholder with your actual Bearer token.
+
+:::
 
 </TabItem>
 <TabItem value="js" label="Node.js">
@@ -63,6 +114,11 @@ const block = await CBI.core.blocks.latest_();
 console.log(block);
 ```
 
+:::tip
+
+Don't forget to replace the placeholders with your actual API key and secret.
+
+:::
 </TabItem>
 </Tabs>
 

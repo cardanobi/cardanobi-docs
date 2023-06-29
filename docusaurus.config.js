@@ -134,7 +134,7 @@ const config = {
     announcementBar: {
       id: 'support_us',
       content:
-        '🔥Hot from the press: we are in alpha, things will break😱, things will be incomplete😭, keep calm & carry on ❤️</a>',
+        '🔥Hot from the press: we are in beta, things will break😱, things will be incomplete😭, keep calm & carry on ❤️</a>',
       backgroundColor: '#e28743',
       textColor: '#063970',
       isCloseable: false,
