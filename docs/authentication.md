@@ -46,26 +46,14 @@ To that end and in order to retrieve **Bearer Tokens** from your **API Key & Sec
 
 :::
 
-<Tabs groupId="envs">
-<TabItem value="mainnet" label="Mainnet">
-
-:::info Mainnet Environment
-https://cardanobi.io:44010
+:::info CardanoBI IDS Base Endpoint
+https://cardanobi.io:44010/connect/token
 :::
 
-</TabItem>
-<TabItem value="preprod" label="Preprod">
+## Requesting Manually a Bearer Token
 
-:::info Preprod Environment
-https://preprod.cardanobi.io:44010
-:::
+To request a ```Bearer Token``` you need to make a ```POST``` request to the IDS Base Endpoint and include your ```API Key``` , your ```API-SECRET``` and specify ```client_credentials``` as the grant type:
 
-</TabItem>
-<TabItem value="preview" label="Preview">
-
-:::info Preview Environment
-https://preview.cardanobi.io:44010
-:::
-
-</TabItem>
-</Tabs>
+```js
+curl -d "client_id=YOUR-KEY&client_secret=YOUR-SECRET&grant_type=client_credentials" -X POST https://cardanobi.io:44010/connect/token
+```
