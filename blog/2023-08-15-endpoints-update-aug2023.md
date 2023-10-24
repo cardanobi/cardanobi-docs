@@ -22,8 +22,8 @@ The storage requirements for these endpoints have been **optimized by 64%**!
 
 #### 🖥️ Impact on CardanoBI Instances:
 For those running their own **CardanoBI** instance for mainnet, here’s the impact:
-- **Before**: The underlying caches required `76G`.
-- **After**: The requirement has reduced to `27G`! 🍃
+- **Before**: The underlying caches required `76GB`.
+- **After**: The requirement has reduced to `27GB`! 🍃
 
 This update significantly enhances the efficiency of the storage, making the operation of CardanoBI instances much more streamlined! 🚀
 
