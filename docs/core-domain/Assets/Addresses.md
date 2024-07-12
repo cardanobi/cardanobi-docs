@@ -46,7 +46,18 @@ console.log(addresses);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+addresses = await CBI.core.assets.addresses_(fingerprint='asset1gqp4wdmclgw2tqmkm3nq7jdstvqpesdj3agnel');
+print(addresses); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let addresses_addresses = CBI.core.assets.addresses_(Some("asset1gqp4wdmclgw2tqmkm3nq7jdstvqpesdj3agnel"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("addresses_addresses: {:?}", addresses_addresses); 
 ``` 
 
 </TabItem> 
@@ -61,15 +72,7 @@ import coming.soon 😀
 
 ```json
 [
- {
-  "address": "addr_test1qpm8rwh8e222ks72u58khznclx9p9d09kqzfy0r570u9x3kujlrrhzr268zas85qx5j89znc0xyr4zgxv28w2nzpn90s2qxljm",
-  "quantity": 67846
- },
- "...",
- {
-  "address": "addr_test1qzmk4tffwctq9xwn0su27zdyqkffmc2rhm0shuwtq6knup8ewn7zc22qu6d85uk7zyqa2ycppv5gfqq88xxn9mzycrlspuxpyq",
-  "quantity": 1000000000
- }
+ "..."
 ]
 ``` 
 </TabItem> 

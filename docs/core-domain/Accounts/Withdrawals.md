@@ -26,9 +26,6 @@ Returns the withdrawal history from one account given its stake address.
 |Name|Description|In|Type|Required| 
 |---|---|---|---|---|
 | stake_address|Bech32 Stake address|path|string|true|
-| page_no|Page number to retrieve - defaults to 1|query|integer|false|
-| page_size|Number of results per page - defaults to 20 - max 100|query|integer|false|
-| order|Prescribes in which order the withdrawal events are returned - "desc" descending (default) from newest to oldest - "asc" ascending from oldest to newest|query|string|false|
 
 
 ### 👨‍💻 Code samples 
@@ -38,7 +35,7 @@ Returns the withdrawal history from one account given its stake address.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const withdrawals = await CBI.core.accounts.withdrawals_({ stake_address: "stake_test1uqh4cqczjpcjgnd3vhntldk9utmc3754tyrxy9seghptzwc6zayzz" });
+const withdrawals = await CBI.core.accounts.withdrawals_({ stake_address: "stake1u9frlh9lvpdjva46ge0yc4c8zg5e0d37ch42zyyrzmu2hygnmy4xc" });
 console.log(withdrawals); 
 ``` 
 
@@ -46,7 +43,18 @@ console.log(withdrawals);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+withdrawals = await CBI.core.accounts.withdrawals_(stake_address='stake1u9frlh9lvpdjva46ge0yc4c8zg5e0d37ch42zyyrzmu2hygnmy4xc');
+print(withdrawals); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let withdrawals_withdrawals = CBI.core.accounts.withdrawals_(Some("stake1u9frlh9lvpdjva46ge0yc4c8zg5e0d37ch42zyyrzmu2hygnmy4xc"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("withdrawals_withdrawals: {:?}", withdrawals_withdrawals); 
 ``` 
 
 </TabItem> 
@@ -62,13 +70,15 @@ import coming.soon 😀
 ```json
 [
  {
-  "tx_hash_hex": "d57683de78581bc2075c7e74cae6379109fda4167bec821e6d85ea2d4fc852a5",
-  "amount": 223178266
+  "block_no": 5898645,
+  "tx_hash_hex": "de520b65d0d2b72620e34563c0b92bd72b9720ed7aa4e205c272795a70a700f0",
+  "amount": 1338374
  },
  "...",
  {
-  "tx_hash_hex": "be63e2915fc6cf834cb16f9e7ff215709a6bb5fd35eabd6d4065c6270756e2ac",
-  "amount": 12513845
+  "block_no": 10002057,
+  "tx_hash_hex": "3013802c0afeecbc7f4a5d4faeee90e95c5d3bff5f0c9fda689a9722fc89b72e",
+  "amount": 2520289
  }
 ]
 ``` 
@@ -132,6 +142,7 @@ Status Code **200**
 
 |Name|Type|Description| 
 |---|---|---|
+| block_no|integer(int64)|The block number for this withdrawal transaction.|
 | tx_hash_hex|string|The hexadecimal encoding of the hash identifier of the withdrawal transaction.|
 | amount|integer(int64)|The withdrawal amount (in Lovelace).|
 </TabItem> 

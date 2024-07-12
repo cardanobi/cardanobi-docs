@@ -26,9 +26,6 @@ Returns all assets held by one account given its stake address.
 |Name|Description|In|Type|Required| 
 |---|---|---|---|---|
 | stake_address|Bech32 Stake address|path|string|true|
-| page_no|Page number to retrieve - defaults to 1|query|integer|false|
-| page_size|Number of results per page - defaults to 20 - max 100|query|integer|false|
-| order|Prescribes in which alphabetical order the asset holdings are returned - "desc" descending (default) - "asc" ascending|query|string|false|
 
 
 ### 👨‍💻 Code samples 
@@ -38,7 +35,7 @@ Returns all assets held by one account given its stake address.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const assets = await CBI.core.accounts.assets_({ stake_address: "stake_test1urz84tnkqjx37tqfk02a58yhusajp2qgfyuz5nekqvrm97qdql4ha" });
+const assets = await CBI.core.accounts.assets_({ stake_address: "stake1uyq4f9rye96ywptukdypkdu69gc4sd34hwzd940pxslczhc7n5vyt" });
 console.log(assets); 
 ``` 
 
@@ -46,7 +43,18 @@ console.log(assets);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+assets = await CBI.core.accounts.assets_(stake_address='stake1uyq4f9rye96ywptukdypkdu69gc4sd34hwzd940pxslczhc7n5vyt');
+print(assets); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let assets_assets = CBI.core.accounts.assets_(Some("stake1uyq4f9rye96ywptukdypkdu69gc4sd34hwzd940pxslczhc7n5vyt"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("assets_assets: {:?}", assets_assets); 
 ``` 
 
 </TabItem> 
@@ -62,16 +70,16 @@ import coming.soon 😀
 ```json
 [
  {
-  "policy_hex": "af6dfa9a9ded62285154a0bbee878c8c8b42d77860a822a047d8cacf",
-  "fingerprint": "asset1c552cuh9zy342dc93craxgat9ddr6nj4yz4jmg",
-  "name": "Test NFT 1",
-  "quantity": 1
+  "policy_hex": "682fe60c9918842b3323c43b5144bc3d52a23bd2fb81345560d73f63",
+  "fingerprint": "asset105nh988tzzzk3duk6relug69td98ja3nl3uv2c",
+  "name": "NEWM",
+  "quantity": 100000000
  },
  "...",
  {
-  "policy_hex": "f740a7ce85363b0f211415b41016a8bc1db94e4b8d76b0f5f47d17d5",
-  "fingerprint": "asset1vzgwwvhhtz7md3wg4nza6le4d40pst98atswtl",
-  "name": "NFT 98",
+  "policy_hex": "7cb6fbb296945e2c7c8b4bda24b90636bc15becf9c4d6c6eabb6447c",
+  "fingerprint": "asset1w86zwjq9pdul3l27dr5lgkvs4euuy2fam72uq6",
+  "name": "Cardabbean01136",
   "quantity": 1
  }
 ]

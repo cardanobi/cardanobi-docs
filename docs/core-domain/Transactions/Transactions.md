@@ -44,7 +44,18 @@ console.log(transactions);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+transactions = await CBI.core.transactions_(transaction_hash='5f6f72b00ae982492823fb541153e6c2afc9cb7231687f2a5d82a994f61764a0');
+print(transactions); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let transactions = CBI.core.transactions_(Some("5f6f72b00ae982492823fb541153e6c2afc9cb7231687f2a5d82a994f61764a0"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("transactions: {:?}", transactions); 
 ``` 
 
 </TabItem> 
@@ -207,7 +218,7 @@ Status Code **200**
 
 |Name|Type|Description| 
 |---|---|---|
-| tx_hash_hex|string(undefined)|The hexadecimal encoding of the hash identifier of the transaction.|
+| tx_hash_hex|string|The hexadecimal encoding of the hash identifier of the transaction.|
 | id|integer(int64)|The transaction unique identifier.|
 | block_no|integer(int32)|The block number.|
 | slot_no|integer(int64)|The slot number.|
@@ -219,9 +230,9 @@ Status Code **200**
 | size|integer(int32)|The size of the transaction in bytes.|
 | invalid_before|number(double)|Transaction in invalid before this slot number.|
 | invalid_hereafter|number(double)|Transaction in invalid at or after this slot number.|
-| valid_contract|boolean(undefined)|False if the contract is invalid. True if the contract is valid or there is no contract.|
+| valid_contract|boolean|False if the contract is invalid. True if the contract is valid or there is no contract.|
 | script_size|integer(int32)|The sum of the script sizes (in bytes) of scripts in the transaction.|
-| output_amounts|array(undefined)|The list of transaction output amounts.|
+| output_amounts|array|The list of transaction output amounts.|
 | inputCount|integer(int32)|The count of inputs in this transaction.|
 | outputCount|integer(int32)|The count of outputs in this transaction.|
 | withdrawalCount|integer(int32)|The count of withdrawals from a reward account in this transaction.|
@@ -316,7 +327,18 @@ console.log(utxos);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+utxos = await CBI.core.transactions.utxos_(transaction_hash='5f6f72b00ae982492823fb541153e6c2afc9cb7231687f2a5d82a994f61764a0');
+print(utxos); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let transactions_utxos = CBI.core.transactions.utxos_(Some("5f6f72b00ae982492823fb541153e6c2afc9cb7231687f2a5d82a994f61764a0"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("transactions_utxos: {:?}", transactions_utxos); 
 ``` 
 
 </TabItem> 
@@ -510,7 +532,7 @@ Status Code **200**
 
 |Name|Type|Description| 
 |---|---|---|
-| tx_hash_hex|string(undefined)|The hexadecimal encoding of the hash identifier of the transaction.|
+| tx_hash_hex|string|The hexadecimal encoding of the hash identifier of the transaction.|
 | id|integer(int64)|The transaction unique identifier.|
 | slot_no|integer(int64)|The slot number.|
 | block_no|integer(int32)|The block number.|
@@ -522,10 +544,10 @@ Status Code **200**
 | size|integer(int32)|The size of the transaction in bytes.|
 | invalid_before|number(double)|Transaction in invalid before this slot number.|
 | invalid_hereafter|number(double)|Transaction in invalid at or after this slot number.|
-| valid_contract|boolean(undefined)|False if the contract is invalid. True if the contract is valid or there is no contract.|
+| valid_contract|boolean|False if the contract is invalid. True if the contract is valid or there is no contract.|
 | script_size|integer(int32)|The sum of the script sizes (in bytes) of scripts in the transaction.|
-| outputs|array(undefined)|The list of transaction outputs.|
-| inputs|array(undefined)|The list of transaction inputs.|
+| outputs|array|The list of transaction outputs.|
+| inputs|array|The list of transaction inputs.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 

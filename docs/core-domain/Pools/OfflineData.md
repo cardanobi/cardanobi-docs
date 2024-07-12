@@ -41,7 +41,18 @@ console.log(offlinedata);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+offlinedata = await CBI.core.pools.offlinedata_();
+print(offlinedata); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let offlinedata_offlinedata = CBI.core.pools.offlinedata_(HashMap::new()).await.expect("Failed to call endpoint");
+println!("offlinedata_offlinedata: {:?}", offlinedata_offlinedata); 
 ``` 
 
 </TabItem> 
@@ -141,12 +152,12 @@ Status Code **200**
 |---|---|---|
 | id|integer(int64)|The pool offline data unique identifier.|
 | pool_id|integer(int64)|The PoolHash table index for the pool this offline data refers.|
-| ticker_name|string(undefined)|The pool's ticker name (as many as 5 characters).|
+| ticker_name|string|The pool's ticker name (as many as 5 characters).|
 | hash|string(byte)|The hash of the offline data.|
-| json|string(undefined)|The payload as JSON.|
+| json|string|The payload as JSON.|
 | bytes|string(byte)|The raw bytes of the payload.|
 | pmr_id|integer(int64)|The PoolMetadataRef table index for this offline data.|
-| hash_hex|string(undefined)|The hexadecimal encoding of the offline data hash.|
+| hash_hex|string|The hexadecimal encoding of the offline data hash.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -226,7 +237,18 @@ console.log(offlinedata);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+offlinedata = await CBI.core.pools.offlinedata_(pool_id=4268);
+print(offlinedata); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let offlinedata_offlinedata = CBI.core.pools.offlinedata_(Some(4268), HashMap::new()).await.expect("Failed to call endpoint");
+println!("offlinedata_offlinedata: {:?}", offlinedata_offlinedata); 
 ``` 
 
 </TabItem> 
@@ -253,14 +275,14 @@ import coming.soon 😀
  },
  "...",
  {
-  "id": 42582,
+  "id": 2548912,
   "pool_id": 4268,
   "ticker_name": "ADACT",
-  "hash": "QncbBbMPGAiQmAYTsxR/a7eX/h+Kg+ktOaMTXslVnqg=",
-  "json": "{\"name\": \"ADA Capital\", \"ticker\": \"ADACT\", \"homepage\": \"https://adacapital.io\", \"description\": \"ADA Capital - Mainnet Pool\"}",
-  "bytes": "ewogICAgIm5hbWUiOiAiQURBIENhcGl0YWwiLAogICAgImRlc2NyaXB0aW9uIjogIkFEQSBDYXBpdGFsIC0gTWFpbm5ldCBQb29sIiwKICAgICJ0aWNrZXIiOiAiQURBQ1QiLAogICAgImhvbWVwYWdlIjogImh0dHBzOi8vYWRhY2FwaXRhbC5pbyIsCiAgICAiZXh0ZW5kZWQiOiAiaHR0cHM6Ly9hZGFjYXBpdGFsLmlvL2FkYWN0X2V4dGVuZGVkLmpzb24iCn0=",
-  "pmr_id": 28640,
-  "hash_hex": "42771b05b30f180890980613b3147f6bb797fe1f8a83e92d39a3135ec9559ea8"
+  "hash": "6tUh2ifWxy3aXv3AppdnV6ZrcmLJeAeHzlxwwY6PSW8=",
+  "json": "{\"name\": \"ADA Capital•🌍ADACT•👽CardanoBI•⚡Orcfax•ADA•METERA\", \"ticker\": \"ADACT\", \"homepage\": \"https://adacapital.io\", \"description\": \"ADA Capital • Mainnet Pool • You Stake, You Earn, We Build • Earn extra tokens: METERA, FACT • We have delivered CardanoBI and are building renewable energy solutions on Cardano🌞\"}",
+  "bytes": "ewogICAgIm5hbWUiOiAiQURBIENhcGl0YWzigKLwn4yNQURBQ1TigKLwn5G9Q2FyZGFub0JJ4oCi4pqhT3JjZmF44oCiQURB4oCiTUVURVJBIiwKICAgICJkZXNjcmlwdGlvbiI6ICJBREEgQ2FwaXRhbCDigKIgTWFpbm5ldCBQb29sIOKAoiBZb3UgU3Rha2UsIFlvdSBFYXJuLCBXZSBCdWlsZCDigKIgRWFybiBleHRyYSB0b2tlbnM6IE1FVEVSQSwgRkFDVCDigKIgV2UgaGF2ZSBkZWxpdmVyZWQgQ2FyZGFub0JJIGFuZCBhcmUgYnVpbGRpbmcgcmVuZXdhYmxlIGVuZXJneSBzb2x1dGlvbnMgb24gQ2FyZGFub/CfjJ4iLAogICAgInRpY2tlciI6ICJBREFDVCIsCiAgICAiaG9tZXBhZ2UiOiAiaHR0cHM6Ly9hZGFjYXBpdGFsLmlvIiwKICAgICJleHRlbmRlZCI6ICJodHRwczovL2FkYWNhcGl0YWwuaW8vYWRhY3RfZXh0ZW5kZWQuanNvbiIKfQ==",
+  "pmr_id": 33370,
+  "hash_hex": "ead521da27d6c72dda5efdc0a6976757a66b7262c9780787ce5c70c18e8f496f"
  }
 ]
 ``` 
@@ -326,12 +348,12 @@ Status Code **200**
 |---|---|---|
 | id|integer(int64)|The pool offline data unique identifier.|
 | pool_id|integer(int64)|The PoolHash table index for the pool this offline data refers.|
-| ticker_name|string(undefined)|The pool's ticker name (as many as 5 characters).|
+| ticker_name|string|The pool's ticker name (as many as 5 characters).|
 | hash|string(byte)|The hash of the offline data.|
-| json|string(undefined)|The payload as JSON.|
+| json|string|The payload as JSON.|
 | bytes|string(byte)|The raw bytes of the payload.|
 | pmr_id|integer(int64)|The PoolMetadataRef table index for this offline data.|
-| hash_hex|string(undefined)|The hexadecimal encoding of the offline data hash.|
+| hash_hex|string|The hexadecimal encoding of the offline data hash.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -411,7 +433,18 @@ console.log(offlinedata);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+offlinedata = await CBI.core.pools.offlinedata_(ticker='ADACT');
+print(offlinedata); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let offlinedata_offlinedata = CBI.core.pools.offlinedata_(Some("ADACT"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("offlinedata_offlinedata: {:?}", offlinedata_offlinedata); 
 ``` 
 
 </TabItem> 
@@ -438,14 +471,14 @@ import coming.soon 😀
  },
  "...",
  {
-  "id": 42582,
+  "id": 2548912,
   "pool_id": 4268,
   "ticker_name": "ADACT",
-  "hash": "QncbBbMPGAiQmAYTsxR/a7eX/h+Kg+ktOaMTXslVnqg=",
-  "json": "{\"name\": \"ADA Capital\", \"ticker\": \"ADACT\", \"homepage\": \"https://adacapital.io\", \"description\": \"ADA Capital - Mainnet Pool\"}",
-  "bytes": "ewogICAgIm5hbWUiOiAiQURBIENhcGl0YWwiLAogICAgImRlc2NyaXB0aW9uIjogIkFEQSBDYXBpdGFsIC0gTWFpbm5ldCBQb29sIiwKICAgICJ0aWNrZXIiOiAiQURBQ1QiLAogICAgImhvbWVwYWdlIjogImh0dHBzOi8vYWRhY2FwaXRhbC5pbyIsCiAgICAiZXh0ZW5kZWQiOiAiaHR0cHM6Ly9hZGFjYXBpdGFsLmlvL2FkYWN0X2V4dGVuZGVkLmpzb24iCn0=",
-  "pmr_id": 28640,
-  "hash_hex": "42771b05b30f180890980613b3147f6bb797fe1f8a83e92d39a3135ec9559ea8"
+  "hash": "6tUh2ifWxy3aXv3AppdnV6ZrcmLJeAeHzlxwwY6PSW8=",
+  "json": "{\"name\": \"ADA Capital•🌍ADACT•👽CardanoBI•⚡Orcfax•ADA•METERA\", \"ticker\": \"ADACT\", \"homepage\": \"https://adacapital.io\", \"description\": \"ADA Capital • Mainnet Pool • You Stake, You Earn, We Build • Earn extra tokens: METERA, FACT • We have delivered CardanoBI and are building renewable energy solutions on Cardano🌞\"}",
+  "bytes": "ewogICAgIm5hbWUiOiAiQURBIENhcGl0YWzigKLwn4yNQURBQ1TigKLwn5G9Q2FyZGFub0JJ4oCi4pqhT3JjZmF44oCiQURB4oCiTUVURVJBIiwKICAgICJkZXNjcmlwdGlvbiI6ICJBREEgQ2FwaXRhbCDigKIgTWFpbm5ldCBQb29sIOKAoiBZb3UgU3Rha2UsIFlvdSBFYXJuLCBXZSBCdWlsZCDigKIgRWFybiBleHRyYSB0b2tlbnM6IE1FVEVSQSwgRkFDVCDigKIgV2UgaGF2ZSBkZWxpdmVyZWQgQ2FyZGFub0JJIGFuZCBhcmUgYnVpbGRpbmcgcmVuZXdhYmxlIGVuZXJneSBzb2x1dGlvbnMgb24gQ2FyZGFub/CfjJ4iLAogICAgInRpY2tlciI6ICJBREFDVCIsCiAgICAiaG9tZXBhZ2UiOiAiaHR0cHM6Ly9hZGFjYXBpdGFsLmlvIiwKICAgICJleHRlbmRlZCI6ICJodHRwczovL2FkYWNhcGl0YWwuaW8vYWRhY3RfZXh0ZW5kZWQuanNvbiIKfQ==",
+  "pmr_id": 33370,
+  "hash_hex": "ead521da27d6c72dda5efdc0a6976757a66b7262c9780787ce5c70c18e8f496f"
  }
 ]
 ``` 
@@ -511,12 +544,12 @@ Status Code **200**
 |---|---|---|
 | id|integer(int64)|The pool offline data unique identifier.|
 | pool_id|integer(int64)|The PoolHash table index for the pool this offline data refers.|
-| ticker_name|string(undefined)|The pool's ticker name (as many as 5 characters).|
+| ticker_name|string|The pool's ticker name (as many as 5 characters).|
 | hash|string(byte)|The hash of the offline data.|
-| json|string(undefined)|The payload as JSON.|
+| json|string|The payload as JSON.|
 | bytes|string(byte)|The raw bytes of the payload.|
 | pmr_id|integer(int64)|The PoolMetadataRef table index for this offline data.|
-| hash_hex|string(undefined)|The hexadecimal encoding of the offline data hash.|
+| hash_hex|string|The hexadecimal encoding of the offline data hash.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -596,7 +629,18 @@ console.log(offlinedata_offlinedata);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+offlinedata_offlinedata = await CBI.core.pools.metadata.offlinedata_(meta_hash='42771b05b30f180890980613b3147f6bb797fe1f8a83e92d39a3135ec9559ea8');
+print(offlinedata_offlinedata); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let offlinedata_offlinedata = CBI.core.pools.metadata.offlinedata_(Some("42771b05b30f180890980613b3147f6bb797fe1f8a83e92d39a3135ec9559ea8"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("offlinedata_offlinedata: {:?}", offlinedata_offlinedata); 
 ``` 
 
 </TabItem> 
@@ -696,12 +740,12 @@ Status Code **200**
 |---|---|---|
 | id|integer(int64)|The pool offline data unique identifier.|
 | pool_id|integer(int64)|The PoolHash table index for the pool this offline data refers.|
-| ticker_name|string(undefined)|The pool's ticker name (as many as 5 characters).|
+| ticker_name|string|The pool's ticker name (as many as 5 characters).|
 | hash|string(byte)|The hash of the offline data.|
-| json|string(undefined)|The payload as JSON.|
+| json|string|The payload as JSON.|
 | bytes|string(byte)|The raw bytes of the payload.|
 | pmr_id|integer(int64)|The PoolMetadataRef table index for this offline data.|
-| hash_hex|string(undefined)|The hexadecimal encoding of the offline data hash.|
+| hash_hex|string|The hexadecimal encoding of the offline data hash.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -774,7 +818,18 @@ console.log(poolsofflinedata);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+poolsofflinedata = await CBI.core.poolsofflinedata_(odata=true);
+print(poolsofflinedata); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let poolsofflinedata = CBI.core.poolsofflinedata_(HashMap::from([("odata", "true")])).await.expect("Failed to call endpoint");
+println!("poolsofflinedata: {:?}", poolsofflinedata); 
 ``` 
 
 </TabItem> 
@@ -789,7 +844,7 @@ import coming.soon 😀
 
 ```json
 {
- "@odata.context": "https://mainnet.cardanobi.io/api/core/odata/$metadata#PoolsOfflineData",
+ "@odata.context": "https://cardanobi.io/api/core/odata/$metadata#PoolsOfflineData",
  "value": [
   {
    "id": 1,
@@ -813,7 +868,7 @@ import coming.soon 😀
    "hash_hex": "d13cb70898eeeff8206675e164b3fab92e5b0a6c2f8dfc0eda5bebb3d54362a4"
   }
  ],
- "@odata.nextLink": "https://mainnet.cardanobi.io/api/core/odata/poolsofflinedata?$skip=20"
+ "@odata.nextLink": "https://cardanobi.io/api/core/odata/poolsofflinedata?$skip=20"
 }
 ``` 
 </TabItem> 
@@ -878,12 +933,12 @@ Status Code **200**
 |---|---|---|
 | id|integer(int64)|The pool offline data unique identifier.|
 | pool_id|integer(int64)|The PoolHash table index for the pool this offline data refers.|
-| ticker_name|string(undefined)|The pool's ticker name (as many as 5 characters).|
+| ticker_name|string|The pool's ticker name (as many as 5 characters).|
 | hash|string(byte)|The hash of the offline data.|
-| json|string(undefined)|The payload as JSON.|
+| json|string|The payload as JSON.|
 | bytes|string(byte)|The raw bytes of the payload.|
 | pmr_id|integer(int64)|The PoolMetadataRef table index for this offline data.|
-| hash_hex|string(undefined)|The hexadecimal encoding of the offline data hash.|
+| hash_hex|string|The hexadecimal encoding of the offline data hash.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -963,7 +1018,18 @@ console.log(poolsofflinedata);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+poolsofflinedata = await CBI.core.poolsofflinedata_(odata=true,pool_id=4268);
+print(poolsofflinedata); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let poolsofflinedata = CBI.core.poolsofflinedata_(Some(4268), HashMap::from([("odata", "true")])).await.expect("Failed to call endpoint");
+println!("poolsofflinedata: {:?}", poolsofflinedata); 
 ``` 
 
 </TabItem> 
@@ -978,7 +1044,7 @@ import coming.soon 😀
 
 ```json
 {
- "@odata.context": "https://mainnet.cardanobi.io/api/core/odata/$metadata#PoolsOfflineData",
+ "@odata.context": "https://cardanobi.io/api/core/odata/$metadata#PoolsOfflineData",
  "value": [
   {
    "id": 8261,
@@ -992,14 +1058,14 @@ import coming.soon 😀
   },
   "...",
   {
-   "id": 42582,
+   "id": 2548912,
    "pool_id": 4268,
    "ticker_name": "ADACT",
-   "hash": "QncbBbMPGAiQmAYTsxR/a7eX/h+Kg+ktOaMTXslVnqg=",
-   "json": "{\"name\": \"ADA Capital\", \"ticker\": \"ADACT\", \"homepage\": \"https://adacapital.io\", \"description\": \"ADA Capital - Mainnet Pool\"}",
-   "bytes": "ewogICAgIm5hbWUiOiAiQURBIENhcGl0YWwiLAogICAgImRlc2NyaXB0aW9uIjogIkFEQSBDYXBpdGFsIC0gTWFpbm5ldCBQb29sIiwKICAgICJ0aWNrZXIiOiAiQURBQ1QiLAogICAgImhvbWVwYWdlIjogImh0dHBzOi8vYWRhY2FwaXRhbC5pbyIsCiAgICAiZXh0ZW5kZWQiOiAiaHR0cHM6Ly9hZGFjYXBpdGFsLmlvL2FkYWN0X2V4dGVuZGVkLmpzb24iCn0=",
-   "pmr_id": 28640,
-   "hash_hex": "42771b05b30f180890980613b3147f6bb797fe1f8a83e92d39a3135ec9559ea8"
+   "hash": "6tUh2ifWxy3aXv3AppdnV6ZrcmLJeAeHzlxwwY6PSW8=",
+   "json": "{\"name\": \"ADA Capital•🌍ADACT•👽CardanoBI•⚡Orcfax•ADA•METERA\", \"ticker\": \"ADACT\", \"homepage\": \"https://adacapital.io\", \"description\": \"ADA Capital • Mainnet Pool • You Stake, You Earn, We Build • Earn extra tokens: METERA, FACT • We have delivered CardanoBI and are building renewable energy solutions on Cardano🌞\"}",
+   "bytes": "ewogICAgIm5hbWUiOiAiQURBIENhcGl0YWzigKLwn4yNQURBQ1TigKLwn5G9Q2FyZGFub0JJ4oCi4pqhT3JjZmF44oCiQURB4oCiTUVURVJBIiwKICAgICJkZXNjcmlwdGlvbiI6ICJBREEgQ2FwaXRhbCDigKIgTWFpbm5ldCBQb29sIOKAoiBZb3UgU3Rha2UsIFlvdSBFYXJuLCBXZSBCdWlsZCDigKIgRWFybiBleHRyYSB0b2tlbnM6IE1FVEVSQSwgRkFDVCDigKIgV2UgaGF2ZSBkZWxpdmVyZWQgQ2FyZGFub0JJIGFuZCBhcmUgYnVpbGRpbmcgcmVuZXdhYmxlIGVuZXJneSBzb2x1dGlvbnMgb24gQ2FyZGFub/CfjJ4iLAogICAgInRpY2tlciI6ICJBREFDVCIsCiAgICAiaG9tZXBhZ2UiOiAiaHR0cHM6Ly9hZGFjYXBpdGFsLmlvIiwKICAgICJleHRlbmRlZCI6ICJodHRwczovL2FkYWNhcGl0YWwuaW8vYWRhY3RfZXh0ZW5kZWQuanNvbiIKfQ==",
+   "pmr_id": 33370,
+   "hash_hex": "ead521da27d6c72dda5efdc0a6976757a66b7262c9780787ce5c70c18e8f496f"
   }
  ]
 }
@@ -1066,12 +1132,12 @@ Status Code **200**
 |---|---|---|
 | id|integer(int64)|The pool offline data unique identifier.|
 | pool_id|integer(int64)|The PoolHash table index for the pool this offline data refers.|
-| ticker_name|string(undefined)|The pool's ticker name (as many as 5 characters).|
+| ticker_name|string|The pool's ticker name (as many as 5 characters).|
 | hash|string(byte)|The hash of the offline data.|
-| json|string(undefined)|The payload as JSON.|
+| json|string|The payload as JSON.|
 | bytes|string(byte)|The raw bytes of the payload.|
 | pmr_id|integer(int64)|The PoolMetadataRef table index for this offline data.|
-| hash_hex|string(undefined)|The hexadecimal encoding of the offline data hash.|
+| hash_hex|string|The hexadecimal encoding of the offline data hash.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 

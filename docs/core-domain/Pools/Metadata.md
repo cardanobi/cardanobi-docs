@@ -40,7 +40,18 @@ console.log(metadata);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+metadata = await CBI.core.pools.metadata_();
+print(metadata); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let metadata_metadata = CBI.core.pools.metadata_(HashMap::new()).await.expect("Failed to call endpoint");
+println!("metadata_metadata: {:?}", metadata_metadata); 
 ``` 
 
 </TabItem> 
@@ -136,10 +147,10 @@ Status Code **200**
 |---|---|---|
 | id|integer(int64)|The pool metadata ref unique identifier.|
 | pool_id|integer(int64)|The PoolHash table index of the pool for this reference.|
-| url|string(undefined)|The URL for the location of the off-chain data.|
+| url|string|The URL for the location of the off-chain data.|
 | hash|string(byte)|The expected hash for the off-chain data.|
 | registered_tx_id|integer(int64)|The Tx table index of the transaction in which provided this metadata reference.|
-| hash_hex|string(undefined)|The hexadecimal encoding of the expected hash.|
+| hash_hex|string|The hexadecimal encoding of the expected hash.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -219,7 +230,18 @@ console.log(metadata);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+metadata = await CBI.core.pools.metadata_(pool_id=4268);
+print(metadata); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let metadata_metadata = CBI.core.pools.metadata_(Some(4268), HashMap::new()).await.expect("Failed to call endpoint");
+println!("metadata_metadata: {:?}", metadata_metadata); 
 ``` 
 
 </TabItem> 
@@ -244,12 +266,12 @@ import coming.soon 😀
  },
  "...",
  {
-  "id": 28640,
+  "id": 33370,
   "pool_id": 4268,
   "url": "https://adacapital.io/adact_mainnet.json",
-  "hash": "QncbBbMPGAiQmAYTsxR/a7eX/h+Kg+ktOaMTXslVnqg=",
-  "registered_tx_id": 49755882,
-  "hash_hex": "42771b05b30f180890980613b3147f6bb797fe1f8a83e92d39a3135ec9559ea8"
+  "hash": "6tUh2ifWxy3aXv3AppdnV6ZrcmLJeAeHzlxwwY6PSW8=",
+  "registered_tx_id": 86928296,
+  "hash_hex": "ead521da27d6c72dda5efdc0a6976757a66b7262c9780787ce5c70c18e8f496f"
  }
 ]
 ``` 
@@ -315,10 +337,10 @@ Status Code **200**
 |---|---|---|
 | id|integer(int64)|The pool metadata ref unique identifier.|
 | pool_id|integer(int64)|The PoolHash table index of the pool for this reference.|
-| url|string(undefined)|The URL for the location of the off-chain data.|
+| url|string|The URL for the location of the off-chain data.|
 | hash|string(byte)|The expected hash for the off-chain data.|
 | registered_tx_id|integer(int64)|The Tx table index of the transaction in which provided this metadata reference.|
-| hash_hex|string(undefined)|The hexadecimal encoding of the expected hash.|
+| hash_hex|string|The hexadecimal encoding of the expected hash.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -398,7 +420,18 @@ console.log(metadata_hashes);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+metadata_hashes = await CBI.core.pools.metadata.hashes_(meta_hash='42771b05b30f180890980613b3147f6bb797fe1f8a83e92d39a3135ec9559ea8');
+print(metadata_hashes); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let metadata_hashes = CBI.core.pools.metadata.hashes_(Some("42771b05b30f180890980613b3147f6bb797fe1f8a83e92d39a3135ec9559ea8"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("metadata_hashes: {:?}", metadata_hashes); 
 ``` 
 
 </TabItem> 
@@ -494,10 +527,10 @@ Status Code **200**
 |---|---|---|
 | id|integer(int64)|The pool metadata ref unique identifier.|
 | pool_id|integer(int64)|The PoolHash table index of the pool for this reference.|
-| url|string(undefined)|The URL for the location of the off-chain data.|
+| url|string|The URL for the location of the off-chain data.|
 | hash|string(byte)|The expected hash for the off-chain data.|
 | registered_tx_id|integer(int64)|The Tx table index of the transaction in which provided this metadata reference.|
-| hash_hex|string(undefined)|The hexadecimal encoding of the expected hash.|
+| hash_hex|string|The hexadecimal encoding of the expected hash.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -570,7 +603,18 @@ console.log(poolsmetadata);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+poolsmetadata = await CBI.core.poolsmetadata_(odata=true);
+print(poolsmetadata); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let poolsmetadata = CBI.core.poolsmetadata_(HashMap::from([("odata", "true")])).await.expect("Failed to call endpoint");
+println!("poolsmetadata: {:?}", poolsmetadata); 
 ``` 
 
 </TabItem> 
@@ -585,7 +629,7 @@ import coming.soon 😀
 
 ```json
 {
- "@odata.context": "https://mainnet.cardanobi.io/api/core/odata/$metadata#PoolsMetadata",
+ "@odata.context": "https://cardanobi.io/api/core/odata/$metadata#PoolsMetadata",
  "value": [
   {
    "id": 1,
@@ -605,7 +649,7 @@ import coming.soon 😀
    "hash_hex": "5bb1142ea3fd9df55ff1721848b9b6ba0277d88e611a74f9af3afa3838644d96"
   }
  ],
- "@odata.nextLink": "https://mainnet.cardanobi.io/api/core/odata/poolsmetadata?$skip=20"
+ "@odata.nextLink": "https://cardanobi.io/api/core/odata/poolsmetadata?$skip=20"
 }
 ``` 
 </TabItem> 
@@ -670,10 +714,10 @@ Status Code **200**
 |---|---|---|
 | id|integer(int64)|The pool metadata ref unique identifier.|
 | pool_id|integer(int64)|The PoolHash table index of the pool for this reference.|
-| url|string(undefined)|The URL for the location of the off-chain data.|
+| url|string|The URL for the location of the off-chain data.|
 | hash|string(byte)|The expected hash for the off-chain data.|
 | registered_tx_id|integer(int64)|The Tx table index of the transaction in which provided this metadata reference.|
-| hash_hex|string(undefined)|The hexadecimal encoding of the expected hash.|
+| hash_hex|string|The hexadecimal encoding of the expected hash.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -753,7 +797,18 @@ console.log(poolsmetadata);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+poolsmetadata = await CBI.core.poolsmetadata_(odata=true,pool_id=4268);
+print(poolsmetadata); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let poolsmetadata = CBI.core.poolsmetadata_(Some(4268), HashMap::from([("odata", "true")])).await.expect("Failed to call endpoint");
+println!("poolsmetadata: {:?}", poolsmetadata); 
 ``` 
 
 </TabItem> 
@@ -768,7 +823,7 @@ import coming.soon 😀
 
 ```json
 {
- "@odata.context": "https://mainnet.cardanobi.io/api/core/odata/$metadata#PoolsMetadata",
+ "@odata.context": "https://cardanobi.io/api/core/odata/$metadata#PoolsMetadata",
  "value": [
   {
    "id": 21950,
@@ -780,12 +835,12 @@ import coming.soon 😀
   },
   "...",
   {
-   "id": 28640,
+   "id": 33370,
    "pool_id": 4268,
    "url": "https://adacapital.io/adact_mainnet.json",
-   "hash": "QncbBbMPGAiQmAYTsxR/a7eX/h+Kg+ktOaMTXslVnqg=",
-   "registered_tx_id": 49755882,
-   "hash_hex": "42771b05b30f180890980613b3147f6bb797fe1f8a83e92d39a3135ec9559ea8"
+   "hash": "6tUh2ifWxy3aXv3AppdnV6ZrcmLJeAeHzlxwwY6PSW8=",
+   "registered_tx_id": 86928296,
+   "hash_hex": "ead521da27d6c72dda5efdc0a6976757a66b7262c9780787ce5c70c18e8f496f"
   }
  ]
 }
@@ -852,10 +907,10 @@ Status Code **200**
 |---|---|---|
 | id|integer(int64)|The pool metadata ref unique identifier.|
 | pool_id|integer(int64)|The PoolHash table index of the pool for this reference.|
-| url|string(undefined)|The URL for the location of the off-chain data.|
+| url|string|The URL for the location of the off-chain data.|
 | hash|string(byte)|The expected hash for the off-chain data.|
 | registered_tx_id|integer(int64)|The Tx table index of the transaction in which provided this metadata reference.|
-| hash_hex|string(undefined)|The hexadecimal encoding of the expected hash.|
+| hash_hex|string|The hexadecimal encoding of the expected hash.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 

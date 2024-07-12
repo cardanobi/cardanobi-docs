@@ -38,7 +38,18 @@ console.log(transactions_transactions);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+transactions_transactions = await CBI.core.blocks.latest.transactions_();
+print(transactions_transactions); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let transactions_transactions = CBI.core.blocks.latest.transactions_(HashMap::new()).await.expect("Failed to call endpoint");
+println!("transactions_transactions: {:?}", transactions_transactions); 
 ``` 
 
 </TabItem> 
@@ -54,35 +65,37 @@ import coming.soon 😀
 ```json
 [
  {
-  "id": 63105357,
-  "hash": "zkq2HQhJJ9NNcbLinj1pGqv5IWqGYKeSLscNOV1EGag=",
-  "block_id": 8528093,
+  "id": 94211802,
+  "hash": "6mZYHIlu2YAhxBxk4RdPIGRfVDkEES7h2bi3Tl5xOSU=",
+  "block_id": 10595156,
   "block_index": 0,
-  "out_sum": 159314513,
-  "fee": 265758,
+  "out_sum": 24895471551,
+  "fee": 176809,
   "deposit": 0,
-  "size": 936,
+  "size": 476,
   "invalid_before": null,
-  "invalid_hereafter": 87419498,
+  "invalid_hereafter": 129151032,
   "valid_contract": true,
   "script_size": 0,
-  "hash_hex": "ce4ab61d084927d34d71b2e29e3d691aabf9216a8660a7922ec70d395d4419a8"
+  "hash_hex": "ea66581c896ed98021c41c64e1174f20645f543904112ee1d9b8b74e5e713925",
+  "block": null
  },
  "...",
  {
-  "id": 63105376,
-  "hash": "QWPjcH8AqphAPDfTYtg4Lordy8u0fW+CMwpAp68NuAY=",
-  "block_id": 8528093,
-  "block_index": 19,
-  "out_sum": 8163720,
-  "fee": 189701,
+  "id": 94211816,
+  "hash": "DsZ2XXf1RFFPahPoBeJUxkWJfFweQ8MVUQDA5B9GnVY=",
+  "block_id": 10595156,
+  "block_index": 14,
+  "out_sum": 811470770,
+  "fee": 506105,
   "deposit": 0,
-  "size": 775,
+  "size": 7966,
   "invalid_before": null,
-  "invalid_hereafter": 87433320,
+  "invalid_hereafter": 129144653,
   "valid_contract": true,
   "script_size": 0,
-  "hash_hex": "4163e3707f00aa98403c37d362d8382e8addcbcbb47d6f82330a40a7af0db806"
+  "hash_hex": "0ec6765d77f544514f6a13e805e254c645897c5c1e43c3155100c0e41f469d56",
+  "block": null
  }
 ]
 ``` 
@@ -156,9 +169,33 @@ Status Code **200**
 | size|integer(int32)|The size of the transaction in bytes.|
 | invalid_before|number(double)|Transaction in invalid before this slot number.|
 | invalid_hereafter|number(double)|Transaction in invalid at or after this slot number.|
-| valid_contract|boolean(undefined)|False if the contract is invalid. True if the contract is valid or there is no contract.|
+| valid_contract|boolean|False if the contract is invalid. True if the contract is valid or there is no contract.|
 | script_size|integer(int32)|The sum of the script sizes (in bytes) of scripts in the transaction.|
-| hash_hex|string(undefined)|The hexadecimal encoding of the hash identifier of the transaction.|
+| hash_hex|string|The hexadecimal encoding of the hash identifier of the transaction.|
+| block|Block|undefined|
+
+Block
+
+|Name|Type|Description| 
+|---|---|---|
+| id|integer(int64)|The block unique identifier.|
+| hash|string(byte)|The hash identifier of the block.|
+| epoch_no|integer(int32)|The epoch number.|
+| slot_no|integer(int64)|The slot number.|
+| epoch_slot_no|integer(int32)|The slot number within an epoch (resets to zero at the start of each epoch).|
+| block_no|integer(int32)|The block number.|
+| previous_id|integer(int64)|The Block table index of the previous block.|
+| slot_leader_id|integer(int64)|The SlotLeader table index of the creator of this block.|
+| size|integer(int32)|The block size (in bytes). Note, this size value is not expected to be the same as the sum of the tx sizes due to the fact that txs being stored in segwit format and oddities in the CBOR encoding.|
+| time|string(date-time)|The block time (UTCTime).|
+| tx_count|integer(int64)|The number of transactions in this block.|
+| proto_major|integer(int32)|The block's major protocol number.|
+| proto_minor|integer(int32)|The block's major protocol number.|
+| vrf_key|string|The VRF key of the creator of this block.|
+| op_cert|string(byte)|The hash of the operational certificate of the block producer.|
+| op_cert_counter|integer(int64)|The value of the counter used to produce the operational certificate.|
+| hash_hex|string|The hexadecimal encoding of the block hash.|
+| op_cert_hex|string|The hexadecimal encoding of the block producer operational certificate's hash.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -238,7 +275,18 @@ console.log(transactions);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+transactions = await CBI.core.blocks.transactions_(block_no=8415364);
+print(transactions); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let transactions_transactions = CBI.core.blocks.transactions_(Some(8415364), HashMap::new()).await.expect("Failed to call endpoint");
+println!("transactions_transactions: {:?}", transactions_transactions); 
 ``` 
 
 </TabItem> 
@@ -266,7 +314,8 @@ import coming.soon 😀
   "invalid_hereafter": 85169296,
   "valid_contract": true,
   "script_size": 0,
-  "hash_hex": "bdb880dcfdad18be4a30e2ab0fb48b3ed1eff89a7e39889f8e6879ffc7313f02"
+  "hash_hex": "bdb880dcfdad18be4a30e2ab0fb48b3ed1eff89a7e39889f8e6879ffc7313f02",
+  "block": null
  },
  "...",
  {
@@ -282,7 +331,8 @@ import coming.soon 😀
   "invalid_hereafter": 85172931,
   "valid_contract": true,
   "script_size": 0,
-  "hash_hex": "f5af472b208c2f3626bcd9ebab5103cc5b16f1799e9b654cb03a4d0540907371"
+  "hash_hex": "f5af472b208c2f3626bcd9ebab5103cc5b16f1799e9b654cb03a4d0540907371",
+  "block": null
  }
 ]
 ``` 
@@ -356,9 +406,33 @@ Status Code **200**
 | size|integer(int32)|The size of the transaction in bytes.|
 | invalid_before|number(double)|Transaction in invalid before this slot number.|
 | invalid_hereafter|number(double)|Transaction in invalid at or after this slot number.|
-| valid_contract|boolean(undefined)|False if the contract is invalid. True if the contract is valid or there is no contract.|
+| valid_contract|boolean|False if the contract is invalid. True if the contract is valid or there is no contract.|
 | script_size|integer(int32)|The sum of the script sizes (in bytes) of scripts in the transaction.|
-| hash_hex|string(undefined)|The hexadecimal encoding of the hash identifier of the transaction.|
+| hash_hex|string|The hexadecimal encoding of the hash identifier of the transaction.|
+| block|Block|undefined|
+
+Block
+
+|Name|Type|Description| 
+|---|---|---|
+| id|integer(int64)|The block unique identifier.|
+| hash|string(byte)|The hash identifier of the block.|
+| epoch_no|integer(int32)|The epoch number.|
+| slot_no|integer(int64)|The slot number.|
+| epoch_slot_no|integer(int32)|The slot number within an epoch (resets to zero at the start of each epoch).|
+| block_no|integer(int32)|The block number.|
+| previous_id|integer(int64)|The Block table index of the previous block.|
+| slot_leader_id|integer(int64)|The SlotLeader table index of the creator of this block.|
+| size|integer(int32)|The block size (in bytes). Note, this size value is not expected to be the same as the sum of the tx sizes due to the fact that txs being stored in segwit format and oddities in the CBOR encoding.|
+| time|string(date-time)|The block time (UTCTime).|
+| tx_count|integer(int64)|The number of transactions in this block.|
+| proto_major|integer(int32)|The block's major protocol number.|
+| proto_minor|integer(int32)|The block's major protocol number.|
+| vrf_key|string|The VRF key of the creator of this block.|
+| op_cert|string(byte)|The hash of the operational certificate of the block producer.|
+| op_cert_counter|integer(int64)|The value of the counter used to produce the operational certificate.|
+| hash_hex|string|The hexadecimal encoding of the block hash.|
+| op_cert_hex|string|The hexadecimal encoding of the block producer operational certificate's hash.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -438,7 +512,18 @@ console.log(transactions);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+transactions = await CBI.core.blocks.transactions_(block_hash='89ff1090614105a919c9ccc8bb3914aaef1ddd28214a4d55ff65436d2c9fc0b2');
+print(transactions); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let transactions_transactions = CBI.core.blocks.transactions_(Some("89ff1090614105a919c9ccc8bb3914aaef1ddd28214a4d55ff65436d2c9fc0b2"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("transactions_transactions: {:?}", transactions_transactions); 
 ``` 
 
 </TabItem> 
@@ -466,7 +551,8 @@ import coming.soon 😀
   "invalid_hereafter": 85169296,
   "valid_contract": true,
   "script_size": 0,
-  "hash_hex": "bdb880dcfdad18be4a30e2ab0fb48b3ed1eff89a7e39889f8e6879ffc7313f02"
+  "hash_hex": "bdb880dcfdad18be4a30e2ab0fb48b3ed1eff89a7e39889f8e6879ffc7313f02",
+  "block": null
  },
  "...",
  {
@@ -482,7 +568,8 @@ import coming.soon 😀
   "invalid_hereafter": 85172931,
   "valid_contract": true,
   "script_size": 0,
-  "hash_hex": "f5af472b208c2f3626bcd9ebab5103cc5b16f1799e9b654cb03a4d0540907371"
+  "hash_hex": "f5af472b208c2f3626bcd9ebab5103cc5b16f1799e9b654cb03a4d0540907371",
+  "block": null
  }
 ]
 ``` 
@@ -556,9 +643,33 @@ Status Code **200**
 | size|integer(int32)|The size of the transaction in bytes.|
 | invalid_before|number(double)|Transaction in invalid before this slot number.|
 | invalid_hereafter|number(double)|Transaction in invalid at or after this slot number.|
-| valid_contract|boolean(undefined)|False if the contract is invalid. True if the contract is valid or there is no contract.|
+| valid_contract|boolean|False if the contract is invalid. True if the contract is valid or there is no contract.|
 | script_size|integer(int32)|The sum of the script sizes (in bytes) of scripts in the transaction.|
-| hash_hex|string(undefined)|The hexadecimal encoding of the hash identifier of the transaction.|
+| hash_hex|string|The hexadecimal encoding of the hash identifier of the transaction.|
+| block|Block|undefined|
+
+Block
+
+|Name|Type|Description| 
+|---|---|---|
+| id|integer(int64)|The block unique identifier.|
+| hash|string(byte)|The hash identifier of the block.|
+| epoch_no|integer(int32)|The epoch number.|
+| slot_no|integer(int64)|The slot number.|
+| epoch_slot_no|integer(int32)|The slot number within an epoch (resets to zero at the start of each epoch).|
+| block_no|integer(int32)|The block number.|
+| previous_id|integer(int64)|The Block table index of the previous block.|
+| slot_leader_id|integer(int64)|The SlotLeader table index of the creator of this block.|
+| size|integer(int32)|The block size (in bytes). Note, this size value is not expected to be the same as the sum of the tx sizes due to the fact that txs being stored in segwit format and oddities in the CBOR encoding.|
+| time|string(date-time)|The block time (UTCTime).|
+| tx_count|integer(int64)|The number of transactions in this block.|
+| proto_major|integer(int32)|The block's major protocol number.|
+| proto_minor|integer(int32)|The block's major protocol number.|
+| vrf_key|string|The VRF key of the creator of this block.|
+| op_cert|string(byte)|The hash of the operational certificate of the block producer.|
+| op_cert_counter|integer(int64)|The value of the counter used to produce the operational certificate.|
+| hash_hex|string|The hexadecimal encoding of the block hash.|
+| op_cert_hex|string|The hexadecimal encoding of the block producer operational certificate's hash.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 

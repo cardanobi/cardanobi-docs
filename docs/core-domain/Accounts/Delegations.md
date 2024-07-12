@@ -26,9 +26,6 @@ Returns the delegation history of one account given its stake address.
 |Name|Description|In|Type|Required| 
 |---|---|---|---|---|
 | stake_address|Bech32 Stake address|path|string|true|
-| page_no|Page number to retrieve - defaults to 1|query|integer|false|
-| page_size|Number of results per page - defaults to 20 - max 100|query|integer|false|
-| order|Prescribes in which order the delegation events are returned - "desc" descending (default) from newest to oldest - "asc" ascending from oldest to newest|query|string|false|
 
 
 ### 👨‍💻 Code samples 
@@ -38,7 +35,7 @@ Returns the delegation history of one account given its stake address.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const delegations = await CBI.core.accounts.delegations_({ stake_address: "stake_test1urkmj2vzdey7ac065rleyrc03fzp7gxxhw32pzgxv8dwuasaqtjuz" });
+const delegations = await CBI.core.accounts.delegations_({ stake_address: "stake1u8a9qstrmj4rvc3k5z8fems7f0j2vztz8det2klgakhfc8ce79fma" });
 console.log(delegations); 
 ``` 
 
@@ -46,7 +43,18 @@ console.log(delegations);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+delegations = await CBI.core.accounts.delegations_(stake_address='stake1u8a9qstrmj4rvc3k5z8fems7f0j2vztz8det2klgakhfc8ce79fma');
+print(delegations); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let delegations_delegations = CBI.core.accounts.delegations_(Some("stake1u8a9qstrmj4rvc3k5z8fems7f0j2vztz8det2klgakhfc8ce79fma"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("delegations_delegations: {:?}", delegations_delegations); 
 ``` 
 
 </TabItem> 
@@ -62,21 +70,21 @@ import coming.soon 😀
 ```json
 [
  {
-  "epoch_no": 56,
-  "tx_hash_hex": "9ed7815f388caa4e96dfef5bf60bb2a959a045fc2753c0c4be4df43e4dd4beca",
-  "pool_id": "pool1mvgpsafktxs883p66awp7fplj73cj6j9hqdxzvqw494f7f0v2dp",
-  "slot_no": 22111791,
-  "block_no": 684993,
-  "block_time": "2023-03-02T22:09:51"
+  "epoch_no": 291,
+  "tx_hash_hex": "a2d498e6f9e0be00877772911ffc39e0336227e1377f52f2d4880efd80b4def7",
+  "pool_id": "pool1y24nj4qdkg35nvvnfawukauggsxrxuy74876cplmxsee29w5axc",
+  "slot_no": 39642132,
+  "block_no": 6222553,
+  "block_time": "2021-09-09T17:27:03"
  },
  "...",
  {
-  "epoch_no": 54,
-  "tx_hash_hex": "8a3e09f1e02e8a85799951f3cdfbb552c14bd3a439397460be5e29f33a8ab6d7",
-  "pool_id": "pool13ved7up7lkz220kv8r84h76lgt27a3umyf7uewlxxclxvdm6zlf",
-  "slot_no": 21242755,
-  "block_no": 650749,
-  "block_time": "2023-02-20T20:45:55"
+  "epoch_no": 472,
+  "tx_hash_hex": "004ac881d9fd1a6748a72547e82e89beb074e96c3a76670c5a11b494d9260f31",
+  "pool_id": "pool1y24nj4qdkg35nvvnfawukauggsxrxuy74876cplmxsee29w5axc",
+  "slot_no": 117819415,
+  "block_no": 10004208,
+  "block_time": "2024-03-02T13:21:46"
  }
 ]
 ``` 

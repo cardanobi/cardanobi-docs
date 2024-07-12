@@ -43,7 +43,18 @@ console.log(metadata);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+metadata = await CBI.core.transactions.metadata_(transaction_hash='6b85afe3fc01c6d3503a5dac8343b56b67f504bb2399deba8b09f8024790b9c4');
+print(metadata); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let metadata_metadata = CBI.core.transactions.metadata_(Some("6b85afe3fc01c6d3503a5dac8343b56b67f504bb2399deba8b09f8024790b9c4"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("metadata_metadata: {:?}", metadata_metadata); 
 ``` 
 
 </TabItem> 
@@ -130,7 +141,7 @@ Status Code **200**
 |Name|Type|Description| 
 |---|---|---|
 | key|number(double)|The metadata key (a Word64/unsigned 64 bit number).|
-| json|string(undefined)|The JSON payload if it can be decoded as JSON.|
+| json|string|The JSON payload if it can be decoded as JSON.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 

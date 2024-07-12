@@ -46,7 +46,18 @@ console.log(stake_address_registrations);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+stake_address_registrations = await CBI.core.transactions.stake_address_registrations_(transaction_hash='13919fc14338f13fa10497293f709f9c12c6275c5b38baa0c60786ffdd51bebb');
+print(stake_address_registrations); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let certificates_stake_address_registrations = CBI.core.transactions.stake_address_registrations_(Some("13919fc14338f13fa10497293f709f9c12c6275c5b38baa0c60786ffdd51bebb"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("certificates_stake_address_registrations: {:?}", certificates_stake_address_registrations); 
 ``` 
 
 </TabItem> 
@@ -130,9 +141,9 @@ Status Code **200**
 |---|---|---|
 | cert_index|integer(int32)|The index of this stake registration within the certificates of this transaction.|
 | epoch_no|integer(int32)|The epoch in which the registration took place.|
-| stake_address|string(undefined)|The Bech32 encoded version of the stake address.|
-| script_hash_hex|string(undefined)|The hexadecimal encoding of the script hash, in case this address is locked by a script.|
-| is_registration|boolean(undefined)|True if the transaction is a registration, False if it is a deregistration.|
+| stake_address|string|The Bech32 encoded version of the stake address.|
+| script_hash_hex|string|The hexadecimal encoding of the script hash, in case this address is locked by a script.|
+| is_registration|boolean|True if the transaction is a registration, False if it is a deregistration.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -212,7 +223,18 @@ console.log(stake_address_delegations);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+stake_address_delegations = await CBI.core.transactions.stake_address_delegations_(transaction_hash='e963b50c5a1078f0fbe11c375d047af3a1b2112538ed6cf852809ebbf4dd8440');
+print(stake_address_delegations); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let certificates_stake_address_delegations = CBI.core.transactions.stake_address_delegations_(Some("e963b50c5a1078f0fbe11c375d047af3a1b2112538ed6cf852809ebbf4dd8440"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("certificates_stake_address_delegations: {:?}", certificates_stake_address_delegations); 
 ``` 
 
 </TabItem> 
@@ -296,9 +318,9 @@ Status Code **200**
 |---|---|---|
 | cert_index|integer(int32)|The index of this delegation within the certificates of this transaction.|
 | active_epoch_no|integer(int64)|The epoch number where this delegation becomes active.|
-| stake_address|string(undefined)|The Bech32 encoded version of the stake address.|
-| pool_hash_bech32|string(undefined)|The Bech32 encoding of the pool hash.|
-| pool_hash_hex|string(undefined)|The hexadecimal encoding of the pool hash.|
+| stake_address|string|The Bech32 encoded version of the stake address.|
+| pool_hash_bech32|string|The Bech32 encoding of the pool hash.|
+| pool_hash_hex|string|The hexadecimal encoding of the pool hash.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -378,7 +400,18 @@ console.log(retiring_pools);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+retiring_pools = await CBI.core.transactions.retiring_pools_(transaction_hash='0d8eadd3bd58bd1a34641ea4100de509f081fe5dd7ecd33d7da52cbeb8e93494');
+print(retiring_pools); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let certificates_retiring_pools = CBI.core.transactions.retiring_pools_(Some("0d8eadd3bd58bd1a34641ea4100de509f081fe5dd7ecd33d7da52cbeb8e93494"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("certificates_retiring_pools: {:?}", certificates_retiring_pools); 
 ``` 
 
 </TabItem> 
@@ -460,8 +493,8 @@ Status Code **200**
 |Name|Type|Description| 
 |---|---|---|
 | cert_index|integer(int32)|The index of this pool retirement within the certificates of this transaction.|
-| pool_hash_bech32|string(undefined)|The Bech32 encoding of the pool hash.|
-| pool_hash_hex|string(undefined)|The hexadecimal encoding of the pool hash.|
+| pool_hash_bech32|string|The Bech32 encoding of the pool hash.|
+| pool_hash_hex|string|The hexadecimal encoding of the pool hash.|
 | retiring_epoch|integer(int32)|The epoch where this pool retires.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
@@ -542,7 +575,18 @@ console.log(updating_pools);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+updating_pools = await CBI.core.transactions.updating_pools_(transaction_hash='37b67370c0e71b6e15d6d5f564a5069461e472a26e6f46a813743458285aef8d');
+print(updating_pools); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let certificates_updating_pools = CBI.core.transactions.updating_pools_(Some("37b67370c0e71b6e15d6d5f564a5069461e472a26e6f46a813743458285aef8d"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("certificates_updating_pools: {:?}", certificates_updating_pools); 
 ``` 
 
 </TabItem> 
@@ -671,17 +715,26 @@ Status Code **200**
 |Name|Type|Description| 
 |---|---|---|
 | cert_index|integer(int32)|The index of this pool update within the certificates of this transaction.|
-| pool_hash_bech32|string(undefined)|The Bech32 encoding of the pool hash.|
-| pool_hash_hex|string(undefined)|The hexadecimal encoding of the pool hash.|
-| vrf_key_hash_hex|string(undefined)|The hexadecimal encoding of the VRF key hash.|
-| reward_addr_hash_hex|string(undefined)|The hexadecimal encoding of the pool reward address hash.|
+| pool_hash_bech32|string|The Bech32 encoding of the pool hash.|
+| pool_hash_hex|string|The hexadecimal encoding of the pool hash.|
+| vrf_key_hash_hex|string|The hexadecimal encoding of the VRF key hash.|
+| reward_addr_hash_hex|string|The hexadecimal encoding of the pool reward address hash.|
 | pledge|number(double)|The amount (in Lovelace) the pool owner pledges to the pool.|
 | margin|number(double)|The margin (as a percentage) this pool charges.|
 | fixed_cost|number(double)|The fixed per epoch fee (in ADA) this pool charges.|
 | active_epoch_no|integer(int64)|The epoch number where this update becomes active.|
-| owners_addresses|array(undefined)|The list of pool owners stake addresses.|
-| relays|array(undefined)|The pool relays updates.|
-| offline_data|undefined(undefined)|undefined|
+| owners_addresses|array|The list of pool owners stake addresses.|
+| relays|array|The pool relays updates.|
+| offline_data|PoolOfflineDataDTO|undefined|
+
+PoolOfflineDataDTO
+
+|Name|Type|Description| 
+|---|---|---|
+| ticker_name|string|The pool's ticker name (as many as 5 characters).|
+| url|string|The URL for the location of the off-chain data.|
+| hash_hex|string|The hexadecimal encoding of the offline data hash.|
+| json|string|The payload as JSON.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 

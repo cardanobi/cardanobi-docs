@@ -26,9 +26,6 @@ Returns all addresses associated to one account given its stake address.
 |Name|Description|In|Type|Required| 
 |---|---|---|---|---|
 | stake_address|Bech32 Stake address|path|string|true|
-| page_no|Page number to retrieve - defaults to 1|query|integer|false|
-| page_size|Number of results per page - defaults to 20 - max 100|query|integer|false|
-| order|Prescribes in which alphabetical order addresses are returned - "desc" descending (default) - "asc" ascending|query|string|false|
 
 
 ### 👨‍💻 Code samples 
@@ -38,7 +35,7 @@ Returns all addresses associated to one account given its stake address.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const addresses = await CBI.core.accounts.addresses_({ stake_address: "stake_test1uqh4cqczjpcjgnd3vhntldk9utmc3754tyrxy9seghptzwc6zayzz" });
+const addresses = await CBI.core.accounts.addresses_({ stake_address: "stake1u8a9qstrmj4rvc3k5z8fems7f0j2vztz8det2klgakhfc8ce79fma" });
 console.log(addresses); 
 ``` 
 
@@ -46,7 +43,18 @@ console.log(addresses);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+addresses = await CBI.core.accounts.addresses_(stake_address='stake1u8a9qstrmj4rvc3k5z8fems7f0j2vztz8det2klgakhfc8ce79fma');
+print(addresses); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let addresses_addresses = CBI.core.accounts.addresses_(Some("stake1u8a9qstrmj4rvc3k5z8fems7f0j2vztz8det2klgakhfc8ce79fma"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("addresses_addresses: {:?}", addresses_addresses); 
 ``` 
 
 </TabItem> 
@@ -62,12 +70,12 @@ import coming.soon 😀
 ```json
 [
  {
-  "address": "addr_test1qzxrxs4djcjxq92qwsr5xjsktfpqzjj3e3trw5etxqq86zp0tsps9yr3y3xmze0xh7mvtchh3raf2kgxvgtpj3wzkyas2fm6ku",
+  "address": "addr1qyyc97lwzpvsgnywpf2awx2dylzgkta36j8fevpncf2yvdh62pqk8h92xe3rdgywnnhpujly5cykywmjk4d73mdwns0sem8e5r",
   "address_has_script": false
  },
  "...",
  {
-  "address": "addr_test1qp4fa90pt97exrcqp9cayal6gmyz53a8uwpceqlzq6kxcw30tsps9yr3y3xmze0xh7mvtchh3raf2kgxvgtpj3wzkyas3rjmxw",
+  "address": "addr1qyyc97lwzpvsgnywpf2awx2dylzgkta36j8fevpncf2yvdh62pqk8h92xe3rdgywnnhpujly5cykywmjk4d73mdwns0sem8e5r",
   "address_has_script": false
  }
 ]

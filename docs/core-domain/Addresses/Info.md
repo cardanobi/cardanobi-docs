@@ -44,7 +44,18 @@ console.log(info);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+info = await CBI.core.addresses.info_(address='stake1u8a9qstrmj4rvc3k5z8fems7f0j2vztz8det2klgakhfc8ce79fma');
+print(info); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let info_info = CBI.core.addresses.info_(Some("stake1u8a9qstrmj4rvc3k5z8fems7f0j2vztz8det2klgakhfc8ce79fma"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("info_info: {:?}", info_info); 
 ``` 
 
 </TabItem> 
@@ -134,10 +145,10 @@ Status Code **200**
 
 |Name|Type|Description| 
 |---|---|---|
-| address|string(undefined)|The address.|
+| address|string|The address.|
 | stake_address_id|integer(int64)|The stake addres unique identifier.|
-| stake_address|string(undefined)|The stake address.|
-| script_hash|string(undefined)|The script hash in HEX form in case this address is locked by a script.|
+| stake_address|string|The stake address.|
+| script_hash|string|The script hash in HEX form in case this address is locked by a script.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -217,7 +228,18 @@ console.log(addressesinfo);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+addressesinfo = await CBI.core.addressesinfo_(odata=true,address='stake1u8a9qstrmj4rvc3k5z8fems7f0j2vztz8det2klgakhfc8ce79fma');
+print(addressesinfo); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let addressesinfo = CBI.core.addressesinfo_(Some("stake1u8a9qstrmj4rvc3k5z8fems7f0j2vztz8det2klgakhfc8ce79fma"), HashMap::from([("odata", "true")])).await.expect("Failed to call endpoint");
+println!("addressesinfo: {:?}", addressesinfo); 
 ``` 
 
 </TabItem> 
@@ -232,7 +254,7 @@ import coming.soon 😀
 
 ```json
 {
- "@odata.context": "https://mainnet.cardanobi.io/api/core/odata/$metadata#AddressesInfo",
+ "@odata.context": "https://cardanobi.io/api/core/odata/$metadata#AddressesInfo",
  "value": [
   {
    "address": "addr1qyyc97lwzpvsgnywpf2awx2dylzgkta36j8fevpncf2yvdh62pqk8h92xe3rdgywnnhpujly5cykywmjk4d73mdwns0sem8e5r",
@@ -310,10 +332,10 @@ Status Code **200**
 
 |Name|Type|Description| 
 |---|---|---|
-| address|string(undefined)|The address.|
+| address|string|The address.|
 | stake_address_id|integer(int64)|The stake addres unique identifier.|
-| stake_address|string(undefined)|The stake address.|
-| script_hash|string(undefined)|The script hash in HEX form in case this address is locked by a script.|
+| stake_address|string|The stake address.|
+| script_hash|string|The script hash in HEX form in case this address is locked by a script.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 

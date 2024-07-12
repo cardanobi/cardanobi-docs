@@ -46,7 +46,18 @@ console.log(history);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+history = await CBI.core.assets.history_(fingerprint='asset1gqp4wdmclgw2tqmkm3nq7jdstvqpesdj3agnel');
+print(history); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let history_history = CBI.core.assets.history_(Some("asset1gqp4wdmclgw2tqmkm3nq7jdstvqpesdj3agnel"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("history_history: {:?}", history_history); 
 ``` 
 
 </TabItem> 
@@ -61,21 +72,7 @@ import coming.soon 😀
 
 ```json
 [
- {
-  "event_id": 637415,
-  "tx_hash_hex": "b4f816062fc3ffea5bec59ab507fec93faefb482f865949699e254f86ad3015f",
-  "quantity": 5000000,
-  "event_time": "2023-06-08T09:45:38",
-  "block_no": 1027963
- },
- "...",
- {
-  "event_id": 658188,
-  "tx_hash_hex": "07ecd5d4117d10d40278f6186f95568f651d3dc4ce371b2cd0a4ffb623331fb8",
-  "quantity": -4811089,
-  "event_time": "2023-06-28T04:12:36",
-  "block_no": 1100236
- }
+ "..."
 ]
 ``` 
 </TabItem> 

@@ -39,7 +39,18 @@ console.log(latest);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+latest = await CBI.core.blocks.latest_();
+print(latest); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let blocks_latest = CBI.core.blocks.latest_(HashMap::new()).await.expect("Failed to call endpoint");
+println!("blocks_latest: {:?}", blocks_latest); 
 ``` 
 
 </TabItem> 
@@ -54,24 +65,24 @@ import coming.soon 😀
 
 ```json
 {
- "id": 8528093,
- "hash": "bcUTHth6AjLrrsBty0wZSY2lU5CIM3EBMFP32Sje9hA=",
- "epoch_no": 399,
- "slot_no": 87418938,
- "epoch_slot_no": 414138,
- "block_no": 8525228,
- "previous_id": 8528092,
- "slot_leader_id": 5152047,
- "size": 23487,
- "time": "2023-03-16T16:47:09",
- "tx_count": 21,
+ "id": 10595156,
+ "hash": "F3PsbxTP56Xyj9nsaxDuwHSsnWgSsj883wHeMWayDrA=",
+ "epoch_no": 496,
+ "slot_no": 129143847,
+ "epoch_slot_no": 235047,
+ "block_no": 10559461,
+ "previous_id": 10595155,
+ "slot_leader_id": 4555972,
+ "size": 88940,
+ "time": "2024-07-11T15:02:18",
+ "tx_count": 15,
  "proto_major": 8,
  "proto_minor": 0,
- "vrf_key": "vrf_vk1v9u4t3t7h6vxxa3qkf5vgcz52ts2gqmdp0fvds0uhtknq4390x2qp6aas9",
- "op_cert": "3HYIt56lshrQWP1Dl6dLw/pGWqhuFgBdfhtK9AXY4TQ=",
- "op_cert_counter": 13,
- "hash_hex": "6dc5131ed87a0232ebaec06dcb4c19498da55390883371013053f7d928def610",
- "op_cert_hex": "dc7608b79ea5b21ad058fd4397a74bc3fa465aa86e16005d7e1b4af405d8e134"
+ "vrf_key": "vrf_vk1d0djffha6pa0fk44jsugyh8ew7lmmarr2k6m2xxe5qgl97ztjlyqdk5lmx",
+ "op_cert": "zGmgcmETwmFsAcz/XYdNr7jXprrei+mDxsh90gJxDWQ=",
+ "op_cert_counter": 17,
+ "hash_hex": "1773ec6f14cfe7a5f28fd9ec6b10eec074ac9d6812b23f3cdf01de3166b20eb0",
+ "op_cert_hex": "cc69a0726113c2616c01ccff5d874dafb8d7a6bade8be983c6c87dd202710d64"
 }
 ``` 
 </TabItem> 
@@ -147,11 +158,11 @@ Status Code **200**
 | tx_count|integer(int64)|The number of transactions in this block.|
 | proto_major|integer(int32)|The block's major protocol number.|
 | proto_minor|integer(int32)|The block's major protocol number.|
-| vrf_key|string(undefined)|The VRF key of the creator of this block.|
+| vrf_key|string|The VRF key of the creator of this block.|
 | op_cert|string(byte)|The hash of the operational certificate of the block producer.|
 | op_cert_counter|integer(int64)|The value of the counter used to produce the operational certificate.|
-| hash_hex|string(undefined)|The hexadecimal encoding of the block hash.|
-| op_cert_hex|string(undefined)|The hexadecimal encoding of the block producer operational certificate's hash.|
+| hash_hex|string|The hexadecimal encoding of the block hash.|
+| op_cert_hex|string|The hexadecimal encoding of the block producer operational certificate's hash.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -231,7 +242,18 @@ console.log(blocks);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+blocks = await CBI.core.blocks_(block_no=8415364);
+print(blocks); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let blocks = CBI.core.blocks_(Some(8415364), HashMap::new()).await.expect("Failed to call endpoint");
+println!("blocks: {:?}", blocks); 
 ``` 
 
 </TabItem> 
@@ -339,11 +361,11 @@ Status Code **200**
 | tx_count|integer(int64)|The number of transactions in this block.|
 | proto_major|integer(int32)|The block's major protocol number.|
 | proto_minor|integer(int32)|The block's major protocol number.|
-| vrf_key|string(undefined)|The VRF key of the creator of this block.|
+| vrf_key|string|The VRF key of the creator of this block.|
 | op_cert|string(byte)|The hash of the operational certificate of the block producer.|
 | op_cert_counter|integer(int64)|The value of the counter used to produce the operational certificate.|
-| hash_hex|string(undefined)|The hexadecimal encoding of the block hash.|
-| op_cert_hex|string(undefined)|The hexadecimal encoding of the block producer operational certificate's hash.|
+| hash_hex|string|The hexadecimal encoding of the block hash.|
+| op_cert_hex|string|The hexadecimal encoding of the block producer operational certificate's hash.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -423,7 +445,18 @@ console.log(blocks);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+blocks = await CBI.core.blocks_(block_hash='89ff1090614105a919c9ccc8bb3914aaef1ddd28214a4d55ff65436d2c9fc0b2');
+print(blocks); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let blocks = CBI.core.blocks_(Some("89ff1090614105a919c9ccc8bb3914aaef1ddd28214a4d55ff65436d2c9fc0b2"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("blocks: {:?}", blocks); 
 ``` 
 
 </TabItem> 
@@ -531,11 +564,11 @@ Status Code **200**
 | tx_count|integer(int64)|The number of transactions in this block.|
 | proto_major|integer(int32)|The block's major protocol number.|
 | proto_minor|integer(int32)|The block's major protocol number.|
-| vrf_key|string(undefined)|The VRF key of the creator of this block.|
+| vrf_key|string|The VRF key of the creator of this block.|
 | op_cert|string(byte)|The hash of the operational certificate of the block producer.|
 | op_cert_counter|integer(int64)|The value of the counter used to produce the operational certificate.|
-| hash_hex|string(undefined)|The hexadecimal encoding of the block hash.|
-| op_cert_hex|string(undefined)|The hexadecimal encoding of the block producer operational certificate's hash.|
+| hash_hex|string|The hexadecimal encoding of the block hash.|
+| op_cert_hex|string|The hexadecimal encoding of the block producer operational certificate's hash.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -616,7 +649,18 @@ console.log(blocks_slots);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+blocks_slots = await CBI.core.blocks.epochs.slots_(epoch_no=394,slot_no=85165743);
+print(blocks_slots); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let blocks_slots = CBI.core.blocks.epochs.slots_(Some(394), Some(85165743), HashMap::new()).await.expect("Failed to call endpoint");
+println!("blocks_slots: {:?}", blocks_slots); 
 ``` 
 
 </TabItem> 
@@ -724,11 +768,11 @@ Status Code **200**
 | tx_count|integer(int64)|The number of transactions in this block.|
 | proto_major|integer(int32)|The block's major protocol number.|
 | proto_minor|integer(int32)|The block's major protocol number.|
-| vrf_key|string(undefined)|The VRF key of the creator of this block.|
+| vrf_key|string|The VRF key of the creator of this block.|
 | op_cert|string(byte)|The hash of the operational certificate of the block producer.|
 | op_cert_counter|integer(int64)|The value of the counter used to produce the operational certificate.|
-| hash_hex|string(undefined)|The hexadecimal encoding of the block hash.|
-| op_cert_hex|string(undefined)|The hexadecimal encoding of the block producer operational certificate's hash.|
+| hash_hex|string|The hexadecimal encoding of the block hash.|
+| op_cert_hex|string|The hexadecimal encoding of the block producer operational certificate's hash.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 

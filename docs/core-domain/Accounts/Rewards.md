@@ -26,9 +26,6 @@ Returns the earned rewards history of one account given its stake address.
 |Name|Description|In|Type|Required| 
 |---|---|---|---|---|
 | stake_address|Bech32 Stake address|path|string|true|
-| page_no|Page number to retrieve - defaults to 1|query|integer|false|
-| page_size|Number of results per page - defaults to 20 - max 100|query|integer|false|
-| order|Prescribes in which order the rewards are returned - "desc" descending (default) from newest to oldest - "asc" ascending from oldest to newest|query|string|false|
 
 
 ### 👨‍💻 Code samples 
@@ -38,7 +35,7 @@ Returns the earned rewards history of one account given its stake address.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const rewards = await CBI.core.accounts.rewards_({ stake_address: "stake_test1uqh4cqczjpcjgnd3vhntldk9utmc3754tyrxy9seghptzwc6zayzz" });
+const rewards = await CBI.core.accounts.rewards_({ stake_address: "stake1u8a9qstrmj4rvc3k5z8fems7f0j2vztz8det2klgakhfc8ce79fma" });
 console.log(rewards); 
 ``` 
 
@@ -46,7 +43,18 @@ console.log(rewards);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+rewards = await CBI.core.accounts.rewards_(stake_address='stake1u8a9qstrmj4rvc3k5z8fems7f0j2vztz8det2klgakhfc8ce79fma');
+print(rewards); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let rewards_rewards = CBI.core.accounts.rewards_(Some("stake1u8a9qstrmj4rvc3k5z8fems7f0j2vztz8det2klgakhfc8ce79fma"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("rewards_rewards: {:?}", rewards_rewards); 
 ``` 
 
 </TabItem> 
@@ -62,19 +70,19 @@ import coming.soon 😀
 ```json
 [
  {
-  "earned_epoch": 77,
-  "spendable_epoch": 79,
-  "type": "member",
-  "pool_id_hex": "8aa469088eaf5c38c3d4faf0d3516ca670cd6df5545fafea2f70258b",
-  "amount": 1132004
+  "earned_epoch": 336,
+  "spendable_epoch": 338,
+  "type": "leader",
+  "pool_id_hex": "22ab39540db22349b1934f5dcb7788440c33709ea9fdac07fb343395",
+  "amount": 344553843
  },
  "...",
  {
-  "earned_epoch": 58,
-  "spendable_epoch": 60,
-  "type": "member",
-  "pool_id_hex": "8aa469088eaf5c38c3d4faf0d3516ca670cd6df5545fafea2f70258b",
-  "amount": 1101485
+  "earned_epoch": 490,
+  "spendable_epoch": 492,
+  "type": "leader",
+  "pool_id_hex": "22ab39540db22349b1934f5dcb7788440c33709ea9fdac07fb343395",
+  "amount": 373426967
  }
 ]
 ``` 

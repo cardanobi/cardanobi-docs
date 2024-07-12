@@ -26,9 +26,6 @@ Returns the staking history of one account given its stake address.
 |Name|Description|In|Type|Required| 
 |---|---|---|---|---|
 | stake_address|Bech32 Stake address|path|string|true|
-| page_no|Page number to retrieve - defaults to 1|query|integer|false|
-| page_size|Number of results per page - defaults to 20 - max 100|query|integer|false|
-| order|Prescribes in which order the staking events are returned - "desc" descending (default) from newest to oldest - "asc" ascending from oldest to newest|query|string|false|
 
 
 ### 👨‍💻 Code samples 
@@ -38,7 +35,7 @@ Returns the staking history of one account given its stake address.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const staking = await CBI.core.accounts.staking_({ stake_address: "stake_test1uqh4cqczjpcjgnd3vhntldk9utmc3754tyrxy9seghptzwc6zayzz" });
+const staking = await CBI.core.accounts.staking_({ stake_address: "stake1u8a9qstrmj4rvc3k5z8fems7f0j2vztz8det2klgakhfc8ce79fma" });
 console.log(staking); 
 ``` 
 
@@ -46,7 +43,18 @@ console.log(staking);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+staking = await CBI.core.accounts.staking_(stake_address='stake1u8a9qstrmj4rvc3k5z8fems7f0j2vztz8det2klgakhfc8ce79fma');
+print(staking); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let staking_staking = CBI.core.accounts.staking_(Some("stake1u8a9qstrmj4rvc3k5z8fems7f0j2vztz8det2klgakhfc8ce79fma"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("staking_staking: {:?}", staking_staking); 
 ``` 
 
 </TabItem> 
@@ -62,15 +70,15 @@ import coming.soon 😀
 ```json
 [
  {
-  "epoch_no": 79,
-  "amount": 1344378229,
-  "pool_id": "pool132jxjzyw4awr3s75ltcdx5tv5ecv6m042306l630wqjckhfm32r"
+  "epoch_no": 291,
+  "amount": 10003622270,
+  "pool_id": "pool1y24nj4qdkg35nvvnfawukauggsxrxuy74876cplmxsee29w5axc"
  },
  "...",
  {
-  "epoch_no": 60,
-  "amount": 1322639899,
-  "pool_id": "pool132jxjzyw4awr3s75ltcdx5tv5ecv6m042306l630wqjckhfm32r"
+  "epoch_no": 390,
+  "amount": 18516404522,
+  "pool_id": "pool1y24nj4qdkg35nvvnfawukauggsxrxuy74876cplmxsee29w5axc"
  }
 ]
 ``` 

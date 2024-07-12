@@ -40,7 +40,18 @@ console.log(relays_updates);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+relays_updates = await CBI.core.pools.relays.updates_();
+print(relays_updates); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let relays_updates = CBI.core.pools.relays.updates_(HashMap::new()).await.expect("Failed to call endpoint");
+println!("relays_updates: {:?}", relays_updates); 
 ``` 
 
 </TabItem> 
@@ -138,10 +149,10 @@ Status Code **200**
 |---|---|---|
 | id|integer(int64)|The pool relay unique identifier.|
 | update_id|integer(int64)|The PoolUpdate table index this PoolRelay entry refers to.|
-| ipv4|string(undefined)|The IPv4 address of the relay.|
-| ipv6|string(undefined)|The IPv6 address of the relay.|
-| dns_name|string(undefined)|The DNS name of the relay.|
-| dns_srv_name|string(undefined)|The DNS service name of the relay.|
+| ipv4|string|The IPv4 address of the relay.|
+| ipv6|string|The IPv6 address of the relay.|
+| dns_name|string|The DNS name of the relay.|
+| dns_srv_name|string|The DNS service name of the relay.|
 | port|integer(int32)|The port number of relay.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
@@ -222,7 +233,18 @@ console.log(relays_updates);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+relays_updates = await CBI.core.pools.relays.updates_(update_id=1);
+print(relays_updates); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let relays_updates = CBI.core.pools.relays.updates_(Some(1), HashMap::new()).await.expect("Failed to call endpoint");
+println!("relays_updates: {:?}", relays_updates); 
 ``` 
 
 </TabItem> 
@@ -320,10 +342,10 @@ Status Code **200**
 |---|---|---|
 | id|integer(int64)|The pool relay unique identifier.|
 | update_id|integer(int64)|The PoolUpdate table index this PoolRelay entry refers to.|
-| ipv4|string(undefined)|The IPv4 address of the relay.|
-| ipv6|string(undefined)|The IPv6 address of the relay.|
-| dns_name|string(undefined)|The DNS name of the relay.|
-| dns_srv_name|string(undefined)|The DNS service name of the relay.|
+| ipv4|string|The IPv4 address of the relay.|
+| ipv6|string|The IPv6 address of the relay.|
+| dns_name|string|The DNS name of the relay.|
+| dns_srv_name|string|The DNS service name of the relay.|
 | port|integer(int32)|The port number of relay.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
@@ -404,7 +426,18 @@ console.log(relays_updates);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+relays_updates = await CBI.core.pools.relays.updates_(vrf_key_hash='9be345bcbcb0cf0559b1135467fd2e4c78c741898cdf8bcb737b2dc5122632df');
+print(relays_updates); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let relays_updates = CBI.core.pools.relays.updates_(Some("9be345bcbcb0cf0559b1135467fd2e4c78c741898cdf8bcb737b2dc5122632df"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("relays_updates: {:?}", relays_updates); 
 ``` 
 
 </TabItem> 
@@ -502,10 +535,10 @@ Status Code **200**
 |---|---|---|
 | id|integer(int64)|The pool relay unique identifier.|
 | update_id|integer(int64)|The PoolUpdate table index this PoolRelay entry refers to.|
-| ipv4|string(undefined)|The IPv4 address of the relay.|
-| ipv6|string(undefined)|The IPv6 address of the relay.|
-| dns_name|string(undefined)|The DNS name of the relay.|
-| dns_srv_name|string(undefined)|The DNS service name of the relay.|
+| ipv4|string|The IPv4 address of the relay.|
+| ipv6|string|The IPv6 address of the relay.|
+| dns_name|string|The DNS name of the relay.|
+| dns_srv_name|string|The DNS service name of the relay.|
 | port|integer(int32)|The port number of relay.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
@@ -579,7 +612,18 @@ console.log(poolsrelays);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+poolsrelays = await CBI.core.poolsrelays_(odata=true);
+print(poolsrelays); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let poolsrelays = CBI.core.poolsrelays_(HashMap::from([("odata", "true")])).await.expect("Failed to call endpoint");
+println!("poolsrelays: {:?}", poolsrelays); 
 ``` 
 
 </TabItem> 
@@ -594,7 +638,7 @@ import coming.soon 😀
 
 ```json
 {
- "@odata.context": "https://mainnet.cardanobi.io/api/core/odata/$metadata#PoolsRelays",
+ "@odata.context": "https://cardanobi.io/api/core/odata/$metadata#PoolsRelays",
  "value": [
   {
    "id": 1,
@@ -616,7 +660,7 @@ import coming.soon 😀
    "port": 5000
   }
  ],
- "@odata.nextLink": "https://mainnet.cardanobi.io/api/core/odata/poolsrelays?$skip=20"
+ "@odata.nextLink": "https://cardanobi.io/api/core/odata/poolsrelays?$skip=20"
 }
 ``` 
 </TabItem> 
@@ -681,10 +725,10 @@ Status Code **200**
 |---|---|---|
 | id|integer(int64)|The pool relay unique identifier.|
 | update_id|integer(int64)|The PoolUpdate table index this PoolRelay entry refers to.|
-| ipv4|string(undefined)|The IPv4 address of the relay.|
-| ipv6|string(undefined)|The IPv6 address of the relay.|
-| dns_name|string(undefined)|The DNS name of the relay.|
-| dns_srv_name|string(undefined)|The DNS service name of the relay.|
+| ipv4|string|The IPv4 address of the relay.|
+| ipv6|string|The IPv6 address of the relay.|
+| dns_name|string|The DNS name of the relay.|
+| dns_srv_name|string|The DNS service name of the relay.|
 | port|integer(int32)|The port number of relay.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
@@ -765,7 +809,18 @@ console.log(poolsrelays);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+poolsrelays = await CBI.core.poolsrelays_(odata=true,update_id=1);
+print(poolsrelays); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let poolsrelays = CBI.core.poolsrelays_(Some(1), HashMap::from([("odata", "true")])).await.expect("Failed to call endpoint");
+println!("poolsrelays: {:?}", poolsrelays); 
 ``` 
 
 </TabItem> 
@@ -780,7 +835,7 @@ import coming.soon 😀
 
 ```json
 {
- "@odata.context": "https://mainnet.cardanobi.io/api/core/odata/$metadata#PoolsRelays",
+ "@odata.context": "https://cardanobi.io/api/core/odata/$metadata#PoolsRelays",
  "value": [
   {
    "id": 1,
@@ -866,10 +921,10 @@ Status Code **200**
 |---|---|---|
 | id|integer(int64)|The pool relay unique identifier.|
 | update_id|integer(int64)|The PoolUpdate table index this PoolRelay entry refers to.|
-| ipv4|string(undefined)|The IPv4 address of the relay.|
-| ipv6|string(undefined)|The IPv6 address of the relay.|
-| dns_name|string(undefined)|The DNS name of the relay.|
-| dns_srv_name|string(undefined)|The DNS service name of the relay.|
+| ipv4|string|The IPv4 address of the relay.|
+| ipv6|string|The IPv6 address of the relay.|
+| dns_name|string|The DNS name of the relay.|
+| dns_srv_name|string|The DNS service name of the relay.|
 | port|integer(int32)|The port number of relay.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>

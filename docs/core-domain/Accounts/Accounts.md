@@ -35,7 +35,7 @@ Returns on-chain information about an account given its stake address.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const accounts = await CBI.core.accounts_({ stake_address: "stake_test1uqh4cqczjpcjgnd3vhntldk9utmc3754tyrxy9seghptzwc6zayzz" });
+const accounts = await CBI.core.accounts_({ stake_address: "stake1u8a9qstrmj4rvc3k5z8fems7f0j2vztz8det2klgakhfc8ce79fma" });
 console.log(accounts); 
 ``` 
 
@@ -43,7 +43,18 @@ console.log(accounts);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+accounts = await CBI.core.accounts_(stake_address='stake1u8a9qstrmj4rvc3k5z8fems7f0j2vztz8det2klgakhfc8ce79fma');
+print(accounts); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let accounts = CBI.core.accounts_(Some("stake1u8a9qstrmj4rvc3k5z8fems7f0j2vztz8det2klgakhfc8ce79fma"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("accounts: {:?}", accounts); 
 ``` 
 
 </TabItem> 
@@ -58,18 +69,18 @@ import coming.soon 😀
 
 ```json
 {
- "stake_address": "stake_test1uqh4cqczjpcjgnd3vhntldk9utmc3754tyrxy9seghptzwc6zayzz",
+ "stake_address": "stake1u8a9qstrmj4rvc3k5z8fems7f0j2vztz8det2klgakhfc8ce79fma",
  "is_registered": true,
- "last_reg_dereg_tx": "dec3ff4f62fd9739498eef61bc7d39236570b1bf31ea891e5b2b9aba2e095727",
- "last_reg_dereg_epoch_no": 29,
- "pool_id": "pool132jxjzyw4awr3s75ltcdx5tv5ecv6m042306l630wqjckhfm32r",
- "last_deleg_tx": "dec3ff4f62fd9739498eef61bc7d39236570b1bf31ea891e5b2b9aba2e095727",
- "delegated_since_epoch_no": 31,
- "total_balance": 1342070471,
- "controlled_stakes": 1294020872,
- "total_rewards": 464873656,
- "total_withdrawals": 416824057,
- "available_rewards": 48049599
+ "last_reg_dereg_tx": "5234f99b194603b2b0b63fff5d60ac9df916190360497d4f189e4ff4dd9130ff",
+ "last_reg_dereg_epoch_no": 289,
+ "pool_id": "pool1y24nj4qdkg35nvvnfawukauggsxrxuy74876cplmxsee29w5axc",
+ "last_deleg_tx": "004ac881d9fd1a6748a72547e82e89beb074e96c3a76670c5a11b494d9260f31",
+ "delegated_since_epoch_no": 472,
+ "total_balance": 134346239760,
+ "controlled_stakes": 92101860445,
+ "total_rewards": 42244379315,
+ "total_withdrawals": 0,
+ "available_rewards": 42244379315
 }
 ``` 
 </TabItem> 

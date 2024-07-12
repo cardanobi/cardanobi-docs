@@ -44,7 +44,18 @@ console.log(treasury);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+treasury = await CBI.core.transactions.treasury_(transaction_hash='0bc50b20e16268419048790f6ae3667a1480418dd9faed543bc0e8ca32ea7a08');
+print(treasury); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let pots_treasury = CBI.core.transactions.treasury_(Some("0bc50b20e16268419048790f6ae3667a1480418dd9faed543bc0e8ca32ea7a08"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("pots_treasury: {:?}", pots_treasury); 
 ``` 
 
 </TabItem> 
@@ -133,7 +144,7 @@ Status Code **200**
 |Name|Type|Description| 
 |---|---|---|
 | cert_index|integer(int32)|The index of this payment certificate within the certificates of this transaction.|
-| stake_address|string(undefined)|The Bech32 encoded version of the stake address.|
+| stake_address|string|The Bech32 encoded version of the stake address.|
 | amount|number(double)|The treasury payment amount (in Lovelace).|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
@@ -214,7 +225,18 @@ console.log(reserves);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+reserves = await CBI.core.transactions.reserves_(transaction_hash='27dff3f43c460e779e35eff505f5f159c4283a8221b31ee17cdcd5b31ad221ba');
+print(reserves); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let pots_reserves = CBI.core.transactions.reserves_(Some("27dff3f43c460e779e35eff505f5f159c4283a8221b31ee17cdcd5b31ad221ba"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("pots_reserves: {:?}", pots_reserves); 
 ``` 
 
 </TabItem> 
@@ -303,7 +325,7 @@ Status Code **200**
 |Name|Type|Description| 
 |---|---|---|
 | cert_index|integer(int32)|The index of this payment certificate within the certificates of this transaction.|
-| stake_address|string(undefined)|The Bech32 encoded version of the stake address.|
+| stake_address|string|The Bech32 encoded version of the stake address.|
 | amount|number(double)|The treasury payment amount (in Lovelace).|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>

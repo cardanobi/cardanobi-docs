@@ -43,7 +43,18 @@ console.log(withdrawals);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+withdrawals = await CBI.core.transactions.withdrawals_(transaction_hash='cb44c5dd07ab3fee81f05ddd3e4596d2664e6c0ae77bccf99d1c9605dd01808d');
+print(withdrawals); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let withdrawals_withdrawals = CBI.core.transactions.withdrawals_(Some("cb44c5dd07ab3fee81f05ddd3e4596d2664e6c0ae77bccf99d1c9605dd01808d"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("withdrawals_withdrawals: {:?}", withdrawals_withdrawals); 
 ``` 
 
 </TabItem> 
@@ -131,7 +142,7 @@ Status Code **200**
 
 |Name|Type|Description| 
 |---|---|---|
-| stake_address|string(undefined)|The Bech32 encoded version of the stake address.|
+| stake_address|string|The Bech32 encoded version of the stake address.|
 | amount|number(double)|The withdrawal amount (in Lovelace).|
 | redeemer_id|integer(int64)|The Redeemer table index that is related with this withdrawal.|
 </TabItem> 

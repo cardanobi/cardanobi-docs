@@ -37,7 +37,18 @@ console.log(hashes);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+hashes = await CBI.core.pools.hashes_();
+print(hashes); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let hashes_hashes = CBI.core.pools.hashes_(HashMap::new()).await.expect("Failed to call endpoint");
+println!("hashes_hashes: {:?}", hashes_hashes); 
 ``` 
 
 </TabItem> 
@@ -129,8 +140,8 @@ Status Code **200**
 |---|---|---|
 | id|integer(int64)|The pool hash unique identifier.|
 | hash_raw|string(byte)|The raw bytes of the pool hash.|
-| view|string(undefined)|The Bech32 encoding of the pool hash.|
-| hash_hex|string(undefined)|The hexadecimal encoding of the pool hash.|
+| view|string|The Bech32 encoding of the pool hash.|
+| hash_hex|string|The hexadecimal encoding of the pool hash.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -203,7 +214,18 @@ console.log(poolshashes);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+poolshashes = await CBI.core.poolshashes_(odata=true);
+print(poolshashes); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let poolshashes = CBI.core.poolshashes_(HashMap::from([("odata", "true")])).await.expect("Failed to call endpoint");
+println!("poolshashes: {:?}", poolshashes); 
 ``` 
 
 </TabItem> 
@@ -218,7 +240,7 @@ import coming.soon 😀
 
 ```json
 {
- "@odata.context": "https://mainnet.cardanobi.io/api/core/odata/$metadata#PoolsHashes",
+ "@odata.context": "https://cardanobi.io/api/core/odata/$metadata#PoolsHashes",
  "value": [
   {
    "id": 1,
@@ -234,7 +256,7 @@ import coming.soon 😀
    "hash_hex": "88056a745a81bdefd95359c43e71eb52e04c878507a24e88ff3ca3c0"
   }
  ],
- "@odata.nextLink": "https://mainnet.cardanobi.io/api/core/odata/poolshashes?$skip=20"
+ "@odata.nextLink": "https://cardanobi.io/api/core/odata/poolshashes?$skip=20"
 }
 ``` 
 </TabItem> 
@@ -299,8 +321,8 @@ Status Code **200**
 |---|---|---|
 | id|integer(int64)|The pool hash unique identifier.|
 | hash_raw|string(byte)|The raw bytes of the pool hash.|
-| view|string(undefined)|The Bech32 encoding of the pool hash.|
-| hash_hex|string(undefined)|The hexadecimal encoding of the pool hash.|
+| view|string|The Bech32 encoding of the pool hash.|
+| hash_hex|string|The hexadecimal encoding of the pool hash.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 

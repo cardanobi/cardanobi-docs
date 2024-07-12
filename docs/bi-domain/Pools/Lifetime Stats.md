@@ -1,6 +1,6 @@
 --- 
 title: '' 
-sidebar_label: 'Transactions' 
+sidebar_label: 'Lifetime Stats' 
 --- 
 import styles from '@site/src/components/HomepageFeatures/styles.module.css'; 
 import Tabs from '@theme/Tabs'; 
@@ -12,23 +12,20 @@ import ODataBadge from '@site/src/components/ODataBadge';
 
 :::tip Endpoints Summary 
 
-<EndpointBadge type="GET"/> Asset transactions<br/>
+<EndpointBadge type="GET"/> One pool lifetime statistics<br/>
 
 :::
-## <span class="theme-doc-version-badge badge badge--success">GET</span> Asset transactions
+## <span class="theme-doc-version-badge badge badge--success">GET</span> One pool lifetime statistics
 
-Returns details of transactions involving one MultiAsset given its fingerprint.
+Pool lifetime activity statistics for a given pool.
 
-`GET /api/core/assets/{fingerprint}/transactions`
+`GET /api/bi/pools/{pool_hash}/stats/lifetime`
 
 ### 🎰 Parameters 
 
 |Name|Description|In|Type|Required| 
 |---|---|---|---|---|
-| fingerprint|The CIP14 fingerprint for the MultiAsset.|path|string|true|
-| page_no|Page number to retrieve - defaults to 1|query|integer|false|
-| page_size|Number of results per page - defaults to 20 - max 100|query|integer|false|
-| order|Prescribes in which order transactions are returned - "desc" descending (default) from newest to oldest - "asc" ascending from oldest to newest|query|string|false|
+| pool_hash|The Bech32 encoding of a given pool hash|path|string|true|
 
 
 ### 👨‍💻 Code samples 
@@ -38,8 +35,8 @@ Returns details of transactions involving one MultiAsset given its fingerprint.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const transactions = await CBI.core.assets.transactions_({ fingerprint: "asset1gqp4wdmclgw2tqmkm3nq7jdstvqpesdj3agnel" });
-console.log(transactions); 
+const lifetime stats_lifetime = await CBI.bi.pools.stats.lifetime_({ pool_hash: "pool1y24nj4qdkg35nvvnfawukauggsxrxuy74876cplmxsee29w5axc" });
+console.log(lifetime stats_lifetime); 
 ``` 
 
 </TabItem> 
@@ -47,8 +44,8 @@ console.log(transactions);
 
 ```py 
 CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
-transactions = await CBI.core.assets.transactions_(fingerprint='asset1gqp4wdmclgw2tqmkm3nq7jdstvqpesdj3agnel');
-print(transactions); 
+lifetime stats_lifetime = await CBI.bi.pools.stats.lifetime_(pool_hash='pool1y24nj4qdkg35nvvnfawukauggsxrxuy74876cplmxsee29w5axc');
+print(lifetime stats_lifetime); 
 ``` 
 
 </TabItem> 
@@ -56,8 +53,8 @@ print(transactions);
 
 ```rust 
 let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
-let transactions_transactions = CBI.core.assets.transactions_(Some("asset1gqp4wdmclgw2tqmkm3nq7jdstvqpesdj3agnel"), HashMap::new()).await.expect("Failed to call endpoint");
-println!("transactions_transactions: {:?}", transactions_transactions); 
+let lifetime stats_lifetime = CBI.bi.pools.stats.lifetime_(Some("pool1y24nj4qdkg35nvvnfawukauggsxrxuy74876cplmxsee29w5axc"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("lifetime stats_lifetime: {:?}", lifetime stats_lifetime); 
 ``` 
 
 </TabItem> 
@@ -71,9 +68,15 @@ println!("transactions_transactions: {:?}", transactions_transactions);
 `OK: Successful request.`
 
 ```json
-[
- "..."
-]
+{
+ "pool_hash": "pool1y24nj4qdkg35nvvnfawukauggsxrxuy74876cplmxsee29w5axc",
+ "tx_count_lifetime": 12211,
+ "block_count_lifetime": 786,
+ "delegator_count_lifetime": 7635,
+ "delegated_stakes_lifetime": 865624664452630,
+ "delegator_count_lifetime_avg": 37.06310679611651,
+ "delegated_stakes_lifetime_avg": 4202061477925.388
+}
 ``` 
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}> 
@@ -135,11 +138,13 @@ Status Code **200**
 
 |Name|Type|Description| 
 |---|---|---|
-| tx_id|integer(int64)|The transaction unique identifier.|
-| hash_hex|string|The hexadecimal encoding of the hash identifier of the transaction.|
-| epoch_no|integer(int32)|The epoch number.|
-| block_no|integer(int32)|The block number containing the minting/buring transaction for this event.|
-| event_time|string(date-time)|The time (UTCTime) of the block containing this transaction.|
+| pool_hash|string|The Bech32 encoding of the pool hash.|
+| tx_count_lifetime|integer(int64)|The lifetime transaction count.|
+| block_count_lifetime|integer(int64)|The lifetime block count.|
+| delegator_count_lifetime|integer(int64)|The lifetime delegator count.|
+| delegated_stakes_lifetime|number(double)|The lifetime delegated stake for the given pool (lifetime active stake).|
+| delegator_count_lifetime_avg|number(double)|The lifetime average delegator count.|
+| delegated_stakes_lifetime_avg|number(double)|The lifetime average delegated stake for the given pool (lifetime average active stake).|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 

@@ -26,9 +26,6 @@ Returns the MIR history of one account given its stake address.
 |Name|Description|In|Type|Required| 
 |---|---|---|---|---|
 | stake_address|Bech32 Stake address|path|string|true|
-| page_no|Page number to retrieve - defaults to 1|query|integer|false|
-| page_size|Number of results per page - defaults to 20 - max 100|query|integer|false|
-| order|Prescribes in which order the MIR events are returned - "desc" descending (default) from newest to oldest - "asc" ascending from oldest to newest|query|string|false|
 
 
 ### 👨‍💻 Code samples 
@@ -38,7 +35,7 @@ Returns the MIR history of one account given its stake address.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const mirs = await CBI.core.accounts.mirs_({ stake_address: "stake_test1uqh4cqczjpcjgnd3vhntldk9utmc3754tyrxy9seghptzwc6zayzz" });
+const mirs = await CBI.core.accounts.mirs_({ stake_address: "stake1uypy44wqjznc5w9ns9gsguz4ta83jekrg9d0wupa7j3zsacwvq5ex" });
 console.log(mirs); 
 ``` 
 
@@ -46,7 +43,18 @@ console.log(mirs);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+mirs = await CBI.core.accounts.mirs_(stake_address='stake1uypy44wqjznc5w9ns9gsguz4ta83jekrg9d0wupa7j3zsacwvq5ex');
+print(mirs); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let mirs_mirs = CBI.core.accounts.mirs_(Some("stake1uypy44wqjznc5w9ns9gsguz4ta83jekrg9d0wupa7j3zsacwvq5ex"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("mirs_mirs: {:?}", mirs_mirs); 
 ``` 
 
 </TabItem> 
@@ -61,7 +69,21 @@ import coming.soon 😀
 
 ```json
 [
- "..."
+ {
+  "epoch_no": 241,
+  "block_no": 5196857,
+  "tx_hash_hex": "fabfad0aaa2b52b8304f45edc0350659ad0d73f9d1065d9cd3ef7d5a599ac57d",
+  "amount": 2000000000000,
+  "mir_type": "treasury"
+ },
+ "...",
+ {
+  "epoch_no": 409,
+  "block_no": 8722618,
+  "tx_hash_hex": "4b4ca196d524ae3877f772d5f0871e76aeedbf0330d2549178a834158593b299",
+  "amount": 8931404863383,
+  "mir_type": "treasury"
+ }
 ]
 ``` 
 </TabItem> 

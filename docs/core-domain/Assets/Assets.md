@@ -47,7 +47,18 @@ console.log(assets);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+assets = await CBI.core.assets_();
+print(assets); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let assets = CBI.core.assets_(HashMap::new()).await.expect("Failed to call endpoint");
+println!("assets: {:?}", assets); 
 ``` 
 
 </TabItem> 
@@ -63,16 +74,16 @@ import coming.soon 😀
 ```json
 [
  {
-  "asset_id": 255520,
-  "fingerprint": "asset1z0vsrxq37gkjwvwpd7zd5yxvse3qdgrsg6s7zl",
-  "policy_hex": "f8b0701b14c4e588a0f68e45d91d501c62580887dc1cc863d6c0d8b4",
+  "asset_id": 10189163,
+  "fingerprint": "asset176m0gn0n0le8z9ayfewzx5lyhmadqw8g36sk4f",
+  "policy_hex": "8383f5950f92320dc2659c64c459dd903e1f6c1bb9830ba04df99455",
   "total_supply": 1
  },
  "...",
  {
-  "asset_id": 255539,
-  "fingerprint": "asset125yw3nuujt8gm6g03vwd03xm03jm338lup88fv",
-  "policy_hex": "f8b0701b14c4e588a0f68e45d91d501c62580887dc1cc863d6c0d8b4",
+  "asset_id": 10189182,
+  "fingerprint": "asset157ncmac0cktkvx27tqtnvem89pml3njqrwt8a3",
+  "policy_hex": "0c2c9bb9c8f3c5f8efcef2bd1a127a19a5efc7b76e44cc3db272cd15",
   "total_supply": 1
  }
 ]
@@ -220,7 +231,18 @@ console.log(assets);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+assets = await CBI.core.assets_(fingerprint='asset1w8wujx5xpxk88u94t0c60lsjlgwpd635a3c3lc');
+print(assets); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let assets = CBI.core.assets_(Some("asset1w8wujx5xpxk88u94t0c60lsjlgwpd635a3c3lc"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("assets: {:?}", assets); 
 ``` 
 
 </TabItem> 
@@ -235,37 +257,7 @@ import coming.soon 😀
 
 ```json
 [
- {
-  "asset_id": 203603,
-  "fingerprint": "asset1w8wujx5xpxk88u94t0c60lsjlgwpd635a3c3lc",
-  "policy_hex": "aa39e7d044fc8a2c1628e87a99ea8bcafb47ed6855fcdb1adf36f98e",
-  "name": "LEGIT_COIN",
-  "creation_time": "2023-03-19T18:47:06",
-  "total_supply": 1000000000,
-  "mint_cnt": 1,
-  "burn_cnt": 0,
-  "first_mint_tx_hash": "e35b70cb3cd760aa719a57c9d64122744cc46faed9f71f453803cd8521ebbe6f",
-  "first_mint_keys": [],
-  "last_mint_tx_hash": "e35b70cb3cd760aa719a57c9d64122744cc46faed9f71f453803cd8521ebbe6f",
-  "last_mint_keys": [],
-  "first_mint_metadata": null
- },
- "...",
- {
-  "asset_id": 203603,
-  "fingerprint": "asset1w8wujx5xpxk88u94t0c60lsjlgwpd635a3c3lc",
-  "policy_hex": "aa39e7d044fc8a2c1628e87a99ea8bcafb47ed6855fcdb1adf36f98e",
-  "name": "LEGIT_COIN",
-  "creation_time": "2023-03-19T18:47:06",
-  "total_supply": 1000000000,
-  "mint_cnt": 1,
-  "burn_cnt": 0,
-  "first_mint_tx_hash": "e35b70cb3cd760aa719a57c9d64122744cc46faed9f71f453803cd8521ebbe6f",
-  "first_mint_keys": [],
-  "last_mint_tx_hash": "e35b70cb3cd760aa719a57c9d64122744cc46faed9f71f453803cd8521ebbe6f",
-  "last_mint_keys": [],
-  "first_mint_metadata": null
- }
+ "..."
 ]
 ``` 
 </TabItem> 
@@ -420,7 +412,18 @@ console.log(policies);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+policies = await CBI.core.assets.policies_(policy_hash='706e1c53ed984b016f2c0fc79a450fdb572aa21e4e87d6f74d0b6e8a');
+print(policies); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let assets_policies = CBI.core.assets.policies_(Some("706e1c53ed984b016f2c0fc79a450fdb572aa21e4e87d6f74d0b6e8a"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("assets_policies: {:?}", assets_policies); 
 ``` 
 
 </TabItem> 
@@ -436,13 +439,13 @@ import coming.soon 😀
 ```json
 [
  {
-  "fingerprint": "asset1508wcvzfw6hnsu29e4k2l6ffatmq3crm9nm5y9",
-  "total_supply": 7852500
+  "fingerprint": "asset1q3f45cvfdk3jukj0u7tqc4c0yn7y0f4x8az2lk",
+  "total_supply": 1000000
  },
  "...",
  {
-  "fingerprint": "asset1y3820hsrkagwktpmfuln6gu9g7n5e9aqydewal",
-  "total_supply": 17500000
+  "fingerprint": "asset1q3f45cvfdk3jukj0u7tqc4c0yn7y0f4x8az2lk",
+  "total_supply": 1000000
  }
 ]
 ``` 

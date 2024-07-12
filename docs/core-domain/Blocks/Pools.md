@@ -44,7 +44,18 @@ console.log(pools_pools);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+pools_pools = await CBI.core.blocks.latest.pools_(pool_hash='pool1y24nj4qdkg35nvvnfawukauggsxrxuy74876cplmxsee29w5axc');
+print(pools_pools); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let pools_pools = CBI.core.blocks.latest.pools_(Some("pool1y24nj4qdkg35nvvnfawukauggsxrxuy74876cplmxsee29w5axc"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("pools_pools: {:?}", pools_pools); 
 ``` 
 
 </TabItem> 
@@ -59,24 +70,24 @@ import coming.soon 😀
 
 ```json
 {
- "id": 8528017,
- "hash": "25KnvGRXabjozTzxiCuyCLpp4Pw/HPCLCdvFjOFpzBM=",
- "epoch_no": 399,
- "slot_no": 87417199,
- "epoch_slot_no": 412399,
- "block_no": 8525153,
- "previous_id": 8528016,
+ "id": 10472458,
+ "hash": "6GOnH0eXDmBwlceRzu1aU1ZKvohTQvYuQGLBIZwskf4=",
+ "epoch_no": 490,
+ "slot_no": 126665631,
+ "epoch_slot_no": 348831,
+ "block_no": 10438546,
+ "previous_id": 10472457,
  "slot_leader_id": 7195394,
- "size": 60573,
- "time": "2023-03-16T16:18:10",
- "tx_count": 24,
- "proto_major": 8,
+ "size": 38226,
+ "time": "2024-06-12T22:38:42",
+ "tx_count": 12,
+ "proto_major": 9,
  "proto_minor": 0,
  "vrf_key": "vrf_vk1ksvt6yywk5j2wkq3rmkxghgru7svaetmjnf8kx4636x7pwcdmgrsy8peyv",
- "op_cert": "nypatpu+eJSlRauUnUys4+lEPKiJj3XZHysINHbN4t8=",
- "op_cert_counter": 6,
- "hash_hex": "db92a7bc645769b8e8cd3cf1882bb208ba69e0fc3f1cf08b09dbc58ce169cc13",
- "op_cert_hex": "9f2a5ab69bbe7894a545ab949d4cace3e9443ca8898f75d91f2b083476cde2df"
+ "op_cert": "NUgPMkkL6COIFetoWlFwBq+oKfkBVWhhaVjMq+teGK8=",
+ "op_cert_counter": 11,
+ "hash_hex": "e863a71f47970e607095c791ceed5a53564abe885342f62e4062c1219c2c91fe",
+ "op_cert_hex": "35480f32490be8238815eb685a517006afa829f9015568616958ccabeb5e18af"
 }
 ``` 
 </TabItem> 
@@ -152,11 +163,11 @@ Status Code **200**
 | tx_count|integer(int64)|The number of transactions in this block.|
 | proto_major|integer(int32)|The block's major protocol number.|
 | proto_minor|integer(int32)|The block's major protocol number.|
-| vrf_key|string(undefined)|The VRF key of the creator of this block.|
+| vrf_key|string|The VRF key of the creator of this block.|
 | op_cert|string(byte)|The hash of the operational certificate of the block producer.|
 | op_cert_counter|integer(int64)|The value of the counter used to produce the operational certificate.|
-| hash_hex|string(undefined)|The hexadecimal encoding of the block hash.|
-| op_cert_hex|string(undefined)|The hexadecimal encoding of the block producer operational certificate's hash.|
+| hash_hex|string|The hexadecimal encoding of the block hash.|
+| op_cert_hex|string|The hexadecimal encoding of the block producer operational certificate's hash.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -236,7 +247,18 @@ console.log(pools_history);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+pools_history = await CBI.core.blocks.pools.history_(pool_hash='pool1y24nj4qdkg35nvvnfawukauggsxrxuy74876cplmxsee29w5axc');
+print(pools_history); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let pools_history = CBI.core.blocks.pools.history_(Some("pool1y24nj4qdkg35nvvnfawukauggsxrxuy74876cplmxsee29w5axc"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("pools_history: {:?}", pools_history); 
 ``` 
 
 </TabItem> 
@@ -367,11 +389,11 @@ Status Code **200**
 | tx_count|integer(int64)|The number of transactions in this block.|
 | proto_major|integer(int32)|The block's major protocol number.|
 | proto_minor|integer(int32)|The block's major protocol number.|
-| vrf_key|string(undefined)|The VRF key of the creator of this block.|
+| vrf_key|string|The VRF key of the creator of this block.|
 | op_cert|string(byte)|The hash of the operational certificate of the block producer.|
 | op_cert_counter|integer(int64)|The value of the counter used to produce the operational certificate.|
-| hash_hex|string(undefined)|The hexadecimal encoding of the block hash.|
-| op_cert_hex|string(undefined)|The hexadecimal encoding of the block producer operational certificate's hash.|
+| hash_hex|string|The hexadecimal encoding of the block hash.|
+| op_cert_hex|string|The hexadecimal encoding of the block producer operational certificate's hash.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 

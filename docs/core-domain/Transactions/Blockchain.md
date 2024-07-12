@@ -43,7 +43,18 @@ console.log(param_proposals);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+param_proposals = await CBI.core.transactions.param_proposals_(transaction_hash='62c3c13187423c47f629e6187f36fbd61a9ba1d05d101588340cfbfdf47b22d2');
+print(param_proposals); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let blockchain_param_proposals = CBI.core.transactions.param_proposals_(Some("62c3c13187423c47f629e6187f36fbd61a9ba1d05d101588340cfbfdf47b22d2"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("blockchain_param_proposals: {:?}", blockchain_param_proposals); 
 ``` 
 
 </TabItem> 
@@ -226,7 +237,7 @@ Status Code **200**
 | max_collateral_inputs|integer(int32)|The maximum number of collateral inputs allowed in a transaction.|
 | registered_tx_id|integer(int64)|The Tx table index for the transaction that contains this parameter proposal.|
 | coins_per_utxo_size|number(double)|For Alonzo this is the cost per UTxO word. For Babbage and later per UTxO byte. New in v13: Renamed from coins_per_utxo_word.|
-| key_hex|string(undefined)|The hexadecimal encoding of the hash of the crypto key used to sign this proposal.|
+| key_hex|string|The hexadecimal encoding of the hash of the crypto key used to sign this proposal.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 

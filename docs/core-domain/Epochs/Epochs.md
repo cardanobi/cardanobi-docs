@@ -40,7 +40,18 @@ console.log(latest);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+latest = await CBI.core.epochs.latest_();
+print(latest); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let epochs_latest = CBI.core.epochs.latest_(HashMap::new()).await.expect("Failed to call endpoint");
+println!("epochs_latest: {:?}", epochs_latest); 
 ``` 
 
 </TabItem> 
@@ -55,14 +66,14 @@ import coming.soon 😀
 
 ```json
 {
- "id": 400,
- "out_sum": 138804347914311440,
- "fees": 92760501426,
- "tx_count": 280420,
- "blk_count": 20066,
- "no": 399,
- "start_time": "2023-03-11T21:48:16",
- "end_time": "2023-03-16T16:46:53"
+ "id": 497,
+ "out_sum": 60717832669187390,
+ "fees": 50087393902,
+ "tx_count": 148344,
+ "blk_count": 11423,
+ "no": 496,
+ "start_time": "2024-07-08T21:45:12",
+ "end_time": "2024-07-11T15:02:37"
 }
 ``` 
 </TabItem> 
@@ -205,7 +216,18 @@ console.log(epochs);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+epochs = await CBI.core.epochs_();
+print(epochs); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let epochs = CBI.core.epochs_(HashMap::new()).await.expect("Failed to call endpoint");
+println!("epochs: {:?}", epochs); 
 ``` 
 
 </TabItem> 
@@ -390,7 +412,18 @@ console.log(epochs);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+epochs = await CBI.core.epochs_(epoch_no=394);
+print(epochs); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let epochs = CBI.core.epochs_(Some(394), HashMap::new()).await.expect("Failed to call endpoint");
+println!("epochs: {:?}", epochs); 
 ``` 
 
 </TabItem> 
@@ -568,7 +601,18 @@ console.log(epochs);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+epochs = await CBI.core.epochs_(odata=true);
+print(epochs); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let epochs = CBI.core.epochs_(HashMap::from([("odata", "true")])).await.expect("Failed to call endpoint");
+println!("epochs: {:?}", epochs); 
 ``` 
 
 </TabItem> 
@@ -583,7 +627,7 @@ import coming.soon 😀
 
 ```json
 {
- "@odata.context": "https://mainnet.cardanobi.io/api/core/odata/$metadata#Epochs",
+ "@odata.context": "https://cardanobi.io/api/core/odata/$metadata#Epochs",
  "value": [
   {
    "id": 1,
@@ -607,7 +651,7 @@ import coming.soon 😀
    "end_time": "2018-01-01T21:44:31Z"
   }
  ],
- "@odata.nextLink": "https://mainnet.cardanobi.io/api/core/odata/epochs?$skip=20"
+ "@odata.nextLink": "https://cardanobi.io/api/core/odata/epochs?$skip=20"
 }
 ``` 
 </TabItem> 
@@ -757,7 +801,18 @@ console.log(epochs);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+epochs = await CBI.core.epochs_(odata=true,epoch_no=394);
+print(epochs); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let epochs = CBI.core.epochs_(Some(394), HashMap::from([("odata", "true")])).await.expect("Failed to call endpoint");
+println!("epochs: {:?}", epochs); 
 ``` 
 
 </TabItem> 
@@ -772,7 +827,7 @@ import coming.soon 😀
 
 ```json
 {
- "@odata.context": "https://mainnet.cardanobi.io/api/core/odata/$metadata#Epochs",
+ "@odata.context": "https://cardanobi.io/api/core/odata/$metadata#Epochs",
  "value": [
   {
    "id": 1,
@@ -796,7 +851,7 @@ import coming.soon 😀
    "end_time": "2018-01-01T21:44:31Z"
   }
  ],
- "@odata.nextLink": "https://mainnet.cardanobi.io/api/core/odata/epochs?$skip=20"
+ "@odata.nextLink": "https://cardanobi.io/api/core/odata/epochs?$skip=20"
 }
 ``` 
 </TabItem> 

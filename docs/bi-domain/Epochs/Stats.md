@@ -1,6 +1,6 @@
 --- 
 title: '' 
-sidebar_label: 'Transactions' 
+sidebar_label: 'Stats' 
 --- 
 import styles from '@site/src/components/HomepageFeatures/styles.module.css'; 
 import Tabs from '@theme/Tabs'; 
@@ -12,23 +12,20 @@ import ODataBadge from '@site/src/components/ODataBadge';
 
 :::tip Endpoints Summary 
 
-<EndpointBadge type="GET"/> Asset transactions<br/>
+<EndpointBadge type="GET"/> All pools statistics per epoch<br/>
 
 :::
-## <span class="theme-doc-version-badge badge badge--success">GET</span> Asset transactions
+## <span class="theme-doc-version-badge badge badge--success">GET</span> All pools statistics per epoch
 
-Returns details of transactions involving one MultiAsset given its fingerprint.
+Pools activity statistics per epoch number.
 
-`GET /api/core/assets/{fingerprint}/transactions`
+`GET /api/bi/pools/stats/epochs/{epoch_no}`
 
 ### 🎰 Parameters 
 
 |Name|Description|In|Type|Required| 
 |---|---|---|---|---|
-| fingerprint|The CIP14 fingerprint for the MultiAsset.|path|string|true|
-| page_no|Page number to retrieve - defaults to 1|query|integer|false|
-| page_size|Number of results per page - defaults to 20 - max 100|query|integer|false|
-| order|Prescribes in which order transactions are returned - "desc" descending (default) from newest to oldest - "asc" ascending from oldest to newest|query|string|false|
+| epoch_no|Epoch number.|path|integer|true|
 
 
 ### 👨‍💻 Code samples 
@@ -38,8 +35,8 @@ Returns details of transactions involving one MultiAsset given its fingerprint.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const transactions = await CBI.core.assets.transactions_({ fingerprint: "asset1gqp4wdmclgw2tqmkm3nq7jdstvqpesdj3agnel" });
-console.log(transactions); 
+const stats_epochs = await CBI.bi.pools.stats.epochs_({ epoch_no: 394 });
+console.log(stats_epochs); 
 ``` 
 
 </TabItem> 
@@ -47,8 +44,8 @@ console.log(transactions);
 
 ```py 
 CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
-transactions = await CBI.core.assets.transactions_(fingerprint='asset1gqp4wdmclgw2tqmkm3nq7jdstvqpesdj3agnel');
-print(transactions); 
+stats_epochs = await CBI.bi.pools.stats.epochs_(epoch_no=394);
+print(stats_epochs); 
 ``` 
 
 </TabItem> 
@@ -56,8 +53,8 @@ print(transactions);
 
 ```rust 
 let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
-let transactions_transactions = CBI.core.assets.transactions_(Some("asset1gqp4wdmclgw2tqmkm3nq7jdstvqpesdj3agnel"), HashMap::new()).await.expect("Failed to call endpoint");
-println!("transactions_transactions: {:?}", transactions_transactions); 
+let stats_epochs = CBI.bi.pools.stats.epochs_(Some(394), HashMap::new()).await.expect("Failed to call endpoint");
+println!("stats_epochs: {:?}", stats_epochs); 
 ``` 
 
 </TabItem> 
@@ -72,7 +69,23 @@ println!("transactions_transactions: {:?}", transactions_transactions);
 
 ```json
 [
- "..."
+ {
+  "epoch_no": 394,
+  "pool_hash": "pool100wj94uzf54vup2hdzk0afng4dhjaqggt7j434mtgm8v2gfvfgp",
+  "tx_count": 0,
+  "block_count": 0,
+  "delegator_count": 1,
+  "delegated_stakes": 0
+ },
+ "...",
+ {
+  "epoch_no": 394,
+  "pool_hash": "pool1tn49xn2jpq62uwff9lt8d25kfzhu3nzjkkytq8pc062n6c7h6tg",
+  "tx_count": 0,
+  "block_count": 0,
+  "delegator_count": 1,
+  "delegated_stakes": 0
+ }
 ]
 ``` 
 </TabItem> 
@@ -135,11 +148,12 @@ Status Code **200**
 
 |Name|Type|Description| 
 |---|---|---|
-| tx_id|integer(int64)|The transaction unique identifier.|
-| hash_hex|string|The hexadecimal encoding of the hash identifier of the transaction.|
 | epoch_no|integer(int32)|The epoch number.|
-| block_no|integer(int32)|The block number containing the minting/buring transaction for this event.|
-| event_time|string(date-time)|The time (UTCTime) of the block containing this transaction.|
+| pool_hash|string|The Bech32 encoding of the pool hash.|
+| tx_count|integer(int64)|The transaction count.|
+| block_count|integer(int64)|The block count.|
+| delegator_count|integer(int64)|The delegator count.|
+| delegated_stakes|integer(int64)|The delegated stake for the given epoch and given pool (active stake).|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 

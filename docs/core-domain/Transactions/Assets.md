@@ -43,7 +43,18 @@ console.log(assetmints);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+assetmints = await CBI.core.transactions.assetmints_(transaction_hash='5f6f72b00ae982492823fb541153e6c2afc9cb7231687f2a5d82a994f61764a0');
+print(assetmints); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let assets_assetmints = CBI.core.transactions.assetmints_(Some("5f6f72b00ae982492823fb541153e6c2afc9cb7231687f2a5d82a994f61764a0"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("assets_assetmints: {:?}", assets_assetmints); 
 ``` 
 
 </TabItem> 
@@ -134,9 +145,9 @@ Status Code **200**
 |Name|Type|Description| 
 |---|---|---|
 | quantity|number(double)|The amount of the Multi Asset to mint (can be negative to "burn" assets).|
-| policy_hex|string(undefined)|The hexadecimal encoding of the MultiAsset policy hash.|
-| name|string(undefined)|The MultiAsset name.|
-| fingerprint|string(undefined)|The CIP14 fingerprint for the MultiAsset.|
+| policy_hex|string|The hexadecimal encoding of the MultiAsset policy hash.|
+| name|string|The MultiAsset name.|
+| fingerprint|string|The CIP14 fingerprint for the MultiAsset.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 

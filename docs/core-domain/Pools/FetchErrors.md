@@ -39,7 +39,18 @@ console.log(offlinefetcherrors);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+offlinefetcherrors = await CBI.core.pools.offlinefetcherrors_();
+print(offlinefetcherrors); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let fetcherrors_offlinefetcherrors = CBI.core.pools.offlinefetcherrors_(HashMap::new()).await.expect("Failed to call endpoint");
+println!("fetcherrors_offlinefetcherrors: {:?}", fetcherrors_offlinefetcherrors); 
 ``` 
 
 </TabItem> 
@@ -137,7 +148,7 @@ Status Code **200**
 | pool_id|integer(int64)|The PoolHash table index for the pool this offline fetch error refers.|
 | fetch_time|string(date-time)|The UTC time stamp of the error.|
 | pmr_id|integer(int64)|The PoolMetadataRef table index for this offline data.|
-| fetch_error|string(undefined)|The text of the error.|
+| fetch_error|string|The text of the error.|
 | retry_count|integer(int32)|The number of retries.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
@@ -218,7 +229,18 @@ console.log(offlinefetcherrors);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+offlinefetcherrors = await CBI.core.pools.offlinefetcherrors_(pool_id=4268);
+print(offlinefetcherrors); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let fetcherrors_offlinefetcherrors = CBI.core.pools.offlinefetcherrors_(Some(4268), HashMap::new()).await.expect("Failed to call endpoint");
+println!("fetcherrors_offlinefetcherrors: {:?}", fetcherrors_offlinefetcherrors); 
 ``` 
 
 </TabItem> 
@@ -316,7 +338,7 @@ Status Code **200**
 | pool_id|integer(int64)|The PoolHash table index for the pool this offline fetch error refers.|
 | fetch_time|string(date-time)|The UTC time stamp of the error.|
 | pmr_id|integer(int64)|The PoolMetadataRef table index for this offline data.|
-| fetch_error|string(undefined)|The text of the error.|
+| fetch_error|string|The text of the error.|
 | retry_count|integer(int32)|The number of retries.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
@@ -390,7 +412,18 @@ console.log(poolsofflinefetcherrors);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+poolsofflinefetcherrors = await CBI.core.poolsofflinefetcherrors_(odata=true);
+print(poolsofflinefetcherrors); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let poolsofflinefetcherrors = CBI.core.poolsofflinefetcherrors_(HashMap::from([("odata", "true")])).await.expect("Failed to call endpoint");
+println!("poolsofflinefetcherrors: {:?}", poolsofflinefetcherrors); 
 ``` 
 
 </TabItem> 
@@ -405,7 +438,7 @@ import coming.soon 😀
 
 ```json
 {
- "@odata.context": "https://mainnet.cardanobi.io/api/core/odata/$metadata#PoolsOfflineFetchErrors",
+ "@odata.context": "https://cardanobi.io/api/core/odata/$metadata#PoolsOfflineFetchErrors",
  "value": [
   {
    "id": 1,
@@ -425,7 +458,7 @@ import coming.soon 😀
    "retry_count": 0
   }
  ],
- "@odata.nextLink": "https://mainnet.cardanobi.io/api/core/odata/poolsofflinefetcherrors?$skip=20"
+ "@odata.nextLink": "https://cardanobi.io/api/core/odata/poolsofflinefetcherrors?$skip=20"
 }
 ``` 
 </TabItem> 
@@ -492,7 +525,7 @@ Status Code **200**
 | pool_id|integer(int64)|The PoolHash table index for the pool this offline fetch error refers.|
 | fetch_time|string(date-time)|The UTC time stamp of the error.|
 | pmr_id|integer(int64)|The PoolMetadataRef table index for this offline data.|
-| fetch_error|string(undefined)|The text of the error.|
+| fetch_error|string|The text of the error.|
 | retry_count|integer(int32)|The number of retries.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
@@ -573,7 +606,18 @@ console.log(poolsofflinefetcherrors);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+poolsofflinefetcherrors = await CBI.core.poolsofflinefetcherrors_(odata=true,pool_id=4268);
+print(poolsofflinefetcherrors); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let poolsofflinefetcherrors = CBI.core.poolsofflinefetcherrors_(Some(4268), HashMap::from([("odata", "true")])).await.expect("Failed to call endpoint");
+println!("poolsofflinefetcherrors: {:?}", poolsofflinefetcherrors); 
 ``` 
 
 </TabItem> 
@@ -588,7 +632,7 @@ import coming.soon 😀
 
 ```json
 {
- "@odata.context": "https://mainnet.cardanobi.io/api/core/odata/$metadata#PoolsOfflineFetchErrors",
+ "@odata.context": "https://cardanobi.io/api/core/odata/$metadata#PoolsOfflineFetchErrors",
  "value": [
   {
    "id": 16620,
@@ -608,7 +652,7 @@ import coming.soon 😀
    "retry_count": 19
   }
  ],
- "@odata.nextLink": "https://mainnet.cardanobi.io/api/core/odata/poolsofflinefetcherrors/4268?$skip=20"
+ "@odata.nextLink": "https://cardanobi.io/api/core/odata/poolsofflinefetcherrors/4268?$skip=20"
 }
 ``` 
 </TabItem> 
@@ -675,7 +719,7 @@ Status Code **200**
 | pool_id|integer(int64)|The PoolHash table index for the pool this offline fetch error refers.|
 | fetch_time|string(date-time)|The UTC time stamp of the error.|
 | pmr_id|integer(int64)|The PoolMetadataRef table index for this offline data.|
-| fetch_error|string(undefined)|The text of the error.|
+| fetch_error|string|The text of the error.|
 | retry_count|integer(int32)|The number of retries.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>

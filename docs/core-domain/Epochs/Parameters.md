@@ -40,7 +40,18 @@ console.log(parameters_latest);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+parameters_latest = await CBI.core.epochs.params.latest_();
+print(parameters_latest); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let parameters_latest = CBI.core.epochs.params.latest_(HashMap::new()).await.expect("Failed to call endpoint");
+println!("parameters_latest: {:?}", parameters_latest); 
 ``` 
 
 </TabItem> 
@@ -55,8 +66,8 @@ import coming.soon 😀
 
 ```json
 {
- "id": 192,
- "epoch_no": 399,
+ "id": 295,
+ "epoch_no": 496,
  "min_fee_a": 44,
  "min_fee_b": 155381,
  "max_block_size": 90112,
@@ -73,8 +84,8 @@ import coming.soon 😀
  "protocol_major": 8,
  "protocol_minor": 0,
  "min_utxo_value": 4310,
- "min_pool_cost": 340000000,
- "nonce": "37a8othRSpQZzgEAhLD9Sh1h+pKJvFD72NKart2FAi4=",
+ "min_pool_cost": 170000000,
+ "nonce": "ldm4y9zeQ3CNLPbRuC4+dFWmx6HMaAlpBdTQakipkVk=",
  "cost_model_id": 111,
  "price_mem": 0.0577,
  "price_step": 0.0000721,
@@ -85,10 +96,10 @@ import coming.soon 😀
  "max_val_size": 5000,
  "collateral_percent": 150,
  "max_collateral_inputs": 3,
- "block_id": 8507712,
+ "block_id": 10583584,
  "extra_entropy": null,
  "coins_per_utxo_size": 4310,
- "nonce_hex": "dfb6bca2d8514a9419ce010084b0fd4a1d61fa9289bc50fbd8d29aaedd85022e"
+ "nonce_hex": "95d9b8cbdcde43708d2cf6d1b82e3e7455a6c7a1cc68096905d4d06a48a99159"
 }
 ``` 
 </TabItem> 
@@ -184,7 +195,7 @@ Status Code **200**
 | block_id|integer(int64)|The Block table index for the first block where these parameters are valid.|
 | extra_entropy|string(byte)|The 32 byte string of extra random-ness to be added into the protocol's entropy pool.|
 | coins_per_utxo_size|number(double)|For Alonzo this is the cost per UTxO word. For Babbage and later per UTxO byte.|
-| nonce_hex|string(undefined)|The nonce value for this epoch in hexadecimal form.|
+| nonce_hex|string|The nonce value for this epoch in hexadecimal form.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -257,7 +268,18 @@ console.log(params);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+params = await CBI.core.epochs.params_();
+print(params); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let parameters_params = CBI.core.epochs.params_(HashMap::new()).await.expect("Failed to call endpoint");
+println!("parameters_params: {:?}", parameters_params); 
 ``` 
 
 </TabItem> 
@@ -440,7 +462,7 @@ Status Code **200**
 | block_id|integer(int64)|The Block table index for the first block where these parameters are valid.|
 | extra_entropy|string(byte)|The 32 byte string of extra random-ness to be added into the protocol's entropy pool.|
 | coins_per_utxo_size|number(double)|For Alonzo this is the cost per UTxO word. For Babbage and later per UTxO byte.|
-| nonce_hex|string(undefined)|The nonce value for this epoch in hexadecimal form.|
+| nonce_hex|string|The nonce value for this epoch in hexadecimal form.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -520,7 +542,18 @@ console.log(params);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+params = await CBI.core.epochs.params_(epoch_no=394);
+print(params); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let parameters_params = CBI.core.epochs.params_(Some(394), HashMap::new()).await.expect("Failed to call endpoint");
+println!("parameters_params: {:?}", parameters_params); 
 ``` 
 
 </TabItem> 
@@ -703,7 +736,7 @@ Status Code **200**
 | block_id|integer(int64)|The Block table index for the first block where these parameters are valid.|
 | extra_entropy|string(byte)|The 32 byte string of extra random-ness to be added into the protocol's entropy pool.|
 | coins_per_utxo_size|number(double)|For Alonzo this is the cost per UTxO word. For Babbage and later per UTxO byte.|
-| nonce_hex|string(undefined)|The nonce value for this epoch in hexadecimal form.|
+| nonce_hex|string|The nonce value for this epoch in hexadecimal form.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -776,7 +809,18 @@ console.log(epochsparams);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+epochsparams = await CBI.core.epochsparams_(odata=true);
+print(epochsparams); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let epochsparams = CBI.core.epochsparams_(HashMap::from([("odata", "true")])).await.expect("Failed to call endpoint");
+println!("epochsparams: {:?}", epochsparams); 
 ``` 
 
 </TabItem> 
@@ -791,7 +835,7 @@ import coming.soon 😀
 
 ```json
 {
- "@odata.context": "https://mainnet.cardanobi.io/api/core/odata/$metadata#EpochsParams",
+ "@odata.context": "https://cardanobi.io/api/core/odata/$metadata#EpochsParams",
  "value": [
   {
    "id": 1,
@@ -867,7 +911,7 @@ import coming.soon 😀
    "nonce_hex": "0e534dd41bb80bfff4a16d038eb52280e9beac7545cc32c9bfc253a6d92010d1"
   }
  ],
- "@odata.nextLink": "https://mainnet.cardanobi.io/api/core/odata/epochsparams?$skip=20"
+ "@odata.nextLink": "https://cardanobi.io/api/core/odata/epochsparams?$skip=20"
 }
 ``` 
 </TabItem> 
@@ -963,7 +1007,7 @@ Status Code **200**
 | block_id|integer(int64)|The Block table index for the first block where these parameters are valid.|
 | extra_entropy|string(byte)|The 32 byte string of extra random-ness to be added into the protocol's entropy pool.|
 | coins_per_utxo_size|number(double)|For Alonzo this is the cost per UTxO word. For Babbage and later per UTxO byte.|
-| nonce_hex|string(undefined)|The nonce value for this epoch in hexadecimal form.|
+| nonce_hex|string|The nonce value for this epoch in hexadecimal form.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -1043,7 +1087,18 @@ console.log(epochsparams);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+epochsparams = await CBI.core.epochsparams_(odata=true,epoch_no=394);
+print(epochsparams); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let epochsparams = CBI.core.epochsparams_(Some(394), HashMap::from([("odata", "true")])).await.expect("Failed to call endpoint");
+println!("epochsparams: {:?}", epochsparams); 
 ``` 
 
 </TabItem> 
@@ -1058,7 +1113,7 @@ import coming.soon 😀
 
 ```json
 {
- "@odata.context": "https://mainnet.cardanobi.io/api/core/odata/$metadata#EpochsParams",
+ "@odata.context": "https://cardanobi.io/api/core/odata/$metadata#EpochsParams",
  "value": [
   {
    "id": 1,
@@ -1134,7 +1189,7 @@ import coming.soon 😀
    "nonce_hex": "0e534dd41bb80bfff4a16d038eb52280e9beac7545cc32c9bfc253a6d92010d1"
   }
  ],
- "@odata.nextLink": "https://mainnet.cardanobi.io/api/core/odata/epochsparams?$skip=20"
+ "@odata.nextLink": "https://cardanobi.io/api/core/odata/epochsparams?$skip=20"
 }
 ``` 
 </TabItem> 
@@ -1230,7 +1285,7 @@ Status Code **200**
 | block_id|integer(int64)|The Block table index for the first block where these parameters are valid.|
 | extra_entropy|string(byte)|The 32 byte string of extra random-ness to be added into the protocol's entropy pool.|
 | coins_per_utxo_size|number(double)|For Alonzo this is the cost per UTxO word. For Babbage and later per UTxO byte.|
-| nonce_hex|string(undefined)|The nonce value for this epoch in hexadecimal form.|
+| nonce_hex|string|The nonce value for this epoch in hexadecimal form.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 

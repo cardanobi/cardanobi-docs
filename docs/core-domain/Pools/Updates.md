@@ -40,7 +40,18 @@ console.log(updates);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+updates = await CBI.core.pools.updates_();
+print(updates); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let updates_updates = CBI.core.pools.updates_(HashMap::new()).await.expect("Failed to call endpoint");
+println!("updates_updates: {:?}", updates_updates); 
 ``` 
 
 </TabItem> 
@@ -157,7 +168,7 @@ Status Code **200**
 | fixed_cost|number(double)|The fixed per epoch fee (in ADA) this pool charges.|
 | registered_tx_id|integer(int64)|The Tx table index of the transaction in which provided this pool update.|
 | reward_addr_id|integer(int64)|The StakeAddress table index of this pool's rewards address. New in v13: Replaced reward_addr.|
-| vrf_key_hash_hex|string(undefined)|The hexadecimal encoding of the VRF key hash.|
+| vrf_key_hash_hex|string|The hexadecimal encoding of the VRF key hash.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -237,7 +248,18 @@ console.log(updates);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+updates = await CBI.core.pools.updates_(pool_id=4268);
+print(updates); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let updates_updates = CBI.core.pools.updates_(Some(4268), HashMap::new()).await.expect("Failed to call endpoint");
+println!("updates_updates: {:?}", updates_updates); 
 ``` 
 
 </TabItem> 
@@ -268,16 +290,16 @@ import coming.soon 😀
  },
  "...",
  {
-  "id": 30130,
+  "id": 33494,
   "hash_id": 4268,
   "cert_index": 0,
   "vrf_key_hash": "m+NFvLywzwVZsRNUZ/0uTHjHQYmM34vLc3stxRImMt8=",
-  "pledge": 100000000000,
-  "active_epoch_no": 393,
-  "meta_id": 28640,
-  "margin": 0.04,
+  "pledge": 130000000000,
+  "active_epoch_no": 473,
+  "meta_id": 33370,
+  "margin": 0.0299,
   "fixed_cost": 340000000,
-  "registered_tx_id": 60059080,
+  "registered_tx_id": 86928296,
   "reward_addr_id": 2480780,
   "vrf_key_hash_hex": "9be345bcbcb0cf0559b1135467fd2e4c78c741898cdf8bcb737b2dc5122632df"
  }
@@ -354,7 +376,7 @@ Status Code **200**
 | fixed_cost|number(double)|The fixed per epoch fee (in ADA) this pool charges.|
 | registered_tx_id|integer(int64)|The Tx table index of the transaction in which provided this pool update.|
 | reward_addr_id|integer(int64)|The StakeAddress table index of this pool's rewards address. New in v13: Replaced reward_addr.|
-| vrf_key_hash_hex|string(undefined)|The hexadecimal encoding of the VRF key hash.|
+| vrf_key_hash_hex|string|The hexadecimal encoding of the VRF key hash.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -434,7 +456,18 @@ console.log(updates);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+updates = await CBI.core.pools.updates_(vrf_key_hash='9be345bcbcb0cf0559b1135467fd2e4c78c741898cdf8bcb737b2dc5122632df');
+print(updates); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let updates_updates = CBI.core.pools.updates_(Some("9be345bcbcb0cf0559b1135467fd2e4c78c741898cdf8bcb737b2dc5122632df"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("updates_updates: {:?}", updates_updates); 
 ``` 
 
 </TabItem> 
@@ -465,16 +498,16 @@ import coming.soon 😀
  },
  "...",
  {
-  "id": 30130,
+  "id": 33494,
   "hash_id": 4268,
   "cert_index": 0,
   "vrf_key_hash": "m+NFvLywzwVZsRNUZ/0uTHjHQYmM34vLc3stxRImMt8=",
-  "pledge": 100000000000,
-  "active_epoch_no": 393,
-  "meta_id": 28640,
-  "margin": 0.04,
+  "pledge": 130000000000,
+  "active_epoch_no": 473,
+  "meta_id": 33370,
+  "margin": 0.0299,
   "fixed_cost": 340000000,
-  "registered_tx_id": 60059080,
+  "registered_tx_id": 86928296,
   "reward_addr_id": 2480780,
   "vrf_key_hash_hex": "9be345bcbcb0cf0559b1135467fd2e4c78c741898cdf8bcb737b2dc5122632df"
  }
@@ -551,7 +584,7 @@ Status Code **200**
 | fixed_cost|number(double)|The fixed per epoch fee (in ADA) this pool charges.|
 | registered_tx_id|integer(int64)|The Tx table index of the transaction in which provided this pool update.|
 | reward_addr_id|integer(int64)|The StakeAddress table index of this pool's rewards address. New in v13: Replaced reward_addr.|
-| vrf_key_hash_hex|string(undefined)|The hexadecimal encoding of the VRF key hash.|
+| vrf_key_hash_hex|string|The hexadecimal encoding of the VRF key hash.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -624,7 +657,18 @@ console.log(poolsupdates);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+poolsupdates = await CBI.core.poolsupdates_(odata=true);
+print(poolsupdates); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let poolsupdates = CBI.core.poolsupdates_(HashMap::from([("odata", "true")])).await.expect("Failed to call endpoint");
+println!("poolsupdates: {:?}", poolsupdates); 
 ``` 
 
 </TabItem> 
@@ -639,7 +683,7 @@ import coming.soon 😀
 
 ```json
 {
- "@odata.context": "https://mainnet.cardanobi.io/api/core/odata/$metadata#PoolsUpdates",
+ "@odata.context": "https://cardanobi.io/api/core/odata/$metadata#PoolsUpdates",
  "value": [
   {
    "id": 1,
@@ -671,7 +715,7 @@ import coming.soon 😀
    "vrf_key_hash_hex": "7b66ba19b8841e26ac914c1f7c02c03ea5abbb96cd8d1651b19eabc65b9f93ef"
   }
  ],
- "@odata.nextLink": "https://mainnet.cardanobi.io/api/core/odata/poolsupdates?$skip=20"
+ "@odata.nextLink": "https://cardanobi.io/api/core/odata/poolsupdates?$skip=20"
 }
 ``` 
 </TabItem> 
@@ -745,7 +789,7 @@ Status Code **200**
 | fixed_cost|number(double)|The fixed per epoch fee (in ADA) this pool charges.|
 | registered_tx_id|integer(int64)|The Tx table index of the transaction in which provided this pool update.|
 | reward_addr_id|integer(int64)|The StakeAddress table index of this pool's rewards address. New in v13: Replaced reward_addr.|
-| vrf_key_hash_hex|string(undefined)|The hexadecimal encoding of the VRF key hash.|
+| vrf_key_hash_hex|string|The hexadecimal encoding of the VRF key hash.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
@@ -825,7 +869,18 @@ console.log(poolsupdates);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+poolsupdates = await CBI.core.poolsupdates_(odata=true,pool_id=4268);
+print(poolsupdates); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let poolsupdates = CBI.core.poolsupdates_(Some(4268), HashMap::from([("odata", "true")])).await.expect("Failed to call endpoint");
+println!("poolsupdates: {:?}", poolsupdates); 
 ``` 
 
 </TabItem> 
@@ -840,7 +895,7 @@ import coming.soon 😀
 
 ```json
 {
- "@odata.context": "https://mainnet.cardanobi.io/api/core/odata/$metadata#PoolsUpdates",
+ "@odata.context": "https://cardanobi.io/api/core/odata/$metadata#PoolsUpdates",
  "value": [
   {
    "id": 22010,
@@ -858,16 +913,16 @@ import coming.soon 😀
   },
   "...",
   {
-   "id": 30130,
+   "id": 33494,
    "hash_id": 4268,
    "cert_index": 0,
    "vrf_key_hash": "m+NFvLywzwVZsRNUZ/0uTHjHQYmM34vLc3stxRImMt8=",
-   "pledge": 100000000000,
-   "active_epoch_no": 393,
-   "meta_id": 28640,
-   "margin": 0.04,
+   "pledge": 130000000000,
+   "active_epoch_no": 473,
+   "meta_id": 33370,
+   "margin": 0.0299,
    "fixed_cost": 340000000,
-   "registered_tx_id": 60059080,
+   "registered_tx_id": 86928296,
    "reward_addr_id": 2480780,
    "vrf_key_hash_hex": "9be345bcbcb0cf0559b1135467fd2e4c78c741898cdf8bcb737b2dc5122632df"
   }
@@ -945,7 +1000,7 @@ Status Code **200**
 | fixed_cost|number(double)|The fixed per epoch fee (in ADA) this pool charges.|
 | registered_tx_id|integer(int64)|The Tx table index of the transaction in which provided this pool update.|
 | reward_addr_id|integer(int64)|The StakeAddress table index of this pool's rewards address. New in v13: Replaced reward_addr.|
-| vrf_key_hash_hex|string(undefined)|The hexadecimal encoding of the VRF key hash.|
+| vrf_key_hash_hex|string|The hexadecimal encoding of the VRF key hash.|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 

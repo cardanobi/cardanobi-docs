@@ -26,9 +26,6 @@ Returns the registration history of one account given its stake address.
 |Name|Description|In|Type|Required| 
 |---|---|---|---|---|
 | stake_address|Bech32 Stake address|path|string|true|
-| page_no|Page number to retrieve - defaults to 1|query|integer|false|
-| page_size|Number of results per page - defaults to 20 - max 100|query|integer|false|
-| order|Prescribes in which order the registration events are returned - "desc" descending (default) from newest to oldest - "asc" ascending from oldest to newest|query|string|false|
 
 
 ### 👨‍💻 Code samples 
@@ -38,7 +35,7 @@ Returns the registration history of one account given its stake address.
 
 ```js 
 const CBI = await new CardanoBI({ apiKey: 'YOUR-KEY', apiSecret: 'YOUR-SECRET' }); 
-const registrations = await CBI.core.accounts.registrations_({ stake_address: "stake_test1urkmj2vzdey7ac065rleyrc03fzp7gxxhw32pzgxv8dwuasaqtjuz" });
+const registrations = await CBI.core.accounts.registrations_({ stake_address: "stake1u8a9qstrmj4rvc3k5z8fems7f0j2vztz8det2klgakhfc8ce79fma" });
 console.log(registrations); 
 ``` 
 
@@ -46,7 +43,18 @@ console.log(registrations);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+registrations = await CBI.core.accounts.registrations_(stake_address='stake1u8a9qstrmj4rvc3k5z8fems7f0j2vztz8det2klgakhfc8ce79fma');
+print(registrations); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let registrations_registrations = CBI.core.accounts.registrations_(Some("stake1u8a9qstrmj4rvc3k5z8fems7f0j2vztz8det2klgakhfc8ce79fma"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("registrations_registrations: {:?}", registrations_registrations); 
 ``` 
 
 </TabItem> 
@@ -62,17 +70,17 @@ import coming.soon 😀
 ```json
 [
  {
-  "epoch_no": 53,
-  "block_no": 664590,
-  "tx_hash_hex": "c878d289d40586c1fc22675794f5b5210b65c366d121e1cd699200f256c77b7f",
+  "epoch_no": 289,
+  "block_no": 6222503,
+  "tx_hash_hex": "5234f99b194603b2b0b63fff5d60ac9df916190360497d4f189e4ff4dd9130ff",
   "state": "registered"
  },
  "...",
  {
-  "epoch_no": 52,
-  "block_no": 643908,
-  "tx_hash_hex": "8c9b5df9ab4211093ed90b9cd5a596e8b9882e8a48751ed2c57d4d52bbdf6837",
-  "state": "deregistered"
+  "epoch_no": 289,
+  "block_no": 6222503,
+  "tx_hash_hex": "5234f99b194603b2b0b63fff5d60ac9df916190360497d4f189e4ff4dd9130ff",
+  "state": "registered"
  }
 ]
 ``` 

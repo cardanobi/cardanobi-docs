@@ -43,7 +43,18 @@ console.log(redeemers);
 <TabItem value="py" label="Python"> 
 
 ```py 
-import coming.soon 😀 
+CBI = CardanoBI(apiKey='YOUR-KEY', apiSecret='YOUR-SECRET' }); 
+redeemers = await CBI.core.transactions.redeemers_(transaction_hash='e584995ed133ae25e5c918d794efa415e10352b0d0e08aa02a196bbd605b9e69');
+print(redeemers); 
+``` 
+
+</TabItem> 
+<TabItem value="rust" label="Rust"> 
+
+```rust 
+let CBI = CardanoBI::new(Some("YOUR-KEY"), Some("YOUR-SECRET")).await.expect("Failed to initialize CardanoBI");
+let contracts_redeemers = CBI.core.transactions.redeemers_(Some("e584995ed133ae25e5c918d794efa415e10352b0d0e08aa02a196bbd605b9e69"), HashMap::new()).await.expect("Failed to call endpoint");
+println!("contracts_redeemers: {:?}", contracts_redeemers); 
 ``` 
 
 </TabItem> 
@@ -146,12 +157,12 @@ Status Code **200**
 | unit_mem|integer(int64)|The budget in Memory to run a script.|
 | unit_steps|integer(int64)|The budget in Cpu steps to run a script.|
 | fee|number(double)|The budget in fees to run a script. The fees depend on the ExUnits and the current prices. Is null when --disable-ledger is enabled. New in v13: became nullable.|
-| purpose|string(undefined)|What kind of validation this redeemer is used for. It can be one of 'spend', 'mint', 'cert', 'reward'.|
+| purpose|string|What kind of validation this redeemer is used for. It can be one of 'spend', 'mint', 'cert', 'reward'.|
 | index|integer(int32)|The index of the redeemer pointer in the transaction.|
-| script_hash_hex|string(undefined)|The hexadecimal encoding of the script hash this redeemer is used for.|
-| hash_hex|string(undefined)|The hexadecimal encoding of the Plutus Data hash.|
-| data_json|string(undefined)|The actual Plutus data in JSON format (detailed schema)|
-| data_cbor|string(undefined)|The actual Plutus data in CBOR format|
+| script_hash_hex|string|The hexadecimal encoding of the script hash this redeemer is used for.|
+| hash_hex|string|The hexadecimal encoding of the Plutus Data hash.|
+| data_json|string|The actual Plutus data in JSON format (detailed schema)|
+| data_cbor|string|The actual Plutus data in CBOR format|
 </TabItem> 
 <TabItem value="400" label="400" attributes={{className: styles.red}}>
 
