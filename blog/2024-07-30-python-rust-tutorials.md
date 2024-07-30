@@ -18,14 +18,14 @@ These tutorials are designed to help you get started quickly and effectively wit
 #### 🐍 Python SDK Tutorial
 Dive into our step-by-step guide to learn how to integrate the CardanoBI Python SDK into your projects.
 
-** [Explore the CardanoBI Python SDK Tutorial](../docs/tutorials/python-sdk-tutorial) **
+** [Explore the CardanoBI Python SDK Tutorial](/docs/tutorials/python-sdk-tutorial) **
 
 ** [Explore the Python SDK Code Base](https://github.com/cardanobi/cardanobi-python) **
 
 #### 🦀 Rust SDK Tutorial
 Dive into our step-by-step guide to learn how to integrate the CardanoBI Rust SDK into your projects.
 
-** [Explore the CardanoBI Rust SDK Tutorial](../docs/tutorials/rust-sdk-tutorial) **
+** [Explore the CardanoBI Rust SDK Tutorial](/docs/tutorials/rust-sdk-tutorial) **
 
 ** [Explore the Rust SDK Code Base](https://github.com/cardanobi/cardanobi-rust) **
 
