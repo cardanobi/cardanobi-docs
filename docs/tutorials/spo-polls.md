@@ -1,4 +1,5 @@
 ---
+title: CIP-0094 The beginning of Cardano's decentralized governance
 id: spo-polls
 sidebar_label: 'SPO Polls' 
 sidebar_position: 1
@@ -11,8 +12,7 @@ import EndpointBadge from '@site/src/components/EndpointBadge';
 import DocsBadge from '@site/src/components/DocsBadge'; 
 
 
-# 
-## CIP-0094: the beginning of Cardano's decentralized governance.
+<!-- ## CIP-0094: the beginning of Cardano's decentralized governance. -->
 <center>
 <img src="https://cardanobi.io/img/ada_net_vect.png" width="650"/>
 </center>
